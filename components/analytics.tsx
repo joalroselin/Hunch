@@ -1,5 +1,6 @@
 "use client";
 
+import AnalyticsHistory from "./analytics-history";
 import { useEffect, useState } from "react";
 import { analyzePosts } from "../lib/analytics";
 import { samplePhotoFor, type Post } from "../lib/demo-workspace";
@@ -36,6 +37,8 @@ export default function Analytics({ posts, onInspect, onPlan, onAddResults }: { 
       <section className="analytics-chart" aria-labelledby="channels-chart"><div className="analytics-chart-head"><div><span className="section-kicker">Channel comparison</span><h3 id="channels-chart">What did a conversation cost?</h3></div><span>Lower is better</span></div><p className="analytics-chart-note">Post counts and audiences differ. Test within a channel before shifting your budget.</p><div className="analytics-channel-bars">{data.channels.map(group => <article key={group.name}><header><b>{group.name}</b><strong>{money(group.costPerConversation)}</strong></header><div className="analytics-bar-track" aria-hidden="true"><span style={{ width: group.costPerConversation === null ? "0%" : `${group.costPerConversation / maxCost * 100}%` }} /></div><p>{group.count} posts · {group.messages} conversations · {money(group.spend)} spent</p></article>)}</div></section></div>}
 
     {!data.campaigns.length && data.engagementCount > 0 && <section className="analytics-chart" aria-labelledby="engagement-chart"><div className="analytics-chart-head"><h3 id="engagement-chart">Recorded engagements by post.</h3><span>Engagements are interactions</span></div><p className="analytics-chart-note">Add spend and conversations to compare campaign efficiency. These bars show only the engagement counts you recorded.</p><ol className="analytics-bars">{data.rows.filter(row => Number.isFinite(row.post.engagements) && row.post.engagements! >= 0).sort((a,b) => b.post.engagements! - a.post.engagements!).map(row => <li key={row.post.id}><button className="analytics-bar-label" onClick={() => onInspect(row.post)}>{label(row)}</button><div className="analytics-bar-track" aria-hidden="true"><span style={{ width: `${row.post.engagements! / Math.max(1, ...data.rows.map(item => item.post.engagements ?? 0)) * 100}%` }} /></div><div className="analytics-bar-value"><b>{row.post.engagements}</b></div></li>)}</ol></section>}
+
+    <AnalyticsHistory posts={posts} channel={channel} onAddResults={onAddResults} />
 
     <section className="analytics-next" aria-labelledby="next-actions"><h3 id="next-actions">What to do next, and why.</h3><div className="analytics-next-grid">
       {second && <article><span>01 · Keep a comparison</span><h4>Retest {label(second).toLowerCase()}.</h4><p><b>Why:</b> It produced {second.messages} conversations at {money(second.costPerConversation)} each. Keep the objective, budget and test length comparable so the next result is easier to interpret.</p><button className="subtle-link" onClick={() => onPlan(second.post)}>Prepare that post</button></article>}

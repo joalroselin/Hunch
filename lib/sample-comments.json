@@ -1,0 +1,74 @@
+[
+  {
+    "postId": "elle-a3",
+    "text": "Ang cozy ng sala! Anong scent ito?",
+    "sentiment": "Positive",
+    "topic": "Scent discovery"
+  },
+  {
+    "postId": "elle-a3",
+    "text": "Magkano po at paano umorder?",
+    "sentiment": "Neutral",
+    "topic": "Ordering"
+  },
+  {
+    "postId": "elle-a3",
+    "text": "Perfect pang handaan, ang ganda!",
+    "sentiment": "Positive",
+    "topic": "Gifting & home"
+  },
+  {
+    "postId": "elle-a6",
+    "text": "Kasya sa exchange gift budget namin 😍",
+    "sentiment": "Positive",
+    "topic": "Gifting & home"
+  },
+  {
+    "postId": "elle-a6",
+    "text": "May gift box po ba?",
+    "sentiment": "Neutral",
+    "topic": "Ordering"
+  },
+  {
+    "postId": "elle-a5",
+    "text": "Ambango nito sa unit namin!",
+    "sentiment": "Positive",
+    "topic": "Scent discovery"
+  },
+  {
+    "postId": "elle-a4",
+    "text": "Sarap nito pang relax after shift",
+    "sentiment": "Positive",
+    "topic": "Gifting & home"
+  },
+  {
+    "postId": "elle-a2",
+    "text": "Ilang hours ang burn time?",
+    "sentiment": "Neutral",
+    "topic": "Product details"
+  },
+  {
+    "postId": "elle-a2",
+    "text": "Love the simple jar 🤍",
+    "sentiment": "Positive",
+    "topic": "Gifting & home"
+  },
+  {
+    "postId": "elle-a1",
+    "text": "Medyo mahal para sa size",
+    "sentiment": "Negative",
+    "topic": "Price concern"
+  },
+  {
+    "postId": "elle-a7",
+    "text": "Pwede po same day delivery?",
+    "sentiment": "Neutral",
+    "topic": "Ordering"
+  },
+  {
+    "postId": "elle-a8",
+    "text": "Baka masyadong matapang sa maliit na shop",
+    "sentiment": "Negative",
+    "topic": "Scent concern"
+  }
+]

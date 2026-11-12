@@ -479,3 +479,28 @@
 .analytics-active .welcome-row h1 { font-size: 36px; }
 .analytics-active .welcome-copy { display: none; }
 @media (min-width: 701px) { .analytics-active .page-content { padding-top: 24px; } }
+
+.analytics-history h3 { margin: 8px 0; font-size: 28px; line-height: 1.1; }
+.analytics-trend { display: block; width: 100%; overflow: visible; margin-top: 22px; }
+.analytics-trend text { fill: var(--ink-soft); font-size: 11px; }
+.trend-grid { stroke: var(--tint-strong); stroke-dasharray: 4 4; }
+.trend-line { stroke: var(--persimmon); stroke-width: 3; }
+.trend-dot { fill: var(--ink); stroke: var(--sheet); stroke-width: 2; }
+.trend-values { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 11px; line-height: 1.5; }
+.sentiment-layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 40px; margin-top: 28px; }
+.sentiment-stack { display: flex; height: 32px; border-radius: 12px; overflow: hidden; }
+.sentiment-positive { background: #3c7862; }
+.sentiment-neutral { background: #d8b45b; }
+.sentiment-negative { background: #c65c46; }
+.sentiment-legend { display: grid; gap: 18px; margin-top: 24px; }
+.sentiment-legend > div { display: grid; grid-template-columns: 10px 1fr auto auto; gap: 12px; align-items: center; font-size: 13px; }
+.sentiment-legend small { color: var(--ink-soft); }
+.sentiment-key { width: 10px; height: 10px; border-radius: 50%; }
+.sentiment-layout h4 { margin: 0 0 22px; font-size: 18px; }
+.sentiment-topics { list-style: none; padding: 0; display: grid; gap: 18px; }
+.sentiment-topics li { display: grid; grid-template-columns: minmax(0,1fr) minmax(30px,1fr) 20px; gap: 12px; align-items: center; font-size: 13px; }
+.sentiment-examples { margin-top: 24px; padding-block: 18px; border-block: 1px solid var(--tint-strong); font-size: 14px; }
+.sentiment-examples summary { cursor: pointer; font-weight: 700; }
+.sentiment-examples ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.sentiment-examples small { display: block; margin-top: 6px; font-size: 11px; color: var(--ink-soft); }
+@media (max-width: 800px) { .sentiment-layout, .sentiment-examples ul { grid-template-columns: minmax(0,1fr); } }

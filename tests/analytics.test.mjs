@@ -75,3 +75,27 @@ test("engagement rate uses complete pairs and preserves real zeros", () => {
   assert.equal(empty.rows.length,0);
   assert.equal(empty.ranked.length,0);
 });
+
+test("timeline groups snapshots by valid publish date and keeps missing metrics unknown", async () => {
+  const { analyzeTimeline } = await import("../lib/analytics.ts");
+  const rows = [personal({id:"a",date:"2026-11-10",spend:20,messages:2,reach:10}),personal({id:"b",date:"2026-11-10",spend:80,messages:8,reach:20}),personal({id:"c",date:"2026-11-12",spend:99,messages:0}),personal({id:"d",date:"2026-11-11"}),personal({id:"bad",date:"2026-02-30"})];
+  const timeline = analyzeTimeline(rows);
+  assert.deepEqual(timeline.map(row=>row.date),["2026-11-10","2026-11-11","2026-11-12"]);
+  assert.deepEqual(timeline[0],{date:"2026-11-10",posts:2,messages:10,reach:30,cost:10});
+  assert.equal(timeline[1].messages,null);
+  assert.equal(timeline[2].messages,0);
+  assert.equal(timeline[2].cost,null);
+  assert.equal(analyzeTimeline(rows,"Facebook").length,0);
+});
+
+test("sentiment is traceable fictional comments only, filtered with eligible sample posts", async () => {
+  const { analyzeSentiment } = await import("../lib/analytics.ts");
+  const all = analyzeSentiment(samples);
+  assert.equal(all.total,12);
+  assert.equal(all.counts.reduce((sum,item)=>sum+item.count,0),all.total);
+  assert.equal(all.topics.reduce((sum,item)=>sum+item.count,0),all.total);
+  assert.equal(analyzeSentiment(samples,"Facebook").total,6);
+  assert.equal(analyzeSentiment(samples.map(post=>({...post,sample:false}))).total,0);
+  assert.equal(analyzeSentiment([personal()]).total,0);
+  assert.equal(analyzeSentiment(samples.map(post=>({...post,id:`${post.id}-browser`}))).total,12);
+});
