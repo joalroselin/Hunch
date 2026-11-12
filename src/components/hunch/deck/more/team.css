@@ -1,0 +1,40 @@
+/* Team on cream: two first names set big, one line each. */
+
+.tm-words {
+  position: absolute;
+  left: var(--gx);
+  top: 112px;
+}
+.tm-h {
+  font-size: 104px;
+}
+
+.tm-people {
+  position: absolute;
+  left: var(--gx);
+  right: var(--gx);
+  bottom: 120px;
+  display: flex;
+  justify-content: space-between;
+  gap: 120px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tm-person {
+  display: flex;
+  flex-direction: column;
+  gap: 104px;
+}
+.tm-name {
+  font-size: 400px;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 0.8;
+  margin-left: -0.04em;
+}
+.tm-does {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}

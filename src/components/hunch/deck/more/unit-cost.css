@@ -1,0 +1,175 @@
+/* Cost per test on cream: a big ₱13, then each ₱299 split into models, fees and what is left. */
+
+.uc-words {
+  position: absolute;
+  left: var(--gx);
+  top: 104px;
+}
+.uc-lock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.uc-small {
+  font-size: 80px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+.uc-big {
+  display: block;
+  margin: -6px 0 6px -10px;
+  font-size: 470px;
+  line-height: 0.78;
+}
+.uc-line {
+  max-width: 15em;
+  margin-top: 40px;
+}
+
+/* The chart: two columns standing on one floor. 680 px of bar is ₱299. */
+.uc-chart {
+  position: absolute;
+  inset: 0;
+}
+.uc-top {
+  position: absolute;
+  left: 990px;
+  top: 128px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.uc-floor {
+  position: absolute;
+  left: 960px;
+  right: var(--gx);
+  top: 880px;
+  height: 2px;
+  background: var(--ink);
+}
+.uc-col {
+  position: absolute;
+  top: 200px;
+  height: 680px;
+  width: 132px;
+}
+.uc-opus {
+  left: 990px;
+}
+.uc-plan {
+  left: 1426px;
+}
+.uc-bar {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.2s cubic-bezier(0.2, 0.2, 0.3, 1) 0.45s;
+}
+.uc-plan .uc-bar {
+  transition-delay: 0.6s;
+}
+.uc[data-on] .uc-bar,
+.uc[data-still] .uc-bar {
+  clip-path: inset(0);
+}
+.uc-seg {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.uc-model {
+  bottom: 0;
+  height: var(--model);
+  background: var(--ink);
+}
+.uc-fees {
+  bottom: var(--model);
+  height: var(--fees);
+  background: rgb(26 17 11 / 0.4);
+}
+.uc-bar .uc-left {
+  --grain: 0.45;
+  position: absolute;
+  top: 0;
+  bottom: calc(var(--model) + var(--fees));
+  background: var(--sun);
+}
+/* All Opus: what it costs for sure, then how far it can go. */
+.uc-ghost {
+  box-shadow: inset 0 0 0 2px rgb(26 17 11 / 0.22);
+}
+.uc-sure {
+  bottom: 0;
+  height: var(--low);
+  background: rgb(26 17 11 / 0.3);
+}
+.uc-maybe {
+  bottom: var(--low);
+  height: calc(var(--high) - var(--low));
+  background: repeating-linear-gradient(-45deg, rgb(26 17 11 / 0.32) 0 3px, transparent 3px 13px);
+}
+
+.uc-say {
+  position: absolute;
+  left: calc(100% + 26px);
+  white-space: nowrap;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.uc-say b {
+  font-weight: 800;
+}
+.uc-say-left {
+  top: 34%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.uc-say-left .mo-num {
+  font-size: 96px;
+}
+.uc-say-left > span:last-child {
+  font-size: 26px;
+  font-weight: 700;
+}
+.uc-say-fees {
+  bottom: calc(var(--model) + var(--fees) / 2 - 2px);
+}
+.uc-say-model {
+  bottom: calc(var(--model) / 2 - 18px);
+}
+.uc-say-opus {
+  bottom: calc((var(--low) + var(--high)) / 2 - 30px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.uc-say-opus b {
+  font-size: 37px;
+  letter-spacing: -0.035em;
+}
+.uc-name {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 22px);
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uc-bar {
+    clip-path: none;
+    transition: none;
+  }
+}
+@media print {
+  .uc-bar {
+    clip-path: none !important;
+  }
+}

@@ -55,24 +55,35 @@ export function toProduct(line: string): StoredProduct {
 
 type Tw = { i: number; n: number; phase: "type" | "hold" | "delete" | "gap" }
 
+// How long before the next key, the way a person types: uneven, a breath after a comma and before a price.
+function keyDelay(line: string, n: number) {
+  let ms = 38 + Math.random() * 60
+  if (line[n - 1] === ",") ms += 200
+  if (line[n] === "₱") ms += 140
+  if (Math.random() < 1 / 14) ms += 260
+  return ms
+}
+
 // Types and deletes the examples on a loop while `on`; starts on the first one, fully typed unless `empty`.
 function useTypewriter(on: boolean, empty: boolean) {
   const [s, set] = useState<Tw>(empty ? { i: 0, n: 0, phase: "type" } : { i: 0, n: EXAMPLES[0].length, phase: "hold" })
   useEffect(() => {
     if (!on) return
     const line = EXAMPLES[s.i] ?? ""
-    let ms = 55
+    let ms: number
     let next: Tw
-    if (s.phase === "type") next = s.n + 1 >= line.length ? { ...s, n: line.length, phase: "hold" } : { ...s, n: s.n + 1 }
-    else if (s.phase === "hold") {
+    if (s.phase === "type") {
+      next = s.n + 1 >= line.length ? { ...s, n: line.length, phase: "hold" } : { ...s, n: s.n + 1 }
+      ms = keyDelay(line, s.n)
+    } else if (s.phase === "hold") {
       next = { ...s, phase: "delete" }
-      ms = 1600
+      ms = 2100
     } else if (s.phase === "delete") {
       next = s.n <= 1 ? { i: (s.i + 1) % EXAMPLES.length, n: 0, phase: "gap" } : { ...s, n: s.n - 1 }
-      ms = 22
+      ms = 16 + Math.random() * 10
     } else {
       next = { ...s, phase: "type" }
-      ms = 380
+      ms = 420
     }
     const t = window.setTimeout(() => set(next), ms)
     return () => window.clearTimeout(t)
@@ -85,6 +96,8 @@ export function PromptBox({
   id,
   typing = true,
   startEmpty = false,
+  onLength,
+  onSend,
   className,
 }: {
   serverMode: Mode
@@ -94,23 +107,30 @@ export function PromptBox({
   typing?: boolean
   /** The box opens blank and types its first example. */
   startEmpty?: boolean
+  /** How many characters the visitor has typed, on every change. */
+  onLength?: (n: number) => void
+  /** Plays before the page moves on; `from` holds the words being sent. */
+  onSend?: (line: string, from: HTMLElement | null) => Promise<void>
   className?: string
 }) {
   const autoId = useId()
   const fieldId = id ?? `prompt-${autoId}`
-  const hintId = `${fieldId}-hint`
   const router = useRouter()
   const reduced = useReduced()
   const visible = useTabVisible()
   const shellRef = useRef<HTMLDivElement>(null)
   const fieldRef = useRef<HTMLTextAreaElement>(null)
+  const phRef = useRef<HTMLSpanElement>(null)
+  // Once the visitor has been in the field, an empty send asks for words instead of sending the example.
+  const touched = useRef(false)
   const inView = useInView(shellRef, { amount: 0.4 })
   const [value, setValue] = useState("")
   const [focused, setFocused] = useState(false)
   const [tip, setTip] = useState(false)
   const [busy, setBusy] = useState(false)
+  const [waiting, setWaiting] = useState(false)
 
-  const on = typing && !focused && !value && visible && inView && !reduced
+  const on = typing && !focused && !value && visible && inView && !reduced && !busy
   const tw = useTypewriter(on, startEmpty)
   const example = EXAMPLES[tw.i] ?? EXAMPLES[0]
   const shown = focused || reduced ? example : example.slice(0, tw.n)
@@ -147,25 +167,33 @@ export function PromptBox({
 
   const warm = () => router.prefetch("/start")
 
-  function submit(e?: React.FormEvent) {
+  async function submit(e?: React.FormEvent) {
     e?.preventDefault()
     if (busy) return
-    const line = value.replace(/\s+/g, " ").trim()
+    let line = value.replace(/\s+/g, " ").trim()
+    // Sending before typing sends the example on show.
+    if (!line && !touched.current && shown) line = example
     if (!line) {
       setTip(true)
       fieldRef.current?.focus()
       return
     }
     setBusy(true)
+    warm()
     // Start reads ?d= into the description; the photo and channels are added there.
+    if (onSend) await onSend(line, value ? fieldRef.current : phRef.current).catch(() => {})
+    setWaiting(true)
     router.push(`/start?d=${encodeURIComponent(line)}`)
   }
 
-
   return (
-    <div className={cn("w-full", className)}>
+    <div className={cn("w-full", className)} data-tip={tip ? "" : undefined}>
       <form noValidate onSubmit={submit}>
-        <div ref={shellRef} data-prompt-shell data-size={size} className="hx-pbox"
+        <div
+          ref={shellRef}
+          data-prompt-shell
+          data-size={size}
+          className="hx-pbox"
           onPointerEnter={warm}
           onClick={(e) => {
             if (!(e.target as HTMLElement).closest("button")) fieldRef.current?.focus()
@@ -184,24 +212,29 @@ export function PromptBox({
               autoComplete="off"
               spellCheck={false}
               enterKeyHint="go"
-              aria-describedby={hintId}
               disabled={busy}
               className="hx-field"
               onChange={(e) => {
-                setValue(e.target.value.replace(/\s*\n\s*/g, " "))
+                const next = e.target.value.replace(/\s*\n\s*/g, " ")
+                setValue(next)
+                onLength?.(next.trim().length)
                 if (tip) setTip(false)
               }}
               onKeyDown={(e) => {
-                if (e.key === "Enter" && !e.nativeEvent.isComposing) submit(e)
+                if (e.key === "Enter" && !e.nativeEvent.isComposing) {
+                  e.preventDefault()
+                  void submit()
+                }
               }}
               onFocus={() => {
+                touched.current = true
                 setFocused(true)
                 warm()
               }}
               onBlur={() => setFocused(false)}
             />
             {!value ? (
-              <span aria-hidden className="hx-ph">
+              <span ref={phRef} aria-hidden className="hx-ph">
                 {shown}
                 {on ? <span className="hx-caret" data-blink={tw.phase === "hold" || tw.phase === "gap" ? "" : undefined} /> : null}
               </span>
@@ -213,8 +246,14 @@ export function PromptBox({
                 {EMPTY_TIP}
               </span>
             ) : null}
-            <button type="submit" aria-label="Write my 8 posts" aria-busy={busy || undefined} className="hx-send hh-grain">
-              {busy ? (
+            <button
+              type="submit"
+              aria-label="Write my 8 posts"
+              aria-busy={busy || undefined}
+              data-sent={busy ? "" : undefined}
+              className="hx-send hh-grain"
+            >
+              {waiting ? (
                 <span data-busy>
                   <BusyDots />
                 </span>
@@ -225,7 +264,7 @@ export function PromptBox({
           </div>
         </div>
       </form>
-      <p data-prompt-hint id={hintId} className="hx-hint">
+      <p data-prompt-hint className="hx-hint">
         <Link href={SAMPLE_HREF} aria-disabled={busy || undefined} className="hx-hint-link">
           Open Elle&rsquo;s test
         </Link>

@@ -19,11 +19,22 @@
   transform-origin: 0 0;
   pointer-events: none;
 }
+/* The slanted edge is the bottom of a sheet: a soft warm shadow under it that fades as it levels. */
+.fc-slant::after {
+  content: "";
+  position: absolute;
+  inset: 100% 0 auto;
+  height: 40px;
+  background: linear-gradient(rgb(90 50 15 / 0.17), rgb(90 50 15 / 0.05) 40%, rgb(90 50 15 / 0));
+  opacity: var(--edge, 0);
+}
 .fc-title,
 .fc-pop {
   position: relative;
 }
+/* The conversation stays on top while the closing sun rises behind it. */
 .fc-pop {
+  z-index: 4;
   transform-origin: 0 100%;
 }
 .fc-title {
@@ -107,8 +118,11 @@
   align-items: flex-end;
   gap: 9px;
 }
+/* Answers keep the same inset on the right as questions keep on the left. */
 .fc-slot {
+  --inset: 12%;
   min-width: 0;
+  max-width: calc(100% - var(--inset) - 35px);
 }
 .fc-bub {
   display: block;
@@ -133,6 +147,8 @@
   transform-origin: 0 100%;
 }
 .fc-a {
+  width: fit-content;
+  max-width: 100%;
   text-wrap: balance;
 }
 .fc-a b {
@@ -182,12 +198,8 @@
 .fc-chip:active {
   scale: 0.97;
 }
-.fc-tray[data-busy] .fc-chip {
-  opacity: 0.38;
-  cursor: default;
-}
 @media (hover: hover) {
-  .fc-tray:not([data-busy]) .fc-chip:hover {
+  .fc-chip:hover {
     background: rgb(26 17 11 / 0.13);
   }
 }
@@ -208,7 +220,7 @@
   clip-path: inset(50%);
   white-space: nowrap;
 }
-.fc[data-live] .fc-pair:not([data-phase="wait"]) .fc-q .fc-bub {
+.fc[data-live] .fc-pair:not([data-phase="wait"]) .fc-q:not([data-flew]) .fc-bub {
   animation: fc-send 0.46s var(--ease-out) backwards;
 }
 .fc[data-live] .fc-pair:is([data-phase="typing"], [data-phase="done"]) .fc-reply .fc-mark {
@@ -289,6 +301,10 @@
   .fc-reply {
     gap: 7px;
   }
+  .fc-slot {
+    --inset: 3%;
+    max-width: calc(100% - var(--inset) - 29px);
+  }
   .fc-bub {
     padding: 10px 15px 12px;
     border-radius: 21px;
@@ -317,6 +333,9 @@
   .fc-chip,
   .fc-try {
     animation: none;
+  }
+  .fc-slant::after {
+    display: none;
   }
   .fc-chip:active {
     scale: none;

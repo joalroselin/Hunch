@@ -3,7 +3,8 @@
 import { useEffect, type RefObject } from "react"
 
 // Marks each [data-rise] inside the scope with data-seen as it scrolls in. CSS does the rest.
-export function useReveal(scope: RefObject<HTMLElement | null>, inset = 14) {
+// Pass `again` when the scope's children are swapped, so the new ones are watched too.
+export function useReveal(scope: RefObject<HTMLElement | null>, inset = 14, again?: unknown) {
   useEffect(() => {
     const root = scope.current
     if (!root) return
@@ -24,5 +25,5 @@ export function useReveal(scope: RefObject<HTMLElement | null>, inset = 14) {
     )
     items.forEach((el) => io.observe(el))
     return () => io.disconnect()
-  }, [scope, inset])
+  }, [scope, inset, again])
 }

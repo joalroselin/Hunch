@@ -32,9 +32,8 @@
 .pw-kicker {
   margin-bottom: calc(18 * var(--u));
   font-size: max(calc(22 * var(--u)), 17px);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.02em;
-  opacity: 0.82;
 }
 .pw-name {
   font-size: calc(128 * var(--u));
@@ -97,29 +96,19 @@
   font-weight: 700;
   letter-spacing: -0.02em;
 }
-.pw-fact + .pw-fact {
-  padding-left: calc(64 * var(--u));
-  border-left: 1.5px solid rgb(255 252 245 / 0.32);
-}
 .pw-second {
   max-width: 30em;
   margin-top: calc(34 * var(--u));
   font-size: max(calc(19 * var(--u)), 15px);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.3;
-  opacity: 0.78;
   text-wrap: pretty;
-}
-.pw-note {
-  position: absolute;
-  right: var(--gutter);
-  bottom: calc(var(--lap) + 22 * var(--u));
-  opacity: 0.7;
 }
 
 /* Arrival. */
-.pw-in[data-rise] .pw-rise {
+.pw [data-rise] .pw-rise,
+.pw .pw-rise[data-rise] {
   opacity: 0;
   transform: translate3d(0, 14px, 0);
   filter: blur(6px);
@@ -128,7 +117,8 @@
     transform 0.9s var(--ease-out) var(--rd, 0s),
     filter 0.7s var(--ease-out) var(--rd, 0s);
 }
-.pw-in[data-seen] .pw-rise {
+.pw [data-rise][data-seen] .pw-rise,
+.pw .pw-rise[data-rise][data-seen] {
   opacity: 1;
   transform: none;
   filter: none;
@@ -169,35 +159,32 @@
     margin: 40px 0 0;
   }
   .pw-facts {
+    align-self: stretch;
+    min-width: 0;
     margin-top: 44px;
   }
   .pw-facts ul {
-    gap: 28px;
+    flex-wrap: wrap;
+    gap: 14px 22px;
   }
   .pw-fact {
     gap: 8px;
   }
   .pw-fact b {
-    font-size: 64px;
+    font-size: clamp(46px, 14vw, 64px);
   }
   .pw-fact span {
     font-size: 17px;
-  }
-  .pw-fact + .pw-fact {
-    padding-left: 28px;
   }
   .pw-second {
     margin-top: 24px;
     font-size: 16px;
   }
-  .pw-note {
-    position: static;
-    margin-top: 36px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pw-in[data-rise] .pw-rise {
+  .pw [data-rise] .pw-rise,
+  .pw .pw-rise[data-rise] {
     transform: none;
     filter: none;
     transition: opacity 0.4s linear;

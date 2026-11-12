@@ -20,7 +20,16 @@ export function HomeFooter() {
       <div className="ft-small">
         <p>Made in Manila for sellers just starting out.</p>
         <Link href="/start?demo=1" className="ft-up">{`Open ${persona}’s test`}</Link>
-        <a href="#top" className="ft-up" onClick={(e) => (e.preventDefault(), window.scrollTo({ top: 0, behavior: "smooth" }))}>
+        <a
+          href="#main"
+          className="ft-up"
+          onClick={(e) => {
+            e.preventDefault()
+            // No behavior given, so the page's own scroll-behavior decides: smooth, or instant with reduced motion.
+            window.scrollTo({ top: 0 })
+            document.querySelector<HTMLElement>(".hh-logo")?.focus({ preventScroll: true })
+          }}
+        >
           Back to top
         </a>
       </div>

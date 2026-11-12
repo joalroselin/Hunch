@@ -1,0 +1,69 @@
+/* Market, on the mangga field: 9.5M, then 500K, then 384, stepping down and to the right. */
+
+.mk-row {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
+}
+.mk-n {
+  display: block;
+  white-space: nowrap;
+}
+.mk-say {
+  padding-bottom: 0.2em;
+}
+.mk-label {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+.mk-math {
+  margin-top: 14px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  opacity: 0.72;
+}
+
+.mk-r1 {
+  left: var(--gx);
+  top: 100px;
+}
+.mk-r1 .mk-n {
+  font-size: 392px;
+}
+.mk-r1 .mk-label {
+  max-width: 8.5em;
+  font-size: 66px;
+}
+
+.mk-r2 {
+  left: 520px;
+  top: 470px;
+}
+.mk-r2 .mk-n {
+  font-size: 250px;
+}
+.mk-r2 .mk-label {
+  max-width: 9em;
+  font-size: 46px;
+}
+
+.mk-r3 {
+  left: 930px;
+  top: 742px;
+}
+.mk-r3 .mk-n {
+  font-size: 150px;
+  color: var(--chili);
+}
+.mk-r3 .mk-label {
+  max-width: 11em;
+  font-size: 34px;
+}
+.mk-r3 .mk-math {
+  font-size: 20px;
+}

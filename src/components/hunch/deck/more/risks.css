@@ -1,0 +1,151 @@
+/* Risks on cream: the landing page's chat, four questions answered in one line each. */
+
+.rk-words {
+  position: absolute;
+  left: var(--gx);
+  top: 112px;
+  width: 700px;
+}
+.rk-h {
+  font-size: 132px;
+}
+
+.rk-app {
+  position: absolute;
+  right: var(--gx);
+  top: 84px;
+  width: 940px;
+  border-radius: 44px;
+  background: var(--sheet);
+  box-shadow: var(--shadow-sheet);
+}
+.rk-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 28px 34px 4px;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.rk-mark {
+  --grain: 0.4;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--drop);
+  background: var(--sun);
+}
+.rk-mark-small {
+  width: 34px;
+  height: 34px;
+}
+
+.rk-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin: 0;
+  padding: 16px 34px 32px;
+  list-style: none;
+}
+.rk-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rk-q {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 14%;
+}
+.rk-reply {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-right: 8%;
+}
+.rk-reply .rk-mark-small {
+  margin-top: 26px;
+}
+.rk-bub {
+  display: block;
+  padding: 14px 22px 17px;
+  border-radius: 30px;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.28;
+  text-wrap: pretty;
+}
+.rk-q .rk-bub {
+  border-bottom-right-radius: 8px;
+  background: var(--ink);
+  color: var(--sheet);
+  font-weight: 600;
+  transform-origin: 100% 100%;
+}
+.rk-a {
+  border-bottom-left-radius: 8px;
+  background: var(--cream);
+  transform-origin: 0 100%;
+}
+.rk-a b {
+  font-weight: 800;
+}
+.rk-src {
+  margin: 8px 0 0 6px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+  opacity: 0.58;
+}
+
+/* Messages pop up from their tail corner, one after another. */
+.rk-bub,
+.rk-reply .rk-mark-small,
+.rk-src {
+  opacity: 0;
+  scale: 0.9;
+  translate: 0 14px;
+  transition:
+    opacity 0.3s linear var(--d, 0s),
+    scale 0.6s var(--ease-out) var(--d, 0s),
+    translate 0.6s var(--ease-out) var(--d, 0s);
+}
+.rk-src {
+  scale: 1;
+}
+.rk[data-on] :is(.rk-bub, .rk-reply .rk-mark-small, .rk-src),
+.rk[data-still] :is(.rk-bub, .rk-reply .rk-mark-small, .rk-src) {
+  opacity: 1;
+  scale: 1;
+  translate: none;
+}
+.rk[data-on] .rk-src,
+.rk[data-still] .rk-src {
+  opacity: 0.58;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rk-bub,
+  .rk-reply .rk-mark-small,
+  .rk-src {
+    scale: none;
+    translate: none;
+    transition: opacity 0.4s linear var(--d, 0s);
+  }
+}
+@media print {
+  .rk-bub,
+  .rk-reply .rk-mark-small {
+    opacity: 1 !important;
+    scale: none !important;
+    translate: none !important;
+  }
+  .rk-src {
+    opacity: 0.58 !important;
+    translate: none !important;
+  }
+}

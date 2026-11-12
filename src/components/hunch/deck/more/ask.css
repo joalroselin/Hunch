@@ -1,0 +1,98 @@
+/* The ask on cream: a big 50, and the mark drawing itself and filling with the sun. */
+
+.ak-words {
+  position: absolute;
+  left: var(--gx);
+  top: 104px;
+}
+.ak-lock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ak-small {
+  font-size: 92px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+.ak-big {
+  display: block;
+  margin: 2px 0 14px -14px;
+  font-size: 520px;
+  line-height: 0.8;
+}
+.ak-line {
+  margin-top: 40px;
+}
+
+.ak-mark {
+  position: absolute;
+  left: 1130px;
+  top: 250px;
+  width: 700px;
+  height: 700px;
+}
+.ak-mark svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.ak-mark path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  vector-effect: non-scaling-stroke;
+  transition: stroke-dashoffset 1.3s var(--ease-out) 0.2s;
+}
+.ak-fill {
+  --grain: 0.5;
+  position: absolute;
+  inset: 0;
+  scale: 0;
+  transform-origin: 9% 91%;
+  box-shadow:
+    0 2px 4px rgb(70 35 10 / 0.25),
+    16px 36px 60px rgb(70 35 10 / 0.18),
+    40px 90px 140px rgb(70 35 10 / 0.16);
+  transition: scale 1.2s var(--ease-out) 0.75s;
+}
+.ak-mark .ak-fill {
+  position: absolute;
+}
+.ak[data-on] .ak-mark path,
+.ak[data-still] .ak-mark path {
+  stroke-dashoffset: 0;
+}
+.ak[data-on] .ak-fill,
+.ak[data-still] .ak-fill {
+  scale: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-mark path {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+  .ak-fill {
+    scale: 1;
+    opacity: 0;
+    transition: opacity 0.6s linear 0.3s;
+  }
+  .ak[data-on] .ak-fill {
+    opacity: 1;
+  }
+}
+@media print {
+  .ak-mark path {
+    stroke-dashoffset: 0 !important;
+  }
+  .ak-fill {
+    scale: 1 !important;
+    opacity: 1 !important;
+  }
+}

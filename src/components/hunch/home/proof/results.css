@@ -5,7 +5,13 @@
   --slab: calc(5 * var(--u));
   --climb: cubic-bezier(0.2, 0.2, 0.4, 1);
   position: relative;
-  padding: calc(112 * var(--u)) var(--gutter) calc(64 * var(--u));
+  padding: calc(88 * var(--u)) var(--gutter) calc(64 * var(--u));
+}
+/* The whole chart, heading to names, fits one laptop screen under the header. */
+@media (min-width: 900px) {
+  .pr {
+    --u: min(calc(clamp(900px, 100vw, 1680px) / 1440), calc((100svh - 24px) / 850));
+  }
 }
 .pr-head {
   position: relative;
@@ -15,30 +21,16 @@
   font-size: calc(96 * var(--u));
   white-space: nowrap;
 }
-/* The line sits in the open corner above the short bars. */
+.pr-w {
+  display: inline-block;
+}
+/* The line sits in the open corner above the short bars, from the 7th column to the edge. */
 .pr-line {
   position: absolute;
-  left: calc(840 * var(--u));
+  left: calc(794 * var(--u) + (100% - 1046 * var(--u)) * 6 / 7);
+  right: 0;
   top: calc(100% + 40 * var(--u));
-  width: 15em;
   font-size: max(calc(20 * var(--u)), 17px);
-}
-.pr-head[data-rise] > * {
-  opacity: 0;
-  transform: translate3d(0, 12px, 0);
-  filter: blur(6px);
-  transition:
-    opacity 0.6s linear,
-    transform 0.8s var(--ease-out),
-    filter 0.7s var(--ease-out);
-}
-.pr-head[data-rise] > :nth-child(2) {
-  transition-delay: 0.08s;
-}
-.pr-head[data-seen] > * {
-  opacity: 1;
-  transform: none;
-  filter: none;
 }
 
 .pr-board {
@@ -46,6 +38,10 @@
   align-items: flex-end;
   justify-content: space-between;
   margin-top: calc(26 * var(--u));
+}
+.pr-base {
+  display: block;
+  height: 0;
 }
 .pr-col {
   --w: 126;
@@ -71,17 +67,26 @@
     opacity 0.4s linear var(--wait),
     translate var(--grow) var(--climb) var(--wait);
 }
-.pr-board[data-on] .pr-count {
+.pr-col[data-on] .pr-count {
   opacity: 1;
   translate: none;
 }
 .pr-n {
+  display: inline-grid;
+  justify-items: end;
   font-family: var(--display);
   font-size: calc(46 * var(--u));
   font-weight: 800;
   letter-spacing: -0.05em;
   line-height: 0.8;
   font-variant-numeric: tabular-nums;
+}
+/* The final number holds the width; digits count in from the right, so the word beside it never moves. */
+.pr-n > * {
+  grid-area: 1 / 1;
+}
+.pr-n-room {
+  visibility: hidden;
 }
 .pr-unit {
   font-size: max(calc(13 * var(--u)), 11.5px);
@@ -105,14 +110,10 @@
   display: block;
   width: 100%;
   border-radius: 5.2% / 2.925%;
-  opacity: 0;
   translate: 0 calc(var(--n) * var(--step));
-  transition:
-    opacity 0.5s linear calc(var(--i) * 0.05s),
-    translate var(--grow) var(--climb) var(--wait);
+  transition: translate var(--grow) var(--climb) var(--wait);
 }
-.pr-board[data-on] .pr-post {
-  opacity: 1;
+.pr-col[data-on] .pr-post {
   translate: none;
 }
 .pr-post .ugc {
@@ -139,10 +140,14 @@
   mask: linear-gradient(to top, #000 0 var(--slab), transparent 0) 0 100% / 100% var(--step) repeat-y;
   transition: clip-path var(--grow) var(--climb) var(--wait);
 }
+/* Ink slabs are fine rules; only the winner's sun bar reads as solid. */
+.pr-col:not([data-first]) .pr-bar {
+  --slab: calc(3 * var(--u));
+}
 .pr-col[data-first] .pr-bar {
   background: var(--sun);
 }
-.pr-board[data-on] .pr-bar {
+.pr-col[data-on] .pr-bar {
   clip-path: inset(0);
 }
 
@@ -161,18 +166,19 @@
   line-height: 1.12;
 }
 
-/* Phone and tablet: a list, best first, with the bars lying down. */
+/* Phone and tablet: a list, best first, with the bars lying down. Each row arrives whole, then fills. */
 @media (max-width: 899px) {
   .pr {
     padding: 88px var(--gutter) 64px;
   }
+  /* Sized so "₱99 a post found" holds the first line from 320 px up. */
   .pr-title {
-    font-size: clamp(44px, 12.8vw, 76px);
+    font-size: clamp(36px, 11.4vw, 76px);
     white-space: normal;
+    text-wrap: pretty;
   }
   .pr-line {
     position: static;
-    width: auto;
     max-width: 16em;
     margin-top: 16px;
     font-size: 18px;
@@ -196,6 +202,15 @@
   .pr-col[data-first] {
     --wpx: min(40vw, 170px);
     margin-bottom: 10px;
+  }
+  .pr-post,
+  .pr-name {
+    opacity: 0;
+    transition: opacity 0.5s linear;
+  }
+  .pr-col[data-on] .pr-post,
+  .pr-col[data-on] .pr-name {
+    opacity: 1;
   }
   .pr-post {
     grid-area: post;
@@ -231,6 +246,7 @@
     height: auto;
     margin-top: 6px;
     font-size: 14px;
+    transition-delay: 0.1s;
   }
   .pr-col[data-first] .pr-name {
     margin-top: 12px;
@@ -253,11 +269,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pr-head[data-rise] > * {
-    transform: none;
-    filter: none;
-    transition: opacity 0.4s linear;
-  }
   .pr-count,
   .pr-post {
     translate: none;

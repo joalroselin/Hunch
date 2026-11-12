@@ -10,9 +10,8 @@
   height: 100svh;
   min-height: 600px;
   max-height: 92vw;
-  /* The posts leave past the bottom edge as the page moves on. */
+  /* The posts leave past the side edges as the page moves on. */
   overflow-x: clip;
-  background: radial-gradient(70% 60% at 50% 30%, #fffaef 0%, rgb(255 250 239 / 0) 70%);
 }
 
 .hunch-home section[id] {
@@ -80,16 +79,38 @@
   stroke: var(--ink);
   stroke-width: 1.3;
 }
-.hx-mark .hx-mark-fill {
-  --grain: 0.5;
-  position: absolute;
-  inset: 0;
+/* The outline draws itself at first paint, before any script runs. */
+[data-hx="intro"] .hx-mark-line path {
+  animation: hx-draw 0.62s cubic-bezier(0.5, 0, 0.2, 1) both;
+}
+@keyframes hx-draw {
+  from {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
 }
 .hx-mark-win {
   position: absolute;
   inset: 0;
   overflow: hidden;
   border-radius: var(--drop);
+}
+/* Over the window: the light that fills it in the entrance, as the visitor types and on send. */
+.hx-mark .hx-mark-fill {
+  --grain: 0.5;
+  position: absolute;
+  inset: 0;
+  clip-path: circle(calc(var(--level, 0) * 142%) at 9% 91%);
+}
+[data-hx="intro"] .hx-mark:not([data-win]) .hx-mark-win {
+  visibility: hidden;
 }
 .hx-mark .hx-mark-win > * {
   position: absolute;
@@ -101,6 +122,10 @@
   clip-path: circle(0% at 9% 91%);
   animation: hx-win 11s linear calc(var(--i) * 1.7s) infinite;
   animation-play-state: paused;
+}
+/* The winning post opens first and is there again when the sun drains. */
+.hx-mark .hx-mark-win > .hx-win-lead {
+  animation-name: hx-win-lead;
 }
 .hx-mark .hx-mark-sun {
   --i: var(--n, 4);
@@ -124,7 +149,24 @@
     clip-path: circle(0% at 9% 91%);
   }
 }
-/* The sun comes last and drains back to the outline. */
+/* Steps only, always under another photo or the sun. */
+@keyframes hx-win-lead {
+  0%,
+  21% {
+    clip-path: circle(142% at 9% 91%);
+    animation-timing-function: steps(1, end);
+  }
+  21.01%,
+  76.99% {
+    clip-path: circle(0% at 9% 91%);
+    animation-timing-function: steps(1, end);
+  }
+  77%,
+  100% {
+    clip-path: circle(142% at 9% 91%);
+  }
+}
+/* The sun comes last and drains back to the winning post. */
 @keyframes hx-win-sun {
   0% {
     clip-path: circle(0% at 9% 91%);
@@ -140,14 +182,53 @@
     clip-path: circle(0% at 9% 91%);
   }
 }
+.hx-mark[data-win] .hx-mark-win > *,
 [data-hx="done"] .hx-mark-win > * {
   animation-play-state: running;
 }
+/* Typing holds the window while the light rises with the words; pointing at a post opens it in the window. */
+.hx-hero .hx-mark:is([data-typing], [data-peek]) .hx-mark-win > *,
+.hx-hero[data-sending] .hx-mark-win > * {
+  animation-play-state: paused;
+}
 @media (prefers-reduced-motion: no-preference) {
-  /* The entrance drains the fill; the window takes over. */
   [data-hx="done"] .hx-mark-fill {
-    opacity: 0;
+    transition: clip-path 0.5s var(--ease-out);
   }
+}
+.hx-peek {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--drop);
+  clip-path: circle(0% at 9% 91%);
+  transition: clip-path 0.5s var(--ease-out);
+  pointer-events: none;
+}
+.hx-peek[data-on] {
+  clip-path: circle(142% at 9% 91%);
+}
+/* Waiting for the next page: the full mark breathes. */
+.hx-hero[data-sending] .hx-mark {
+  animation: hx-breathe 1.4s var(--ease-breathe) 0.7s infinite alternate;
+}
+@keyframes hx-breathe {
+  to {
+    transform: scale(1.06);
+  }
+}
+.hx-ghost {
+  position: fixed;
+  z-index: 60;
+  margin: 0;
+  color: #1a110b;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  text-align: left;
+  pointer-events: none;
+  will-change: transform, opacity;
 }
 
 .hx-h1 {
@@ -158,7 +239,7 @@
 .hx-w {
   display: inline-block;
 }
-.hx-support {
+.hx-hero .hx-support {
   max-width: 34em;
   text-wrap: balance;
   margin-top: calc(26 * var(--px));
@@ -199,10 +280,19 @@
 .hx-slot[data-slot="2"] { --at-x: 50; --at-y: 112; --at-w: 172; --r: -6deg; --z: 3; }
 .hx-slot[data-slot="3"] { --at-x: 1212; --at-y: 136; --at-w: 148; --r: 7deg; --z: 3; }
 .hx-slot[data-slot="4"] { --at-x: -40; --at-y: 520; --at-w: 196; --r: -8deg; --z: 4; }
-.hx-slot[data-slot="5"] { --at-x: 286; --at-y: 664; --at-w: 124; --r: 6deg; --z: 5; }
+.hx-slot[data-slot="5"] { --at-x: 244; --at-y: 664; --at-w: 124; --r: 6deg; --z: 5; }
 .hx-slot[data-slot="6"] { --at-x: 410; --at-y: 104; --at-w: 100; --r: -4deg; --z: 2; }
 .hx-slot[data-slot="7"] { --at-x: 948; --at-y: 126; --at-w: 90; --r: 5deg; --z: 2; }
 .hx-slot[data-slot="8"] { --at-x: 850; --at-y: 730; --at-w: 140; --r: -5deg; --z: 5; }
+
+/* The hero's posts stay still photographs; only the winner plays its clip, once the entrance is over. */
+[data-hx="intro"] .hx-hero .ugc-clip,
+.hx-hero .hx-slot:not([data-slot="1"]) .ugc-clip {
+  display: none;
+}
+.hx-hero .ugc-clip[data-seam] {
+  opacity: 0;
+}
 
 .hx-tilt {
   position: relative;
@@ -231,16 +321,20 @@
   outline-offset: 4px;
 }
 
-/* Entrance only: posts that rush out of the mark and past the viewer. */
+/* Entrance only: posts that rush out of the mark and past the viewer, in front of the column. */
+.hx-flybys {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
 .hx-flyby {
   position: absolute;
   left: var(--cx);
   top: var(--cy);
-  z-index: 8;
   display: none;
   width: calc(120 * var(--px));
   opacity: 0;
-  pointer-events: none;
   will-change: transform, opacity;
 }
 [data-hx="intro"] .hx-flyby {
@@ -267,14 +361,48 @@
   }
 }
 
+/* The header goes clear over a color field, so the field runs to the top of the screen. */
+.hunch-home .hh-header[data-field] {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.hunch-home .hh-header :is(.hh-link, .hh-wordmark) {
+  transition:
+    color 0.35s linear,
+    opacity 0.15s linear;
+}
+.hunch-home .hh-header .hh-pill {
+  transition:
+    scale 0.18s var(--ease-out),
+    background-color 0.35s linear,
+    color 0.35s linear;
+}
+.hunch-home .hh-header[data-field="dark"] :is(.hh-link, .hh-wordmark) {
+  color: var(--sheet);
+}
+.hunch-home .hh-header[data-field="dark"] .hh-pill {
+  background: var(--sheet);
+  color: var(--ink);
+}
+.hunch-home .hh-header[data-field="dark"] :focus-visible {
+  outline-color: var(--sheet);
+}
+
+/* Tablets standing up: the poster fills the screen instead of a short strip. */
+@media (min-width: 768px) and (max-width: 899px) and (orientation: portrait) {
+  .hx-hero {
+    max-height: none;
+  }
+}
+
 /* Phone: posts above and below, the column between them. Drawn on a 390 px wide sheet. */
 @media (max-width: 767px) {
   .hx-hero {
     --px: calc(100vw / 390);
     height: auto;
-    min-height: 0;
+    min-height: 100svh;
     max-height: none;
-    overflow: clip;
   }
   .hx-content {
     position: relative;
@@ -292,7 +420,7 @@
   .hx-line {
     display: block;
   }
-  .hx-support {
+  .hx-hero .hx-support {
     max-width: 17em;
     margin-top: 18px;
     font-size: 18px;
@@ -333,8 +461,16 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hx-drift,
-  .hx-mark-win > * {
+  .hx-mark-win > *,
+  .hx-hero[data-sending] .hx-mark {
     animation: none !important;
+  }
+  /* Without motion the mark rests as the full sun. */
+  .hx-mark .hx-mark-fill {
+    clip-path: none;
+  }
+  .hx-peek {
+    transition: none;
   }
   .hx-post,
   .hx-post:hover,

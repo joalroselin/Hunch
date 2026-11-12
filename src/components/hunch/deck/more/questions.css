@@ -1,0 +1,103 @@
+/* The index: a heading and the questions as sent messages, bottom right like a chat. */
+
+.mq-head {
+  position: absolute;
+  left: var(--gx);
+  top: 112px;
+}
+.mq-mark {
+  --grain: 0.45;
+  display: block;
+  width: 92px;
+  height: 92px;
+  margin-bottom: 48px;
+  border-radius: var(--drop);
+  background: var(--sun);
+}
+.mq-h {
+  max-width: 5em;
+  font-size: 180px;
+  letter-spacing: -0.045em;
+  line-height: 0.86;
+}
+
+.mq-tray {
+  position: absolute;
+  right: var(--gx);
+  bottom: 112px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-content: flex-end;
+  gap: 16px 14px;
+  width: 960px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Each question pops up from its tail corner. */
+.mq-item {
+  opacity: 0;
+  scale: 0.86;
+  translate: 0 28px;
+  transform-origin: 100% 100%;
+  transition:
+    opacity 0.35s linear var(--d, 0s),
+    scale 0.75s var(--ease-out) var(--d, 0s),
+    translate 0.75s var(--ease-out) var(--d, 0s);
+}
+.mq[data-on] .mq-item,
+.mq[data-still] .mq-item {
+  opacity: 1;
+  scale: 1;
+  translate: none;
+}
+.mq-q {
+  --grain: 0.4;
+  display: block;
+  padding: 20px 32px 25px;
+  border-radius: 42px 42px 10px 42px;
+  color: var(--sheet);
+  font: inherit;
+  font-size: 35px;
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    translate 0.3s var(--ease-out),
+    scale 0.18s var(--ease-out);
+}
+.mq-q:not(.hh-field) {
+  background: var(--ink);
+}
+.mq-q:is(.hh-field-mangga, .hh-field-dahon) {
+  color: var(--ink);
+}
+@media (hover: hover) {
+  .mq-q:hover {
+    translate: 0 -4px;
+  }
+}
+.mq-q:active {
+  scale: 0.97;
+}
+.mq-q:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 5px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mq-item {
+    scale: none;
+    translate: none;
+    transition: opacity 0.4s linear var(--d, 0s);
+  }
+}
+@media print {
+  .mq-item {
+    opacity: 1 !important;
+    scale: none !important;
+    translate: none !important;
+  }
+}

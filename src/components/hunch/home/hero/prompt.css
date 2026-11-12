@@ -153,40 +153,54 @@
 .hx-send:active {
   scale: 0.94;
 }
+/* Sent: the drop turns its tail up and stays that way while the next page opens. */
+.hx-send[data-sent] {
+  rotate: -90deg;
+}
+.hx-send[data-sent] .hx-send-arrow {
+  rotate: 90deg;
+}
 .hx-send:focus-visible {
   outline: 2px solid var(--ink, #1a110b);
   outline-offset: 3px;
 }
 
+/* Empty send: an ink message hangs under the drop, its tail toward it. */
 .hx-tip {
   position: absolute;
+  top: calc(100% + 0.74em + 10px);
   right: 0;
-  bottom: calc(100% + 0.74em + 10px);
   z-index: 5;
   padding: 8px 13px 9px;
   white-space: nowrap;
-  border-radius: 16px 16px 4px 16px;
+  border-radius: 16px 4px 16px 16px;
   background: var(--ink, #1a110b);
   color: var(--sheet, #fffcf5);
   font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.01em;
+  transform-origin: 100% 0;
   animation: hx-tip-in 0.3s var(--ease-out) both;
 }
 @keyframes hx-tip-in {
   from {
     opacity: 0;
-    transform: translate3d(0, 6px, 0) scale(0.94);
+    transform: translate3d(0, -6px, 0) scale(0.94);
   }
 }
 
 .hx-hint {
+  transition: opacity 0.2s linear;
   margin-top: 14px;
   padding-left: 2px;
   font-size: 13.5px;
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: -0.005em;
+}
+/* The tip takes the room under the box while it shows. */
+[data-tip] > .hx-hint {
+  opacity: 0;
 }
 .hx-hint-link {
   position: relative;
@@ -233,7 +247,9 @@
   .hx-send,
   .hx-send:hover,
   .hx-send:active,
-  .hx-send:hover .hx-send-arrow {
+  .hx-send[data-sent],
+  .hx-send:hover .hx-send-arrow,
+  .hx-send[data-sent] .hx-send-arrow {
     rotate: none;
     scale: none;
   }

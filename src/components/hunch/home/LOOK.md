@@ -22,7 +22,7 @@ No navy, no indigo, no gray text, no hairline borders. Color means something is 
 
 ## Color fields
 
-Full-bleed gradient scenes, one mood per scene, at most one every other section: `.hh-field` plus `.hh-field-sili` (red, orange, gold), `.hh-field-dahon` (green, lime), `.hh-field-mangga` (yellow, pink; ink text), `.hh-field-gumamela` (magenta, coral). Always add `.hh-grain`. Text on a field is `--sheet` (ink on Mangga). A field holds one hero object and one headline; the winner's field also carries its three facts and the next step (see "Results and winner"). Focus rings on a dark field are `--sheet`.
+Full-bleed gradient scenes, one mood per scene, at most one every other section: `.hh-field` plus `.hh-field-sili` (red, orange, gold), `.hh-field-dahon` (green, lime), `.hh-field-mangga` (yellow, pink; ink text), `.hh-field-gumamela` (magenta, coral). Always add `.hh-grain`. Text on a field is `--sheet` (ink on Mangga). A field holds one hero object and one headline; the winner's field also carries its two facts and the runner-up line (see "Results and winner"). Focus rings on a dark field are `--sheet`.
 
 ## Grain
 
@@ -33,7 +33,7 @@ Very fine, soft, low-contrast film grain, **inside gradients only**: the drop, t
 - **Bricolage Grotesque** (`--display`, bundled in `fonts.ts`) for everything.
 - `.hh-display`: weight 800, tracking -0.045em, line-height 0.86. Hero is 120 px on one line on a 1440 poster. One per scene.
 - `.hh-title`: weight 800, -0.035em, 0.94. Section headings are 96 px on a 1440 poster in every scene (`.sy-h`, `.pr-title`, `.nw-title`, `.fc-title`), 42 to 52 px on phones. A second heading inside a scene is 84 px.
-- `.hh-line`: weight 500, -0.02em, 1.22, 18 to 20 px. The one support line.
+- `.hh-line`: weight 500, -0.02em, 1.22, 18 to 20 px, `text-wrap: pretty` so no line ends on one word. The one support line.
 - `.hh-label`: 12 px, weight 600. A caption next to an object.
 - `.hh-dot`: Doto 900, only for an instrument readout (the `14` in the How it works results window, the numbers in the post sheet). Results and winner set their numbers in Bricolage 800.
 - TikTok Sans (`--ugc-font`) only inside post frames.
@@ -54,25 +54,25 @@ Calm, slow, and it tells the story.
 - Entrance (hero): the mark draws its outline and fills from the tail, a few posts rush out of it past the viewer, the 8 leave it in its color and turn into photos as they land around the headline, the fill drains, the headline rises word by word, the box starts typing, the nav fades in. Then the mark opens on one post photo after another.
 - Arrivals: `rise` (12 px up, 6 px blur to sharp, 0.7 to 0.8 s, `--ease-out`). Stagger 60 to 80 ms.
 - Idle: objects drift 4 to 8 px over 6 to 9 s; the hero mark loops 4 post photos and the sun in 11 s; tick rings turn once in 180 s.
-- Hover: nav, footer links and every pill use `LetterRoll`; a post lifts 3 px; the send drop turns its tail up; a list name or step draws a thin gold line; the footer wordmark fills with the sun. Pressed: pills and posts shrink a hair, text buttons and links dim to 60%.
-- Photos fade in over 0.5 s once decoded (`.ugc-photo[data-in]`); the frame holds its size from the start.
+- Hover: nav, footer links and every pill use `LetterRoll`; a post lifts 3 px and comes alive (see "Posts"); the send drop turns its tail up; a list name or step draws a thin gold line. Pressed: pills and posts shrink a hair, text buttons and links dim to 60%.
+- Photos fade in over 0.5 s once decoded (`.ugc-photo[data-in]`); the frame holds its size from the start. Clips follow the budget in "Posts".
 - Scroll: see "The scroll film".
 - `prefers-reduced-motion`: fades only, no drift, no loops. Everything must look finished without motion.
 
 ## The scroll film
 
-Every section boundary is one designed, scroll-linked move that carries something into the next scene. No two use the same move. All of them are transform and opacity only, driven by framer-motion `useScroll` and `useTransform` (no CSS scroll timelines, so Safari plays them), and all reverse when scrolling back up. `scroll/film.ts` has the two switches: `useFilm()` (900 px and wider, motion allowed; the pinned scenes) and `useMoving()` (motion allowed at any width). With reduced motion nothing is pinned or moved by scroll and every scene simply appears.
+Every section boundary is one designed, scroll-linked move that carries something into the next scene. No two use the same move. All of them are transform and opacity only, driven by framer-motion `useScroll` and `useTransform` (no CSS scroll timelines, so Safari plays them), and all reverse when scrolling back up. `scroll/film.ts` has the two switches: `useFilm()` (900 px and wider, motion allowed; the pinned scenes) and `useMoving()` (motion allowed at any width). With reduced motion nothing moves with the scroll and every scene simply appears; How it works stays pinned, so the scroll still picks the step.
 
 | Boundary | Move | What carries over | Phones |
 |---|---|---|---|
 | Hero to the 8 hunches | The posts fly outward past the edges while the column slides up; in the next scene they come back from in front and land as one deck. | the posts | same |
 | 8 hunches to How it works | The green stage is laid down like a sheet: it comes up tilted and small and levels as it reaches its place. | the color field | smaller tilt |
 | How it works to results | After step 4 the page goes through the results window: the window grows past the screen, turns into the cream page, and the real results heading comes up inside it. | the results window | the stage is lifted off, tilting away |
-| Results to the winner | The red field rises as a dome that flattens (a cream cut-out scaled away); the winning post settles from 9 to 2 degrees as it passes. | the winning post and its color | same |
+| Results to the winner | The red field rises as a dome that flattens (a cream cut-out scaled away); the winning post settles from 5 to 1 degree as it passes. | the winning post and its color | same |
 | Winner to next week | Next week is a cream sheet with round corners that slides up over the red field while the field's words hang back. The 7 posts are dealt from the left like cards. | the winner's photo | sheet only, no deal |
 | Next week to the questions | The band's top edge comes in on a slant and levels; the chat pops up from its tail corner like a message. | the drop (as the chat's sender) | same |
 | Questions to the closing | The mark rises through the band, the scene pins, the mark swells until it is the yellow field, then the headline and the try box come up inside it. | the mark | no pin: the mark hangs from the scene's top edge and grows down into the field |
-| Closing to the footer | The field lifts off the footer, which waits underneath and moves at half speed; the big wordmark comes up last. | the wordmark | same |
+| Closing to the footer | The field lifts off with a soft shadow; the footer row waits underneath and comes up at half speed. | the field's edge | same |
 | Footer to the hidden ending | Keep scrolling at the bottom and the magenta field of dots rises. | the page's last color | same |
 
 Rules for anyone adding to it:
@@ -80,6 +80,19 @@ Rules for anyone adding to it:
 - Pinned scenes take their extra height from CSS inside `@media (min-width: 900px) and (prefers-reduced-motion: no-preference)`, the same query as `useFilm()`. How it works adds 70svh for the zoom (`--exit`), and the results overlap it by 52svh. The closing scene is 210svh and overlaps the questions by 68svh.
 - `#try` is an anchor inside the closing scene placed where the scene is fully open; link to it, not to the section.
 - The header strip, post sheet and anchors must keep working at any scroll position: check `#how-it-works`, `#next-week` and `#try`.
+
+## Header (`header.tsx`, strip in `look.css`)
+
+- Clear over the hero. Once the page moves (`data-solid`), a cream strip fades in behind the row, frosted, with a soft lower edge so posts and headings slide under it instead of being cut in a line. The row moves up by transform; nothing animates height.
+- Over a color field (`data-field`, set only while the field covers the whole strip, top and bottom, so the text never turns light over the cream above a field's edge) the cream goes and only the frost stays: the field runs to the top, the text takes the field's color (`--sheet` on dark fields, ink on Mangga), and anything sliding under softens.
+- The header box is 64 px tall at every width; the taller top row overflows it.
+
+## Posts (`ugc-post.tsx`, `ugc.css`)
+
+- On-video text breaks like a careful creator's: fewest lines of at most 24 letters, even lengths, a leading `POV:` alone, breaks after a colon or before a particle, never a line under 10 letters.
+- Counts sit under the rail icons only when the post has results; a post that has not run shows the icons alone.
+- Clips share one budget: at most two play at a time, only posts at least 180 px wide (30% of a phone screen), mostly on screen and at least 60% visible through their parents, never during the hero entrance, never behind an open sheet. Each clip plays once and dissolves back to its photo (its own first frame), then rests 3 to 6 s; a clip off screen lets go of its file.
+- A cursor resting 120 ms on a post brings it to life (`alive`, landing page only): its clip plays, the bottom line follows the clip, the heart fills `#fe2c55` with a small pop and the count rolls up one. Reduced motion: the heart's color only.
 
 ## Questions chat (`faq.tsx`, `faq.css`)
 
@@ -91,8 +104,8 @@ Rules for anyone adding to it:
 - Results is a chart, so it is strict: 8 upright posts, best first from the left, each standing on a bar of thin slabs, one slab per message (12 design px a step). No tilt, no scatter. The count sits above its post in Bricolage 800 (46 px; the winner's is 116 px in `--chili`), the audience name under the bar. Only the winner's bar and count carry color: the bar is `--sun` with grain, the rest are ink.
 - The heading runs on one line across the top and the support line sits in the open corner above the short bars.
 - Motion: all bars climb at the same speed (0.13 s a message) and lift their posts while the counts tick up, so the winner arrives last. It is transform and clip only, nothing below moves. Under 900 px the board is a list, best first, with the bars lying down.
-- Winner is the poster: the audience name in `.hh-display`, the `who` sentence, the post at 384 px tilted 4 degrees and left clean, then three facts as figure (96 px), bold word, one plain line. Then the next step and one light pill.
-- Scroll: the red field comes up as a dome that flattens (`.pw-dome`, a cream cut-out scaled to nothing), the post settles from 9 to 2 degrees as it passes, and the words hang back as next week slides over. All in `winner.tsx`, off under reduced motion.
+- Winner is the poster: a small kicker (Most messages came from), the audience name in `.hh-display`, the post tilted and left clean, then two facts as figure and word (messages, spent) and the runner-up line. No pill, no next step.
+- Scroll: the red field comes up as a dome that flattens (`.pw-dome`, a cream cut-out scaled to nothing), the post settles from 5 to 1 degree as it passes, and the words hang back as next week slides over. All in `winner.tsx`, off under reduced motion.
 - Nothing sits on a post: no number bubbles, no coins, no price sticker, no tags. A number is type in the layout next to what it describes. These two scenes use no dot face; keep Doto for a real instrument readout.
 
 ## Try box (`prompt-box.tsx`, `hero/prompt.css`)
@@ -105,13 +118,14 @@ Rules for anyone adding to it:
 ## How it works (`how-it-works.tsx`, `how/`)
 
 - On cream. The only color is the stage: one rounded green field (`.hw-stage`) with fine grain. The lime light fills most of it and the edges stay emerald and teal; no dark corners, no small spotlight.
-- The stage holds one sheet window at a time: a working mock of that step's screen. Start screen, the 8 posts with their buyers, the 8 boosted, the ranking. Posts are never covered: money, days and messages are set in type under or beside them.
+- One set of 8 posts lives on the stage and travels between the steps; each step only lays out empty slots (`data-slot`) and its own furniture. Start screen (the posts come out of the added photo), the 8 on the field with their buyers (the winner leads, 3 sizes), the same 8 lined up with their ₱99 and days, then the ranking sheet: the winner moves into its slot and the rest drop into their rows. Posts are never covered: money, days and messages are set in type under or beside them.
+- Steps 1 and 4 are sheet windows; steps 2 and 3 put the posts straight on the field with ink type.
 - Numbers: Bricolage 800 in the layout. Doto only for the winner's `14`, as a readout. One dot is one message; the winner's row is the only one in color.
-- Steps on the left are all full ink. The open one is weight 800 with the gold marker and its line; the others are weight 500. No dimmed text, no numbers.
+- Steps on the left: the open one in full ink at weight 800 with its line; the others step back; a thin rail beside them fills with the sun step by step. No numbers.
 - The section is pinned for 4 steps of scroll (about 60% of a screen each). Scroll picks the step; clicking a step scrolls to it.
-- Step change: a wash of lime and gold light with grain rolls up from the stage's bottom left (the drop's tail corner) in 1.15 s; the next window is uncovered behind it. Inside a step, things happen once: the line types, the photo lands, the posts are dealt, the days fill, the dots count in.
-- Phones: the stage and the open step pin together; the 8 posts sit in one row that pans slowly.
-- Reduced motion: windows cross-fade, everything shows finished, the phone row can be swiped.
+- Step change: the posts travel on a slightly springy curve, lead first, 55 ms apart; sheets come up from below and leave upward (reversed when scrolling back); bar titles roll; captions follow once the posts land; one band of warm light passes over the field. Inside a step, things happen once: the line types, the photo lands, the days fill, the dots count in. The lime light and the sun rail move with the scroll.
+- Phones: the stage and the open step pin together; the same moves on a taller stage, and only the lead post is named.
+- Reduced motion: scenes cross-fade, the posts fade instead of travelling, everything shows finished.
 
 ## Banned
 
@@ -119,7 +133,7 @@ Mono bracket labels (`[ A3 · post 3 of 8 ]`), "01 of 20" counters, dot-progress
 
 ## Notes for builders
 
-- `look.css` remaps the old tokens (`--navy`, `--paper`, `--mute`, `--action`...) to the new palette so unrebuilt sections stay readable. Do not build on them: use `--cream`, `--sheet`, `--ink`, `--sun` and the `hh-` classes. Delete the bridge block when the last section moves over.
+- Use `--cream`, `--sheet`, `--ink`, `--sun` and the `hh-` classes. The old names (`--navy`, `--paper`, `--mute`, `--action`...) still resolve from the app root for other routes; do not build on them here.
 - Styles in plain CSS files are unlayered and beat Tailwind utilities. Do not rely on `hidden md:flex` on an element that has an `hh-` or `hx-` class with its own `display`.
 - `.ugc` reads `--x`, `--y`, `--size`, `--tilt` from its ancestors. Do not use those names for layout variables around a post (the hero uses `--at-x`, `--at-y`, `--at-w`).
 - `main` sits above the footer (`z-index: 1`) so the footer can wait under the closing field. Do not give `main` a background.

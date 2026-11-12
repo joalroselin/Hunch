@@ -13,8 +13,8 @@ One metaphor: a hunch becomes messages. Say "hunch" for the guess, "messages" fo
 
 ## hero (done): hero/headline.tsx, hero/post-ring.tsx
 
-- H1: Find out who buys.
-- Support line: Hunch writes 8 posts for 8 kinds of buyers. Promote each for 3 days and see who messages. No peso amount in the hero; the amount lives in How it works.
+- H1: Meet your suki.
+- Support line: Tell Hunch what you sell. You get 8 posts, each for a potential buyer. (No peso amount in the hero.)
 - No count bubble and no captions on the posts. The mark above the headline carries no words.
 - Post button aria-label: Open the post for {audience}
 

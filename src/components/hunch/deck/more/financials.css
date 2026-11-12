@@ -1,0 +1,199 @@
+/* Financials on cream: paying sellers over 24 months. The base case in chili, the other two faint. */
+
+.fn-words {
+  position: absolute;
+  left: var(--gx);
+  top: 112px;
+}
+.fn-h {
+  max-width: 7.4em;
+}
+
+.fn-cash {
+  position: absolute;
+  right: var(--gx);
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  text-align: right;
+}
+.fn-cash b {
+  font-size: 124px;
+}
+.fn-cash > span {
+  max-width: 11em;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.fn-chart {
+  position: absolute;
+  left: 160px;
+  top: 452px;
+  width: var(--w);
+  height: var(--h);
+}
+.fn-svg {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+.fn-floor,
+.fn-tick {
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+.fn-tick {
+  stroke-width: 1.5;
+}
+.fn-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.3, 0.1, 0.2, 1) 0.45s;
+}
+.fn-faint {
+  stroke: rgb(26 17 11 / 0.32);
+  stroke-width: 3;
+}
+.fn-base {
+  stroke: var(--chili);
+  stroke-width: 7;
+  transition-delay: 0.6s;
+  transition-duration: 1.7s;
+}
+.fn[data-on] .fn-line,
+.fn[data-still] .fn-line {
+  stroke-dashoffset: 0;
+}
+
+.fn-dot {
+  fill: var(--chili);
+}
+.fn-break {
+  fill: var(--cream);
+  stroke: var(--ink);
+  stroke-width: 3.5;
+}
+.fn-dot,
+.fn-break {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  scale: 0.4;
+  transition:
+    opacity 0.3s linear,
+    scale 0.6s var(--ease-out);
+}
+.fn-dot-12 {
+  transition-delay: 1.45s;
+}
+.fn-break {
+  transition-delay: 1.7s;
+}
+.fn-dot-24 {
+  transition-delay: 2.15s;
+}
+.fn[data-on] :is(.fn-dot, .fn-break),
+.fn[data-still] :is(.fn-dot, .fn-break) {
+  opacity: 1;
+  scale: 1;
+}
+
+.fn-m {
+  position: absolute;
+  top: calc(var(--h) + 26px);
+  transform: translateX(-50%);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.fn-m1 {
+  transform: none;
+  margin-left: -2px;
+}
+
+.fn-tag {
+  position: absolute;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  opacity: 0.5;
+  white-space: nowrap;
+}
+.fn[data-on] .fn-tag,
+.fn[data-still] .fn-tag {
+  opacity: 0.55;
+}
+.fn-tag-low {
+  transform: translateX(-100%);
+}
+
+.fn-val {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+.fn-val b {
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.85;
+  font-variant-numeric: tabular-nums;
+}
+.fn-val > span {
+  margin-top: 8px;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.fn-val-12 {
+  align-items: flex-end;
+  transform: translate(-100%, -100%);
+}
+.fn-val-12 b {
+  font-size: 64px;
+}
+.fn-val-24 {
+  align-items: flex-end;
+  transform: translate(calc(-100% - 28px), calc(-100% + 8px));
+}
+.fn-val-24 b {
+  font-size: 112px;
+  color: var(--chili);
+}
+.fn-be {
+  position: absolute;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fn-line {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+  .fn-dot,
+  .fn-break {
+    scale: 1;
+  }
+}
+@media print {
+  .fn-line {
+    stroke-dashoffset: 0 !important;
+  }
+  .fn-dot,
+  .fn-break {
+    opacity: 1 !important;
+    scale: 1 !important;
+  }
+}

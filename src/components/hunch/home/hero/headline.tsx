@@ -1,12 +1,13 @@
 import { Fragment } from "react"
 
 const LINES = [
-  ["Find", "out"],
-  ["who", "buys."],
+  ["Meet", "your"],
+  ["suki."],
 ]
 
 export const HEADLINE = LINES.map((l) => l.join(" ")).join(" ")
-export const SUPPORT = "Hunch writes 8 posts for 8 kinds of buyers. Promote each for 3 days and see who messages."
+// No-break spaces keep each number with its noun.
+export const SUPPORT = "Tell Hunch what you sell. You get 8\u00a0posts, each for a potential buyer."
 
 // One line on wide screens, two on phones.
 export function HeroHeadline() {

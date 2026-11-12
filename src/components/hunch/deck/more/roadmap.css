@@ -1,0 +1,151 @@
+/* Roadmap on cream: four stops on one line; under each, the seller's own steps, struck as they go away. */
+
+.rm-words {
+  position: absolute;
+  left: var(--gx);
+  top: 112px;
+}
+.rm-h {
+  max-width: 10em;
+  font-size: 124px;
+}
+
+.rm-track {
+  position: absolute;
+  left: var(--gx);
+  right: var(--gx);
+  top: 487px;
+  height: 2px;
+  background: var(--ink);
+  scale: 0 1;
+  transform-origin: 0 50%;
+  transition: scale 1.3s var(--ease-out) 0.2s;
+}
+.rm[data-on] .rm-track,
+.rm[data-still] .rm-track {
+  scale: 1 1;
+}
+
+.rm-phases {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rm-phase {
+  position: absolute;
+  left: calc(var(--gx) + var(--i) * 432px);
+  top: 476px;
+  width: 400px;
+}
+.rm-dot {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--cream);
+  box-shadow: inset 0 0 0 3px var(--ink);
+}
+.rm-dot-last {
+  --grain: 0.4;
+  background: var(--sun);
+  box-shadow: none;
+}
+.rm-name {
+  margin-top: 26px;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+.rm-when {
+  margin-top: 8px;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  opacity: 0.72;
+}
+
+.rm-chores {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.rm-chore {
+  padding: 12px 20px 14px;
+  border-radius: 14px;
+  background: var(--sheet);
+  box-shadow: 0 1px 2px rgb(80 40 10 / 0.2), 3px 8px 16px rgb(90 50 15 / 0.08);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+.rm-chore > span {
+  position: relative;
+  transition: color 0.3s linear var(--s);
+}
+.rm-chore[data-gone] {
+  transition:
+    opacity 0.6s linear var(--d, 0s),
+    translate 0.9s var(--ease-out) var(--d, 0s),
+    filter 0.7s var(--ease-out) var(--d, 0s),
+    background-color 0.3s linear var(--s),
+    box-shadow 0.3s linear var(--s);
+}
+.rm-chore[data-gone] > span::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  top: 54%;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--chili);
+  scale: 0 1;
+  transform-origin: 0 50%;
+  transition: scale 0.35s var(--ease-out) var(--s);
+}
+.rm[data-on] .rm-chore[data-gone],
+.rm[data-still] .rm-chore[data-gone] {
+  background: transparent;
+  box-shadow: none;
+}
+.rm[data-on] .rm-chore[data-gone] > span,
+.rm[data-still] .rm-chore[data-gone] > span {
+  color: rgb(26 17 11 / 0.45);
+}
+.rm[data-on] .rm-chore[data-gone] > span::after,
+.rm[data-still] .rm-chore[data-gone] > span::after {
+  scale: 1 1;
+}
+
+.rm-button {
+  display: inline-flex;
+  align-items: center;
+  height: 66px;
+  margin-top: 22px;
+  padding: 0 32px 2px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--cream);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rm-track {
+    scale: 1 1;
+    transition: none;
+  }
+}
+@media print {
+  .rm-track,
+  .rm-chore[data-gone] > span::after {
+    scale: 1 1 !important;
+  }
+}

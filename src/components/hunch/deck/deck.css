@@ -1,0 +1,104 @@
+/* The deck: one 1920 x 1080 stage, scaled to the screen; the ground fills the rest. */
+
+html:has(.dk-root),
+body:has(.dk-root) {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.hunch-home.dk-root {
+  position: fixed;
+  inset: 0;
+  min-height: 0;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.dk-root[data-idle] {
+  cursor: none;
+}
+
+.dk-slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: var(--ink);
+}
+.dk-slide:is([data-ground="sili"], [data-ground="dahon"], [data-ground="gumamela"], [data-ground="ink"]) {
+  color: var(--sheet);
+}
+
+.dk-slide > .dk-ground,
+.dk-page > .dk-ground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.dk-ground[data-ground="cream"] {
+  background: var(--cream);
+}
+.dk-ground[data-ground="sheet"] {
+  background: var(--sheet);
+}
+.dk-ground[data-ground="ink"] {
+  background: var(--ink);
+}
+
+.dk-stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: 0 0;
+}
+.dk-frame {
+  position: absolute;
+  inset: 0;
+}
+
+.dk-waiting {
+  position: absolute;
+  left: 112px;
+  bottom: 120px;
+  font-size: 160px;
+}
+
+/* Print: every slide and build step as its own 1920 x 1080 page, finished. */
+html:has(.dk-print),
+body:has(.dk-print) {
+  background: var(--cream, #f4ecdd);
+}
+.hunch-home.dk-print {
+  min-height: 0;
+  zoom: var(--fit, 1);
+}
+.dk-page {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  break-after: page;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.dk-page:is([data-ground="sili"], [data-ground="dahon"], [data-ground="gumamela"], [data-ground="ink"]) {
+  color: var(--sheet);
+}
+.dk-page .dk-stage {
+  transform: none;
+}
+@media print {
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+  .hunch-home.dk-print {
+    zoom: 1;
+  }
+}

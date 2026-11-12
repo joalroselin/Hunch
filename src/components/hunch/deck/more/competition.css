@@ -1,0 +1,213 @@
+/* Competition on cream: a quiet 2x2 in ink, Hunch alone in the top right. */
+
+.cp-words {
+  position: absolute;
+  left: var(--gx);
+  top: 112px;
+  width: 640px;
+}
+.cp-h {
+  font-size: 118px;
+}
+
+.cp-map {
+  position: absolute;
+  left: 840px;
+  top: 92px;
+  width: 968px;
+  height: 880px;
+}
+.cp-axis {
+  position: absolute;
+  background: var(--ink);
+  transition: scale 0.9s var(--ease-out) 0.2s;
+}
+.cp-axis-x {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  scale: 0 1;
+}
+.cp-axis-y {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  scale: 1 0;
+}
+/* Arrowheads on the far ends. */
+.cp-axis::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: solid var(--ink);
+  border-width: 2px 2px 0 0;
+}
+.cp-axis-x::after {
+  right: 1px;
+  top: -7px;
+  rotate: 45deg;
+}
+.cp-axis-y::after {
+  top: 1px;
+  left: -7px;
+  rotate: -45deg;
+}
+.cp[data-on] .cp-axis,
+.cp[data-still] .cp-axis {
+  scale: 1 1;
+}
+
+.cp-end {
+  position: absolute;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+}
+.cp-left {
+  left: 0;
+  top: calc(50% + 16px);
+}
+.cp-right {
+  right: 0;
+  top: calc(50% + 16px);
+}
+.cp-top {
+  left: calc(50% + 22px);
+  top: -2px;
+}
+.cp-bottom {
+  left: calc(50% + 22px);
+  bottom: -2px;
+}
+
+.cp-tools {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cp-tool {
+  position: absolute;
+  left: calc(var(--x) * 100%);
+  bottom: calc(var(--y) * 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  white-space: nowrap;
+}
+.cp-tool b {
+  font-size: 29px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.cp-tool span {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  opacity: 0.7;
+}
+
+/* Hunch: the mark draws its outline, fills from the tail, then its name comes up. */
+.cp-us {
+  position: absolute;
+  left: 63%;
+  top: 11%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 26px;
+}
+.cp-mark {
+  position: relative;
+  flex: none;
+  width: 176px;
+  height: 176px;
+}
+.cp-mark svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.cp-mark path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.6;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  vector-effect: non-scaling-stroke;
+  transition: stroke-dashoffset 1s var(--ease-out) 1.05s;
+}
+.cp-fill {
+  --grain: 0.45;
+  position: absolute;
+  inset: 0;
+  scale: 0;
+  transform-origin: 9% 91%;
+  box-shadow: var(--shadow-object);
+  transition: scale 0.9s var(--ease-out) 1.45s;
+}
+.cp[data-on] .cp-mark path,
+.cp[data-still] .cp-mark path {
+  stroke-dashoffset: 0;
+}
+.cp[data-on] .cp-fill,
+.cp[data-still] .cp-fill {
+  scale: 1;
+}
+.cp-us-say {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 6px;
+  white-space: nowrap;
+}
+.cp-us-say b {
+  font-size: 58px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+.cp-us-say span {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cp-axis {
+    scale: 1 1;
+    transition: none;
+  }
+  .cp-mark path {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+  .cp-fill {
+    scale: 1;
+    opacity: 0;
+    transition: opacity 0.5s linear 0.4s;
+  }
+  .cp[data-on] .cp-fill {
+    opacity: 1;
+  }
+}
+@media print {
+  .cp-axis,
+  .cp-fill {
+    scale: 1 1 !important;
+    opacity: 1 !important;
+  }
+  .cp-mark path {
+    stroke-dashoffset: 0 !important;
+  }
+}

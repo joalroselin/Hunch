@@ -42,14 +42,29 @@
   box-shadow: 0 2px 4px rgb(20 8 0 / 0.3), 24px 50px 90px rgb(20 8 0 / 0.42);
   translate: -50% -50%;
   outline: none;
-  animation: ps-in 0.6s var(--ease-out) both;
+  /* Solid almost at once; only its place eases. Backwards fill leaves no transform behind for the fixed toast. */
+  animation:
+    ps-fade 0.16s linear backwards,
+    ps-rise 0.6s var(--ease-out) backwards;
 }
 .ps[data-state="closed"] {
   animation: ps-out 0.2s linear both;
 }
-@keyframes ps-in {
+/* Opened from a post on the page: the sheet only fades, so the post's landing spot holds still. */
+.ps[data-fly] {
+  animation: ps-fade 0.2s linear backwards;
+}
+.ps-flyer {
+  position: fixed;
+  z-index: 62;
+  pointer-events: none;
+  will-change: transform;
+}
+.ps-phone[data-away] {
+  visibility: hidden;
+}
+@keyframes ps-rise {
   from {
-    opacity: 0;
     transform: translate3d(0, 22px, 0) scale(0.975);
   }
 }
@@ -114,19 +129,29 @@
 }
 .ps-lang {
   position: relative;
+  display: inline-grid;
+  align-content: center;
   height: 44px;
   padding: 0 12px;
+  border-radius: 999px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.01em;
-  opacity: 0.5;
-  transition: opacity 0.2s linear;
+  transition: opacity 0.15s linear;
 }
-.ps-lang:hover {
-  opacity: 0.8;
+/* Holds the bold width, so switching never nudges the others. */
+.ps-lang::after {
+  content: attr(data-label);
+  height: 0;
+  overflow: hidden;
+  font-weight: 700;
+  visibility: hidden;
+}
+.ps-lang:active {
+  opacity: 0.6;
 }
 .ps-lang[aria-checked="true"] {
-  opacity: 1;
+  font-weight: 700;
 }
 .ps-lang[aria-checked="true"]::before {
   content: "";
@@ -359,9 +384,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ps,
+  .ps {
+    animation: ps-fade 0.25s linear backwards;
+  }
   .ps[data-state="closed"] {
-    animation: ps-fade 0.25s linear both;
+    animation: ps-fade 0.2s linear reverse both;
   }
   .ps-toast {
     transform: none;

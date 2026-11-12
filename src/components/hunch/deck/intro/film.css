@@ -1,0 +1,215 @@
+/* The intro film. Everything is in stage px; the view is the whole screen measured in stage px. */
+
+.ifl {
+  position: absolute;
+  inset: 0;
+}
+.ifl-view {
+  position: absolute;
+  overflow: hidden;
+}
+/* The landing hero's own light, so the film's last frame is the landing page's first. */
+.ifl-base {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(70% 60% at 50% 30%, #fffaef 0%, rgb(255 250 239 / 0) 70%),
+    var(--cream);
+}
+.ifl-lens,
+.ifl-zoom {
+  position: absolute;
+  inset: 0;
+}
+.ifl .ifl-field {
+  position: absolute;
+  inset: 0;
+}
+.ifl-stage {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  color: var(--ink);
+}
+.ifl-stage-posts {
+  z-index: 2;
+}
+.ifl-stage-words {
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* Posts: one set of 8 that travels through every scene. */
+.ifl-posts {
+  position: absolute;
+  inset: 0;
+}
+.ifl-post {
+  --ugc-shadow:
+    0 1px 2px rgb(70 35 10 / 0.3), 10px 22px 32px rgb(70 35 10 / 0.22), 30px 64px 96px rgb(70 35 10 / 0.18);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 400px;
+  will-change: transform, opacity;
+}
+.ifl-drift {
+  animation: ifl-drift 7.4s var(--ease-breathe) var(--dl, 0s) infinite alternate;
+}
+@keyframes ifl-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(5px, -9px, 0);
+  }
+}
+
+.ifl-bubble,
+.ifl-sun {
+  --grain: 0.5;
+  position: absolute;
+}
+
+/* Under each post in the test: its money and its 3 days. */
+.ifl-tag {
+  position: absolute;
+  width: 226px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: var(--ink);
+}
+.ifl-tag b {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+.ifl-days {
+  display: flex;
+  gap: 6px;
+}
+.ifl-days i {
+  width: 40px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgb(26 17 11 / 0.2);
+  transition: background-color 0.6s var(--ease-out);
+}
+.ifl-days i[data-on] {
+  background: var(--ink);
+}
+
+/* Words */
+.ifl-words {
+  position: absolute;
+  inset: 0;
+  color: var(--ink);
+}
+.ifl-words[data-tone="sheet"] {
+  color: var(--sheet);
+}
+.ifl-w {
+  display: inline-block;
+}
+.ifl-line {
+  display: block;
+}
+.ifl-src {
+  position: absolute;
+  left: 112px;
+  bottom: 60px;
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: color-mix(in srgb, currentColor 78%, transparent);
+}
+
+.ifl-h-open {
+  position: absolute;
+  left: 112px;
+  top: 50%;
+  translate: 0 -50%;
+  font-size: 164px;
+}
+
+/* A window the names roll through, one buyer at a time. */
+.ifl-roll {
+  position: absolute;
+  left: 112px;
+  top: 50%;
+  width: 1010px;
+  height: 320px;
+  translate: 0 -54%;
+  overflow: hidden;
+}
+.ifl-name {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  font-size: 124px;
+}
+
+.ifl-big {
+  position: absolute;
+  left: 104px;
+  top: 250px;
+  font-size: 330px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ifl-sub {
+  position: absolute;
+  left: 116px;
+  top: 600px;
+  font-size: 84px;
+}
+
+.ifl-h-test {
+  position: absolute;
+  left: 236px;
+  top: 92px;
+  font-size: 112px;
+  white-space: nowrap;
+}
+.ifl-line-test {
+  position: absolute;
+  left: 240px;
+  top: 222px;
+  font-size: 38px;
+}
+
+.ifl-h-answer {
+  position: absolute;
+  left: 112px;
+  top: 150px;
+  width: 980px;
+  font-size: 112px;
+}
+.ifl-count {
+  position: absolute;
+  left: 100px;
+  top: 430px;
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+  font-size: 430px;
+  font-variant-numeric: tabular-nums;
+}
+.ifl-unit {
+  font-size: 84px;
+  letter-spacing: -0.035em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ifl-drift {
+    animation: none;
+  }
+  .ifl-days i {
+    transition: none;
+  }
+}

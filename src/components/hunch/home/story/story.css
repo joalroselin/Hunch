@@ -38,7 +38,7 @@
 .sy-buyers {
   position: relative;
   overflow-x: clip;
-  padding: clamp(84px, 10vw, 150px) var(--gutter) clamp(84px, 10vw, 150px);
+  padding: clamp(84px, 10vw, 150px) var(--gutter) clamp(56px, 6vw, 96px);
 }
 .sy-buyers .sy-h {
   max-width: none;
@@ -50,9 +50,15 @@
   align-items: start;
   margin-top: clamp(40px, 5vw, 76px);
 }
+/* Holds the 20 names' height while they show; settling on the 8 eases the space closed. */
 .sy-list {
   position: relative;
-  min-height: clamp(420px, 52vw, 760px);
+  container-type: inline-size;
+  min-height: var(--sy-all, 0px);
+  transition: min-height 0.9s var(--ease-out) 0.15s;
+}
+.sy-list[data-mode="picked"] {
+  min-height: 0px;
 }
 .sy-names {
   display: flex;
@@ -64,25 +70,39 @@
   list-style: none;
   font-weight: 800;
   letter-spacing: -0.035em;
-  line-height: 1.08;
-  transition: opacity 0.24s linear;
+  line-height: 1.04;
 }
 .sy-names[data-mode="all"] {
   font-size: clamp(21px, 2.6vw, 38px);
 }
+/* The 8 grow as they close ranks, never wider than the longest name allows on one line (measured in audiences.tsx). */
 .sy-names[data-mode="picked"] {
-  font-size: clamp(27px, 3.6vw, 52px);
-  line-height: 1.02;
+  font-size: var(--sy-fit, min(52px, 6cqw));
   gap: 0.2em 0.42em;
 }
-.sy-names[data-leaving] {
-  opacity: 0;
+.sy-ruler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+.sy-ruler > span {
+  position: absolute;
 }
 .sy-names li {
   opacity: 0;
+  transform-origin: 0 0;
 }
 .sy-names[data-seen] li {
   animation: sy-rise 0.75s var(--ease-out) calc(var(--i) * 34ms) both;
+}
+/* Shown again, the struck names come back in their places once the 8 have made room. */
+.sy-names[data-settled] li[data-cut] {
+  animation-delay: calc(180ms + var(--i) * 16ms);
 }
 @keyframes sy-rise {
   from {
@@ -103,9 +123,14 @@
   font: inherit;
   letter-spacing: inherit;
   text-align: left;
+  text-wrap: balance;
   cursor: pointer;
   position: relative;
-  transition: opacity 0.15s linear;
+  transition: opacity 0.25s linear;
+}
+/* While a reason is open the other names step back, so the bubble never sits on half a line. */
+.sy-list:has(.sy-cut) .sy-name:not([aria-expanded="true"]) {
+  opacity: 0.16;
 }
 /* Room for a finger between tight lines. */
 .sy-name::after {
@@ -137,7 +162,7 @@
 }
 .sy-names[data-seen] .sy-name[data-cut] .sy-ink {
   background-size: 100% 0.07em;
-  color: rgb(26 17 11 / 0.36);
+  color: rgb(26 17 11 / 0.5);
   transition-delay: calc(1100ms + var(--i) * 110ms);
 }
 .sy-name[data-cut]:is(:hover, :focus-visible, [aria-expanded="true"]) .sy-ink {
@@ -226,22 +251,49 @@
   opacity: 0;
   pointer-events: none;
 }
+/* Cards nobody can see play no clip. */
+.sy-card[data-role="rest"] .ugc-clip {
+  display: none;
+}
+/* The card coming to the front gains its tag and button softly. */
+.sy-card .ugc-cta,
+.sy-card .ugc-meta > i {
+  animation: sy-chrome 0.5s var(--ease-out) 0.3s both;
+}
+@keyframes sy-chrome {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.5cqw, 0);
+  }
+}
+/* The lit buyer's moment. Every sentence shares one cell, so the tallest sets the height. */
 .sy-moment {
-  width: min(100%, 26ch);
+  display: grid;
+  width: min(100%, 28ch);
   margin: 0;
   font-size: clamp(18px, 1.4vw, 20px);
   text-align: center;
+}
+.sy-moment > span {
+  grid-area: 1 / 1;
   text-wrap: balance;
-  animation: sy-rise 0.7s var(--ease-out) both;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.2s linear,
+    visibility 0s linear 0.2s;
+}
+.sy-moment > span[data-on] {
+  visibility: visible;
+  opacity: 1;
+  transition: none;
+  animation: sy-rise 0.7s var(--ease-out) 0.2s both;
 }
 
 @media (max-width: 899px) {
   .sy-buyers-body {
     grid-template-columns: minmax(0, 1fr);
     gap: 44px;
-  }
-  .sy-list {
-    min-height: 0;
   }
   .sy-cut {
     font-size: 15px;
@@ -254,13 +306,16 @@
     opacity: 1;
     animation: none;
   }
-  .sy-names,
+  .sy-list,
   .sy-ink,
-  .sy-names[data-seen] .sy-name[data-cut] .sy-ink {
+  .sy-names[data-seen] .sy-name[data-cut] .sy-ink,
+  .sy-moment > span {
     transition: none;
   }
   .sy-cut,
-  .sy-moment {
+  .sy-moment > span[data-on],
+  .sy-card .ugc-cta,
+  .sy-card .ugc-meta > i {
     animation: none;
   }
   .sy-card {

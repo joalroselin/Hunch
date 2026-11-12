@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 
 import { useReduced } from "@/components/ds/instruments"
@@ -36,6 +36,7 @@ function Wordmark({ className }: { className?: string }) {
 }
 
 export function HomeHeader() {
+  const ref = useRef<HTMLElement>(null)
   const [solid, setSolid] = useState(false)
   const reduced = useReduced()
 
@@ -46,8 +47,40 @@ export function HomeHeader() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  // Over a color field the strip goes clear, in the field's own text color, so the poster runs to the top.
+  useEffect(() => {
+    const header = ref.current
+    if (!header) return
+    let raf = 0
+    const look = () => {
+      raf = 0
+      const y = Math.round(header.getBoundingClientRect().height / 2)
+      let field = ""
+      for (const el of document.elementsFromPoint(Math.round(window.innerWidth / 2), y)) {
+        if (header.contains(el)) continue
+        const f = el.closest(".hh-field")
+        // A field still fading in does not count yet.
+        if (f && parseFloat(getComputedStyle(f).opacity) > 0.6) field = f.classList.contains("hh-field-mangga") ? "light" : "dark"
+        break
+      }
+      if (field) header.dataset.field = field
+      else delete header.dataset.field
+    }
+    const kick = () => {
+      if (!raf) raf = requestAnimationFrame(look)
+    }
+    kick()
+    window.addEventListener("scroll", kick, { passive: true })
+    window.addEventListener("resize", kick)
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener("scroll", kick)
+      window.removeEventListener("resize", kick)
+    }
+  }, [])
+
   return (
-    <header data-hx-el="header" data-solid={solid} className="hh-header hx-hide">
+    <header ref={ref} data-hx-el="header" data-solid={solid} className="hh-header hx-hide">
       <div className="hh-header-row">
         <Link href="/" className="hh-logo shrink-0" aria-label="Hunch, home">
           <HunchMark />

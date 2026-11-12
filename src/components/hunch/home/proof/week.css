@@ -10,7 +10,8 @@
   overflow: clip;
   border-radius: var(--lap) var(--lap) 0 0;
   background: var(--cream);
-  box-shadow: 0 -14px 48px rgb(60 0 10 / 0.26);
+  /* A soft lift along the top edge only: offset and spread keep the blur off the band below. */
+  box-shadow: 0 -24px 32px -10px rgb(60 0 10 / 0.3);
 }
 .nw-top {
   position: relative;
@@ -138,10 +139,10 @@
 /* Two side bets, set off to the right. */
 .nw-tests {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: calc(72 * var(--u));
-  margin-top: calc(130 * var(--u));
+  margin-top: calc(40 * var(--u));
 }
 .nw-tests-title {
   font-size: calc(84 * var(--u));
@@ -204,8 +205,11 @@
     gap: 22px;
     min-height: 0;
     margin-top: 28px;
-    padding: 56px var(--gutter) 30px;
+    /* Room under the pill for the copied bubble, given back below. */
+    margin-bottom: -54px;
+    padding: 56px var(--gutter) 84px;
     overflow-x: auto;
+    overflow-y: hidden;
     overscroll-behavior-x: contain;
     scroll-snap-type: x proximity;
     scrollbar-width: none;
@@ -219,7 +223,7 @@
     scroll-snap-align: center;
   }
   .nw-day[data-lead] {
-    --wpx: min(62vw, 260px);
+    --wpx: min(70vw, 260px);
     margin-right: 6px;
   }
   .nw-when {
@@ -228,6 +232,9 @@
   }
   .nw-copy {
     top: calc(100% - 46px);
+  }
+  .nw-said {
+    max-width: 230px;
   }
   .nw-tests {
     flex-direction: column;

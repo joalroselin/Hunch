@@ -48,7 +48,7 @@ describe("guardrails", () => {
   it("pass every final Elle post and catch both bad drafts", () => {
     const run = elleRun();
     for (const v of run.versions) expect(guardrailIssues(v.copy!, { price: run.product.price })).toEqual([]);
-    const a1 = run.rejected.find((r) => r.audienceName.startsWith("After a Cubao Expo"))!;
+    const a1 = run.rejected.find((r) => r.audienceName.startsWith("Thrifters back from Cubao Expo"))!;
     const issues = guardrailIssues({ taglish: { ...a1.draft, cta: "Message us" } }, { price: "₱350" });
     expect(issues.length).toBeGreaterThan(0);
     for (const i of issues) expect([a1.draft.hook, ...a1.draft.slides, a1.draft.caption, "Message us"].join("\n")).toContain(i.quote);
@@ -110,7 +110,7 @@ describe("live pipeline on the mocked model", () => {
   });
 
   it("flags a post after 2 rewrite rounds instead of blocking the run", async () => {
-    const { run } = await live({ stubborn: ["Café and salon counters"] });
+    const { run } = await live({ stubborn: ["Café and salon owners"] });
     const a8 = run.versions.find((v) => v.code === "A8")!;
     expect(a8.status).toBe("needs_attention");
     expect(a8.openIssues?.length).toBeGreaterThan(0);
@@ -142,7 +142,7 @@ describe("Analyst and Planner on the mocked model", () => {
 
   it("catches an explanation that contradicts the verdict", () => {
     const v = { metric: "cost_per_result" as const, ranking: [], winnerCode: "A3", runnerUpCode: "A4", confidence: "high" as const, caveats: [] };
-    const names = { A3: "Hosts getting the sala ready", A4: "Home from the night shift" };
+    const names = { A3: "Hosts getting the sala ready", A4: "Night shift workers coming home" };
     expect(contradicts("A4 won this test. It was close.", v, names)).toBeTruthy();
     expect(contradicts("A3 won with low confidence. It was close.", v, names)).toBeTruthy();
     expect(contradicts("A3 won at about ₱7 a message. A4 came second at ₱10.", v, names)).toBeNull();
@@ -155,7 +155,7 @@ describe("Analyst and Planner on the mocked model", () => {
     expect(plan.posts).toHaveLength(7);
     expect(plan.posts.map((p) => p.purpose)).toEqual(["winner", "winner", "winner", "runner_up_test", "winner", "winner", "winner"]);
     expect(new Set(plan.posts.map((p) => p.theme)).size).toBe(7);
-    expect(plan.posts[3].audienceName).toBe("Office exchange gift draw");
+    expect(plan.posts[3].audienceName).toBe("Officemates buying an exchange gift");
     expect(plan.posts.every((p) => p.status === "approved")).toBe(true);
   });
 });

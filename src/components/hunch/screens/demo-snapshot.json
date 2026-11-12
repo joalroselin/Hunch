@@ -14,7 +14,7 @@
     "candidates": [
       {
         "id": "c01",
-        "name": "After a Cubao Expo thrift haul",
+        "name": "Thrifters back from Cubao Expo",
         "who": "Someone who spends Saturday nights at Cubao Expo and comes home with vintage finds for their room.",
         "situation": "Back from Cubao Expo with a lampshade, a record and a thrifted jacket, setting up the shelf.",
         "whyItFits": "The room already has the look; a candle in an amber jar adds the one thing a thrift haul can't: how the room smells.",
@@ -43,7 +43,7 @@
       },
       {
         "id": "c03",
-        "name": "Salcedo Saturday condo reset",
+        "name": "Condo folks on a Saturday reset",
         "who": "Someone who shops the Salcedo Saturday market and spends the rest of the morning resetting a Makati condo.",
         "situation": "Saturday late morning, flowers in a vase, sourdough on the counter, brunch at home.",
         "whyItFits": "A fresh scent is the last touch on a slow weekend morning, and ₱350 fits a market-day treat.",
@@ -87,7 +87,7 @@
       },
       {
         "id": "c06",
-        "name": "First apartment move-in",
+        "name": "First-time renters moving in",
         "who": "Someone who just moved into their first rented place.",
         "situation": "The first weekend in a new place, still unpacking boxes.",
         "whyItFits": "A candle helps a new place feel like home.",
@@ -101,7 +101,7 @@
       },
       {
         "id": "c07",
-        "name": "Home from the night shift",
+        "name": "Night shift workers coming home",
         "who": "Someone who works nights and gets home at around 7 AM while the street is waking up.",
         "situation": "Home at sunrise, eating dinner while the neighbors have breakfast, before going to sleep.",
         "whyItFits": "The commute home is a daily routine with its own small ritual, different from any evening at home.",
@@ -130,7 +130,7 @@
       },
       {
         "id": "c09",
-        "name": "Barkada unit splitting the bills",
+        "name": "Barkadas splitting the bills",
         "who": "Friends who share a condo unit or boarding house room and split the bills in a group chat.",
         "situation": "The monthly ambagan after a pickup game, jerseys drying, shoes lined up at the door.",
         "whyItFits": "₱350 split a few ways is small, and a candle on the shared table is something the whole unit uses.",
@@ -145,7 +145,7 @@
       },
       {
         "id": "c10",
-        "name": "Gaming setup late nights",
+        "name": "Gamers up late",
         "who": "Someone who games late at night at a desk setup in their room.",
         "situation": "Midnight, a long session, the room getting stuffy.",
         "whyItFits": "A candle can be part of the setup.",
@@ -173,7 +173,7 @@
       },
       {
         "id": "c12",
-        "name": "Office exchange gift draw",
+        "name": "Officemates buying an exchange gift",
         "who": "Someone who drew a coworker's name for the office Christmas exchange and has a set budget.",
         "situation": "Mid-November, names are drawn, and the wishlist just says 'anything'.",
         "whyItFits": "₱350 fits a common ₱500 exchange budget, and an amber jar with a lid already looks like a gift.",
@@ -188,7 +188,7 @@
       },
       {
         "id": "c13",
-        "name": "Christmas gifts for family",
+        "name": "Families shopping for Christmas gifts",
         "who": "Someone buying Christmas gifts for relatives.",
         "situation": "Making a gift list in December.",
         "whyItFits": "A candle is a nice gift.",
@@ -202,7 +202,7 @@
       },
       {
         "id": "c14",
-        "name": "Monthsary tomorrow, no gift yet",
+        "name": "Partners with no monthsary gift yet",
         "who": "Someone whose monthsary is tomorrow, with dinner booked and no gift.",
         "situation": "The night before a monthsary, scrolling for something that isn't flowers or a stuffed toy.",
         "whyItFits": "A candle is a gift that keeps showing up: every time it's lit, the giver comes to mind.",
@@ -216,7 +216,7 @@
       },
       {
         "id": "c15",
-        "name": "Balikbayan box padala",
+        "name": "Families packing balikbayan boxes",
         "who": "Families packing a balikbayan box for relatives abroad before Christmas.",
         "situation": "Filling the last corners of the box before the cargo cutoff.",
         "whyItFits": "Relatives abroad would like a scent from home.",
@@ -230,7 +230,7 @@
       },
       {
         "id": "c16",
-        "name": "Café and salon counters",
+        "name": "Café and salon owners",
         "who": "Someone who runs a small café or salon and wants the shop to smell good when people walk in.",
         "situation": "The monthly supply run, deciding what goes on the counter.",
         "whyItFits": "A homemade candle on the counter makes a small shop smell like itself, and repeat orders work by message.",
@@ -245,7 +245,7 @@
       },
       {
         "id": "c17",
-        "name": "Wedding and debut giveaways",
+        "name": "Couples planning wedding giveaways",
         "who": "Couples and families ordering giveaways for a wedding or a debut.",
         "situation": "Choosing souvenirs for 100 guests.",
         "whyItFits": "Small candles make popular giveaways.",
@@ -259,7 +259,7 @@
       },
       {
         "id": "c18",
-        "name": "TikTok candle videos",
+        "name": "TikTok candle watchers",
         "who": "People who watch candle-pouring videos on TikTok.",
         "situation": "Seeing a candle video and wanting one.",
         "whyItFits": "Candle-pouring videos get millions of views.",
@@ -303,7 +303,7 @@
     "chosen": [
       {
         "id": "c01",
-        "name": "After a Cubao Expo thrift haul",
+        "name": "Thrifters back from Cubao Expo",
         "who": "Someone who spends Saturday nights at Cubao Expo and comes home with vintage finds for their room.",
         "situation": "Back from Cubao Expo with a lampshade, a record and a thrifted jacket, setting up the shelf.",
         "whyItFits": "The room already has the look; a candle in an amber jar adds the one thing a thrift haul can't: how the room smells.",
@@ -318,7 +318,7 @@
       },
       {
         "id": "c03",
-        "name": "Salcedo Saturday condo reset",
+        "name": "Condo folks on a Saturday reset",
         "who": "Someone who shops the Salcedo Saturday market and spends the rest of the morning resetting a Makati condo.",
         "situation": "Saturday late morning, flowers in a vase, sourdough on the counter, brunch at home.",
         "whyItFits": "A fresh scent is the last touch on a slow weekend morning, and ₱350 fits a market-day treat.",
@@ -348,7 +348,7 @@
       },
       {
         "id": "c07",
-        "name": "Home from the night shift",
+        "name": "Night shift workers coming home",
         "who": "Someone who works nights and gets home at around 7 AM while the street is waking up.",
         "situation": "Home at sunrise, eating dinner while the neighbors have breakfast, before going to sleep.",
         "whyItFits": "The commute home is a daily routine with its own small ritual, different from any evening at home.",
@@ -363,7 +363,7 @@
       },
       {
         "id": "c09",
-        "name": "Barkada unit splitting the bills",
+        "name": "Barkadas splitting the bills",
         "who": "Friends who share a condo unit or boarding house room and split the bills in a group chat.",
         "situation": "The monthly ambagan after a pickup game, jerseys drying, shoes lined up at the door.",
         "whyItFits": "₱350 split a few ways is small, and a candle on the shared table is something the whole unit uses.",
@@ -378,7 +378,7 @@
       },
       {
         "id": "c12",
-        "name": "Office exchange gift draw",
+        "name": "Officemates buying an exchange gift",
         "who": "Someone who drew a coworker's name for the office Christmas exchange and has a set budget.",
         "situation": "Mid-November, names are drawn, and the wishlist just says 'anything'.",
         "whyItFits": "₱350 fits a common ₱500 exchange budget, and an amber jar with a lid already looks like a gift.",
@@ -393,7 +393,7 @@
       },
       {
         "id": "c14",
-        "name": "Monthsary tomorrow, no gift yet",
+        "name": "Partners with no monthsary gift yet",
         "who": "Someone whose monthsary is tomorrow, with dinner booked and no gift.",
         "situation": "The night before a monthsary, scrolling for something that isn't flowers or a stuffed toy.",
         "whyItFits": "A candle is a gift that keeps showing up: every time it's lit, the giver comes to mind.",
@@ -407,7 +407,7 @@
       },
       {
         "id": "c16",
-        "name": "Café and salon counters",
+        "name": "Café and salon owners",
         "who": "Someone who runs a small café or salon and wants the shop to smell good when people walk in.",
         "situation": "The monthly supply run, deciding what goes on the counter.",
         "whyItFits": "A homemade candle on the counter makes a small shop smell like itself, and repeat orders work by message.",
@@ -426,7 +426,7 @@
         "id": "v_elle_a1",
         "code": "A1",
         "audienceId": "c01",
-        "audienceName": "After a Cubao Expo thrift haul",
+        "audienceName": "Thrifters back from Cubao Expo",
         "hook": "POV: hindi mo inexpect na ganito kabango ang ilang-ilang 😍",
         "slides": [
           "POV: hindi mo inexpect na ganito kabango ang ilang-ilang 😍",
@@ -491,7 +491,7 @@
         "id": "v_elle_a2",
         "code": "A2",
         "audienceId": "c03",
-        "audienceName": "Salcedo Saturday condo reset",
+        "audienceName": "Condo folks on a Saturday reset",
         "hook": "saturday condo diaries ☕🕯️",
         "slides": [
           "saturday condo diaries ☕🕯️",
@@ -621,7 +621,7 @@
         "id": "v_elle_a4",
         "code": "A4",
         "audienceId": "c07",
-        "audienceName": "Home from the night shift",
+        "audienceName": "Night shift workers coming home",
         "hook": "POV: kakauwi mo lang galing night shift 🕯️",
         "slides": [
           "POV: kakauwi mo lang galing night shift 🕯️",
@@ -686,7 +686,7 @@
         "id": "v_elle_a5",
         "code": "A5",
         "audienceId": "c09",
-        "audienceName": "Barkada unit splitting the bills",
+        "audienceName": "Barkadas splitting the bills",
         "hook": "ambagan sa unit: kuryente, wifi, tubig, at... kandila? 😭",
         "slides": [
           "ambagan sa unit: kuryente, wifi, tubig, at... kandila? 😭",
@@ -750,7 +750,7 @@
         "id": "v_elle_a6",
         "code": "A6",
         "audienceId": "c12",
-        "audienceName": "Office exchange gift draw",
+        "audienceName": "Officemates buying an exchange gift",
         "hook": "Below 500 pesos na pang exchange gift sa office 🎄",
         "slides": [
           "Below 500 pesos na pang exchange gift sa office 🎄",
@@ -815,7 +815,7 @@
         "id": "v_elle_a7",
         "code": "A7",
         "audienceId": "c14",
-        "audienceName": "Monthsary tomorrow, no gift yet",
+        "audienceName": "Partners with no monthsary gift yet",
         "hook": "meron ka na bang regalo sa monthsary niyo bukas? 🎁",
         "slides": [
           "meron ka na bang regalo sa monthsary niyo bukas? 🎁",
@@ -880,7 +880,7 @@
         "id": "v_elle_a8",
         "code": "A8",
         "audienceId": "c16",
-        "audienceName": "Café and salon counters",
+        "audienceName": "Café and salon owners",
         "hook": "perfect pang design sa counter ng cafe o salon niyo 🕯️",
         "slides": [
           "perfect pang design sa counter ng cafe o salon niyo 🕯️",
@@ -946,7 +946,7 @@
       {
         "id": "r_elle_a1_1",
         "audienceId": "c01",
-        "audienceName": "After a Cubao Expo thrift haul",
+        "audienceName": "Thrifters back from Cubao Expo",
         "draft": {
           "hook": "Hey gays! Galing Cubao Expo? Para sa mga beks ang candle na 'to.",
           "slides": [
@@ -980,7 +980,7 @@
       {
         "id": "r_elle_a4_1",
         "audienceId": "c07",
-        "audienceName": "Home from the night shift",
+        "audienceName": "Night shift workers coming home",
         "draft": {
           "hook": "Pampawala ng stress pagkatapos ng night shift!",
           "slides": [
@@ -1045,7 +1045,7 @@
       {
         "id": "c06",
         "category": "duplicate",
-        "reason": "Same moment as 'Salcedo Saturday condo reset': making a small rented place feel like yours. The Saturday reset is more specific."
+        "reason": "Same moment as 'Condo folks on a Saturday reset': making a small rented place feel like yours. The Saturday reset is more specific."
       },
       {
         "id": "c08",
@@ -1055,7 +1055,7 @@
       {
         "id": "c10",
         "category": "duplicate",
-        "reason": "Same place and crowd as 'Barkada unit splitting the bills'. The shared unit has the clearer reason to buy, and gaming fits inside that post."
+        "reason": "Same place and crowd as 'Barkadas splitting the bills'. The shared unit has the clearer reason to buy, and gaming fits inside that post."
       },
       {
         "id": "c11",
@@ -1065,7 +1065,7 @@
       {
         "id": "c13",
         "category": "duplicate",
-        "reason": "Same moment as 'Office exchange gift draw': a Christmas gift for someone. The office draw has a budget and a date, so that one stays."
+        "reason": "Same moment as 'Officemates buying an exchange gift': a Christmas gift for someone. The office draw has a budget and a date, so that one stays."
       },
       {
         "id": "c15",
@@ -1108,7 +1108,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c01",
-        "text": "Strategist proposed 'After a Cubao Expo thrift haul'.",
+        "text": "Strategist proposed 'Thrifters back from Cubao Expo'.",
         "detail": "Back from Cubao Expo with a lampshade, a record and a thrifted jacket, setting up the shelf."
       },
       {
@@ -1126,7 +1126,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c03",
-        "text": "Strategist proposed 'Salcedo Saturday condo reset'.",
+        "text": "Strategist proposed 'Condo folks on a Saturday reset'.",
         "detail": "Saturday late morning, flowers in a vase, sourdough on the counter, brunch at home."
       },
       {
@@ -1153,7 +1153,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c06",
-        "text": "Strategist proposed 'First apartment move-in'.",
+        "text": "Strategist proposed 'First-time renters moving in'.",
         "detail": "The first weekend in a new place, still unpacking boxes."
       },
       {
@@ -1162,7 +1162,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c07",
-        "text": "Strategist proposed 'Home from the night shift'.",
+        "text": "Strategist proposed 'Night shift workers coming home'.",
         "detail": "Home at sunrise, eating dinner while the neighbors have breakfast, before going to sleep."
       },
       {
@@ -1180,7 +1180,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c09",
-        "text": "Strategist proposed 'Barkada unit splitting the bills'.",
+        "text": "Strategist proposed 'Barkadas splitting the bills'.",
         "detail": "The monthly ambagan after a pickup game, jerseys drying, shoes lined up at the door."
       },
       {
@@ -1189,7 +1189,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c10",
-        "text": "Strategist proposed 'Gaming setup late nights'.",
+        "text": "Strategist proposed 'Gamers up late'.",
         "detail": "Midnight, a long session, the room getting stuffy."
       },
       {
@@ -1207,7 +1207,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c12",
-        "text": "Strategist proposed 'Office exchange gift draw'.",
+        "text": "Strategist proposed 'Officemates buying an exchange gift'.",
         "detail": "Mid-November, names are drawn, and the wishlist just says 'anything'."
       },
       {
@@ -1216,7 +1216,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c13",
-        "text": "Strategist proposed 'Christmas gifts for family'.",
+        "text": "Strategist proposed 'Families shopping for Christmas gifts'.",
         "detail": "Making a gift list in December."
       },
       {
@@ -1225,7 +1225,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c14",
-        "text": "Strategist proposed 'Monthsary tomorrow, no gift yet'.",
+        "text": "Strategist proposed 'Partners with no monthsary gift yet'.",
         "detail": "The night before a monthsary, scrolling for something that isn't flowers or a stuffed toy."
       },
       {
@@ -1234,7 +1234,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c15",
-        "text": "Strategist proposed 'Balikbayan box padala'.",
+        "text": "Strategist proposed 'Families packing balikbayan boxes'.",
         "detail": "Filling the last corners of the box before the cargo cutoff."
       },
       {
@@ -1243,7 +1243,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c16",
-        "text": "Strategist proposed 'Café and salon counters'.",
+        "text": "Strategist proposed 'Café and salon owners'.",
         "detail": "The monthly supply run, deciding what goes on the counter."
       },
       {
@@ -1252,7 +1252,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c17",
-        "text": "Strategist proposed 'Wedding and debut giveaways'.",
+        "text": "Strategist proposed 'Couples planning wedding giveaways'.",
         "detail": "Choosing souvenirs for 100 guests."
       },
       {
@@ -1261,7 +1261,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c18",
-        "text": "Strategist proposed 'TikTok candle videos'.",
+        "text": "Strategist proposed 'TikTok candle watchers'.",
         "detail": "Seeing a candle video and wanting one."
       },
       {
@@ -1288,7 +1288,7 @@
         "agent": "skeptic",
         "kind": "audience_kept",
         "refId": "c01",
-        "text": "Skeptic kept 'After a Cubao Expo thrift haul' as A1.",
+        "text": "Skeptic kept 'Thrifters back from Cubao Expo' as A1.",
         "detail": "The Cubao Expo crowd buys for their rooms on the spot, and a thrift haul is a clear moment to add a scent."
       },
       {
@@ -1306,7 +1306,7 @@
         "agent": "skeptic",
         "kind": "audience_kept",
         "refId": "c03",
-        "text": "Skeptic kept 'Salcedo Saturday condo reset' as A2.",
+        "text": "Skeptic kept 'Condo folks on a Saturday reset' as A2.",
         "detail": "A Saturday reset at the condo is a self-treat moment no other kept audience covers."
       },
       {
@@ -1333,8 +1333,8 @@
         "agent": "skeptic",
         "kind": "candidate_rejected",
         "refId": "c06",
-        "text": "Skeptic dropped 'First apartment move-in': same moment as 'Salcedo Saturday condo reset'.",
-        "detail": "Same moment as 'Salcedo Saturday condo reset': making a small rented place feel like yours. The Saturday reset is more specific."
+        "text": "Skeptic dropped 'First-time renters moving in': same moment as 'Condo folks on a Saturday reset'.",
+        "detail": "Same moment as 'Condo folks on a Saturday reset': making a small rented place feel like yours. The Saturday reset is more specific."
       },
       {
         "id": "e28",
@@ -1342,7 +1342,7 @@
         "agent": "skeptic",
         "kind": "audience_kept",
         "refId": "c07",
-        "text": "Skeptic kept 'Home from the night shift' as A4.",
+        "text": "Skeptic kept 'Night shift workers coming home' as A4.",
         "detail": "Coming home at sunrise is its own routine, different from any evening at home."
       },
       {
@@ -1360,7 +1360,7 @@
         "agent": "skeptic",
         "kind": "audience_kept",
         "refId": "c09",
-        "text": "Skeptic kept 'Barkada unit splitting the bills' as A5.",
+        "text": "Skeptic kept 'Barkadas splitting the bills' as A5.",
         "detail": "Splitting bills in a shared unit makes ₱350 small, and it gives the candle a job that isn't decor."
       },
       {
@@ -1369,8 +1369,8 @@
         "agent": "skeptic",
         "kind": "candidate_rejected",
         "refId": "c10",
-        "text": "Skeptic dropped 'Gaming setup late nights': same crowd as 'Barkada unit splitting the bills'.",
-        "detail": "Same place and crowd as 'Barkada unit splitting the bills'. The shared unit has the clearer reason to buy, and gaming fits inside that post."
+        "text": "Skeptic dropped 'Gamers up late': same crowd as 'Barkadas splitting the bills'.",
+        "detail": "Same place and crowd as 'Barkadas splitting the bills'. The shared unit has the clearer reason to buy, and gaming fits inside that post."
       },
       {
         "id": "e32",
@@ -1387,7 +1387,7 @@
         "agent": "skeptic",
         "kind": "audience_kept",
         "refId": "c12",
-        "text": "Skeptic kept 'Office exchange gift draw' as A6.",
+        "text": "Skeptic kept 'Officemates buying an exchange gift' as A6.",
         "detail": "A clear November moment with a budget that ₱350 fits."
       },
       {
@@ -1396,8 +1396,8 @@
         "agent": "skeptic",
         "kind": "candidate_rejected",
         "refId": "c13",
-        "text": "Skeptic dropped 'Christmas gifts for family': same moment as 'Office exchange gift draw'.",
-        "detail": "Same moment as 'Office exchange gift draw': a Christmas gift for someone. The office draw has a budget and a date, so that one stays."
+        "text": "Skeptic dropped 'Families shopping for Christmas gifts': same moment as 'Officemates buying an exchange gift'.",
+        "detail": "Same moment as 'Officemates buying an exchange gift': a Christmas gift for someone. The office draw has a budget and a date, so that one stays."
       },
       {
         "id": "e35",
@@ -1405,7 +1405,7 @@
         "agent": "skeptic",
         "kind": "audience_kept",
         "refId": "c14",
-        "text": "Skeptic kept 'Monthsary tomorrow, no gift yet' as A7.",
+        "text": "Skeptic kept 'Partners with no monthsary gift yet' as A7.",
         "detail": "A gift with a deadline for one person, a different moment from the office draw."
       },
       {
@@ -1414,7 +1414,7 @@
         "agent": "skeptic",
         "kind": "candidate_rejected",
         "refId": "c15",
-        "text": "Skeptic dropped 'Balikbayan box padala': wax and glass don't travel well in a cargo box.",
+        "text": "Skeptic dropped 'Families packing balikbayan boxes': wax and glass don't travel well in a cargo box.",
         "detail": "Soy wax can soften and glass can crack after weeks in a hot cargo container, and Elle hasn't said how she packs for shipping."
       },
       {
@@ -1423,7 +1423,7 @@
         "agent": "skeptic",
         "kind": "audience_kept",
         "refId": "c16",
-        "text": "Skeptic kept 'Café and salon counters' as A8.",
+        "text": "Skeptic kept 'Café and salon owners' as A8.",
         "detail": "The only kept audience that could order several jars at once, so it tests a bulk reason to buy."
       },
       {
@@ -1432,7 +1432,7 @@
         "agent": "skeptic",
         "kind": "candidate_rejected",
         "refId": "c17",
-        "text": "Skeptic dropped 'Wedding and debut giveaways': small home batches can't fill a giveaway order.",
+        "text": "Skeptic dropped 'Couples planning wedding giveaways': small home batches can't fill a giveaway order.",
         "detail": "Giveaways need dozens of jars by a fixed date. Small home batches at ₱350 don't fit, and Elle hasn't set a bulk price."
       },
       {
@@ -1441,7 +1441,7 @@
         "agent": "skeptic",
         "kind": "candidate_rejected",
         "refId": "c18",
-        "text": "Skeptic dropped 'TikTok candle videos': Elle doesn't sell on TikTok.",
+        "text": "Skeptic dropped 'TikTok candle watchers': Elle doesn't sell on TikTok.",
         "detail": "Elle sells on Shopee, Instagram and Facebook, not TikTok, and this group is defined by an app, not by a moment."
       },
       {
@@ -1468,7 +1468,7 @@
         "agent": "copywriter",
         "kind": "post_drafted",
         "refId": "A1",
-        "text": "Copywriter drafted A1 for 'After a Cubao Expo thrift haul'.",
+        "text": "Copywriter drafted A1 for 'Thrifters back from Cubao Expo'.",
         "detail": "Hey gays! Galing Cubao Expo? Para sa mga beks ang candle na 'to."
       },
       {
@@ -1477,7 +1477,7 @@
         "agent": "copywriter",
         "kind": "post_drafted",
         "refId": "A2",
-        "text": "Copywriter drafted A2 for 'Salcedo Saturday condo reset'.",
+        "text": "Copywriter drafted A2 for 'Condo folks on a Saturday reset'.",
         "detail": "saturday condo diaries ☕🕯️"
       },
       {
@@ -1504,7 +1504,7 @@
         "agent": "copywriter",
         "kind": "post_drafted",
         "refId": "A4",
-        "text": "Copywriter drafted A4 for 'Home from the night shift'.",
+        "text": "Copywriter drafted A4 for 'Night shift workers coming home'.",
         "detail": "Pampawala ng stress pagkatapos ng night shift!"
       },
       {
@@ -1531,7 +1531,7 @@
         "agent": "copywriter",
         "kind": "post_drafted",
         "refId": "A5",
-        "text": "Copywriter drafted A5 for 'Barkada unit splitting the bills'.",
+        "text": "Copywriter drafted A5 for 'Barkadas splitting the bills'.",
         "detail": "ambagan sa unit: kuryente, wifi, tubig, at... kandila? 😭"
       },
       {
@@ -1549,7 +1549,7 @@
         "agent": "copywriter",
         "kind": "post_drafted",
         "refId": "A6",
-        "text": "Copywriter drafted A6 for 'Office exchange gift draw'.",
+        "text": "Copywriter drafted A6 for 'Officemates buying an exchange gift'.",
         "detail": "Below 500 pesos na pang exchange gift sa office 🎄"
       },
       {
@@ -1567,7 +1567,7 @@
         "agent": "copywriter",
         "kind": "post_drafted",
         "refId": "A7",
-        "text": "Copywriter drafted A7 for 'Monthsary tomorrow, no gift yet'.",
+        "text": "Copywriter drafted A7 for 'Partners with no monthsary gift yet'.",
         "detail": "meron ka na bang regalo sa monthsary niyo bukas? 🎁"
       },
       {
@@ -1603,7 +1603,7 @@
         "agent": "copywriter",
         "kind": "post_drafted",
         "refId": "A8",
-        "text": "Copywriter drafted A8 for 'Café and salon counters'.",
+        "text": "Copywriter drafted A8 for 'Café and salon owners'.",
         "detail": "perfect pang design sa counter ng cafe o salon niyo 🕯️"
       },
       {
@@ -1815,7 +1815,7 @@
       {
         "versionId": "v_elle_a6",
         "code": "A6",
-        "audienceName": "Office exchange gift draw",
+        "audienceName": "Officemates buying an exchange gift",
         "matchedBy": "code",
         "spend": 99,
         "impressions": 3117,
@@ -1970,7 +1970,7 @@
       {
         "versionId": "v_elle_a5",
         "code": "A5",
-        "audienceName": "Barkada unit splitting the bills",
+        "audienceName": "Barkadas splitting the bills",
         "matchedBy": "code",
         "spend": 99,
         "impressions": 3290,
@@ -2125,7 +2125,7 @@
       {
         "versionId": "v_elle_a4",
         "code": "A4",
-        "audienceName": "Home from the night shift",
+        "audienceName": "Night shift workers coming home",
         "matchedBy": "code",
         "spend": 99,
         "impressions": 2906,
@@ -2280,7 +2280,7 @@
       {
         "versionId": "v_elle_a2",
         "code": "A2",
-        "audienceName": "Salcedo Saturday condo reset",
+        "audienceName": "Condo folks on a Saturday reset",
         "matchedBy": "code",
         "spend": 99,
         "impressions": 3478,
@@ -2435,7 +2435,7 @@
       {
         "versionId": "v_elle_a7",
         "code": "A7",
-        "audienceName": "Monthsary tomorrow, no gift yet",
+        "audienceName": "Partners with no monthsary gift yet",
         "matchedBy": "code",
         "spend": 99,
         "impressions": 2254,
@@ -2590,7 +2590,7 @@
       {
         "versionId": "v_elle_a1",
         "code": "A1",
-        "audienceName": "After a Cubao Expo thrift haul",
+        "audienceName": "Thrifters back from Cubao Expo",
         "matchedBy": "code",
         "spend": 99,
         "impressions": 3762,
@@ -2745,7 +2745,7 @@
       {
         "versionId": "v_elle_a8",
         "code": "A8",
-        "audienceName": "Café and salon counters",
+        "audienceName": "Café and salon owners",
         "matchedBy": "code",
         "spend": 99,
         "impressions": 1563,
@@ -2913,7 +2913,7 @@
       "whatToPostNext": [
         "Show the jar lit on the sala table before guests arrive, next to the guest glasses.",
         "Match a scent to each kind of visit: Pandan Coconut for a handaan, Calamansi Basil for morning coffee.",
-        "Keep day 4 for Office exchange gift draw, to see if second place holds."
+        "Keep day 4 for Officemates buying an exchange gift, to see if second place holds."
       ],
       "confidence": "strong",
       "caveat": "Each audience got ₱99 for 3 days, so these are small numbers: 14 conversations against 10. That clears Hunch's bar for a clear lead, but with numbers this small, next week's posts are the real check on whether it holds into December."
@@ -2963,7 +2963,7 @@
       "winnerCode": "A3",
       "runnerUpCode": "A6",
       "confidence": "high",
-      "explanation": "Hosts getting the sala ready won: A3 started 14 message conversations for ₱99. Office exchange gift draw came second with 10. Next week, aim six posts at hosting at home and keep day 4 to test the exchange gift again.",
+      "explanation": "Hosts getting the sala ready won: A3 started 14 message conversations for ₱99. Officemates buying an exchange gift came second with 10. Next week, aim six posts at hosting at home and keep day 4 to test the exchange gift again.",
       "caveats": [],
       "caveatChecks": [
         {
@@ -3213,7 +3213,7 @@
         "id": "v_elle_p4",
         "code": "P4",
         "audienceId": "c12",
-        "audienceName": "Office exchange gift draw",
+        "audienceName": "Officemates buying an exchange gift",
         "hook": "napaka perfect nito pang exchange gift this coming christmas 😍",
         "slides": [
           "napaka perfect nito pang exchange gift this coming christmas 😍",
@@ -3483,7 +3483,7 @@
         "id": "v_elle_t1",
         "code": "T1",
         "audienceId": "c09",
-        "audienceName": "Barkada unit splitting the bills",
+        "audienceName": "Barkadas splitting the bills",
         "hook": "Sa unit niyo na naman ang watch party? 😭",
         "slides": [
           "Sa unit niyo na naman ang watch party? 😭",
@@ -3548,7 +3548,7 @@
         "id": "v_elle_t2",
         "code": "T2",
         "audienceId": "c07",
-        "audienceName": "Home from the night shift",
+        "audienceName": "Night shift workers coming home",
         "hook": "POV: Noche Buena ng night shift be like 🥲",
         "slides": [
           "POV: Noche Buena ng night shift be like 🥲",
@@ -3607,11 +3607,11 @@
             "cta": "Mag-message sa amin"
           }
         },
-        "why": "Home from the night shift came fourth. Many night-shift teams work through Christmas, so one ₱99 post tests if a Christmas-morning moment brings more messages than the everyday 7 AM post."
+        "why": "Night shift workers coming home came fourth. Many night-shift teams work through Christmas, so one ₱99 post tests if a Christmas-morning moment brings more messages than the everyday 7 AM post."
       }
     ],
     "notes": [
-      "Sample plan. Day 4 tests the runner-up, Office exchange gift draw."
+      "Sample plan. Day 4 tests the runner-up, Officemates buying an exchange gift."
     ]
   }
 }

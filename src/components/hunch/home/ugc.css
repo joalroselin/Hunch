@@ -16,7 +16,7 @@
 .ugc::after{content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
   background:linear-gradient(to bottom,rgba(0,0,0,.24),transparent 15%,transparent 60%,rgba(0,0,0,.58))}
 .ugc::before{content:""; position:absolute; z-index:4; left:0; bottom:0; height:.55cqw;
-  width:var(--played,38%); background:rgba(255,255,255,.9)}
+  width:100%; background:rgba(255,255,255,.9); transform:scaleX(var(--played,.38)); transform-origin:0 50%}
 
 /* on-video text, matching TikTok's own text tool */
 .ugc-text{position:absolute; z-index:2; left:7cqw; right:7cqw;
@@ -82,4 +82,19 @@
 .ugc-copy .ugc-text{position:static; margin:0 6cqw; text-wrap:balance}
 .ugc-copy .ugc-text.box{text-wrap:wrap}
 .ugc-fill{position:absolute; inset:0; z-index:0; background:var(--sun, #ff6a1f)}
+.ugc-clip{transition-timing-function:cubic-bezier(.45,0,.55,1)}
+
+/* A post that comes alive: the bar follows its clip, the heart takes a like and the count rolls up one. */
+.ugc[data-live]::before{animation:ugc-run var(--dur,6s) linear both}
+@keyframes ugc-run{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.ugc-rail .like::before{transition:background-color .2s linear}
+.ugc[data-liked] .like::before{background:#fe2c55; animation:ugc-pop .42s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes ugc-pop{0%{scale:1}45%{scale:1.25}100%{scale:1}}
+.ugc-n{display:block; height:1em; overflow:hidden}
+.ugc-n > span{display:block; transition:transform .38s var(--ease-expo, cubic-bezier(.16,1,.3,1))}
+.ugc[data-liked] .ugc-n > span{transform:translateY(-100%)}
+@media (prefers-reduced-motion: reduce){
+  .ugc[data-live]::before,.ugc[data-liked] .like::before{animation:none}
+  .ugc-n > span,.ugc[data-liked] .ugc-n > span{transform:none; transition:none}
+}
 
