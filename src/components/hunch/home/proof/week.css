@@ -23,11 +23,13 @@
   z-index: 2;
 }
 .nw-title {
-  width: 6.4em;
-  font-size: calc(96 * var(--u));
+  font-size: calc(84 * var(--u));
+}
+.nw-l {
+  display: block;
 }
 .nw-line {
-  width: 16em;
+  width: 26em;
   margin-top: calc(26 * var(--u));
   font-size: max(calc(20 * var(--u)), 17px);
 }
@@ -36,7 +38,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  min-height: calc(724 * var(--u));
+  min-height: calc(770 * var(--u));
 }
 .nw-day {
   --wpx: calc(var(--w) * var(--u));
@@ -195,6 +197,7 @@
     font-size: clamp(46px, 13.2vw, 76px);
   }
   .nw-line {
+    width: auto;
     margin-top: 16px;
     font-size: 18px;
   }

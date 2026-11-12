@@ -14,11 +14,10 @@
   z-index: 2;
 }
 .hw-head .ha-h1 {
-  width: 6.6em;
-  font-size: calc(88 * var(--u));
+  font-size: calc(76 * var(--u));
 }
 .hw-head .ha-line {
-  max-width: 24em;
+  max-width: 31em;
   font-size: max(calc(19 * var(--u)), 17px);
 }
 
@@ -26,7 +25,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  min-height: calc(672 * var(--u));
+  min-height: calc(716 * var(--u));
 }
 .hw-day {
   --wpx: calc(var(--w) * var(--u));
@@ -119,6 +118,7 @@
 }
 .hw-day[data-lead] .hw-when {
   padding-top: 0.75em;
+  white-space: nowrap;
   font-size: max(calc(17 * var(--u)), 15px);
   font-weight: 700;
   letter-spacing: -0.015em;

@@ -118,7 +118,7 @@ export function NextWeek() {
     <section ref={ref} id="next-week" aria-labelledby="next-week-title" className="nw">
       <div className="nw-top">
         <header className="nw-head" data-rise>
-          <RiseWords id="next-week-title" parts={[{ text: TITLE }]} className="hh-title nw-title" />
+          <RiseWords id="next-week-title" parts={[{ text: "Next week,", className: "nw-l" }, { text: "post to your suki.", className: "nw-l" }]} className="hh-title nw-title" />
           <p className="hh-line nw-line pf-rise" style={{ "--rd": after(TITLE) } as CSSProperties}>
             {runnerUpName
               ? `${forWinner} posts for ${lowerFirst(focus.audience.name)}. 1 for ${lowerFirst(runnerUpName)}.`

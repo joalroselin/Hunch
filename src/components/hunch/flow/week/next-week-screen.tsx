@@ -146,7 +146,13 @@ function WeekView({ plan, run }: { plan: FocusPlan; run: TestRun }) {
         <div className="hw-top">
           <ScreenTitle
             className="hw-head"
-            title="Next week, post to your suki."
+            title={
+              <>
+                Next week,
+                <br />
+                post to your suki.
+              </>
+            }
             line={
               runnerUp
                 ? `${posts.length - 1} posts for ${lowerFirst(plan.audience.name)}. 1 for ${lowerFirst(runnerUp.audienceName)}.`
