@@ -619,3 +619,13 @@
 .about-qr img { width: 220px; max-width: 100%; height: auto; flex: none; border-radius: 12px; }
 .about-qr h3 { font-size: 28px; margin: 12px 0; }
 @media (max-width: 800px) { .insight-priority, .insight-decision-grid { grid-template-columns: minmax(0,1fr); } .insight-priority > img { max-height: 230px; } .about-qr { flex-direction: column; align-items: flex-start; } }
+
+.home-dashboard { gap: 24px; margin-bottom: 32px; }
+.home-dashboard .home-stats { padding-block: 16px; }
+.home-dashboard .home-next-panel, .home-dashboard .latest-panel { padding: 22px; }
+.home-dashboard .panel-head h2 { font-size: 24px; }
+.home-dashboard .sample-banner { font-size: 11px; margin-block: 12px; }
+.home-dashboard .home-columns { gap: 24px; }
+.home-dashboard .week-item { padding-block: 12px; }
+.home-dashboard .result-caption { margin-block: 12px; font-size: 13px; }
+.home-dashboard .result-pair b { font-size: 25px; }
