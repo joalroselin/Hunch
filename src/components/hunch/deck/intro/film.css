@@ -133,7 +133,7 @@
   left: 112px;
   top: 50%;
   translate: 0 -50%;
-  font-size: 164px;
+  font-size: 104px;
 }
 
 /* A window the names roll through, one buyer at a time. */
@@ -218,4 +218,18 @@
   .ifl-days i {
     transition: none;
   }
+}
+/* Slide 3: the pains on top, the reach number under them. */
+.ifl-h-test.ifl-h-scratch {
+  left: 112px;
+  top: 56px;
+  font-size: 56px;
+}
+.ifl-big.ifl-big-reach {
+  top: 340px;
+  font-size: 250px;
+}
+.ifl-sub.ifl-sub-reach {
+  top: 640px;
+  font-size: 72px;
 }
