@@ -11,7 +11,7 @@ import "./why-now.css"
 
 // Verbatim from DMs with two solo creators. Names kept private.
 const CHAT = [
-  { tag: "Creator A, on posting", lines: ["I just post everywhere. Some might work on some dont", "No aggregated platform. But that would be so helpful"] },
+  { tag: "Creator A, on posting", lines: ["Some might work on some dont", "No aggregated platform. But that would be so helpful"] },
   { tag: "Creator A, on AI help", lines: ["this is bound to happen, might as well just embrace it"] },
   { tag: "Creator B, on selling", lines: ["w the rise of affiliate marketing", "even YT u can link products na"] },
 ]
@@ -21,17 +21,17 @@ const posts = ORDER.flatMap((c) => run.versions.filter((v) => v.code === c))
 const LEAD = 4
 const SPREAD = 52
 
-/** Why now: creators sell now and still guess who buys; the posts do the finding. */
+/** Why now: in creators' own words, they post everywhere and hope; the posts do the finding. */
 export function WhyNow({ active, still }: SlideProps) {
   const on = useOn(active, still)
   return (
     <Shell on={on} still={still} label="Why now" className="mo-light wn">
       <div className="wn-words">
         <h2 className="mo-h wn-h" data-in>
-          Creators sell now. They still guess.
+          “I just post everywhere.”
         </h2>
         <p className="mo-line" data-in style={at(0.08)}>
-          We asked solo creators this week.
+          A solo creator we asked this week.
         </p>
       </div>
 
