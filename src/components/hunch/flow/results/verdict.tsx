@@ -183,7 +183,6 @@ export function WinnerPoster({
             <span>{t.unit(w.n)}</span>
           </p>
         </div>
-        {report.isSample ? <p className="hh-label hr-note">Sample numbers. No real ads were run.</p> : null}
       </div>
     </div>
   )

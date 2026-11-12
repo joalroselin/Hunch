@@ -8,7 +8,7 @@ import type { Mode } from "@/lib/hunch/types"
 
 import { HeroMark } from "./hero/actors"
 import { HeroHeadline, SUPPORT } from "./hero/headline"
-import { decideMode, playIntro, playSend, type IntroMode, type Timeline } from "./hero/intro"
+import { BEATS, decideMode, playIntro, playSend, takeHandoff, type IntroMode, type Timeline } from "./hero/intro"
 import { FlyBys, PostBurst } from "./hero/post-ring"
 import { PromptBox } from "./prompt-box"
 import "./hero/hero.css"
@@ -41,8 +41,9 @@ export function Hero({ serverMode }: { serverMode: Mode }) {
     const root = hero.closest<HTMLElement>("[data-hx-root]") ?? hero
     let mode = root.getAttribute("data-hx") as IntroMode | null
     if (mode !== "intro" && mode !== "fade" && mode !== "done") mode = decideMode()
+    const handed = takeHandoff() && mode !== "done"
     // Nobody would see it: the hero is already scrolled away, or the failsafe has shown the page.
-    if (mode === "intro" && (hero.getBoundingClientRect().bottom < window.innerHeight * 0.5 || performance.now() > 5500)) mode = "done"
+    if (mode === "intro" && !handed && (hero.getBoundingClientRect().bottom < window.innerHeight * 0.5 || performance.now() > 5500)) mode = "done"
     root.setAttribute("data-hx", mode)
 
     // The posts fly out of the mark, so its center is the origin.
@@ -92,10 +93,10 @@ export function Hero({ serverMode }: { serverMode: Mode }) {
       document.removeEventListener("visibilitychange", onShow)
       if (!alive) return
       // A tab that was in the background starts at once, before its first visible frame.
-      ;(seen ? quiet(hero) : Promise.resolve()).then(() => {
+      ;(seen && !handed ? quiet(hero) : Promise.resolve()).then(() => {
         if (!alive) return
         // Too late to start: the failsafe is about to show the page.
-        if (seen && performance.now() > 5600) {
+        if (seen && !handed && performance.now() > 5600) {
           unlisten()
           root.setAttribute("data-hx", "done")
           place()
@@ -103,7 +104,7 @@ export function Hero({ serverMode }: { serverMode: Mode }) {
           setTyping(true)
           return
         }
-        tl = playIntro(root, hero, () => alive && setTyping(true))
+        tl = playIntro(root, hero, () => alive && setTyping(true), handed ? BEATS.burst - 40 : undefined)
         if (skipped) tl.rush()
         tl.finished.then(
           () => {

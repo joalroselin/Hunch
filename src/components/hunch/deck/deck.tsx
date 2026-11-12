@@ -1,5 +1,6 @@
 "use client"
 
+import { HANDOFF_KEY } from "@/components/hunch/home/hero/intro"
 import { AnimatePresence, MotionConfig, motion, useIsPresent } from "framer-motion"
 import { useRouter } from "next/navigation"
 import { PrefetchKind } from "next/dist/client/components/router-reducer/router-reducer-types"
@@ -212,6 +213,9 @@ export function Deck() {
       leaving.current = true
       // Back from the landing page lands on the appendix.
       window.history.replaceState(null, "", `${window.location.pathname}#more`)
+      try {
+        window.sessionStorage.setItem(HANDOFF_KEY, String(Date.now()))
+      } catch {}
       router.push(path)
     },
     [router]

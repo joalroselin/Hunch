@@ -5,6 +5,18 @@ export type IntroMode = "intro" | "fade" | "done"
 // Runs before the hero is parsed, so the first paint already matches the mode. A deep link skips the entrance.
 export const INTRO_SCRIPT = `(function(){try{var r=document.currentScript&&document.currentScript.parentElement;if(!r)return;var m=location.hash.length>1?"done":window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?"fade":"intro";r.setAttribute("data-hx",m)}catch(e){}})();`
 
+// Set by the deck just before it hands off, so the landing page bursts out of the deck's bubble.
+export const HANDOFF_KEY = "hunch.handoff"
+export function takeHandoff(): boolean {
+  try {
+    const t = Number(window.sessionStorage.getItem(HANDOFF_KEY))
+    window.sessionStorage.removeItem(HANDOFF_KEY)
+    return t > 0 && Date.now() - t < 15000
+  } catch {
+    return false
+  }
+}
+
 export function decideMode(): IntroMode {
   if (window.location.hash.length > 1) return "done"
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "fade" : "intro"
@@ -88,7 +100,7 @@ function orderedFlies(hero: HTMLElement) {
   return all<HTMLElement>(hero, "[data-hx-fly]").sort((a, b) => Number(a.dataset.order ?? 0) - Number(b.dataset.order ?? 0))
 }
 
-export function playIntro(root: HTMLElement, hero: HTMLElement, onTyping: () => void): Timeline {
+export function playIntro(root: HTMLElement, hero: HTMLElement, onTyping: () => void, from?: number): Timeline {
   const anims: Animation[] = []
   const add = (a: Animation | undefined) => a && anims.push(a)
   const B = BEATS
@@ -108,8 +120,9 @@ export function playIntro(root: HTMLElement, hero: HTMLElement, onTyping: () => 
 
   // The outline started drawing at first paint; the script picks up where it is.
   const drawing = line?.getAnimations()[0]
+  if (from != null) drawing?.finish()
   const drawn = Number(drawing?.currentTime ?? B.fill)
-  const lead = Math.max(0, B.fill - (Number.isFinite(drawn) ? drawn : B.fill))
+  const lead = from != null ? B.fill - from : Math.max(0, B.fill - (Number.isFinite(drawn) ? drawn : B.fill))
   const at = (ms: number) => ms - B.fill + lead
 
   // Measure everything before the first animation moves anything.

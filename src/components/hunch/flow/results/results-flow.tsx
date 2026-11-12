@@ -348,16 +348,6 @@ export function ResultsFlow({ demo, serverMode }: { demo: boolean; serverMode: M
           <StepAction>
             <GoLink href="/next-week" className="w-full md:w-auto">{"Get next week's posts"}</GoLink>
           </StepAction>
-          <Button
-            variant="secondary"
-            size="lg"
-            onClick={() => {
-              setEditing(true)
-              window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" })
-            }}
-          >
-            Edit the numbers
-          </Button>
           {report.notes?.filter((n) => !/sample|persona/i.test(n)).map((n) => (
             <p key={n} className="ha-note">
               {n}
@@ -445,8 +435,6 @@ export function ResultsFlow({ demo, serverMode }: { demo: boolean; serverMode: M
               <Bubble aria-hidden className="max-md:hidden">
                 {tip}
               </Bubble>
-            ) : sampleGrid ? (
-              <p className="ha-note">Sample data. No real ads were run.</p>
             ) : !allReady ? (
               <p className="ha-note max-md:hidden">Every post needs its amount spent, plus messages or link clicks.</p>
             ) : null}

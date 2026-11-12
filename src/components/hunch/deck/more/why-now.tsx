@@ -9,39 +9,45 @@ import type { SlideProps } from "../types"
 import { Shell, Src, at, useOn } from "./parts"
 import "./why-now.css"
 
-// Example interests a candle seller would have ticked. Illustration only.
-const INTERESTS = ["Scented candles", "Home decor", "Aromatherapy", "Gift shopping", "Interior design"]
+// Verbatim from DMs with two solo creators. Names kept private.
+const CHAT = [
+  { tag: "Creator A, on posting", lines: ["I just post everywhere. Some might work on some dont", "No aggregated platform. But that would be so helpful"] },
+  { tag: "Creator A, on AI help", lines: ["this is bound to happen, might as well just embrace it"] },
+  { tag: "Creator B, on selling", lines: ["w the rise of affiliate marketing", "even YT u can link products na"] },
+]
 // The winning post sits on top, just right of the middle.
 const ORDER = ["A1", "A2", "A4", "A5", "A3", "A6", "A7", "A8"]
 const posts = ORDER.flatMap((c) => run.versions.filter((v) => v.code === c))
 const LEAD = 4
 const SPREAD = 52
 
-/** Why now: the targeting boxes stop mattering; the posts do the finding. */
+/** Why now: creators sell now and still guess who buys; the posts do the finding. */
 export function WhyNow({ active, still }: SlideProps) {
   const on = useOn(active, still)
   return (
     <Shell on={on} still={still} label="Why now" className="mo-light wn">
       <div className="wn-words">
         <h2 className="mo-h wn-h" data-in>
-          Meta now picks who sees ads.
+          Creators sell now. They still guess.
         </h2>
         <p className="mo-line" data-in style={at(0.08)}>
-          What the post says decides who sees it.
+          We asked solo creators this week.
         </p>
       </div>
 
-      <div className="wn-panel" data-in style={at(0.2)}>
-        <p className="wn-title">Detailed targeting</p>
-        <ul className="wn-rows">
-          {INTERESTS.map((x, i) => (
-            <li key={x} className="wn-row" style={{ "--s": `${0.75 + i * 0.13}s` } as CSSProperties}>
-              <span aria-hidden className="wn-box" />
-              <span className="wn-word">{x}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="wn-note">Many options stopped working on Jan 15, 2026.</p>
+      <div className="wn-chat" data-in style={at(0.2)}>
+        {CHAT.map((g, k) => (
+          <div key={g.tag} className="wn-group">
+            <p className="wn-tag" data-in style={at(0.5 + k * 0.55)}>
+              {g.tag}
+            </p>
+            {g.lines.map((l, n) => (
+              <p key={l} className="wn-bub" data-in style={at(0.6 + k * 0.55 + n * 0.22)}>
+                {l}
+              </p>
+            ))}
+          </div>
+        ))}
       </div>
 
       <div aria-hidden className="wn-fan">
@@ -60,7 +66,7 @@ export function WhyNow({ active, still }: SlideProps) {
         })}
       </div>
 
-      <Src>Meta for Business, Apr 2025. Social Media Today, Aug 2025. Interests shown are examples.</Src>
+      <Src>DMs with two solo creators, Nov 2026. Names kept private.</Src>
     </Shell>
   )
 }
