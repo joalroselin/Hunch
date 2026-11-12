@@ -195,18 +195,18 @@ export function Audiences() {
     return () => ro.disconnect()
   }, [mode])
 
-  // Once the 12 are struck, the list settles on the 8 that stay. Never while someone is reading or pointing.
+  // Once the 12 are struck, the list settles on the 8 that stay. Never while a reason is open or after a click.
   React.useEffect(() => {
-    if (!reading || reduced || cutCount === 0 || mode !== "all" || touched.current || hover || (narrow && deckOn)) return
+    if (!reading || reduced || cutCount === 0 || mode !== "all" || touched.current || cut || (narrow && deckOn)) return
     const t = window.setTimeout(() => {
       if (!touched.current) swap("picked")
     }, 5200)
     return () => window.clearTimeout(t)
-  }, [reading, reduced, swap, mode, hover, narrow, deckOn])
+  }, [reading, reduced, swap, mode, cut, narrow, deckOn])
 
   React.useEffect(() => {
     if (!live || held || hover || picked.length < 2) return
-    const t = window.setInterval(() => setSel((s) => (s + 1) % picked.length), 3800)
+    const t = window.setInterval(() => setSel((s) => (s + 1) % picked.length), 4400)
     return () => window.clearInterval(t)
   }, [live, held, hover])
 
@@ -322,7 +322,8 @@ export function Audiences() {
                         if (e.pointerType !== "mouse") return
                         window.clearTimeout(peek.current)
                         const k = picked.findIndex((p) => p.id === a.id)
-                        peek.current = window.setTimeout(() => setSel(k), 120)
+                        // Only a pointer that rests picks; one passing over leaves the deck alone.
+                        peek.current = window.setTimeout(() => setSel(k), 350)
                       }}
                       onPointerLeave={() => window.clearTimeout(peek.current)}
                       onClick={() => {
