@@ -207,10 +207,13 @@ function Words({ scene, run, still }: { scene: number; run: boolean; still: bool
         <motion.div key="open" className="ifl-words" data-tone="ink" {...block(still)}>
           <h2 className="hh-display ifl-h-open">
             <span className="ifl-line">
-              <Rise text="Everyone's a creator" delay={0.7} still={still} />
+              <Rise text="Everyone wants to be" delay={0.7} still={still} />
             </span>
             <span className="ifl-line">
-              <Rise text="or a seller now." delay={0.95} still={still} />
+              <Rise text="a content creator" delay={0.95} still={still} />
+            </span>
+            <span className="ifl-line">
+              <Rise text="or an online seller now." delay={1.2} still={still} />
             </span>
           </h2>
         </motion.div>
