@@ -312,7 +312,7 @@ function Words({ scene, beat, run, still }: { scene: number; beat: number; run: 
         <motion.div key="dream" className="ifl-words" data-tone="ink" {...block(still)}>
           <h2 className="hh-title ifl-h-test ifl-h-doubt">
             <span className="ifl-line">
-              <Rise text="They don't know who their ideal customer is." delay={0.6} gap={0.05} still={still} />
+              <Rise text="Beginners don't know who their ideal customer is." delay={0.6} gap={0.05} still={still} />
             </span>
             <span className="ifl-line">
               <Rise text="They're not sure who would watch their content." delay={2.6} gap={0.05} still={still} />
