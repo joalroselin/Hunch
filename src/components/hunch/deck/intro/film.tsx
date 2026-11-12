@@ -241,24 +241,32 @@ function Words({ scene, run, still }: { scene: number; run: boolean; still: bool
       ) : null}
       {scene === 2 ? (
         <motion.div key="reach" className="ifl-words" data-tone="sheet" {...block(still)}>
-          <p className="hh-title ifl-h-test">
-            <Rise text="No marketing team. No ad budget." delay={0.5} gap={0.06} still={still} />
+          <p className="hh-title ifl-h-test ifl-h-doubt ifl-h-scratch">
+            <span className="ifl-line">
+              <Rise text="But many who start from scratch have" delay={0.4} gap={0.05} still={still} />
+            </span>
+            <span className="ifl-line">
+              <Rise text="no marketing team. No ad budget." delay={1.2} gap={0.06} still={still} />
+            </span>
+            <span className="ifl-line">
+              <Rise text="No designer. No idea who buys." delay={2} gap={0.06} still={still} />
+            </span>
           </p>
-          <p className="hh-display ifl-big">
+          <p className="hh-display ifl-big ifl-big-reach">
             <motion.span
               className="ifl-w"
               initial={still ? false : { opacity: 0, y: "0.2em", filter: "blur(14px)" }}
               animate={{ opacity: 1, y: "0em", filter: "blur(0px)" }}
-              transition={{ duration: 0.9, ease: EASE, delay: 1.6 }}
+              transition={{ duration: 0.9, ease: EASE, delay: 3 }}
             >
-              <Count to={1.25} decimals={2} delay={1.65} duration={1.4} still={still} />%
+              1 in <Count to={80} delay={3.05} duration={1.4} still={still} />
             </motion.span>
           </p>
-          <p className="hh-title ifl-sub">
-            <Rise text="of followers see a page post." delay={2.3} gap={0.07} still={still} />
+          <p className="hh-title ifl-sub ifl-sub-reach">
+            <Rise text="followers see your Facebook post." delay={3.6} gap={0.07} still={still} />
           </p>
           <motion.p className="ifl-src" initial={still ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 3 }}>
-            Socialinsider, 2026, average Facebook page post, global
+            Socialinsider, 2026. An average Facebook page post reaches 1.25% of followers, global.
           </motion.p>
         </motion.div>
       ) : null}
