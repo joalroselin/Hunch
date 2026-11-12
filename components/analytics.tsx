@@ -1,7 +1,7 @@
 "use client";
 
 import AnalyticsHistory from "./analytics-history";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { analyzePosts } from "../lib/analytics";
 import { samplePhotoFor, type Post } from "../lib/demo-workspace";
 
@@ -9,7 +9,7 @@ const number = (value: number) => value.toLocaleString("en-US");
 const money = (value: number | null) => value === null ? "—" : `₱${value.toLocaleString("en-PH", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 const label = (row: ReturnType<typeof analyzePosts>["rows"][number]) => row.campaign?.audience ?? row.post.text.split("\n")[0];
 
-export default function Analytics({ posts, onInspect, onPlan, onAddResults }: { posts: Post[]; onInspect: (post: Post) => void; onPlan: (post: Post) => void; onAddResults: () => void }) {
+export default function Analytics({ posts, onInspect, onPlan, onAddResults, overview }: { overview?: ReactNode; posts: Post[]; onInspect: (post: Post) => void; onPlan: (post: Post) => void; onAddResults: () => void }) {
   const [channel, setChannel] = useState("All");
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const data = analyzePosts(posts, channel);
@@ -25,6 +25,7 @@ export default function Analytics({ posts, onInspect, onPlan, onAddResults }: { 
   return <section className="analytics-page" aria-label="Analytics">
     <header className="analytics-header"><label className="analytics-filter">Channel<select value={channel} onChange={event => setChannel(event.target.value)}><option value="All">All channels</option>{[...new Set(posts.filter(post => post.status === "Posted").map(post => post.channel))].map(name => <option key={name}>{name}</option>)}</select></label></header>
     <AnalyticsHistory posts={posts} channel={channel} onAddResults={onAddResults} section="trends" />
+    {overview}
     {!!data.ranked.length && <div className="analytics-visual-posts" aria-label="Leading campaign posts">{data.ranked.filter(row => samplePhotoFor(row.post)).slice(0,3).map(row => <button key={row.post.id} onClick={() => onInspect(row.post)}><img src={samplePhotoFor(row.post)} alt=""/><span><b>{row.campaign?.code} · {row.messages} conversations</b><small>{label(row)}</small></span></button>)}</div>}
     {!!data.campaigns.length && <><div className="analytics-source"><span>{sampleCount === data.campaigns.length ? "Sample campaign" : "Recorded campaigns"}</span>{data.campaigns.length} measured posts{sampleCount > 0 ? ` · ${sampleCount} sample` : ""} · Messages are conversations started, not orders.</div><div className="analytics-kpis">
       <article><span>Conversations started</span><strong>{number(data.messages)}</strong><small>Across {data.campaigns.length} measured posts</small></article>
