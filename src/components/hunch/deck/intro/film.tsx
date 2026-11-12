@@ -252,18 +252,21 @@ function Words({ scene, run, still }: { scene: number; run: boolean; still: bool
               <Rise text="No designer. No idea who buys." delay={2} gap={0.06} still={still} />
             </span>
           </p>
-          <p className="hh-display ifl-big ifl-big-reach">
+          <p className="ifl-reach">
+            <span className="hh-title ifl-reach-line">
+              <Rise text="According to SocialInsider, only" delay={3} gap={0.04} still={still} />
+            </span>
             <motion.span
-              className="ifl-w"
+              className="hh-display ifl-reach-n"
               initial={still ? false : { opacity: 0, y: "0.2em", filter: "blur(14px)" }}
               animate={{ opacity: 1, y: "0em", filter: "blur(0px)" }}
-              transition={{ duration: 0.9, ease: EASE, delay: 3 }}
+              transition={{ duration: 0.9, ease: EASE, delay: 3.4 }}
             >
-              1 in <Count to={80} delay={3.05} duration={1.4} still={still} />
+              1 in <Count to={80} delay={3.45} duration={1.4} still={still} />
             </motion.span>
-          </p>
-          <p className="hh-title ifl-sub ifl-sub-reach">
-            <Rise text="According to SocialInsider, only 1 in 80 followers are bound to see your Facebook post." delay={3.6} gap={0.04} still={still} />
+            <span className="hh-title ifl-reach-line">
+              <Rise text="followers are bound to see your Facebook post." delay={4.2} gap={0.04} still={still} />
+            </span>
           </p>
           <motion.p className="ifl-src" initial={still ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 3 }}>
             Socialinsider, 2026. An average Facebook page post reaches 1.25% of followers, global.
@@ -287,9 +290,14 @@ function Words({ scene, run, still }: { scene: number; run: boolean; still: bool
       ) : null}
       {scene >= 4 ? (
         <motion.div key="hunch" className="ifl-words" data-tone="ink" {...block(still)}>
-          <p className="hh-display ifl-count">
-            <Rise text="hunch" delay={0.5} still={still} />
-          </p>
+          <motion.p
+            className="hh-display ifl-lock"
+            initial={false}
+            animate={{ opacity: scene >= 5 && !still ? 0 : 1 }}
+            transition={{ duration: 0.35, ease: "linear" }}
+          >
+            <Rise text="hunch" delay={0.55} still={still} />
+          </motion.p>
         </motion.div>
       ) : null}
     </AnimatePresence>
@@ -388,6 +396,9 @@ export function Film({ active, step, still }: SlideProps) {
   const D = m.d / box.s
   const R = Math.hypot(view.width / 2, view.height / 2) + 8
   const folding = scene === HANDOFF
+  // The logo's bubble, large above the name, before it zooms out into the landing page's.
+  const BIG = Math.min(view.width, view.height) * 0.34
+  const big = { left: view.width / 2 - BIG / 2, top: view.height * 0.43 - BIG, width: BIG, height: BIG }
   const open = dropClip(view.width, view.height, view.width / 2 - R, view.height / 2 - R, 2 * R)
   const shut = dropClip(view.width, view.height, L, T, D)
   const lensRef = useRef<HTMLDivElement>(null)
@@ -434,17 +445,13 @@ export function Film({ active, step, still }: SlideProps) {
             </div>
           </div>
         </div>
-        {folding && !still ? (
+        {scene >= 4 ? (
           <motion.div
             aria-hidden
             className="ifl-sun hh-drop hh-grain"
-            style={{ left: L, top: T, width: D, height: D }}
-            initial={{ opacity: 0, clipPath: `circle(142% at ${TAIL})` }}
-            animate={{
-              opacity: [0, 0, 1, 1, 1],
-              clipPath: [`circle(142% at ${TAIL})`, `circle(142% at ${TAIL})`, `circle(142% at ${TAIL})`, `circle(142% at ${TAIL})`, `circle(0% at ${TAIL})`],
-            }}
-            transition={{ duration: 1.8, times: [0, 0.44, 0.66, 0.74, 1], ease: [0.6, 0, 0.3, 1] }}
+            initial={still ? false : { opacity: 0, scale: 0.5, ...big }}
+            animate={folding && !still ? { opacity: 1, scale: 1, left: L, top: T, width: D, height: D } : { opacity: 1, scale: 1, ...big }}
+            transition={folding && !still ? { duration: FOLD, ease: [0.7, 0, 0.25, 1] } : { duration: 0.9, ease: EASE }}
           />
         ) : null}
       </div>

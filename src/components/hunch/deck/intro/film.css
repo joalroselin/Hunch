@@ -225,25 +225,6 @@
   top: 56px;
   font-size: 56px;
 }
-.ifl-big.ifl-big-reach {
-  left: auto;
-  right: 112px;
-  top: auto;
-  bottom: 330px;
-  font-size: 250px;
-  text-align: right;
-}
-.ifl-sub.ifl-sub-reach {
-  left: auto;
-  right: 112px;
-  top: auto;
-  bottom: 150px;
-  width: 1080px;
-  font-size: 54px;
-  line-height: 1.15;
-  text-align: right;
-  white-space: normal;
-}
 /* The last two scenes are the landing page's own paper, so the explosion follows without a cut. */
 .ifl[data-scene="4"] .ifl-stage-posts,
 .ifl[data-scene="5"] .ifl-stage-posts {
@@ -258,4 +239,33 @@
 .ifl-sub.ifl-sub-many {
   top: 560px;
   font-size: 72px;
+}
+/* Slide 3: one sentence, bottom right, its 1 in 80 set large. */
+.ifl-reach {
+  position: absolute;
+  right: 112px;
+  bottom: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+.ifl-reach-line {
+  font-size: 58px;
+  line-height: 1.15;
+}
+.ifl-reach-n {
+  font-size: 250px;
+  line-height: 0.95;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+/* The ending: the name under the large bubble. */
+.ifl-lock {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 520px;
+  font-size: 230px;
+  text-align: center;
 }
