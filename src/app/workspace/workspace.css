@@ -421,12 +421,6 @@
   .chat-heading small { display: block; margin-top: 4px; font-size: 13px; font-weight: 500; }
   .chat-close { flex: none; width: 40px; min-width: 40px; height: 40px; min-height: 40px; padding: 0; border-radius: 50%; }
   .chat-close svg { display: block; width: 18px; height: 18px; }
-  .chat-run { margin: 0 16px 4px; padding: 12px 14px; border-radius: 18px; background: var(--cream); }
-  .chat-run-title { display: flex; align-items: center; gap: 10px; }
-  .chat-run-title .brand-mark { width: 20px; }
-  .chat-run.is-running .brand-mark { animation: ws-turn 0.9s var(--ease-out) infinite alternate; }
-  .chat-run-title strong { display: block; font-size: 14px; font-weight: 700; letter-spacing: -0.015em; }
-  .chat-run-title small { display: block; margin-top: 3px; font-size: 12.5px; font-weight: 500; }
   .chat-thread { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 14px 20px 20px; scrollbar-width: thin; }
   .chat-welcome { padding: 10px 0 18px; }
   .chat-welcome .hero-label { display: none; }
@@ -453,6 +447,13 @@
   .chat-prompts .platform-demo-trigger::after { content: ""; position: absolute; inset: 0; z-index: -1; background: url(/textures/grain-fine.png) 0 0 / 256px 256px; mix-blend-mode: soft-light; opacity: 0.5; pointer-events: none; }
   @media (hover: hover) { .chat-prompts .platform-demo-trigger:not(:disabled):hover { background: var(--sun); translate: 0 -1px; } }
   .chat-prompts .platform-demo-trigger:focus-visible { outline-offset: 3px; }
+  .chat-draft { margin-top: 14px; padding: 14px; border-radius: 16px; background: var(--sheet); box-shadow: var(--shadow-slip); }
+  .chat-draft > p { margin: 0; font-size: 14px; }
+  .chat-draft > small { display: block; margin-top: 12px; font-size: 12px; text-transform: capitalize; }
+  .chat-draft .back { width: 100%; min-height: 38px; margin-top: 6px; }
+  .chat-evidence { display: block; margin-top: 12px; padding: 0; border: 0; background: none; font-size: 13px; font-weight: 700; text-align: left; text-decoration: underline; text-underline-offset: 3px; }
+  .chat-working { padding: 12px 0; font-size: 13px; color: var(--ink-soft); }
+  .rs-item[data-chat-evidence] { outline: 2px solid var(--chili); outline-offset: 6px; border-radius: 18px; scroll-margin-top: 100px; }
   .chat-composer { margin: 0 16px 16px; padding: 10px 10px 10px 16px; border-radius: 22px; background: var(--cream); box-shadow: var(--shadow-well); }
   .chat-input-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .chat-composer textarea { display: block; width: 100%; min-height: 48px; max-height: 150px; padding: 4px 0; border: 0; background: transparent; font-size: 16px; font-weight: 500; line-height: 1.4; resize: none; }
@@ -623,7 +624,7 @@
     .ws-rise, .wk-hang, .pl-row, .rs-wait-list li, .rs-count, .rs-bar, .rs-winner-tilt, .dlg, .dlg-preview, .chat-panel, .chat-message, .dlg-note {
       animation: ws-fade 0.3s linear both !important;
     }
-    .wk-day[data-lead] .ugc, .rs-winner .ugc, .rs-ghost[data-busy] .rs-item, .ws-loading-drop, .chat-run.is-running .brand-mark, .chat-thinking i, .chat-caret, .ws-saved i { animation: none !important; }
+    .wk-day[data-lead] .ugc, .rs-winner .ugc, .rs-ghost[data-busy] .rs-item, .ws-loading-drop, .chat-thinking i, .chat-caret, .ws-saved i { animation: none !important; }
     *, *::before, *::after { transition-duration: 0.01ms !important; }
     .ws-logo:hover .ws-logo-drop, .ws-ask[aria-expanded="true"] .ws-ask-drop { rotate: none; }
   }

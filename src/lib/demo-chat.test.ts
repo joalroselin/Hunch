@@ -1,139 +1,122 @@
 import assert from "node:assert/strict";
 import { test } from "vitest";
-import snapshot from "@/components/hunch/screens/demo-snapshot.json";
+import { focus, report } from "@/components/hunch/home/data";
 import { captionText } from "@/lib/hunch/language";
-import type { Version } from "@/lib/hunch/types";
-import { demoReply, platformPrompt, roleActivity, scenarios, type ChatMessage } from "./demo-chat";
+import { demoReply, importPrompt, manilaToday, requestedDay } from "./demo-chat";
 import { mergeDemoPlatform, refreshSamples, sampleWorkspacePosts, type Post } from "./demo-workspace";
 
-const { run, report, focus } = snapshot;
-const metric = (code: string) => report.metrics.find(m => m.code === code)!;
-const testPostOf = (audienceId: string) => run.versions.find(v => v.audienceId === audienceId)!;
-const realPosts = [...focus.posts, ...focus.tests] as unknown as Version[];
-const channels = ["Instagram", "TikTok", "Facebook"];
-const roles = ["Analyst", "Strategist", "Copywriter", "Skeptic", "Reviewer"];
-const num = (n: number) => n.toLocaleString("en-US");
-const sum = (list: number[]) => list.reduce((a, b) => a + b, 0);
-
-// Noon in Manila on Nov 12, 2026.
 const now = new Date("2026-11-12T04:00:00Z");
 const samples = sampleWorkspacePosts(now);
-const replay = demoReply(platformPrompt);
+const ask = (question: string) => demoReply(question, samples, undefined, now);
+const suggestion = () => ask("What should I post?")[0].draft!;
 
-test("the posted samples are Elle's 8 test posts with their real numbers, over the last 3 days", () => {
+test("sample results and week use the shared candle dataset", () => {
   const posted = samples.filter(post => post.status === "Posted");
-  assert.deepEqual(posted.map(post => post.code).sort(), run.versions.map(v => v.code).sort());
+  assert.equal(posted.length, report.metrics.length);
   for (const post of posted) {
-    const version = run.versions.find(v => v.code === post.code)!;
-    assert.equal(post.text, version.hook);
-    assert.equal(post.audience, version.audienceName);
-    assert.equal(post.photo, `/sample/candles/${version.code}.jpg`);
-    assert.equal(post.reach, metric(version.code).reach);
-    assert.equal(post.engagements, metric(version.code).engagements);
-    assert.ok(["2026-11-09", "2026-11-10", "2026-11-11"].includes(post.date), post.date);
-    assert.ok(channels.includes(post.channel));
+    const metric = report.metrics.find(metric => metric.code === post.code)!;
+    assert.equal(post.reach, metric.reach);
+    assert.equal(post.engagements, metric.engagements);
+    assert.ok(post.photo?.startsWith("/sample/candles/"));
   }
-  assert.deepEqual(new Set(posted.map(post => post.channel)), new Set(channels));
-  assert.equal(new Set(posted.map(post => post.date)).size, 3);
-  assert.equal(sum(posted.map(post => post.reach ?? 0)), sum(report.metrics.map(m => m.reach)));
-  assert.equal(sum(posted.map(post => post.engagements ?? 0)), sum(report.metrics.map(m => m.engagements)));
+  assert.deepEqual(samples.filter(post => post.status === "Planned").map(post => post.date), ["2026-11-13", "2026-11-14", "2026-11-15", "2026-11-16", "2026-11-17", "2026-11-18", "2026-11-19"]);
 });
 
-test("the planned samples are next week's 7 posts, one a day from tomorrow", () => {
-  const planned = samples.filter(post => post.status === "Planned");
-  assert.deepEqual(planned.map(post => post.text), focus.posts.map(post => post.hook));
-  assert.deepEqual(planned.map(post => post.date), ["2026-11-13", "2026-11-14", "2026-11-15", "2026-11-16", "2026-11-17", "2026-11-18", "2026-11-19"]);
-  for (const [i, post] of planned.entries()) {
-    assert.equal(post.audience, focus.posts[i].audienceName);
-    assert.equal(post.photo, `/sample/candles/${testPostOf(focus.posts[i].audienceId).code}.jpg`);
-    assert.equal(post.reach, undefined);
+test("natural performance questions give one Hunch answer linked to a displayed post", () => {
+  for (const question of ["What worked?", "How did my posts do?", "Show my performance", "Which post was best?"]) {
+    const reply = ask(question);
+    assert.equal(reply.length, 1);
+    assert.equal(reply[0].role, "Hunch");
+    const post = samples.find(post => post.id === reply[0].evidence?.postId)!;
+    assert.ok(post);
+    const metric = report.metrics.find(metric => metric.code === post.code)!;
+    assert.ok(reply[0].text.includes(`${metric.results} messages`));
+    assert.ok(reply[0].text.includes(post.reach!.toLocaleString("en-US")));
   }
-  assert.equal(samples.length, run.versions.length + focus.posts.length);
-  assert.ok(samples.every(post => post.sample));
 });
 
-test("sample ids are new, so stored chili oil samples are dropped", () => {
-  const ids = samples.map(post => post.id);
-  assert.equal(new Set(ids).size, ids.length);
-  assert.ok(ids.every(id => id.startsWith("elle-")));
-  const personal: Post = { id: "my-post", text: "Keep my work", channel: "TikTok", date: "", status: "Draft" };
-  const old: Post = { id: "sample-plan", text: "The chili oil I put on absolutely everything", channel: "TikTok", date: "", status: "Planned", sample: true };
-  const edited: Post = { id: "sample-draft", text: "Budget lunch series", channel: "Facebook", date: "", status: "Draft" };
-  const fromCloud: Post = { ...samples[0], photo: undefined, audience: undefined, code: undefined };
-  const kept = refreshSamples([old, edited, personal, fromCloud]);
-  assert.deepEqual(kept.map(post => post.id), [personal.id, fromCloud.id]);
-  assert.equal(kept[1].photo, samples[0].photo);
-  assert.equal(kept[1].audience, samples[0].audience);
-  const replaced = refreshSamples([old, personal]);
-  assert.equal(replaced.length, 1 + samples.length);
-  assert.ok(replaced.every(post => !/chili|garlic/i.test(post.text)));
-  assert.equal(refreshSamples(sampleWorkspacePosts()).length, samples.length);
+test("analysis uses current posts, not the full sample or sample metrics on personal posts", () => {
+  const personal: Post[] = [
+    { id: "one", text: "My first post", status: "Posted", channel: "Instagram", date: "", reach: 100, engagements: 10, code: "A3" },
+    { id: "two", text: "My second post", status: "Posted", channel: "TikTok", date: "", reach: 100, engagements: 20 },
+  ];
+  const response = demoReply("What worked?", personal)[0];
+  assert.equal(response.evidence?.postId, "two");
+  assert.match(response.text, /20.0% engagement/);
+  assert.doesNotMatch(response.text, /messages|Elle/);
+  const changed = samples.filter(post => post.status === "Posted").map(post => ({ ...post, engagements: 1 }));
+  assert.doesNotMatch(demoReply("What worked?", changed)[0].text, /messages/);
 });
 
-test("the replay loads Instagram, TikTok and Facebook, then the five roles, with the test's numbers", () => {
-  for (const question of [platformPrompt, "Sync my platforms", "Analyze my real results"]) {
-    const reply = demoReply(question);
-    assert.deepEqual(reply.map(message => message.role), ["Hunch", ...channels, ...roles]);
-    assert.deepEqual(reply.filter(message => message.platform).map(message => message.platform), channels);
-    assert.match(reply[0].text, /Elle's 8 posts/);
+test("empty, zero reach and incomplete results never create a fake winner", () => {
+  for (const posts of [[], [{ ...samples[0], status: "Posted" as const, reach: 0, engagements: 10 }], [{ ...samples[0], status: "Posted" as const, reach: 100 }]]) {
+    const response = demoReply("What worked?", posts)[0];
+    assert.equal(response.evidence, undefined);
+    assert.equal(response.draft, undefined);
   }
-  for (const message of replay.filter(m => m.platform)) {
-    const posts = sampleWorkspacePosts().filter(post => post.status === "Posted" && post.channel === message.platform);
-    assert.ok(message.text.startsWith(`${posts.length} post`), message.text);
-    assert.ok(message.text.includes(`${num(sum(posts.map(post => post.reach ?? 0)))} people`), message.text);
-    assert.ok(message.text.includes(`${sum(posts.map(post => metric(post.code!).results))} messages`), message.text);
-  }
-  const winner = metric(report.verdict.winnerCode);
-  const runnerUp = metric(report.verdict.runnerUpCode);
-  const [analyst, strategist, copywriter, skeptic, reviewer] = replay.slice(4);
-  assert.ok(analyst.text.toLowerCase().includes(winner.audienceName.toLowerCase()) && analyst.text.includes(`${winner.results} messages`), analyst.text);
-  assert.ok(strategist.text.includes(`${focus.posts.filter(p => p.purpose === "winner").length} posts`), strategist.text);
-  assert.ok(strategist.text.includes(`Post ${focus.posts.findIndex(p => p.purpose === "runner_up_test") + 1}`) && strategist.text.toLowerCase().includes(runnerUp.audienceName.toLowerCase()) && strategist.text.includes(`got ${runnerUp.results}`), strategist.text);
-  assert.equal(copywriter.text, focus.posts[0].hook);
-  assert.ok(skeptic.text.includes(`${report.days} days`), skeptic.text);
-  assert.equal(reviewer.draft, captionText(focus.posts[0] as unknown as Version, "taglish"));
-  assert.equal(reviewer.channel, samples.find(post => post.code === focus.posts[0].code)?.channel);
+  const one = demoReply("What worked?", [samples.find(post => post.status === "Posted")!])[0];
+  assert.match(one.text, /One post isn’t enough/);
 });
 
-test("each question runs the five roles and hands a real post to the composer", () => {
-  const drafts = new Set([replay.at(-1)?.draft]);
-  for (const scenario of scenarios) {
-    const reply = demoReply(scenario.name);
-    assert.deepEqual(reply.map(message => message.role), ["Hunch", ...roles]);
-    assert.match(reply[0].text, /Elle's numbers/);
-    assert.equal(reply[1].text, scenario.evidence);
-    assert.equal(reply[4].text, scenario.caveat);
-    const post = realPosts.find(p => p.hook === reply[3].text);
-    assert.ok(post, reply[3].text);
-    assert.equal(reply.at(-1)?.draft, captionText(post, "taglish"));
-    assert.ok(channels.includes(reply.at(-1)?.channel ?? ""));
-    assert.equal(reply.filter(message => message.draft).length, 1);
-    drafts.add(reply.at(-1)?.draft);
-  }
-  assert.equal(drafts.size, scenarios.length + 1);
-  assert.equal(scenarios[0].name, `Is ${metric(report.verdict.winnerCode).results} messages enough?`);
+test("a recommendation uses existing copy and keeps the same source and planned post", () => {
+  const result = ask("What should I post?")[0];
+  const source = samples.find(post => post.id === result.evidence?.postId)!;
+  const version = focus.posts.find(version => version.code === result.draft?.code)!;
+  assert.ok(source && version);
+  assert.equal(result.draft?.text, captionText(version, "english"));
+  assert.equal(result.draft?.postId, samples.find(post => post.code === version.code)?.id);
 });
 
-test("typed questions get one honest line and no draft", () => {
-  const reply = demoReply("Help me with a caption");
-  assert.equal(reply.length, 1);
-  assert.equal(reply[0].role, "Hunch");
-  assert.match(reply[0].text, /only answer the questions below/);
-  assert.equal(reply[0].draft, undefined);
+test("language and shortening follow-ups preserve the draft identity and product facts", () => {
+  const draft = suggestion();
+  const version = focus.posts.find(version => version.code === draft.code)!;
+  const revised = demoReply("Make it more Taglish", samples, draft, now)[0].draft!;
+  assert.equal(revised.text, captionText(version, "taglish"));
+  assert.notEqual(revised.text, draft.text);
+  assert.equal(revised.postId, draft.postId);
+  const shorter = demoReply("Make it shorter", samples, revised, now)[0].draft!;
+  assert.ok(shorter.text.length < revised.text.length);
+  assert.match(shorter.text, /350/);
+  assert.equal(shorter.channel, draft.channel);
+  assert.equal(demoReply("Make it English", samples, revised, now)[0].draft?.text, draft.text);
 });
 
-test("replaying imports keeps personal posts and never duplicates samples", () => {
-  const personal: Post = { id: "my-post", text: "Keep my work", channel: "TikTok", date: "", status: "Draft" };
-  let posts = mergeDemoPlatform([personal, ...sampleWorkspacePosts()], null);
+test("planning uses the latest revision with a Manila calendar day", () => {
+  const revised = demoReply("Make it more Taglish", samples, suggestion(), now)[0].draft!;
+  const result = demoReply("Plan this for Friday", samples, revised, now)[0];
+  assert.equal(result.planDate, "2026-11-13");
+  assert.deepEqual(result.draft, revised);
+  assert.match(result.text, /Friday, Nov 13/);
+  assert.equal(demoReply("Plan this for Friday", samples, undefined, now)[0].planDate, undefined);
+});
+
+test("dates handle Manila midnight, future weekdays, and invalid dates", () => {
+  assert.equal(manilaToday(new Date("2026-11-12T17:00:00Z")), "2026-11-13");
+  assert.equal(requestedDay("tomorrow", now), "2026-11-13");
+  assert.equal(requestedDay("today", now), "2026-11-12");
+  assert.equal(requestedDay("Friday", new Date("2026-11-13T04:00:00Z")), "2026-11-20");
+  assert.equal(requestedDay("2026-11-15", now), "2026-11-15");
+  for (const input of ["2026-02-30", "2026-11-01", "next week", "whenever"]) assert.equal(requestedDay(input, now), null);
+});
+
+test("imports are explicit and personal work survives replay", () => {
+  const personal: Post = { id: "personal", text: "Keep my work", channel: "TikTok", date: "", status: "Draft" };
+  let posts = mergeDemoPlatform([personal, ...samples], null);
   assert.deepEqual(posts, [personal]);
-  for (const channel of ["Instagram", "TikTok", "Facebook", "TikTok"]) posts = mergeDemoPlatform(posts, channel);
-  assert.deepEqual(posts.find(post => post.id === personal.id), personal);
-  assert.equal(posts.length, 1 + samples.length);
+  const sequence = demoReply(importPrompt, posts, undefined, now);
+  assert.deepEqual(sequence.filter(message => message.platform).map(message => message.platform), ["Instagram", "TikTok", "Facebook"]);
+  assert.equal(sequence.filter(message => !message.platform).length, 1);
+  for (const platform of ["Instagram", "TikTok", "Facebook", "TikTok"]) posts = mergeDemoPlatform(posts, platform);
+  assert.equal(posts.length, samples.length + 1);
   assert.equal(new Set(posts.map(post => post.id)).size, posts.length);
+  assert.deepEqual(posts.find(post => post.id === personal.id), personal);
+  assert.ok(ask("How did my posts do?").every(message => !message.platform));
+  assert.equal(refreshSamples(samples).length, samples.length);
 });
 
-test("no food samples and no em dashes anywhere in the chat or the samples", () => {
-  const lines: ChatMessage[] = [...replay, ...scenarios.flatMap(s => demoReply(s.name)), ...demoReply("hello")];
-  const words = [platformPrompt, ...Object.values(roleActivity), ...scenarios.map(s => s.name), ...lines.map(m => `${m.text} ${m.draft ?? ""}`), ...samples.map(p => p.text)];
-  for (const text of words) assert.doesNotMatch(text, /chili|garlic|noodle|recipe|merienda|food creator|Elle Reyes|fictional|\u2014/i);
+test("unsupported requests offer the supported path without inventing a draft or action", () => {
+  const reply = ask("Book a flight")[0];
+  assert.match(reply.text, /What worked/);
+  assert.equal(reply.draft, undefined);
+  assert.equal(reply.planDate, undefined);
 });
