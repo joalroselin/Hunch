@@ -1,5 +1,5 @@
 export default function Build({ cloud }: { cloud: boolean }) {
-  return <section className="build-page build-explainer" aria-labelledby="build-title"><header><span className="section-kicker">How Hunch is built</span><h2 id="build-title">One workspace. Two ways to close the loop.</h2><p className="guide-intro">Help a small candle seller plan content, publish it, and use the results to choose the next post. The workspace stays the same; the connection to social platforms can evolve.</p></header>
+  return <section className="build-page build-explainer" aria-label="Build architecture">
     <section className="build-stack-visual" aria-labelledby="stack-title"><span className="section-kicker">The stack · current and proposed</span><h3 id="stack-title">From the screen to the learning loop.</h3><div className="stack-map">{[
       ["01","Experience","Next.js · React · TypeScript","Dashboard, gallery, calendar and charts","Built"],
       ["02","Data","Browser storage · Supabase adapter","Posts, metrics, source references and history","Browser built · cloud optional"],
