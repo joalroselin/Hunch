@@ -263,7 +263,7 @@ function Words({ scene, run, still }: { scene: number; run: boolean; still: bool
             </motion.span>
           </p>
           <p className="hh-title ifl-sub ifl-sub-reach">
-            <Rise text="followers see your Facebook post." delay={3.6} gap={0.07} still={still} />
+            <Rise text="According to SocialInsider, only 1 in 80 followers are bound to see your Facebook post." delay={3.6} gap={0.04} still={still} />
           </p>
           <motion.p className="ifl-src" initial={still ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 3 }}>
             Socialinsider, 2026. An average Facebook page post reaches 1.25% of followers, global.
@@ -286,7 +286,7 @@ function Words({ scene, run, still }: { scene: number; run: boolean; still: bool
         </motion.div>
       ) : null}
       {scene >= 4 ? (
-        <motion.div key="hunch" className="ifl-words" data-tone="sheet" {...block(still)}>
+        <motion.div key="hunch" className="ifl-words" data-tone="ink" {...block(still)}>
           <p className="hh-display ifl-count">
             <Rise text="hunch" delay={0.5} still={still} />
           </p>
@@ -352,7 +352,7 @@ function Field({ kind, scene, from, until, origin, z, still }: { kind: FieldKind
       ? { clipPath: { duration: 1.2, ease: IN_OUT, delay: kind === "dahon" ? 0.3 : kind === "sili" ? 0.15 : 0 }, opacity: { duration: 0 } }
       : state === "off"
         ? { clipPath: { duration: 0.8, ease: IN_OUT }, opacity: { duration: 0 } }
-        : { duration: 0 }
+        : { opacity: { duration: 0.7, ease: "linear" } }
   return (
     <motion.div
       aria-hidden
@@ -437,8 +437,8 @@ export function Film({ active, step, still }: SlideProps) {
         <div ref={lensRef} className="ifl-lens">
           <div ref={zoomRef} className="ifl-zoom" style={{ transformOrigin: `${L + D / 2}px ${T + D / 2}px` }}>
             <Field kind="gumamela" scene={scene} from={2} until={3} origin={null} z={scene === 2 ? 3 : 0} still={still} />
-            <Field kind="dahon" scene={scene} from={3} until={4} origin={{ x: BUB.cx + ox, y: BUB.cy + oy }} z={1} still={still} />
-            <Field kind="sili" scene={scene} from={4} until={5} origin={{ x: LEAD.cx + ox, y: LEAD.cy + oy }} z={1} still={still} />
+            <Field kind="dahon" scene={scene} from={3} until={3} origin={{ x: BUB.cx + ox, y: BUB.cy + oy }} z={1} still={still} />
+            <Field kind="sili" scene={scene} from={99} until={100} origin={{ x: LEAD.cx + ox, y: LEAD.cy + oy }} z={1} still={still} />
             <div className="ifl-stage ifl-stage-posts" style={stage}>
               <motion.div
                 aria-hidden
