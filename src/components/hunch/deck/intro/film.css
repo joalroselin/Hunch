@@ -176,6 +176,12 @@
   font-size: 112px;
   white-space: nowrap;
 }
+.ifl-h-doubt {
+  left: 270px;
+  top: 64px;
+  font-size: 64px;
+  line-height: 1.12;
+}
 .ifl-line-test {
   position: absolute;
   left: 240px;

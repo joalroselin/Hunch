@@ -11,7 +11,7 @@ import type { SlideProps } from "../types"
 import "./film.css"
 
 // Scenes: the candle, the guesses, the sellers, the test, the answer, then into the bubble and on to the landing page.
-export const HOLD = [8000, 9000, 7200, 10000, 9000, 1950]
+export const HOLD = [8000, 9000, 8200, 10500, 6000, 1950]
 const HANDOFF = HOLD.length - 1
 
 const EASE = [0.16, 1, 0.3, 1] as const
@@ -200,28 +200,23 @@ function NameRoll({ n, still }: { n: number; still: boolean }) {
   )
 }
 
-function Words({ scene, run, still, dealt }: { scene: number; run: boolean; still: boolean; dealt: number }) {
+function Words({ scene, run, still }: { scene: number; run: boolean; still: boolean; dealt: number }) {
   return (
     <AnimatePresence>
       {scene === 0 && run ? (
         <motion.div key="open" className="ifl-words" data-tone="ink" {...block(still)}>
           <h2 className="hh-display ifl-h-open">
             <span className="ifl-line">
-              <Rise text="Who buys a" delay={0.7} still={still} />
+              <Rise text="Everyone's a creator" delay={0.7} still={still} />
             </span>
             <span className="ifl-line">
-              <Rise text="₱350 candle?" delay={0.95} still={still} />
+              <Rise text="or a seller now." delay={0.95} still={still} />
             </span>
           </h2>
         </motion.div>
       ) : null}
       {scene === 1 ? (
-        <motion.div key="guess" className="ifl-words" data-tone="ink" {...block(still)}>
-          <NameRoll n={still ? DEAL.length : dealt} still={still} />
-        </motion.div>
-      ) : null}
-      {scene === 2 ? (
-        <motion.div key="sellers" className="ifl-words" data-tone="sheet" {...block(still)}>
+        <motion.div key="many" className="ifl-words" data-tone="ink" {...block(still)}>
           <p className="hh-display ifl-big">
             <motion.span
               className="ifl-w"
@@ -236,57 +231,54 @@ function Words({ scene, run, still, dealt }: { scene: number; run: boolean; stil
           <p className="hh-title ifl-sub">
             <Rise text="Filipinos sell online." delay={1.45} gap={0.07} still={still} />
           </p>
-          <motion.p
-            className="ifl-src"
-            initial={still ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 2.2 }}
-          >
+          <motion.p className="ifl-src" initial={still ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 2.2 }}>
             PSA, 2024 ICT Household Survey, preliminary
           </motion.p>
         </motion.div>
       ) : null}
-      {scene === 3 ? (
-        <motion.div key="test" className="ifl-words" data-tone="ink" {...block(still)}>
-          <h2 className="hh-title ifl-h-test">
-            <Rise text="Hunch tests 8 kinds of buyers." delay={1.5} gap={0.06} still={still} />
-          </h2>
-          <p className="hh-line ifl-line-test">
-            <Rise text="One post for each, ₱99 for 3 days." delay={1.95} gap={0.04} still={still} />
+      {scene === 2 ? (
+        <motion.div key="reach" className="ifl-words" data-tone="sheet" {...block(still)}>
+          <p className="hh-title ifl-h-test">
+            <Rise text="No marketing team. No ad budget." delay={0.5} gap={0.06} still={still} />
           </p>
+          <p className="hh-display ifl-big">
+            <motion.span
+              className="ifl-w"
+              initial={still ? false : { opacity: 0, y: "0.2em", filter: "blur(14px)" }}
+              animate={{ opacity: 1, y: "0em", filter: "blur(0px)" }}
+              transition={{ duration: 0.9, ease: EASE, delay: 1.6 }}
+            >
+              <Count to={1.25} decimals={2} delay={1.65} duration={1.4} still={still} />%
+            </motion.span>
+          </p>
+          <p className="hh-title ifl-sub">
+            <Rise text="of followers see a page post." delay={2.3} gap={0.07} still={still} />
+          </p>
+          <motion.p className="ifl-src" initial={still ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 3 }}>
+            Socialinsider, 2026, average Facebook page post, global
+          </motion.p>
+        </motion.div>
+      ) : null}
+      {scene === 3 ? (
+        <motion.div key="dream" className="ifl-words" data-tone="ink" {...block(still)}>
+          <h2 className="hh-title ifl-h-test ifl-h-doubt">
+            <span className="ifl-line">
+              <Rise text="They don't know who their ideal customer is." delay={0.6} gap={0.05} still={still} />
+            </span>
+            <span className="ifl-line">
+              <Rise text="They're not sure who would watch their content." delay={2.6} gap={0.05} still={still} />
+            </span>
+            <span className="ifl-line">
+              <Rise text="They only have a…" delay={4.8} gap={0.09} still={still} />
+            </span>
+          </h2>
         </motion.div>
       ) : null}
       {scene >= 4 ? (
-        <motion.div key="answer" className="ifl-words" data-tone="sheet" {...block(still)}>
-          <h2 className="hh-title ifl-h-answer">
-            <Rise text={winName} delay={0.75} gap={0.07} still={still} />
-          </h2>
+        <motion.div key="hunch" className="ifl-words" data-tone="sheet" {...block(still)}>
           <p className="hh-display ifl-count">
-            <motion.span
-              className="ifl-w"
-              initial={still ? false : { opacity: 0, y: "0.12em" }}
-              animate={{ opacity: 1, y: "0em" }}
-              transition={{ duration: 0.8, ease: EASE, delay: 1.05 }}
-            >
-              <Count to={messages} delay={1.1} duration={Math.max(0.6, messages * 0.13)} still={still} />
-            </motion.span>
-            <motion.span
-              className="ifl-unit"
-              initial={still ? false : { opacity: 0, y: "0.4em" }}
-              animate={{ opacity: 1, y: "0em" }}
-              transition={{ duration: 0.8, ease: EASE, delay: 1.35 }}
-            >
-              messages
-            </motion.span>
+            <Rise text="hunch" delay={0.5} still={still} />
           </p>
-          <motion.p
-            className="ifl-src"
-            initial={still ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 2.2 }}
-          >
-            Elle is a sample seller. Her results are sample data.
-          </motion.p>
         </motion.div>
       ) : null}
     </AnimatePresence>
