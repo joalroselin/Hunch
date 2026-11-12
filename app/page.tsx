@@ -72,9 +72,9 @@ export default function Home() {
           if (result.error) throw result.error;
           session = result.data.session;
         }
-        const { data, error: readError } = await supabase.from("creator_posts").select("id,text,channel,post_date,status,reach,engagements,sample").order("post_date", { ascending: true, nullsFirst: false });
+        const { data, error: readError } = await supabase.from("creator_posts").select("id,caption,channel,post_date,status,reach,engagements,is_sample").order("post_date", { ascending: true, nullsFirst: false });
         if (readError) throw readError;
-        const cloudPosts: Post[] = (data ?? []).map(row => ({ id: row.id, text: row.text, channel: row.channel, date: row.post_date ?? "", status: row.status, reach: row.reach ?? undefined, engagements: row.engagements ?? undefined, sample: row.sample }));
+        const cloudPosts: Post[] = (data ?? []).map(row => ({ id: row.id, text: row.caption, channel: row.channel, date: row.post_date ?? "", status: row.status, reach: row.reach ?? undefined, engagements: row.engagements ?? undefined, sample: row.is_sample }));
         if (!cancelled) { setPosts(cloudPosts.length ? cloudPosts : localPosts); setStorageMode("cloud"); setLoaded(true); }
       } catch (error) {
         if (!cancelled) { setPosts(localPosts); setStorageMode("error"); setStorageMessage(error instanceof Error ? error.message : "Could not connect to cloud storage."); setLoaded(true); }
@@ -91,7 +91,7 @@ export default function Home() {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;
       if (posts.length) {
-        const rows = posts.map(post => ({ id: post.id, user_id: user.id, text: post.text, channel: post.channel, post_date: post.date || null, status: post.status, reach: post.reach ?? null, engagements: post.engagements ?? null, sample: !!post.sample }));
+        const rows = posts.map(post => ({ id: post.id, user_id: user.id, caption: post.text, channel: post.channel, post_date: post.date || null, status: post.status, reach: post.reach ?? null, engagements: post.engagements ?? null, is_sample: !!post.sample }));
         const { error } = await supabase.from("creator_posts").upsert(rows);
         if (error) { setStorageMode("error"); setStorageMessage(error.message); return; }
         const ids = posts.map(post => post.id);

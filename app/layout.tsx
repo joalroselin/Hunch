@@ -3,8 +3,8 @@ import "./globals.css";
 import "./workspace.css";
 
 export const metadata: Metadata = {
-  title: "Hunch — Find the buyers",
-  description: "Turn one product photo into a small, measurable audience test.",
+  title: "Hunch — Creator Workspace",
+  description: "Plan social posts, record performance, and learn what works in one creator workspace.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
