@@ -269,3 +269,23 @@
   font-size: 230px;
   text-align: center;
 }
+/* Slide 3: one lead line, then each missing thing lands on its own beat. */
+.ifl-scratch {
+  position: absolute;
+  left: 112px;
+  top: 64px;
+}
+.ifl-scratch-lead {
+  margin-bottom: 18px;
+  font-size: 46px;
+}
+.ifl-scratch-no {
+  font-size: 92px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+.ifl-scratch-no[data-last] {
+  color: #ffc233;
+}
+

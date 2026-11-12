@@ -18,8 +18,7 @@ const START = 0.35
 // The bars' curve (--climb in results.css), so each count reads what its bar shows.
 const climb = cubicBezier(0.2, 0.2, 0.4, 1)
 
-// Non-breaking spaces keep "₱99 a post" on one line on phones.
-const TITLE = `${pesos(perPost)} a post found ${persona}’s buyers.`
+const TITLE = `${persona} found her ideal customers with ${pesos(perPost)}.`
 const LINE = `See which of the ${run.versions.length} posts got people to message.`
 
 // Counts up to `to` in step with its bar once `on` is set. The hidden final number holds the width.

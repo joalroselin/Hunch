@@ -130,7 +130,7 @@
       },
       {
         "id": "c09",
-        "name": "Barkadas splitting the bills",
+        "name": "Roommates splitting the bills",
         "who": "Friends who share a condo unit or boarding house room and split the bills in a group chat.",
         "situation": "The monthly ambagan after a pickup game, jerseys drying, shoes lined up at the door.",
         "whyItFits": "₱350 split a few ways is small, and a candle on the shared table is something the whole unit uses.",
@@ -140,7 +140,7 @@
           "PC and console gaming pages",
           "#boardinghouse"
         ],
-        "tone": "Dry and funny, like a message in the barkada group chat.",
+        "tone": "Dry and funny, like a message in the roommates' group chat.",
         "motive": "sharing"
       },
       {
@@ -363,7 +363,7 @@
       },
       {
         "id": "c09",
-        "name": "Barkadas splitting the bills",
+        "name": "Roommates splitting the bills",
         "who": "Friends who share a condo unit or boarding house room and split the bills in a group chat.",
         "situation": "The monthly ambagan after a pickup game, jerseys drying, shoes lined up at the door.",
         "whyItFits": "₱350 split a few ways is small, and a candle on the shared table is something the whole unit uses.",
@@ -373,7 +373,7 @@
           "PC and console gaming pages",
           "#boardinghouse"
         ],
-        "tone": "Dry and funny, like a message in the barkada group chat.",
+        "tone": "Dry and funny, like a message in the roommates' group chat.",
         "motive": "sharing"
       },
       {
@@ -686,7 +686,7 @@
         "id": "v_elle_a5",
         "code": "A5",
         "audienceId": "c09",
-        "audienceName": "Barkadas splitting the bills",
+        "audienceName": "Roommates splitting the bills",
         "hook": "ambagan sa unit: kuryente, wifi, tubig, at... kandila? 😭",
         "slides": [
           "ambagan sa unit: kuryente, wifi, tubig, at... kandila? 😭",
@@ -695,7 +695,7 @@
         ],
         "caption": "nag-vote kami, panalo yung pandan coconut 😂 hati-hati na lang ulit\nElle's Candles • Pandan Coconut • soy wax • 180 g amber jar na may takip • mga 35 hours, ilang game nights din yan\n₱350 each, pm for order",
         "hashtags": [
-          "#barkada",
+          "#roommates",
           "#relatable",
           "#candles"
         ],
@@ -712,7 +712,7 @@
             "kind": "stereotype",
             "passed": true,
             "rule": "Stereotype check",
-            "note": "About splitting the unit's bills, not about what the barkada is like."
+            "note": "About splitting the unit's bills, not about what roommates are like."
           },
           {
             "kind": "duplicate",
@@ -1055,7 +1055,7 @@
       {
         "id": "c10",
         "category": "duplicate",
-        "reason": "Same place and crowd as 'Barkadas splitting the bills'. The shared unit has the clearer reason to buy, and gaming fits inside that post."
+        "reason": "Same place and crowd as 'Roommates splitting the bills'. The shared unit has the clearer reason to buy, and gaming fits inside that post."
       },
       {
         "id": "c11",
@@ -1180,7 +1180,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c09",
-        "text": "Strategist proposed 'Barkadas splitting the bills'.",
+        "text": "Strategist proposed 'Roommates splitting the bills'.",
         "detail": "The monthly ambagan after a pickup game, jerseys drying, shoes lined up at the door."
       },
       {
@@ -1360,7 +1360,7 @@
         "agent": "skeptic",
         "kind": "audience_kept",
         "refId": "c09",
-        "text": "Skeptic kept 'Barkadas splitting the bills' as A5.",
+        "text": "Skeptic kept 'Roommates splitting the bills' as A5.",
         "detail": "Splitting bills in a shared unit makes ₱350 small, and it gives the candle a job that isn't decor."
       },
       {
@@ -1369,8 +1369,8 @@
         "agent": "skeptic",
         "kind": "candidate_rejected",
         "refId": "c10",
-        "text": "Skeptic dropped 'Gamers up late': same crowd as 'Barkadas splitting the bills'.",
-        "detail": "Same place and crowd as 'Barkadas splitting the bills'. The shared unit has the clearer reason to buy, and gaming fits inside that post."
+        "text": "Skeptic dropped 'Gamers up late': same crowd as 'Roommates splitting the bills'.",
+        "detail": "Same place and crowd as 'Roommates splitting the bills'. The shared unit has the clearer reason to buy, and gaming fits inside that post."
       },
       {
         "id": "e32",
@@ -1531,7 +1531,7 @@
         "agent": "copywriter",
         "kind": "post_drafted",
         "refId": "A5",
-        "text": "Copywriter drafted A5 for 'Barkadas splitting the bills'.",
+        "text": "Copywriter drafted A5 for 'Roommates splitting the bills'.",
         "detail": "ambagan sa unit: kuryente, wifi, tubig, at... kandila? 😭"
       },
       {
@@ -1970,7 +1970,7 @@
       {
         "versionId": "v_elle_a5",
         "code": "A5",
-        "audienceName": "Barkadas splitting the bills",
+        "audienceName": "Roommates splitting the bills",
         "matchedBy": "code",
         "spend": 99,
         "impressions": 3290,
@@ -2120,7 +2120,7 @@
         "resultType": "Messaging conversations started",
         "linkClicks": 22,
         "costPerResult": 12.38,
-        "adName": "A5 Barkada unit ambagan"
+        "adName": "A5 Roommates splitting bills"
       },
       {
         "versionId": "v_elle_a4",
@@ -3483,7 +3483,7 @@
         "id": "v_elle_t1",
         "code": "T1",
         "audienceId": "c09",
-        "audienceName": "Barkadas splitting the bills",
+        "audienceName": "Roommates splitting the bills",
         "hook": "Sa unit niyo na naman ang watch party? 😭",
         "slides": [
           "Sa unit niyo na naman ang watch party? 😭",
@@ -3492,7 +3492,7 @@
         ],
         "caption": "Habang wala pa yung tropa niyo, sindihan niyo na. Patayin pagkatapos ng game.\nElle's Candles • Calamansi Basil • soy wax • 180 g amber jar na may takip • mga 35 hours\n₱350 each, pm for order",
         "hashtags": [
-          "#barkada",
+          "#roommates",
           "#relatable",
           "#handmadecandle",
           "#candles"
@@ -3510,13 +3510,13 @@
             "kind": "stereotype",
             "passed": true,
             "rule": "Stereotype check",
-            "note": "About the watch party, not about what the barkada is like."
+            "note": "About the watch party, not about what roommates are like."
           },
           {
             "kind": "duplicate",
             "passed": true,
             "rule": "Too similar",
-            "note": "A new moment for the barkada unit, different from A5's tag line."
+            "note": "A new moment for the shared unit, different from A5's tag line."
           }
         ],
         "round": 1,
@@ -3542,7 +3542,7 @@
             "cta": "Mag-message sa amin"
           }
         },
-        "why": "The barkada unit came third and had more shares than any post but the winner. Hosting won, so one ₱99 post tests the two together: a watch party at the shared unit."
+        "why": "The roommates came third and had more shares than any post but the winner. Hosting won, so one ₱99 post tests the two together: a watch party at the shared unit."
       },
       {
         "id": "v_elle_t2",

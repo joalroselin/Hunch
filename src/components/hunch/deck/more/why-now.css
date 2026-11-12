@@ -15,11 +15,11 @@
 .wn-chat {
   position: absolute;
   left: var(--gx);
-  top: 420px;
-  width: 740px;
+  top: 392px;
+  width: 800px;
   display: grid;
-  gap: 22px;
-  padding: 30px 34px 34px;
+  gap: 18px;
+  padding: 28px 34px 30px;
   border-radius: 32px;
   background: var(--sheet);
   color: var(--ink);
@@ -42,7 +42,7 @@
   opacity: 0.5;
 }
 .wn-bub {
-  max-width: 620px;
+  max-width: 732px;
   padding: 12px 20px 13px;
   border-radius: 24px;
   background: var(--cream-deep);

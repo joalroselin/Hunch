@@ -241,31 +241,34 @@ function Words({ scene, run, still }: { scene: number; run: boolean; still: bool
       ) : null}
       {scene === 2 ? (
         <motion.div key="reach" className="ifl-words" data-tone="sheet" {...block(still)}>
-          <p className="hh-title ifl-h-test ifl-h-doubt ifl-h-scratch">
-            <span className="ifl-line">
-              <Rise text="But many who start from scratch have" delay={0.4} gap={0.05} still={still} />
-            </span>
-            <span className="ifl-line">
-              <Rise text="no marketing team. No ad budget." delay={1.2} gap={0.06} still={still} />
-            </span>
-            <span className="ifl-line">
-              <Rise text="No designer. No idea who buys." delay={2} gap={0.06} still={still} />
-            </span>
-          </p>
+          <div className="ifl-scratch">
+            <p className="hh-title ifl-scratch-lead">
+              <Rise text="But many who start from scratch have" delay={0.3} gap={0.05} still={still} />
+            </p>
+            {[["no marketing team."], ["No ad budget."], ["No designer."], ["No idea who would consume", "what they make."]].map((lines, k) => (
+              <p key={lines[0]} className="hh-display ifl-scratch-no" data-last={k === 3 ? "" : undefined}>
+                {lines.map((t, n) => (
+                  <span key={t} className="ifl-line">
+                    <Rise text={t} delay={1 + k * 0.55 + n * 0.3} gap={0.05} still={still} />
+                  </span>
+                ))}
+              </p>
+            ))}
+          </div>
           <p className="ifl-reach">
             <span className="hh-title ifl-reach-line">
-              <Rise text="According to SocialInsider, only" delay={3} gap={0.04} still={still} />
+              <Rise text="According to SocialInsider, only" delay={3.6} gap={0.04} still={still} />
             </span>
             <motion.span
               className="hh-display ifl-reach-n"
               initial={still ? false : { opacity: 0, y: "0.2em", filter: "blur(14px)" }}
               animate={{ opacity: 1, y: "0em", filter: "blur(0px)" }}
-              transition={{ duration: 0.9, ease: EASE, delay: 3.4 }}
+              transition={{ duration: 0.9, ease: EASE, delay: 4 }}
             >
-              1 in <Count to={80} delay={3.45} duration={1.4} still={still} />
+              1 in <Count to={80} delay={4.05} duration={1.4} still={still} />
             </motion.span>
             <span className="hh-title ifl-reach-line">
-              <Rise text="followers are bound to see your Facebook post." delay={4.2} gap={0.04} still={still} />
+              <Rise text="followers are bound to see your Facebook post." delay={4.8} gap={0.04} still={still} />
             </span>
           </p>
           <motion.p className="ifl-src" initial={still ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 3 }}>

@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useInView } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
@@ -29,7 +28,6 @@ const EXAMPLES = [
 const EMPTY_TIP = "Type what you sell first."
 
 // Elle's sample candle run, opened on the Studio step.
-const SAMPLE_HREF = "/start?demo=1"
 
 const CUT = /\s+(?:from|made|in|delivered|for|with|sold|at|by|every|na|galing)\s+/i
 
@@ -264,11 +262,6 @@ export function PromptBox({
           </div>
         </div>
       </form>
-      <p data-prompt-hint className="hx-hint">
-        <Link href={SAMPLE_HREF} aria-disabled={busy || undefined} className="hx-hint-link">
-          Open Elle&rsquo;s test
-        </Link>
-      </p>
       <span role="status" aria-live="polite" className="sr-only">
         {tip ? EMPTY_TIP : ""}
       </span>

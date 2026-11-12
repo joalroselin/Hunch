@@ -24,8 +24,7 @@ One metaphor: a hunch becomes messages. Say "hunch" for the guess, "messages" fo
 - Typewriter examples, each short enough for one line in the box at 390 px: Soy candles, ₱350 a jar / Matcha in 30 g tins, ₱480 / Calamansi soap, ₱120 a bar / Chili garlic oil, ₱180 a jar / Thrifted denim jackets
 - Send button aria-label: Write my 8 posts
 - Empty submit tooltip: Type what you sell first.
-- Under the box: only the Open Elle's test link, in every mode.
-- Link after the hint: Open Elle's test
+- Under the box: nothing.
 
 ## audiences.tsx (the 8 kinds of buyers)
 
@@ -58,7 +57,7 @@ One metaphor: a hunch becomes messages. Say "hunch" for the guess, "messages" fo
 
 Results (cream), `proof/results.tsx`:
 
-- Heading: ₱800 found Elle's buyers.
+- Heading: Elle found her ideal customers with ₱99.
 - Support line: See which of the 8 posts got people to message.
 - Above each post: `{n}` messages (or "1 message", "No messages"), set in type. The winner's count is the big red one.
 - Under each bar: the audience name, nothing else.
@@ -78,8 +77,7 @@ Winner (red field), `proof/winner.tsx`:
 - Typewriter examples, each short enough for one line in the box at 390 px: Soy candles, ₱350 a jar / Matcha in 30 g tins, ₱480 / Calamansi soap, ₱120 a bar / Chili garlic oil, ₱180 a jar / Thrifted denim jackets
 - Send button aria-label: Write my 8 posts
 - Empty submit tooltip: Type what you sell first.
-- Under the box: only the Open Elle's test link, in every mode.
-- Link after the hint: Open Elle's test
+- Under the box: nothing.
 
 ## audiences.tsx (the 8 kinds of buyers)
 
@@ -115,7 +113,7 @@ Winner (red field), `proof/winner.tsx`:
 
 Results (cream), `proof/results.tsx`:
 
-- Heading: ₱800 found Elle's buyers.
+- Heading: Elle found her ideal customers with ₱99.
 - Support line: See which of the 8 posts got people to message.
 - Above each post: `{n}` messages (or "1 message", "No messages"), set in type. The winner's count is the big red one.
 - Under each bar: the audience name, nothing else.
