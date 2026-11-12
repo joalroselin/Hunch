@@ -1079,3 +1079,37 @@
   background-size: 5px 5px;
   background-repeat: no-repeat;
 }
+
+/* Ads Manager, connected: the sample run's numbers arrive by themselves. */
+.hr-sync {
+  cursor: default;
+}
+.hr-sync-status {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 7px;
+  margin: 2px 0 14px;
+  padding: 4px 10px 5px;
+  border-radius: 999px;
+  background: rgb(26 17 11 / 0.06);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+.hr-sync-status > i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2e9e57;
+}
+.hr-sync[data-syncing] .hr-sync-status > i {
+  background: var(--gold, #ffc233);
+  animation: hr-sync-pulse 0.8s ease-in-out infinite alternate;
+}
+@keyframes hr-sync-pulse {
+  to {
+    opacity: 0.25;
+  }
+}
+

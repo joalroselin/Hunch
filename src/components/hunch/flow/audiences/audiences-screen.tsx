@@ -11,11 +11,19 @@ import { lowerFirst } from "@/components/hunch/screens/shared"
 import { EmptyScreen, LoadingScreen, Screen, ScreenTitle, StepAction } from "@/components/hunch/shell"
 import { inLanguage } from "@/lib/hunch/language"
 import { languageFor, useHunch } from "@/lib/hunch/store"
+import { sampleKeyOf } from "@/lib/hunch/engine/sample/catalog"
 import type { TestRun } from "@/lib/hunch/types"
 
 import { RunPost, sampleNote, usePostLook } from "../posts/run-post"
 import { studioAlive } from "../studio/runner"
 import "./audiences.css"
+
+// What the heading calls the product: the sample's plain words, or the name the seller typed.
+const SAMPLE_WORDS = { candles: "scented candles", matcha: "matcha" } as const
+function productWords(run: TestRun) {
+  const key = sampleKeyOf(run)
+  return key && !run.sample?.swapped.length ? SAMPLE_WORDS[key] : lowerFirst(run.product.name)
+}
 
 const codeNum = (c?: string) => Number(c?.replace(/\D/g, "")) || 0
 
@@ -93,13 +101,7 @@ function Buyers({ run }: { run: TestRun }) {
 
   return (
     <Screen aria-label="Your 8 hunches">
-      <ScreenTitle title={`Meet your ${picked.length} hunches.`} line={
-          <>
-            <span>Read who each kind of buyer is.</span> <span>Each one gets a post.</span>
-          </>
-        }
-        className="hb-title"
-      />
+      <ScreenTitle title={`Here’s who might buy your ${productWords(run)}.`} className="hb-title" />
 
       <div className="hb">
         <div ref={list} className="hb-list" onPointerEnter={() => setHover(true)} onPointerLeave={() => setHover(false)}>

@@ -14,7 +14,7 @@
     "candidates": [
       {
         "id": "c01",
-        "name": "Thrifters back from Cubao Expo",
+        "name": "Cubao Expo art kids",
         "who": "Someone who spends Saturday nights at Cubao Expo and comes home with vintage finds for their room.",
         "situation": "Back from Cubao Expo with a lampshade, a record and a thrifted jacket, setting up the shelf.",
         "whyItFits": "The room already has the look; a candle in an amber jar adds the one thing a thrift haul can't: how the room smells.",
@@ -303,7 +303,7 @@
     "chosen": [
       {
         "id": "c01",
-        "name": "Thrifters back from Cubao Expo",
+        "name": "Cubao Expo art kids",
         "who": "Someone who spends Saturday nights at Cubao Expo and comes home with vintage finds for their room.",
         "situation": "Back from Cubao Expo with a lampshade, a record and a thrifted jacket, setting up the shelf.",
         "whyItFits": "The room already has the look; a candle in an amber jar adds the one thing a thrift haul can't: how the room smells.",
@@ -426,7 +426,7 @@
         "id": "v_elle_a1",
         "code": "A1",
         "audienceId": "c01",
-        "audienceName": "Thrifters back from Cubao Expo",
+        "audienceName": "Cubao Expo art kids",
         "hook": "POV: hindi mo inexpect na ganito kabango ang ilang-ilang 😍",
         "slides": [
           "POV: hindi mo inexpect na ganito kabango ang ilang-ilang 😍",
@@ -946,7 +946,7 @@
       {
         "id": "r_elle_a1_1",
         "audienceId": "c01",
-        "audienceName": "Thrifters back from Cubao Expo",
+        "audienceName": "Cubao Expo art kids",
         "draft": {
           "hook": "Hey gays! Galing Cubao Expo? Para sa mga beks ang candle na 'to.",
           "slides": [
@@ -1108,7 +1108,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c01",
-        "text": "Strategist proposed 'Thrifters back from Cubao Expo'.",
+        "text": "Strategist proposed 'Cubao Expo art kids'.",
         "detail": "Back from Cubao Expo with a lampshade, a record and a thrifted jacket, setting up the shelf."
       },
       {
@@ -1288,7 +1288,7 @@
         "agent": "skeptic",
         "kind": "audience_kept",
         "refId": "c01",
-        "text": "Skeptic kept 'Thrifters back from Cubao Expo' as A1.",
+        "text": "Skeptic kept 'Cubao Expo art kids' as A1.",
         "detail": "The Cubao Expo crowd buys for their rooms on the spot, and a thrift haul is a clear moment to add a scent."
       },
       {
@@ -1468,7 +1468,7 @@
         "agent": "copywriter",
         "kind": "post_drafted",
         "refId": "A1",
-        "text": "Copywriter drafted A1 for 'Thrifters back from Cubao Expo'.",
+        "text": "Copywriter drafted A1 for 'Cubao Expo art kids'.",
         "detail": "Hey gays! Galing Cubao Expo? Para sa mga beks ang candle na 'to."
       },
       {
@@ -2590,7 +2590,7 @@
       {
         "versionId": "v_elle_a1",
         "code": "A1",
-        "audienceName": "Thrifters back from Cubao Expo",
+        "audienceName": "Cubao Expo art kids",
         "matchedBy": "code",
         "spend": 99,
         "impressions": 3762,

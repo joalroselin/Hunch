@@ -99,6 +99,38 @@ export function CsvSheet({
   )
 }
 
+/** Ads Manager, connected: a sample run's numbers arrive by themselves, row by row. */
+export function SyncSheet({ grid, syncing }: { grid: GridRow[]; syncing: boolean }) {
+  const total = grid.length
+  return (
+    <div className="hr-csv">
+      <div className="hr-paper hr-sync" data-syncing={syncing || undefined}>
+        <span className="hr-paper-in">
+          <span className="hr-paper-name">
+            <span>Ads Manager</span>
+          </span>
+          <span className="hr-sync-status">
+            <i aria-hidden />
+            {syncing ? "Syncing" : "Connected"}
+          </span>
+          <span className="hr-paper-map" aria-hidden>
+            {grid.map((row, r) => (
+              <span key={row.code} data-ready={rowReady(row) || undefined} style={{ "--r": r } as React.CSSProperties}>
+                {FIELDS.map((f) => (
+                  <i key={f} data-on={row[f] != null || undefined} />
+                ))}
+                <b className="hh-grain" />
+              </span>
+            ))}
+          </span>
+          <span className="hr-paper-ask">{syncing ? `Pulling ${total} ads` : `${total} ads synced`}</span>
+          <span className="hr-paper-hint">{syncing ? "From your ad account" : "Updated just now"}</span>
+        </span>
+      </div>
+    </div>
+  )
+}
+
 function Cell({
   id,
   label,

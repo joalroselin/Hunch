@@ -48,7 +48,7 @@ describe("guardrails", () => {
   it("pass every final Elle post and catch both bad drafts", () => {
     const run = elleRun();
     for (const v of run.versions) expect(guardrailIssues(v.copy!, { price: run.product.price })).toEqual([]);
-    const a1 = run.rejected.find((r) => r.audienceName.startsWith("Thrifters back from Cubao Expo"))!;
+    const a1 = run.rejected.find((r) => r.audienceName.startsWith("Cubao Expo art kids"))!;
     const issues = guardrailIssues({ taglish: { ...a1.draft, cta: "Message us" } }, { price: "₱350" });
     expect(issues.length).toBeGreaterThan(0);
     for (const i of issues) expect([a1.draft.hook, ...a1.draft.slides, a1.draft.caption, "Message us"].join("\n")).toContain(i.quote);

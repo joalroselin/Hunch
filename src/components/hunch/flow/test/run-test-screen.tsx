@@ -24,7 +24,7 @@ function stepsFor(count: number, days: number): Step[] {
     { id: "post", text: `Post all ${count} on your Facebook page or Instagram. Keep the code on each caption's last line.` },
     { id: "boost", text: "Tap Boost post on each one and copy the slip." },
     { id: "wait", text: `Let all ${count} run for ${days} days.` },
-    { id: "export", text: "Export the results from Ads Manager as a CSV." },
+    { id: "export", text: "Hunch pulls the results from Ads Manager for you." },
   ]
 }
 
