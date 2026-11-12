@@ -22,9 +22,10 @@ import "./proof/week.css"
 const posts = focus.posts
 const tests = focus.tests
 const forWinner = posts.filter((p) => !isRunnerUpDay(p)).length
+const runnerUpName = posts.find(isRunnerUpDay)?.audienceName
 const language = normalizeLanguage(run.product.language)
 
-const TITLE = "Post to them next week."
+const TITLE = "Next week, post to your suki."
 const TESTS = `Try ${tests.length} small tests.`
 // A support line comes up just after its heading's last word.
 const after = (text: string) => `${(text.split(/\s+/).length * 0.07 + 0.08).toFixed(2)}s`
@@ -119,7 +120,9 @@ export function NextWeek() {
         <header className="nw-head" data-rise>
           <RiseWords id="next-week-title" parts={[{ text: TITLE }]} className="hh-title nw-title" />
           <p className="hh-line nw-line pf-rise" style={{ "--rd": after(TITLE) } as CSSProperties}>
-            {`Get ${posts.length} new posts, ${forWinner} for the buyers who messaged.`}
+            {runnerUpName
+              ? `${forWinner} posts for ${lowerFirst(focus.audience.name)}. 1 for ${lowerFirst(runnerUpName)}.`
+              : `${forWinner} posts for ${lowerFirst(focus.audience.name)}.`}
           </p>
         </header>
         <ol className="nw-week" data-rise={film ? undefined : ""}>

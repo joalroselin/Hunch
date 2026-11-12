@@ -209,10 +209,10 @@ function RunTestView({ run }: { run: TestRun }) {
         <div className="ht-send ha-rise" style={{ "--i": 12 } as React.CSSProperties}>
           <StepAction>
             <GoLink href="/results" className="w-full md:w-auto">
-              Add my results
+              See who reacted
             </GoLink>
           </StepAction>
-          <p className="ha-note">{sample ? "Sample run. Nothing is boosted." : `Come back after ${days} days with the CSV or the numbers.`}</p>
+          {sample ? null : <p className="ha-note">{`Come back after ${days} days with the CSV or the numbers.`}</p>}
         </div>
       </div>
     </Screen>

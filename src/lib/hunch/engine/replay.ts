@@ -1,6 +1,6 @@
 import type { StudioEvent, TestEvent, TestRun } from "../types";
 
-// Replays a saved run's StudioEvents on their own timings, compressed or stretched to 25-35 s,
+// Replays a saved run's StudioEvents at the demo's pace (paceTimes), or compressed or stretched to fit minMs-maxMs,
 // with the same NDJSON lines a live run sends. Works on the server and in the browser.
 
 export const REPLAY_MIN_MS = 25_000;
@@ -12,6 +12,21 @@ export function compressTimes(events: Pick<StudioEvent, "at">[], minMs = REPLAY_
   const target = Math.min(maxMs, Math.max(minMs, total));
   const k = target / total;
   return events.map((e) => Math.round(e.at * k));
+}
+
+// The demo's own rhythm, about 11 s: the 20 guesses pour in, the cuts cascade, the posts come in steadily,
+// and a post sent back holds long enough to read why.
+export function paceTimes(events: Pick<StudioEvent, "agent" | "kind">[]): number[] {
+  let t = 0;
+  return events.map((e, i) => {
+    const prev = events[i - 1];
+    if (!prev) return 0;
+    if (e.agent === "strategist") t += prev.agent === "strategist" ? 120 : 350;
+    else if (e.agent === "skeptic") t += prev.agent === "skeptic" ? 95 : 500;
+    else t += prev.agent === "skeptic" ? 500 : e.kind === "run_ready" ? 500 : 200;
+    if (prev.kind === "revision_requested") t += 750;
+    return t;
+  });
 }
 
 export interface ReplayOptions {
@@ -38,7 +53,7 @@ function abortError() {
 export function startReplay(run: TestRun, emit: Emit, opts: ReplayOptions = {}): ReplayHandle {
   const now = opts.now ?? (() => Date.now());
   const events = run.events ?? [];
-  const times = compressTimes(events, opts.minMs, opts.maxMs);
+  const times = opts.minMs != null || opts.maxMs != null ? compressTimes(events, opts.minMs, opts.maxMs) : paceTimes(events);
   let skipping = false;
   let cancelled = false;
   const wakers = new Set<() => void>();
