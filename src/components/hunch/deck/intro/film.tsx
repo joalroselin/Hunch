@@ -12,8 +12,10 @@ import "./film.css"
 
 // Scenes: the candle, the guesses, the sellers, the test, the answer, then into the bubble and on to the landing page.
 // 0 waits for the presenter's right arrow.
-export const HOLD = [8000, 9000, 0, 10500, 6000, 1950]
-const HANDOFF = HOLD.length - 1
+export const HOLD = [8000, 9000, 0, 0, 10500, 6000, 1950]
+// Steps 2 and 3 are one slide: the content stat, then the reach stat.
+const SCENE_OF = [0, 1, 2, 2, 3, 4, 5]
+const HANDOFF = SCENE_OF[SCENE_OF.length - 1]
 
 const EASE = [0.16, 1, 0.3, 1] as const
 const IN_OUT = [0.65, 0, 0.35, 1] as const
@@ -201,7 +203,7 @@ function NameRoll({ n, still }: { n: number; still: boolean }) {
   )
 }
 
-function Words({ scene, run, still }: { scene: number; run: boolean; still: boolean; dealt: number }) {
+function Words({ scene, beat, run, still }: { scene: number; beat: number; run: boolean; still: boolean; dealt: number }) {
   return (
     <AnimatePresence>
       {scene === 0 && run ? (
@@ -256,25 +258,54 @@ function Words({ scene, run, still }: { scene: number; run: boolean; still: bool
               </p>
             ))}
           </div>
-          <p className="ifl-reach">
-            <span className="hh-title ifl-reach-line">
-              <Rise text="According to SocialInsider, only" delay={3.6} gap={0.04} still={still} />
-            </span>
-            <motion.span
-              className="hh-display ifl-reach-n"
-              initial={still ? false : { opacity: 0, y: "0.2em", filter: "blur(14px)" }}
-              animate={{ opacity: 1, y: "0em", filter: "blur(0px)" }}
-              transition={{ duration: 0.9, ease: EASE, delay: 4 }}
-            >
-              1 in <Count to={80} delay={4.05} duration={1.4} still={still} />
-            </motion.span>
-            <span className="hh-title ifl-reach-line">
-              <Rise text="followers are bound to see your Facebook post." delay={4.8} gap={0.04} still={still} />
-            </span>
-          </p>
-          <motion.p className="ifl-src" initial={still ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 3 }}>
-            Socialinsider, “Social Media Reach Statistics,” updated Nov 11, 2026. Average Facebook page post reach in August 2026: 1.25% of followers, from 67.6 million posts. socialinsider.io/blog/social-media-reach
-          </motion.p>
+          {/* First the content stat, then on the next press the reach stat in its place. */}
+          <AnimatePresence mode="wait" initial={false}>
+            {beat === 0 ? (
+              <motion.div key="make" exit={still ? undefined : { opacity: 0, filter: "blur(10px)", transition: { duration: 0.35 } }}>
+                <p className="ifl-reach">
+                  <span className="hh-title ifl-reach-line">
+                    <Rise text="According to Ninja Van," delay={3.6} gap={0.04} still={still} />
+                  </span>
+                  <motion.span
+                    className="hh-display ifl-reach-n"
+                    initial={still ? false : { opacity: 0, y: "0.2em", filter: "blur(14px)" }}
+                    animate={{ opacity: 1, y: "0em", filter: "blur(0px)" }}
+                    transition={{ duration: 0.9, ease: EASE, delay: 4 }}
+                  >
+                    <Count to={46} delay={4.05} duration={1.4} still={still} />%
+                  </motion.span>
+                  <span className="hh-title ifl-reach-line">
+                    <Rise text="of Filipino social sellers find it hard to make content that works." delay={4.8} gap={0.04} still={still} />
+                  </span>
+                </p>
+                <motion.p className="ifl-src" initial={still ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 3 }}>
+                  Ninja Van and Milieu Insight, “Behind the Rizz of Social Commerce,” 2024. 46% of Filipino social sellers say creating effective content is challenging. ninjavan.co/en-ph/social-commerce
+                </motion.p>
+              </motion.div>
+            ) : (
+              <motion.div key="reach" exit={still ? undefined : { opacity: 0, transition: { duration: 0.3 } }}>
+                <p className="ifl-reach">
+                  <span className="hh-title ifl-reach-line">
+                    <Rise text="According to SocialInsider, only" delay={0.15} gap={0.04} still={still} />
+                  </span>
+                  <motion.span
+                    className="hh-display ifl-reach-n"
+                    initial={still ? false : { opacity: 0, y: "0.2em", filter: "blur(14px)" }}
+                    animate={{ opacity: 1, y: "0em", filter: "blur(0px)" }}
+                    transition={{ duration: 0.9, ease: EASE, delay: 0.55 }}
+                  >
+                    1 in <Count to={80} delay={0.6} duration={1.4} still={still} />
+                  </motion.span>
+                  <span className="hh-title ifl-reach-line">
+                    <Rise text="followers are bound to see your Facebook post." delay={1.35} gap={0.04} still={still} />
+                  </span>
+                </p>
+                <motion.p className="ifl-src" initial={still ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.3 }}>
+                  Socialinsider, “Social Media Reach Statistics,” updated Nov 11, 2026. Average Facebook page post reach in August 2026: 1.25% of followers, from 67.6 million posts. socialinsider.io/blog/social-media-reach
+                </motion.p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       ) : null}
       {scene === 3 ? (
@@ -381,7 +412,9 @@ const FOLD = 1.15
 
 export function Film({ active, step, still }: SlideProps) {
   const box = useStageBox()
-  const scene = Math.min(step, HANDOFF)
+  const at = Math.min(step, HOLD.length - 1)
+  const scene = SCENE_OF[at]
+  const beat = at === 3 ? 1 : 0
   const poised = scene === 0 && !active && !still
   const run = active || still
   const dealt = useBeats(active && scene === 1 && !still, DEAL.length, 760, 380)
@@ -445,7 +478,7 @@ export function Film({ active, step, still }: SlideProps) {
               <Posts scene={scene} poised={poised} dealt={dealt} days={days} still={still} />
             </div>
             <div className="ifl-stage ifl-stage-words" style={stage}>
-              <Words scene={scene} run={run} still={still} dealt={dealt} />
+              <Words scene={scene} beat={beat} run={run} still={still} dealt={dealt} />
             </div>
           </div>
         </div>

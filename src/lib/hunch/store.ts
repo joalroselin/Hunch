@@ -80,10 +80,22 @@ let state: HunchState = EMPTY
 let loaded = false
 const listeners = new Set<() => void>()
 
+// Buyer names changed after some runs were saved; saved runs read with the current ones.
+const RENAMES: [string, string][] = [
+  ["Hosts getting the sala ready", "Noche Buena hosts"],
+  ["hosts getting the sala ready", "Noche Buena hosts"],
+  ["Thrifters back from Cubao Expo", "Cubao Expo art kids"],
+  ["thrifters back from Cubao Expo", "Cubao Expo art kids"],
+  ["Barkadas splitting the bills", "Roommates splitting the bills"],
+  ["barkadas splitting the bills", "roommates splitting the bills"],
+  ["A5 Barkada unit ambagan", "A5 Roommates splitting bills"],
+]
+const renamed = (raw: string) => RENAMES.reduce((s, [from, to]) => (s.includes(from) ? s.split(from).join(to) : s), raw)
+
 function read<T>(key: string): T | null {
   try {
     const raw = window.localStorage.getItem(key)
-    return raw ? (JSON.parse(raw) as T) : null
+    return raw ? (JSON.parse(renamed(raw)) as T) : null
   } catch {
     return null
   }

@@ -9,7 +9,7 @@ import { BusyDots, lowerFirst } from "@/components/hunch/screens/shared"
 import type { ResultsReport, TestRun, Version, VersionMetrics } from "@/lib/hunch/types"
 
 import { usePostFrame } from "../test/run-post"
-import { CONFIDENCE_INDEX, CONFIDENCE_WORD, formatValue, leadPercent, peso, type MetricWords } from "./words"
+import { CONFIDENCE_INDEX, CONFIDENCE_WORD, formatValue, leadPercent, type MetricWords } from "./words"
 
 /** A result in the dot face. The peso sign is set in the display face, which has one. */
 export function Num({ value, className }: { value: string | number; className?: string }) {
@@ -134,6 +134,9 @@ function AgePlot({ m, caption }: { m: VersionMetrics; caption: string }) {
   )
 }
 
+// Two-word names like "Noche Buena" or "Cubao Expo" never break across lines.
+const keepNames = (name: string) => name.replace(/\b([A-Z][a-z]+) (?=[A-Z])/g, "$1\u00a0")
+
 /** The answer on a field of its own: who messaged most, with the post that did it. */
 export function WinnerPoster({
   report,
@@ -162,7 +165,7 @@ export function WinnerPoster({
     <div ref={ref} className="hr-poster hh-field hh-field-sili hh-grain">
       <div className="hr-poster-in" data-rise>
         <div className="hr-words">
-          <h1 className="hh-display hr-name">{`${w.v.audienceName} ${t.verb} most.`}</h1>
+          <h2 className="hh-display hr-name">{`${keepNames(w.v.audienceName)} ${t.verb} most.`}</h2>
           {ru ? <p className="hh-line hr-next">{`Next best: ${lowerFirst(ru.v.audienceName)}, ${t.count(ru.n).toLowerCase()}`}</p> : null}
         </div>
         <div className="hr-tools">
@@ -206,7 +209,9 @@ export function Race({ report, run, words }: { report: ResultsReport; run: TestR
   return (
     <section ref={ref} className="hr-race" aria-labelledby="race-title">
       <header className="hr-race-head" data-rise>
-        <h2 id="race-title" className="hh-title hr-h2">{`${peso(report.totalSpend)} found your buyers.`}</h2>
+        <h1 id="race-title" className="hh-title hr-h2">
+          You’ve found your buyers.
+        </h1>
         <p className="hh-line ha-line">{`See which of the ${t.ranked.length} posts got people to ${got}.`}</p>
       </header>
       <ol className="hr-cols" data-rise>

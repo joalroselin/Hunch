@@ -1113,3 +1113,12 @@
   }
 }
 
+
+
+/* The race leads the results; the answer card follows the button. */
+.hr-v .hr-race {
+  margin-top: clamp(20px, 2.6vw, 44px);
+}
+.hr-v .hr-send-v ~ .hr-poster {
+  margin-top: clamp(64px, 8vw, 120px);
+}
