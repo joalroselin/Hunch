@@ -4,8 +4,8 @@ import { Workspace } from "./workspace"
 import "./workspace.css"
 
 export const metadata: Metadata = {
-  title: "Hunch workspace",
-  description: "Plan, post and track next week's posts.",
+  title: "Plan and post · Hunch",
+  description: "Post one a day and see what works.",
 }
 
 export default function WorkspacePage() {

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { demoReply, platformPrompt, roleActivity, scenarios, type ChatMessage } from "@/lib/demo-chat";
 
-export default function ChatSidebar({ open, view, onClose, onUseDraft, onDemoImport }: {
+export default function ChatSidebar({ open, onClose, onUseDraft, onDemoImport }: {
   open: boolean;
   view: string;
   onClose: () => void;
@@ -14,7 +14,7 @@ export default function ChatSidebar({ open, view, onClose, onUseDraft, onDemoImp
   const [question, setQuestion] = useState("");
   const [pending, setPending] = useState<ChatMessage[]>([]);
   const [streamingText, setStreamingText] = useState("");
-  const [sequence, setSequence] = useState<string[]>([]);
+  const [showRun, setShowRun] = useState(false);
   const thread = useRef<HTMLDivElement>(null);
   const input = useRef<HTMLTextAreaElement>(null);
   const wasOpen = useRef(open);
@@ -60,48 +60,50 @@ export default function ChatSidebar({ open, view, onClose, onUseDraft, onDemoImp
     wasOpen.current = open;
   }, [open]);
 
+  const close = () => {
+    onClose();
+    document.querySelector<HTMLButtonElement>(".chat-toggle")?.focus();
+  };
+
   const send = (text: string) => {
     if (!text.trim() || pending.length) return;
-    const reply = demoReply(text.trim(), view);
+    const reply = demoReply(text.trim());
     if (reply.some(message => message.platform)) onDemoImport(null);
     followThread.current = true;
     setMessages(current => [...current, { role: "You", text: text.trim() }]);
     setQuestion("");
-    setSequence(reply.map(message => message.role));
+    setShowRun(reply.length > 1);
     setPending(reply);
   };
 
-  return <aside id="hunch-chat" className="chat-panel" aria-labelledby="chat-title" hidden={!open} onKeyDown={event => {
-    if (event.key === "Escape") {
-      onClose();
-      document.querySelector<HTMLButtonElement>(".chat-toggle")?.focus();
-    }
-  }}>
+  const unasked = scenarios.filter(scenario => !messages.some(message => message.role === "You" && message.text === scenario.name));
+
+  return <aside id="hunch-chat" className="chat-panel" aria-labelledby="chat-title" hidden={!open} onKeyDown={event => { if (event.key === "Escape") close(); }}>
     <header className="chat-header">
-      <div className="chat-heading"><span className="brand-mark" aria-hidden="true" /><div><h2 id="chat-title">Ask Hunch</h2><small>A little help with your next move</small></div></div>
-      <button className="back chat-close" onClick={() => { onClose(); document.querySelector<HTMLButtonElement>(".chat-toggle")?.focus(); }} aria-label="Close Hunch chat">×</button>
+      <div className="chat-heading"><span className="brand-mark" aria-hidden="true" /><div><h2 id="chat-title">Ask Hunch</h2><small>See what to post next</small></div></div>
+      <button className="back chat-close" onClick={close} aria-label="Close chat">
+        <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" /></svg>
+      </button>
     </header>
-    <div className="chat-context"><span>Alongside {view}</span><span className="chat-demo-label">Scripted demo</span></div>
-    {!!sequence.length && <div className={"chat-run" + (pending.length ? " is-running" : "")}>
-      <div className="chat-run-title" role="status"><span className="brand-mark" aria-hidden="true" /><div><strong>{pending.length ? roleActivity[pending[0].role] : "Ready for your next move"}</strong><small>{pending.length ? `Step ${sequence.length - pending.length + 1} of ${sequence.length} · Demo playback` : "Review the draft below"}</small></div></div>
-      <div className="chat-run-track" aria-label="Demo steps">{sequence.map((role, index) => <span key={index} title={role} className={index < sequence.length - pending.length ? "step-done" : index === sequence.length - pending.length ? "step-active" : ""} />)}</div>
+    {showRun && <div className={"chat-run" + (pending.length ? " is-running" : "")}>
+      <div className="chat-run-title" role="status"><span className="brand-mark" aria-hidden="true" /><div><strong>{pending.length ? roleActivity[pending[0].role] : "Your post is ready"}</strong></div></div>
     </div>}
-    <div className="chat-thread" ref={thread} role="log" aria-label="Hunch conversation" aria-live="polite" aria-relevant="additions" onScroll={event => { const element = event.currentTarget; followThread.current = element.scrollHeight - element.scrollTop - element.clientHeight < 80; }}>
-      {!messages.length && <div className="chat-welcome"><span className="hero-label">Your creative second opinion</span><h3>What’s your<br />next move?</h3><p>Try an example and watch the team turn evidence into a draft, with a little healthy skepticism along the way.</p><small>Examples use fictional data, not your saved posts.</small></div>}
+    <div className="chat-thread" ref={thread} role="log" aria-label="Chat with Hunch" aria-live="polite" aria-relevant="additions" onScroll={event => { const element = event.currentTarget; followThread.current = element.scrollHeight - element.scrollTop - element.clientHeight < 80; }}>
+      {!messages.length && <div className="chat-welcome"><h3>How did your<br />posts do?</h3><p>{"Tap a question to see Elle's sample."}</p></div>}
       {messages.map((message, index) => <article key={index} className={"chat-message" + (message.role === "You" ? " chat-message-user" : "")}>
         <span className="chat-role">{message.role}</span>
         <p>{message.text}</p>
-        {message.draft && <button className="primary" onClick={() => { if (message.draft) onUseDraft(message.draft, message.channel); }}>Review and add to plan</button>}
+        {message.draft && <button className="primary" onClick={() => { if (message.draft) onUseDraft(message.draft, message.channel); }}>Plan this post</button>}
       </article>)}
-      {!!pending.length && <article className="chat-message chat-message-streaming" aria-hidden="true"><span className="chat-role">{pending[0].role}<span className="chat-writing-label">{streamingText ? "Writing" : "Working"}</span></span>{streamingText ? <p>{streamingText}<span className="chat-caret" /></p> : <div className="chat-thinking"><i /><i /><i /></div>}</article>}
+      {!!pending.length && <article className="chat-message chat-message-streaming" aria-hidden="true"><span className="chat-role">{pending[0].role}</span>{streamingText ? <p>{streamingText}<span className="chat-caret" /></p> : <div className="chat-thinking"><i /><i /><i /></div>}</article>}
     </div>
-    <div className="chat-prompts" aria-label="Example questions"><button className="platform-demo-trigger" disabled={!!pending.length} onClick={() => send(platformPrompt)}>↻ Replay platform import → insights → draft</button>{!messages.length && scenarios.map(scenario => <button key={scenario.id} disabled={!!pending.length} onClick={() => send(scenario.name)}>{scenario.name}<span aria-hidden="true"> ↗</span></button>)}</div>
+    <div className="chat-prompts" role="group" aria-label="Questions to try"><button className="platform-demo-trigger" disabled={!!pending.length} onClick={() => send(platformPrompt)}>{platformPrompt}</button>{unasked.map(scenario => <button key={scenario.id} disabled={!!pending.length} onClick={() => send(scenario.name)}>{scenario.name}</button>)}</div>
     <form className="chat-composer" onSubmit={event => { event.preventDefault(); send(question); }}>
-      <label className="chat-input-label" htmlFor="chat-question">Message Hunch</label>
-      <textarea ref={input} id="chat-question" rows={2} maxLength={2000} value={question} onChange={event => setQuestion(event.target.value)} placeholder="Ask about your next post…" onKeyDown={event => {
+      <label className="chat-input-label" htmlFor="chat-question">Your question</label>
+      <textarea ref={input} id="chat-question" rows={2} maxLength={2000} value={question} onChange={event => setQuestion(event.target.value)} placeholder="Type a question" onKeyDown={event => {
         if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); send(question); }
       }} />
-      <div className="chat-composer-footer"><small>Live AI isn’t connected yet.</small><button className="primary" type="submit" disabled={!question.trim() || !!pending.length}>Send</button></div>
+      <div className="chat-composer-footer"><small>{"Answers use Elle's sample for now."}</small><button className="primary" type="submit" disabled={!question.trim() || !!pending.length}>Send</button></div>
     </form>
   </aside>;
 }

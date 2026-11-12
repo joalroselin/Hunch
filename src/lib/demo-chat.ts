@@ -1,45 +1,111 @@
+import { focus, metricsByCode, peso, report, run } from "@/components/hunch/home/data";
+import { captionText, normalizeLanguage } from "@/lib/hunch/language";
+import type { Version, VersionMetrics } from "@/lib/hunch/types";
+import { channelOfAudience, sampleWorkspacePosts, weekChannel } from "./demo-workspace";
+
 export type ChatMessage = { role: string; text: string; draft?: string; platform?: string; channel?: string };
 
-export const platformPrompt = "Show me how my channels are doing";
+export const platformPrompt = "How did my posts do?";
 export const roleActivity: Record<string, string> = {
-  Hunch: "Preparing the walkthrough",
-  Instagram: "Loading Instagram example posts",
-  TikTok: "Loading TikTok example metrics",
-  Facebook: "Loading Facebook example results",
-  Analyst: "Comparing the evidence",
-  Strategist: "Choosing the next experiment",
-  Copywriter: "Shaping a caption",
-  Skeptic: "Checking the assumptions",
-  Reviewer: "Preparing your draft for review"
+  Hunch: "Writing a reply",
+  Instagram: "Loading Instagram posts",
+  TikTok: "Loading TikTok posts",
+  Facebook: "Loading Facebook posts",
+  Analyst: "Reading the results",
+  Strategist: "Choosing what to post",
+  Copywriter: "Writing the post",
+  Skeptic: "Checking the numbers",
+  Reviewer: "Reviewing the post"
 };
 
+const language = normalizeLanguage(run.product.language);
+const ranked = [...report.metrics].sort((a, b) => a.rank - b.rank);
+const PLACES = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth"];
+const place = (m: VersionMetrics) => PLACES[m.rank - 1] ?? `number ${m.rank}`;
+const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+const num = (n: number) => n.toLocaleString("en-US");
+const count = (n: number, word: string) => `${num(n)} ${word}${n === 1 ? "" : "s"}`;
+const got = (m: VersionMetrics) => m.results ?? 0;
+const messages = (m: VersionMetrics) => count(got(m), "message");
+const metricsOf = (audienceId: string) => metricsByCode.get(run.versions.find(v => v.audienceId === audienceId)?.code ?? "");
+const draftOf = (post: Version) => captionText(post, language);
+
+const winner = ranked[0];
+const last = ranked[ranked.length - 1];
+const spend = peso(winner.spend);
+const week = focus.posts;
+const testDay = Math.max(0, week.findIndex(post => post.purpose === "runner_up_test"));
+const winnerDays = week.filter(post => post.purpose !== "runner_up_test").length;
+const runnerUp = metricsOf(week[testDay].audienceId) ?? ranked[1];
+const [sideTest, christmasTest] = focus.tests;
+const side = metricsOf(sideTest.audienceId) ?? ranked[2];
+const sideNext = ranked[side.rank];
+const sideGap = sideNext ? got(side) - got(sideNext) : 0;
+const mostShared = side.shares >= Math.max(...ranked.map(m => m.shares));
+const fewest = ranked.every(m => m === last || got(m) > got(last));
+
 export const scenarios = [
-  { id: "saves", name: "Recipe videos earn saves", evidence: "Example dataset: 6 recipe videos averaged 8.1% saves per reach; 5 product-only posts averaged 4.9%.", insight: "Practical recipe videos appear to earn more saves in this sample.", next: "Try one more 20–30 second recipe video, then compare saves per reach.", draft: "POV: you have 10 minutes and one spoon of chili oil. Here’s my go-to noodle bowl…", caveat: "This is a small sample. Topic, timing, and format may all be contributing; it does not prove recipes caused the lift." },
-  { id: "comments", name: "Behind-the-scenes sparks replies", evidence: "Example dataset: 4 process clips averaged 31 comments; 5 polished product shots averaged 14.", insight: "Process clips may be prompting more conversation than polished product shots.", next: "Share one short making-of clip and ask a specific question about the process.", draft: "The part you don’t see: every batch gets taste-tested. Would you go extra garlicky or extra spicy?", caveat: "Comments are not the same as sales or reach. Check whether this pattern repeats before changing your content mix." },
-  { id: "low-data", name: "Not enough data yet", evidence: "Example dataset: one post with reach and engagement recorded.", insight: "There is not enough evidence to call a winning format.", next: "Post two different formats this week and record the same metrics for each.", draft: "Try a simple recipe clip and a behind-the-scenes clip; keep the caption style similar so the comparison is easier.", caveat: "One post is too little to separate a real pattern from normal variation." }
+  {
+    id: "enough",
+    name: `Is ${messages(winner)} enough?`,
+    evidence: `${winner.audienceName} got ${messages(winner)}. ${runnerUp.audienceName} got ${num(got(runnerUp))}, from the same ${spend}.`,
+    next: `Check it next week. Day ${testDay + 1} tests the runner-up again.`,
+    hook: week[testDay].hook,
+    caveat: "With numbers this small, a few messages can change the order. Next week's posts are the real check.",
+    check: "It doesn't promise gift wrap. It's ready to plan.",
+    draft: draftOf(week[testDay]),
+    channel: weekChannel(testDay)
+  },
+  {
+    id: "test-next",
+    name: "What do I test next?",
+    evidence: `${side.audienceName} came ${place(side)} with ${messages(side)}.${mostShared ? ` It also got the most shares, ${num(side.shares)}.` : ""}`,
+    next: `Try one more ${spend} post for them. Make it about hosting a watch party.`,
+    hook: sideTest.hook,
+    caveat: sideNext ? `${sideNext.audienceName} got ${num(got(sideNext))}, ${sideGap > 0 ? `just ${sideGap === 1 ? "one" : num(sideGap)} less` : "the same"}. ${cap(place(side))} place could go either way.` : "One post is a small test. Give it a few days.",
+    check: `It says where to put the candle and when to blow it out. Plan it as a ${spend} test.`,
+    draft: draftOf(sideTest),
+    channel: channelOfAudience(sideTest.audienceId)
+  },
+  {
+    id: "drop",
+    name: "Which post should I drop?",
+    evidence: `${last.audienceName} got ${messages(last)} for ${peso(last.spend)}${fewest ? `, the fewest of all ${ranked.length}` : ""}.`,
+    next: "Leave them out next week. Try a Christmas post for the night shift instead.",
+    hook: christmasTest.hook,
+    caveat: `One post over ${report.days} days is a short test. You can try them again later.`,
+    check: `It says to blow it out before bed. Plan it as a ${spend} test.`,
+    draft: draftOf(christmasTest),
+    channel: channelOfAudience(christmasTest.audienceId)
+  }
 ];
 
-// shortcut: scripted examples only; replace with a model endpoint for live chat.
-export function demoReply(question: string, view: string): ChatMessage[] {
+function importLine(channel: string) {
+  const posts = sampleWorkspacePosts().filter(post => post.status === "Posted" && post.channel === channel);
+  const reach = posts.reduce((sum, post) => sum + (post.reach ?? 0), 0);
+  const results = posts.reduce((sum, post) => sum + (metricsByCode.get(post.code ?? "")?.results ?? 0), 0);
+  return `Got ${count(posts.length, "test post")}. They reached ${num(reach)} people and got ${count(results, "message")}.`;
+}
+
+// Scripted replies only; swap in a model endpoint for live chat.
+export function demoReply(question: string): ChatMessage[] {
   const scenario = scenarios.find(item => item.name === question);
   if (!scenario && (question === platformPrompt || /\b(sync|import|platforms?|channels?|analytics|performance|results)\b/i.test(question))) return [
-    { role: "Hunch", text: "I’ll replay a sample channel import, fill the analytics table, and work through a next post. This uses fictional data; no platform connection is being made." },
-    { role: "Instagram", text: "Instagram example loaded: 2 posts, including a market-haul clip with 1,840 reach and 126 engagements.", platform: "Instagram" },
-    { role: "TikTok", text: "TikTok example loaded: 2 posts, including a garlic-rice recipe with 2,680 reach and 215 engagements.", platform: "TikTok" },
-    { role: "Facebook", text: "Facebook example loaded: 2 posts, including chili garlic toast with 1,420 reach and 71 engagements.", platform: "Facebook" },
-    { role: "Analyst", text: "Across these three example posts: 5,940 reach and 412 engagements. The TikTok recipe has an 8.0% engagement rate, versus 6.8% on the Instagram clip and 5.0% on Facebook." },
-    { role: "Strategist", text: "The recipe is a promising next test. Try a short noodle-bowl video on TikTok, keeping the chili oil part of the recipe rather than the whole pitch." },
-    { role: "Copywriter", text: scenarios[0].draft },
-    { role: "Skeptic", text: "Hold on: these are different topics on different platforms. Three posts cannot establish a winning format. Frame this as a test, not a proven strategy." },
-    { role: "Reviewer", text: "Recommendation revised: test one more quick recipe and compare it with your previous TikTok recipe. Track engagement rate again. Here’s a draft you can edit before planning it.", draft: scenarios[0].draft, channel: "TikTok" }
+    { role: "Hunch", text: `This is a replay of Elle's sample. Her ${run.versions.length} test posts come in first.` },
+    ...["Instagram", "TikTok", "Facebook"].map(platform => ({ role: platform, text: importLine(platform), platform })),
+    { role: "Analyst", text: `${winner.audienceName} reacted most. Their ${spend} post got ${messages(winner)} and ${num(winner.engagements)} engagements.` },
+    { role: "Strategist", text: `Next week, give them ${winnerDays} posts. Save day ${testDay + 1} for ${runnerUp.audienceName}, which came ${place(runnerUp)} with ${messages(runnerUp)}.` },
+    { role: "Copywriter", text: week[0].hook },
+    { role: "Skeptic", text: `${messages(winner)} in ${report.days} days is still a small number. Treat it as a first sign.` },
+    { role: "Reviewer", text: "It only uses Elle's facts. It's ready to plan.", draft: draftOf(week[0]), channel: weekChannel(0) }
   ];
-  if (!scenario) return [{ role: "Hunch", text: `You’re on ${view}. Live chat isn’t connected yet. Choose an example below to see the five roles work through a sample question. These examples don’t analyze your saved posts.` }];
+  if (!scenario) return [{ role: "Hunch", text: "I can't answer typed questions yet. Tap a question below to see Elle's sample." }];
   return [
-    { role: "Hunch", text: "Let’s walk through this example together. The following evidence and responses are prewritten, separate from your saved posts." },
+    { role: "Hunch", text: "Here's what Elle's sample shows." },
     { role: "Analyst", text: scenario.evidence },
     { role: "Strategist", text: scenario.next },
-    { role: "Copywriter", text: scenario.draft },
+    { role: "Copywriter", text: scenario.hook },
     { role: "Skeptic", text: scenario.caveat },
-    { role: "Reviewer", text: "Keep the limitation in mind before using this idea. Review and edit the draft before adding it to your plan.", draft: scenario.draft }
+    { role: "Reviewer", text: scenario.check, draft: scenario.draft, channel: scenario.channel }
   ];
 }
