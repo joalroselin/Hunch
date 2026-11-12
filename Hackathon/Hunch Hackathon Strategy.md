@@ -2,7 +2,7 @@
 
 Nov 12, 2026 · @Joal Rose Lin
 
-We win by making one creator workspace feel finished. Hunch's first audience is small creators and influencers because that is the community we understand and can reach most easily. Independent product sellers are a secondary market. The product brings planning, publishing, analytics, and useful insights together; creator audience hypotheses are one tool inside it.
+We lead with one working outcome: Hunch turns a small seller’s test results into their next week of posts. Elle’s Candles is the sample story. The current evidence and remaining checks for every bucket live in `MVP Plan.md`; use that implementation audit when preparing the pitch.
 
 ## How we're scored
 
@@ -26,28 +26,18 @@ Craftsmanship is crowded but carries 40% and suits our team, so we win it on fin
 
 Move the dots at each checkpoint; the levers in the next section say what moves each one.
 
-## Bucket by bucket
+## Bucket evidence in the current build
 
-Likelihoods are our judgment before seeing other teams, rated as strong, fair, or long shot. We have no view of other teams, so these rate our own build only; revisit them at each checkpoint.
-
-| Bucket | Weight | Likelihood | Why | Biggest risk | Lever that raises it |
-| --- | --- | --- | --- | --- | --- |
-| Craftsmanship | 40% | Fair to strong | One focused flow, a designer-engineer owning UX, and a real design system; most teams spread across features | One engineer, 15 hours; a rough screen anywhere drags the whole impression | Protect 14:00 to 17:00 for polish; cut breadth before cutting finish |
-| Agents | 20% | Fair | Agents can assist with ideation, drafting, channel adaptation, and turning performance into next actions | Advice without observed data can sound fabricated | Show which insights come from channel data and which are suggestions; keep creator approval before publish |
-| Content | 20% | Fair | Channel-ready drafts and a unified calendar help creators keep a consistent presence | Generic caption generation is crowded | Show one post adapted for two channels and let the creator edit before publishing |
-| PH Community | 20% | Fair | Filipino creators can plan, publish, and understand performance in one workspace; Hunch can reach creator friends directly | A broad social-media platform can feel unfocused; platform connections limit what works at launch | Keep the first workflow small, make share/import fallbacks clear, and credit creator quotes by name and niche |
+- **Craftsmanship · 40%:** coherent flow, distinct planned-post gallery, evidence-linked chat, caption revision, date-based planning, export and share handoff. Rehearse one short path and test physical phones.
+- **Agents · 20%:** audience selection, critique, drafting and bounded review/rewrite are implemented in the server pipeline. Verify the configured live model separately from sample or mocked runs. Prepared workspace chat is not the model-backed pipeline.
+- **Content · 20%:** posts use Elle’s candle facts, local buying occasions and English/Taglish/Tagalog copy. Show the caption and visual together. Finish the editorial pass.
+- **PH Community · 20%:** demonstrate the local seller workflow and phone handoff. Use credited feedback when available; do not present personas, sample metrics or generated photos as customer evidence.
 
 ## Best in Show
 
-Best in Show goes to the highest overall score, so we don't need to win any single bucket outright; we need to be near the top in all four. Our path is one story where every bucket shows up in the same 5 minutes:
+The product walkthrough gets 60–90 seconds of the five-minute pitch. Use the rest for the problem, market, business, evidence and roadmap. The memorable moment is one revised post moving into the week, with a clear reason for making it.
 
-1. **The problem (PH Community).** Elle has to jump between tools to plan posts, publish, and figure out what's working. We understand this creator community and can reach creators directly; creator-friend quotes make the need concrete.
-2. **Plan and create (Content, Agents).** Show the calendar, a channel-ready draft, and an optional audience/content suggestion.
-3. **Publish (Craftsmanship).** Preview the post, schedule or publish where available, and use the share handoff when a channel isn't connected.
-4. **Understand performance (Agents, PH Community).** Compare channel metrics in one workspace, then show one evidence-based insight and a clearly labeled suggestion.
-5. **What's next.** Expand publishing connections and analytics coverage as platform access allows.
-
-What would cost us Best in Show: a demo that breaks, a story that feels like four features instead of one loop, or output judges find cringe.
+The pitch states what the product does. Sample labels stay beside sample data. Actual integration limits and missing customer validation are answered plainly in Q&A and the roadmap.
 
 ## Checkpoints during the build
 

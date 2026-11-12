@@ -505,7 +505,7 @@
       right: 10px;
       bottom: calc(10px + env(safe-area-inset-bottom));
       display: grid;
-      grid-template-columns: 1fr 1fr 1.1fr 1.45fr;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 2px;
       height: var(--dock-h);
       padding: 6px;
@@ -515,7 +515,7 @@
       -webkit-backdrop-filter: blur(16px) saturate(1.2);
       box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgb(80 40 10 / 0.24), 4px 12px 30px rgb(90 50 15 / 0.2);
     }
-    .ws-dock button { position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; min-width: 0; height: 100%; padding: 0 6px 1px; border: 0; border-radius: 999px; background: none; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; transition: scale 0.18s var(--ease-out); }
+    .ws-dock button { position: relative; display: flex; align-items: center; justify-content: center; gap: 4px; min-width: 0; height: 100%; padding: 0 4px 1px; border: 0; border-radius: 999px; background: none; font-size: 13px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; transition: scale 0.18s var(--ease-out); }
     .ws-dock button:active { scale: 0.95; }
     .ws-dock-pill { position: absolute; inset: 0; border-radius: inherit; background: var(--ink); }
     .ws-dock button > span:not(.ws-dock-pill), .ws-dock .ws-ask-drop { position: relative; z-index: 1; transition: color 0.3s var(--ease-out); }
@@ -628,4 +628,55 @@
     *, *::before, *::after { transition-duration: 0.01ms !important; }
     .ws-logo:hover .ws-logo-drop, .ws-ask[aria-expanded="true"] .ws-ask-drop { rotate: none; }
   }
+}
+
+/* Build: architecture reads in order, then splits into two distribution paths. */
+.jw .build-page { max-width: 1120px; padding-bottom: 64px; }
+.jw .build-intro { max-width: 780px; }
+.jw .build-intro > p { max-width: 55ch; margin: 24px 0 0; font-size: clamp(18px, 1.7vw, 23px); line-height: 1.4; }
+.jw .build-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; margin-top: 40px; }
+.jw .build-summary h2, .jw .build-summary h3 { margin: 0 0 12px; font-size: 27px; line-height: 1.05; }
+.jw .build-summary p, .jw .build-architecture p, .jw .build-roadmap p { margin: 8px 0 0; font-size: 16px; line-height: 1.5; }
+.jw .build-section-head { margin: 64px 0 24px; }
+.jw .build-section-head h2 { margin: 0; max-width: 24ch; font-size: clamp(30px, 3.5vw, 46px); line-height: 1; }
+.jw .build-section-head > p { margin: 12px 0 0; font-size: 17px; line-height: 1.4; }
+.jw .build-architecture { margin: 0; padding: clamp(18px, 2.5vw, 30px); border-radius: 26px; background: var(--sheet); box-shadow: var(--shadow-slip); }
+.jw .build-architecture figcaption { font-size: 13px; font-weight: 700; margin-bottom: 18px; }
+.jw .build-core, .jw .build-path, .jw .build-roadmap { list-style: none; padding: 0; }
+.jw .build-core { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin: 0; }
+.jw .build-core li { position: relative; padding: 18px; border-radius: 16px; background: var(--cream); }
+.jw .build-core li + li::before { content: '→'; position: absolute; left: -23px; top: 22px; font-size: 20px; }
+.jw .build-core h3 { margin: 0; font-size: 21px; line-height: 1.1; }
+.jw .build-core p { font-size: 14px; }
+.jw .build-adapter { padding: 20px 0 26px; text-align: center; }
+.jw .build-adapter > span { display: block; margin-bottom: 8px; font-size: 28px; }
+.jw .build-adapter strong { font-size: 23px; }
+.jw .build-adapter p { max-width: 48ch; margin-inline: auto; font-size: 14px; }
+.jw .build-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+.jw .build-paths > section { padding: 22px; border-radius: 20px; background: var(--cream); }
+.jw .build-paths h3 { margin: 0; font-size: 28px; }
+.jw .build-paths .build-path-label { font-size: 12px; font-weight: 700; }
+.jw .build-path { display: grid; gap: 28px; margin: 24px 0; }
+.jw .build-path li { position: relative; }
+.jw .build-path li + li::before { content: '↓'; position: absolute; top: -25px; font-size: 18px; }
+.jw .build-path b, .jw .build-path span { display: block; }
+.jw .build-path span { margin-top: 4px; font-size: 14px; line-height: 1.4; }
+.jw .build-paths section > p:last-child { font-size: 13px; color: var(--ink-soft); }
+.jw .build-feedback { display: flex; gap: 14px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--tint-strong); }
+.jw .build-feedback > span { font-size: 28px; }
+.jw .build-feedback p { font-size: 13px; }
+.jw .build-source-note { max-width: 80ch; margin: 18px 0 0; font-size: 12px; line-height: 1.5; color: var(--ink-soft); }
+.jw .build-source-note a { color: inherit; text-underline-offset: 3px; }
+.jw .build-roadmap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 40px; margin: 0; }
+.jw .build-roadmap li > span { font-size: 13px; font-weight: 700; color: var(--chili); }
+.jw .build-roadmap h3 { margin: 8px 0 12px; font-size: 27px; }
+@media (max-width: 1000px) {
+  .jw .build-core { grid-template-columns: 1fr; gap: 28px; }
+  .jw .build-core li + li::before { content: '↓'; top: -26px; left: 18px; }
+}
+@media (max-width: 700px) {
+  .jw .build-summary, .jw .build-paths, .jw .build-roadmap { grid-template-columns: 1fr; gap: 24px; }
+  .jw .build-section-head { margin-top: 44px; }
+  .jw .build-paths > section { padding: 18px; }
+  .jw .ws-sample-reset { font-size: 12px; }
 }
