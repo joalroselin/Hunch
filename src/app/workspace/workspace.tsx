@@ -8,6 +8,7 @@ import { focus, metricsByVersion, photoUrlOf, run } from "@/components/hunch/hom
 import { HunchMark } from "@/components/hunch/home/mark";
 import { runnerUp, spendEach, winner } from "@/components/hunch/home/proof/data";
 import { HomePost, UgcPost } from "@/components/hunch/home/ugc-post";
+import { manilaToday, type ChatDraft } from "@/lib/demo-chat";
 import { mergeDemoPlatform, refreshSamples, sampleWorkspacePosts, type Post } from "@/lib/demo-workspace";
 import { captionText, normalizeLanguage } from "@/lib/hunch/language";
 import type { Version } from "@/lib/hunch/types";
@@ -45,7 +46,7 @@ const LIFTS = [16, 0, 24, 4, 20, 0, 12, 6];
 
 const pad = (n: number) => String(n).padStart(2, "0");
 const isoOf = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-const todayIso = () => isoOf(new Date());
+const todayIso = () => manilaToday();
 const addDays = (iso: string, n: number) => {
   const d = new Date(`${iso}T12:00:00`);
   d.setDate(d.getDate() + n);
@@ -426,22 +427,30 @@ export function Workspace() {
     window.requestAnimationFrame(() => (phone ? askDock : askBar).current?.focus());
   };
   const takeDraft = (draft: string, suggestedChannel?: string) => {
-    // A draft that is already in the plan opens that day instead of adding a copy.
     const k = knownFor(draft);
     const existing = k ? posts.find(post => post.status !== "Posted" && (post.code ?? knownFor(post.text)?.v.code) === k.v.code) : undefined;
-    if (existing) {
-      setSelectedId(existing.id);
-      if (view !== "Week") go("Week");
-      say("Already in your week.");
-      if (phone) setChatOpen(false);
-      return;
-    }
-    setEditingId(null);
+    setEditingId(existing?.id ?? null);
     setPostText(draft);
     setChannel(suggestedChannel && channels.includes(suggestedChannel) ? suggestedChannel : channels[0]);
-    setDate(firstFreeDay());
+    setDate(existing?.date || firstFreeDay());
     setFormNote("");
     setShowComposer(true);
+    if (phone) setChatOpen(false);
+  };
+  const planChatDraft = (draft: ChatDraft, day: string) => {
+    const existing = posts.find(post => post.id === draft.postId && post.status !== "Posted");
+    const post: WPost = { ...existing, id: existing?.id ?? crypto.randomUUID(), text: draft.text, channel: draft.channel, date: day, status: "Planned", code: draft.code };
+    setPosts(current => existing ? current.map(item => item.id === existing.id ? post : item) : [post, ...current]);
+    setSelectedId(post.id);
+    go("Week");
+    say(`Planned for ${dayLabel(day)}.`);
+    if (phone) setChatOpen(false);
+    return post.id;
+  };
+  const showChatEvidence = (id: string) => {
+    setSelectedId(id);
+    go("Results");
+    window.setTimeout(() => document.getElementById(`result-${id}`)?.scrollIntoView({ block: "center", behavior: "smooth" }), 100);
     if (phone) setChatOpen(false);
   };
 
@@ -452,7 +461,10 @@ export function Workspace() {
   const lead = line.find(post => post.id === selectedId) ?? line.find(post => today && post.date >= today) ?? line[0];
   const lineCrops = useMemo(() => cropsFor(line), [line]);
   const runnerName = runnerUp && runnerUp !== winner ? runnerUp.v.audienceName : null;
-  const showTest = !!winner && (hasSamples || demoImporting);
+  const showTest = !!winner && run.versions.every(version => {
+    const metric = metricsByVersion.get(version.id);
+    return posts.some(post => post.sample && post.code === version.code && post.status === "Posted" && post.reach === metric?.reach && post.engagements === metric?.engagements);
+  });
 
   const measured = useMemo(() => posted.filter(post => post.reach !== undefined || post.engagements !== undefined).sort((a, b) => (b.engagements ?? 0) - (a.engagements ?? 0) || (b.reach ?? 0) - (a.reach ?? 0)), [posted]);
   const waiting = posted.filter(post => post.reach === undefined && post.engagements === undefined);
@@ -787,6 +799,8 @@ export function Workspace() {
                   key={post.id}
                   layout
                   className="rs-item"
+                  id={`result-${post.id}`}
+                  data-chat-evidence={selectedId === post.id ? "" : undefined}
                   data-best={i === 0 ? "" : undefined}
                   style={{ "--h": (post.engagements ?? 0) / most, "--i": i } as CSSProperties}
                   transition={{ layout: { duration: 0.6, ease } }}
@@ -877,7 +891,7 @@ export function Workspace() {
           </button>
         </nav>
 
-        <ChatSidebar onDemoImport={importDemoPlatform} open={chatOpen} view={view} onClose={closeChat} onUseDraft={takeDraft} />
+        <ChatSidebar posts={posts} onPlanDraft={planChatDraft} onViewEvidence={showChatEvidence} onDemoImport={importDemoPlatform} open={chatOpen} view={view} onClose={closeChat} onUseDraft={takeDraft} />
 
         <div className="ws-toasts" role="status" aria-live="polite">
           <AnimatePresence>

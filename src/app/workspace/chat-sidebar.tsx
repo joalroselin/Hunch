@@ -1,10 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { demoReply, platformPrompt, roleActivity, scenarios, type ChatMessage } from "@/lib/demo-chat";
+import type { Post } from "@/lib/demo-workspace";
+import { demoReply, importPrompt, platformPrompt, scenarios, type ChatDraft, type ChatMessage } from "@/lib/demo-chat";
 
-export default function ChatSidebar({ open, onClose, onUseDraft, onDemoImport }: {
+export default function ChatSidebar({ open, onClose, onUseDraft, onDemoImport, posts, onPlanDraft, onViewEvidence }: {
   open: boolean;
+  posts: Post[];
+  onPlanDraft: (draft: ChatDraft, date: string) => string;
+  onViewEvidence: (id: string) => void;
   view: string;
   onClose: () => void;
   onUseDraft: (draft: string, channel?: string) => void;
@@ -14,14 +18,15 @@ export default function ChatSidebar({ open, onClose, onUseDraft, onDemoImport }:
   const [question, setQuestion] = useState("");
   const [pending, setPending] = useState<ChatMessage[]>([]);
   const [streamingText, setStreamingText] = useState("");
-  const [showRun, setShowRun] = useState(false);
+  const [draft, setDraft] = useState<ChatDraft>();
   const thread = useRef<HTMLDivElement>(null);
   const input = useRef<HTMLTextAreaElement>(null);
   const wasOpen = useRef(open);
   const followThread = useRef(true);
   const importStep = useRef(onDemoImport);
+  const planStep = useRef(onPlanDraft);
 
-  useEffect(() => { importStep.current = onDemoImport; }, [onDemoImport]);
+  useEffect(() => { importStep.current = onDemoImport; planStep.current = onPlanDraft; }, [onDemoImport, onPlanDraft]);
 
   useEffect(() => {
     if (!pending.length) return;
@@ -33,12 +38,16 @@ export default function ChatSidebar({ open, onClose, onUseDraft, onDemoImport }:
     let finishTimer: number | undefined;
     const finish = () => {
       if (message.platform) importStep.current(message.platform);
-      setMessages(current => [...current, message]);
+      if (message.draft) {
+        const postId = message.planDate ? planStep.current(message.draft, message.planDate) : message.draft.postId;
+        setDraft({ ...message.draft, postId });
+      }
+      if (!message.platform) setMessages(current => [...current, message]);
       setStreamingText("");
       setPending(current => current.slice(1));
     };
     const timer = window.setTimeout(() => {
-      if (reducedMotion) { finish(); return; }
+      if (message.platform || reducedMotion) { finish(); return; }
       interval = window.setInterval(() => {
         revealed += 3;
         setStreamingText(words.slice(0, revealed).join(" "));
@@ -47,7 +56,7 @@ export default function ChatSidebar({ open, onClose, onUseDraft, onDemoImport }:
           finishTimer = window.setTimeout(finish, 350);
         }
       }, 45);
-    }, reducedMotion ? 150 : 750);
+    }, reducedMotion ? 150 : message.platform ? 1000 : 500);
     return () => { window.clearTimeout(timer); window.clearInterval(interval); window.clearTimeout(finishTimer); };
   }, [pending]);
 
@@ -65,18 +74,16 @@ export default function ChatSidebar({ open, onClose, onUseDraft, onDemoImport }:
     document.querySelector<HTMLButtonElement>(".chat-toggle")?.focus();
   };
 
-  const send = (text: string) => {
+  const send = (text: string, currentDraft = draft) => {
     if (!text.trim() || pending.length) return;
-    const reply = demoReply(text.trim());
+    const reply = demoReply(text.trim(), posts, currentDraft);
     if (reply.some(message => message.platform)) onDemoImport(null);
     followThread.current = true;
     setMessages(current => [...current, { role: "You", text: text.trim() }]);
     setQuestion("");
-    setShowRun(reply.length > 1);
     setPending(reply);
   };
 
-  const unasked = scenarios.filter(scenario => !messages.some(message => message.role === "You" && message.text === scenario.name));
 
   return <aside id="hunch-chat" className="chat-panel" aria-labelledby="chat-title" hidden={!open} onKeyDown={event => { if (event.key === "Escape") close(); }}>
     <header className="chat-header">
@@ -85,25 +92,23 @@ export default function ChatSidebar({ open, onClose, onUseDraft, onDemoImport }:
         <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" /></svg>
       </button>
     </header>
-    {showRun && <div className={"chat-run" + (pending.length ? " is-running" : "")}>
-      <div className="chat-run-title" role="status"><span className="brand-mark" aria-hidden="true" /><div><strong>{pending.length ? roleActivity[pending[0].role] : "Your post is ready"}</strong></div></div>
-    </div>}
     <div className="chat-thread" ref={thread} role="log" aria-label="Chat with Hunch" aria-live="polite" aria-relevant="additions" onScroll={event => { const element = event.currentTarget; followThread.current = element.scrollHeight - element.scrollTop - element.clientHeight < 80; }}>
-      {!messages.length && <div className="chat-welcome"><h3>How did your<br />posts do?</h3><p>{"Tap a question to see Elle's sample."}</p></div>}
+      {!messages.length && <div className="chat-welcome"><h3>How did your<br />posts do?</h3><p>{"Review the results, shape a caption, and put it on a day."}</p></div>}
       {messages.map((message, index) => <article key={index} className={"chat-message" + (message.role === "You" ? " chat-message-user" : "")}>
         <span className="chat-role">{message.role}</span>
         <p>{message.text}</p>
-        {message.draft && <button className="primary" onClick={() => { if (message.draft) onUseDraft(message.draft, message.channel); }}>Plan this post</button>}
+        {message.evidence && <button className="chat-evidence" onClick={() => { if (message.evidence) onViewEvidence(message.evidence.postId); }}>{message.evidence.label} ↗</button>}
+        {message.draft && !message.planDate && <div className="chat-draft"><p>{message.draft.text}</p><small>{message.draft.channel} · {message.draft.language}</small><button className="primary" disabled={!!pending.length} onClick={() => { if (message.draft) send("Plan this for Friday", message.draft); }}>Plan for Friday</button><button className="back" onClick={() => { if (message.draft) onUseDraft(message.draft.text, message.draft.channel); }}>Edit caption</button></div>}
       </article>)}
-      {!!pending.length && <article className="chat-message chat-message-streaming" aria-hidden="true"><span className="chat-role">{pending[0].role}</span>{streamingText ? <p>{streamingText}<span className="chat-caret" /></p> : <div className="chat-thinking"><i /><i /><i /></div>}</article>}
+      {!!pending.length && (pending[0].platform ? <div className="chat-working" role="status">{pending[0].text}</div> : <><span className="ws-sr" role="status">Writing a reply</span><article className="chat-message chat-message-streaming" aria-hidden="true"><span className="chat-role">Hunch</span>{streamingText ? <p>{streamingText}<span className="chat-caret" /></p> : <div className="chat-thinking"><i /><i /><i /></div>}</article></>)}
     </div>
-    <div className="chat-prompts" role="group" aria-label="Questions to try"><button className="platform-demo-trigger" disabled={!!pending.length} onClick={() => send(platformPrompt)}>{platformPrompt}</button>{unasked.map(scenario => <button key={scenario.id} disabled={!!pending.length} onClick={() => send(scenario.name)}>{scenario.name}</button>)}</div>
+    <div className="chat-prompts" role="group" aria-label="Questions to try">{(draft ? ["Make it more Taglish", "Make it shorter", "Plan this for Friday"] : [platformPrompt, ...scenarios.map(scenario => scenario.name)]).map(prompt => <button key={prompt} disabled={!!pending.length} onClick={() => send(prompt)}>{prompt}</button>)}{!messages.length && <button disabled={!!pending.length} onClick={() => send(importPrompt)}>{importPrompt}</button>}</div>
     <form className="chat-composer" onSubmit={event => { event.preventDefault(); send(question); }}>
       <label className="chat-input-label" htmlFor="chat-question">Your question</label>
       <textarea ref={input} id="chat-question" rows={2} maxLength={2000} value={question} onChange={event => setQuestion(event.target.value)} placeholder="Type a question" onKeyDown={event => {
         if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); send(question); }
       }} />
-      <div className="chat-composer-footer"><small>{"Answers use Elle's sample for now."}</small><button className="primary" type="submit" disabled={!question.trim() || !!pending.length}>Send</button></div>
+      <div className="chat-composer-footer"><small>{"Prepared replies · Uses this workspace."}</small><button className="primary" type="submit" disabled={!question.trim() || !!pending.length}>Send</button></div>
     </form>
   </aside>;
 }
