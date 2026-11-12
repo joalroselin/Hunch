@@ -6,15 +6,13 @@ import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { MotionConfig } from "framer-motion"
 
-import { useHunch, type HunchState } from "@/lib/hunch/store"
+import { useHunch } from "@/lib/hunch/store"
 import type { Mode } from "@/lib/hunch/types"
 
 import { StepBarSlot } from "./step-action"
 import { StepBar, StepIndicator, StepMenu, useCameFrom } from "./step-indicator"
-import { isEmpty, stepIndex, stepKey, type StepId, type StepKey } from "./steps"
+import { isEmpty, stepIndex, stepKey, type StepId } from "./steps"
 import { Wordmark } from "./wordmark"
-
-type Badge = "Sample data" | "Sample run" | null
 
 // Latched in render: screens strip ?demo=1 in their own effects, which run before the shell's.
 function DemoLatch({ latch }: { latch: { current: boolean } }) {
@@ -23,26 +21,8 @@ function DemoLatch({ latch }: { latch: { current: boolean } }) {
   return null
 }
 
-// Sample results on screen read "Sample data"; a sample seller's replayed run reads "Sample run".
-function badgeFor(step: StepKey, s: HunchState, serverMode: Mode): Badge {
-  if (!s.ready) return serverMode === "sample" ? "Sample run" : null
-  // Typed numbers on a sample run are the seller's own, so only sample files count as sample data.
-  const sampleReport = !!s.report?.isSample
-  if (step === "results" || step === "next-week") {
-    if (sampleReport || (step === "next-week" && s.focus?.mode === "sample")) return "Sample data"
-    return s.run?.mode === "sample" ? "Sample run" : null
-  }
-  if (s.run) return s.run.mode === "sample" ? "Sample run" : null
-  return serverMode === "sample" ? "Sample run" : null
-}
-
-function badgeTitle(badge: Exclude<Badge, null>) {
-  return badge === "Sample data" ? "Sample data. No real ads were run." : "Sample run."
-}
-
 export function AppShell({
   step,
-  serverMode = "live",
   children,
 }: {
   step: StepId
@@ -71,8 +51,6 @@ export function AppShell({
     router.replace("/start")
   }, [empty, key, router])
 
-  const badge = badgeFor(key, s, serverMode)
-
   return (
     <MotionConfig reducedMotion="user">
       <StepBarSlot.Provider value={slot}>
@@ -87,12 +65,7 @@ export function AppShell({
                 <Wordmark className="ha-wordmark" />
               </Link>
               <StepIndicator current={step} from={from} className="ml-auto hidden lg:block" />
-              {badge ? (
-                <p title={badgeTitle(badge)} className="ha-label hidden shrink-0 xl:block">
-                  {badge}
-                </p>
-              ) : null}
-              <StepMenu current={step} note={badge ? badgeTitle(badge) : null} className="ml-auto lg:hidden" />
+              <StepMenu current={step} note={null} className="ml-auto lg:hidden" />
             </div>
             <StepBar current={step} from={from} className="lg:hidden" />
           </header>
