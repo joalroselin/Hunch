@@ -5,26 +5,29 @@ import { AnimatePresence, LayoutGroup, MotionConfig, animate, motion, useReduced
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from "react";
 
 import { focus, metricsByVersion, photoUrlOf, run } from "@/components/hunch/home/data";
+import { cachedPost, postKey, postFilename, saveBlob, usePostRenderer } from "@/components/hunch/post";
+import { canShareFiles, handOff } from "@/components/hunch/flow/shared/share";
 import { HunchMark } from "@/components/hunch/home/mark";
 import { runnerUp, spendEach, winner } from "@/components/hunch/home/proof/data";
 import { HomePost, UgcPost } from "@/components/hunch/home/ugc-post";
 import { manilaToday, type ChatDraft } from "@/lib/demo-chat";
-import { mergeDemoPlatform, refreshSamples, sampleWorkspacePosts, type Post } from "@/lib/demo-workspace";
+import { mergeDemoPlatform, publishedPost, refreshSamples, resetSamplePosts, sampleWorkspacePosts, type Post } from "@/lib/demo-workspace";
 import { captionText, normalizeLanguage } from "@/lib/hunch/language";
 import type { Version } from "@/lib/hunch/types";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 
 import ChatSidebar from "./chat-sidebar";
+import { BuildDescription } from "./build";
 
 // photo and audience are display only; they never go to Supabase.
 type WPost = Post & { photo?: string; audience?: string; code?: string };
 type Row = { id: string; caption: string; channel: string; post_date: string | null; status: Post["status"]; reach: number | null; engagements: number | null; is_sample: boolean };
-type View = "Week" | "Posts" | "Results";
+type View = "Week" | "Posts" | "Results" | "Build";
 type Crop = { zoom: number; at: string };
 type Copy = { hook: string; caption: string; cta?: string };
 type Toast = { id: number; text: string; action?: { label: string; run: () => void } };
 
-const views: View[] = ["Week", "Posts", "Results"];
+const views: View[] = ["Week", "Posts", "Results", "Build"];
 const channels = ["Facebook", "Instagram", "TikTok"];
 const storeKey = "hunch.creator.posts.v2";
 const oldStoreKey = "hunch.creator.posts.v1";
@@ -182,8 +185,8 @@ function Empty({ children }: { children: ReactNode }) {
   return <div className="ws-empty ws-rise" style={{ "--i": 2 } as CSSProperties}>{children}</div>;
 }
 
-export function Workspace() {
-  const [view, setView] = useState<View>("Week");
+export function Workspace({ initialView = "Week" }: { initialView?: View } = {}) {
+  const [view, setView] = useState<View>(initialView);
   const [posts, setPosts] = useState<WPost[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [storageMode, setStorageMode] = useState<"connecting" | "local" | "cloud" | "error">("connecting");
@@ -201,6 +204,10 @@ export function Workspace() {
   const [metricPost, setMetricPost] = useState<WPost | null>(null);
   const [reach, setReach] = useState("");
   const [engagements, setEngagements] = useState("");
+  const [chatSession, setChatSession] = useState(0);
+  const [canShare, setCanShare] = useState(false);
+  const [savingPost, setSavingPost] = useState<string | null>(null);
+  const { render, canvas } = usePostRenderer();
   const [chatOpen, setChatOpen] = useState(false);
   const [demoImporting, setDemoImporting] = useState(false);
   const [toast, setToast] = useState<Toast | null>(null);
@@ -218,16 +225,18 @@ export function Workspace() {
   // Phones start with the chat closed; wide screens keep it open beside the week.
   useEffect(() => {
     setToday(todayIso());
+    setCanShare(canShareFiles());
     const small = window.matchMedia("(max-width: 700px)");
     const sync = () => setPhone(small.matches);
     sync();
     small.addEventListener("change", sync);
-    if (window.matchMedia("(min-width: 1280px)").matches) setChatOpen(true);
+    if (initialView !== "Build" && window.matchMedia("(min-width: 1280px)").matches) setChatOpen(true);
     return () => small.removeEventListener("change", sync);
-  }, []);
+  }, [initialView]);
 
   const go = (next: View) => {
     setView(next);
+    if (next === "Build") setChatOpen(false);
     window.scrollTo({ top: 0 });
   };
 
@@ -248,6 +257,16 @@ export function Workspace() {
   const addSampleData = () => {
     setPosts(current => (current.some(post => post.sample) ? current : [...(sampleWorkspacePosts() as WPost[]), ...current]));
     say("Sample posts are back.");
+  };
+  const resetDemo = () => {
+    const before = posts;
+    window.clearTimeout(importTimer.current);
+    setDemoImporting(false);
+    setPosts(current => resetSamplePosts(current));
+    setSelectedId(null);
+    setChatSession(session => session + 1);
+    go("Week");
+    say("Sample week reset. Your own posts were kept.", { label: "Undo", run: () => setPosts(before) });
   };
   const removeSampleData = () => {
     const before = posts;
@@ -405,11 +424,10 @@ export function Workspace() {
     });
   };
   const markPosted = (post: WPost) => {
-    const day = today && (!post.date || post.date > today) ? today : post.date;
-    const done: WPost = { ...post, status: "Posted", date: day, reach: 0, engagements: 0 };
+    const done = publishedPost(post, today);
     setPosts(current => current.map(item => (item.id === post.id ? done : item)));
-    say(`Posted. Hunch is tracking it on ${post.channel}.`);
-    track(post.id);
+    say(post.sample ? "Sample post marked as posted. Playing back example results." : "Marked as posted. Add its results when they’re ready.");
+    if (post.sample) track(post.id);
   };
   const saveMetrics = () => {
     if (!metricPost) return;
@@ -472,6 +490,35 @@ export function Workspace() {
   const most = Math.max(1, ...measured.map(post => post.engagements ?? 0));
   const chartCrops = useMemo(() => cropsFor(measured), [measured]);
 
+  const exportProps = (post: WPost) => {
+    const frame = frameOf(post);
+    const base = post.code ? byCode.get(post.code) : knownFor(post.text)?.v;
+    return { version: { ...(base ?? run.versions[0]), ...frame.version, audienceName: titleOf(post), slides: [frame.version.hook], hashtags: [], copy: undefined }, photo: frame.photo, brand: run.product.name, price: run.product.price };
+  };
+  useEffect(() => {
+    if (canShare && lead) void render(exportProps(lead)).catch(() => {});
+    // Prepare the selected image before the tap so native sharing keeps user activation.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [canShare, lead?.id, lead?.text, lead?.photo, render]);
+  const saveImage = async (post: WPost) => {
+    if (savingPost) return;
+    setSavingPost(post.id);
+    try {
+      const props = exportProps(post);
+      const blob = await render(props, { urgent: true });
+      saveBlob(blob, postFilename(props.version));
+      say("Post image saved. Copy the caption and publish in your social app.");
+    } catch (error) {
+      say(error instanceof Error ? error.message : "The image couldn’t be saved. Try again.");
+    } finally { setSavingPost(null); }
+  };
+  const shareImage = (post: WPost) => {
+    const props = exportProps(post);
+    const blob = cachedPost(postKey(props));
+    if (!blob) { void render(props, { urgent: true }).catch(() => {}); say("Preparing the image. Tap Share post again in a moment."); return; }
+    handOff({ blob, filename: postFilename(props.version), title: titleOf(post), caption: fullCaption(post), onShared: () => say("Shared to your chosen app. Mark it as posted after publishing.") });
+  };
+
   const saveWord = storageMode === "cloud" ? "Saved" : storageMode === "connecting" ? "Saving" : "Saved on this device";
   const primaryLabel = editing ? "Save changes" : date ? "Add to the week" : "Save as draft";
   const dayOptions = ["", ...[...new Set([...(today ? [today] : []), ...nextDays, ...(date ? [date] : [])])].sort()];
@@ -498,6 +545,8 @@ export function Workspace() {
         <button type="button" className="primary" onClick={() => void copyCaption(post)}>Copy caption</button>
         <button type="button" className="back" onClick={() => markPosted(post)}>Mark as posted</button>
       </div>
+      <button type="button" className="ws-link" disabled={!!savingPost} onClick={() => void saveImage(post)}>{savingPost === post.id ? "Saving image…" : "Save image"}</button>
+      {canShare ? <button type="button" className="ws-link" onClick={() => shareImage(post)}>Share post</button> : null}
       <button type="button" className="ws-link wk-act-edit" onClick={() => openComposer(post)}>Edit post</button>
     </>
   );
@@ -672,7 +721,7 @@ export function Workspace() {
               <span><b>{(post.engagements ?? 0).toLocaleString("en-US")}</b> engagements</span>
             </span>
           ) : (
-            <span className="pl-nums"><span>Tracking on {post.channel}</span></span>
+            <button type="button" className="back" onClick={() => { setMetricPost(post); setReach(""); setEngagements(""); }}>Add results</button>
           )}
         </div>
       </li>
@@ -704,7 +753,7 @@ export function Workspace() {
             ))}
           <div className="pl-foot">
             {hasSamples ? (
-              <button type="button" className="ws-link" onClick={removeSampleData}>Remove sample posts</button>
+              <><button type="button" className="ws-link" onClick={resetDemo}>Reset sample week</button><button type="button" className="ws-link" onClick={removeSampleData}>Remove sample posts</button></>
             ) : (
               <button type="button" className="ws-link" onClick={addSampleData}>Add sample posts</button>
             )}
@@ -775,7 +824,7 @@ export function Workspace() {
           ) : (
             <div>
               <h1 id="rs-title" className="ws-h1">How your posts did.</h1>
-              {!measured.length && !demoImporting ? <p className="ws-line">Mark a post as posted. Its numbers come in on their own.</p> : null}
+              {!measured.length && !demoImporting ? <p className="ws-line">Mark a post as posted, then add its results from your social app.</p> : null}
             </div>
           )}
           {measured.length ? (
@@ -857,6 +906,7 @@ export function Workspace() {
             ))}
           </nav>
           <div className="ws-end">
+            {hasSamples ? <button type="button" className="ws-link ws-sample-reset" onClick={resetDemo}>Reset sample</button> : null}
             <span className="ws-saved" data-state={storageMode} title={storageMode === "error" ? storageMessage : undefined}>
               <i aria-hidden="true" />
               {saveWord}
@@ -873,7 +923,7 @@ export function Workspace() {
 
         <main className="ws-main" id="main">
           <div key={view} className="ws-view">
-            {view === "Week" ? weekView : view === "Posts" ? postsView : resultsView}
+            {view === "Week" ? weekView : view === "Posts" ? postsView : view === "Build" ? <BuildDescription /> : resultsView}
           </div>
         </main>
 
@@ -887,12 +937,13 @@ export function Workspace() {
           <button ref={askDock} type="button" className="ws-dock-ask" aria-expanded={chatOpen} aria-controls="hunch-chat" onClick={toggleChat}>
             {chatOpen ? <motion.span layoutId="ws-dock" className="ws-dock-pill" transition={{ duration: 0.45, ease }} /> : null}
             <HunchMark className="ws-ask-drop" />
-            <span>Ask Hunch</span>
+            <span>Ask</span>
           </button>
         </nav>
 
-        <ChatSidebar posts={posts} onPlanDraft={planChatDraft} onViewEvidence={showChatEvidence} onDemoImport={importDemoPlatform} open={chatOpen} view={view} onClose={closeChat} onUseDraft={takeDraft} />
+        <ChatSidebar key={chatSession} posts={posts} onPlanDraft={planChatDraft} onViewEvidence={showChatEvidence} onDemoImport={importDemoPlatform} open={chatOpen} view={view} onClose={closeChat} onUseDraft={takeDraft} />
 
+        {canvas}
         <div className="ws-toasts" role="status" aria-live="polite">
           <AnimatePresence>
             {toast ? (

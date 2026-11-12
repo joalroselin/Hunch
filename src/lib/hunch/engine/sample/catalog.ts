@@ -23,7 +23,7 @@ export const SAMPLES: Record<SampleKey, SampleInfo> = {
     price: "₱350",
     describes: "Elle's soy candles",
     photoDir: "/sample/candles",
-    photos: { A1: "A1.jpg", A2: "A2.jpg", A3: "A3.jpg", A4: "A4.jpg", A5: "A5.jpg", A6: "A6.jpg", A7: "A7.jpg", A8: "A8.jpg" },
+    photos: { A1: "A1.jpg", A2: "A2.jpg", A3: "A3.jpg", A4: "A4.jpg", A5: "A5.jpg", A6: "A6.jpg", A7: "A7.jpg", A8: "A8.jpg", P1: "planned/P1.jpg", P2: "planned/P2.jpg", P3: "planned/P3.jpg", P4: "planned/P4.jpg", P5: "planned/P5.jpg", P6: "planned/P6.jpg", P7: "planned/P7.jpg" },
   },
   matcha: {
     key: "matcha",
@@ -52,12 +52,12 @@ export function personaOf(run: Pick<TestRun, "id" | "sample"> | null | undefined
   return SAMPLES[sampleKeyOf(run) ?? "candles"].persona;
 }
 
-// Photo URL for a sample post by its code; next-week posts use the photo of their audience's test post.
+// Planned candle posts have their own photos; other plans reuse their audience's test photo.
 export function samplePhotoFor(run: Pick<TestRun, "id" | "sample" | "versions"> | null | undefined, v: Pick<Version, "code" | "audienceId">) {
   const key = sampleKeyOf(run);
   if (!key || !run) return undefined;
   const info = SAMPLES[key];
   const code = /^A\d$/.test(v.code) ? v.code : run.versions.find((x) => x.audienceId === v.audienceId)?.code;
-  const file = code ? info.photos[code] : undefined;
+  const file = info.photos[v.code] ?? (code ? info.photos[code] : undefined);
   return file ? `${info.photoDir}/${file}` : undefined;
 }

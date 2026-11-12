@@ -1,9 +1,10 @@
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
 import { test } from "vitest";
 import { focus, report } from "@/components/hunch/home/data";
 import { captionText } from "@/lib/hunch/language";
 import { demoReply, importPrompt, manilaToday, requestedDay } from "./demo-chat";
-import { mergeDemoPlatform, refreshSamples, sampleWorkspacePosts, type Post } from "./demo-workspace";
+import { mergeDemoPlatform, publishedPost, refreshSamples, resetSamplePosts, sampleWorkspacePosts, type Post } from "./demo-workspace";
 
 const now = new Date("2026-11-12T04:00:00Z");
 const samples = sampleWorkspacePosts(now);
@@ -20,6 +21,33 @@ test("sample results and week use the shared candle dataset", () => {
     assert.ok(post.photo?.startsWith("/sample/candles/"));
   }
   assert.deepEqual(samples.filter(post => post.status === "Planned").map(post => post.date), ["2026-11-13", "2026-11-14", "2026-11-15", "2026-11-16", "2026-11-17", "2026-11-18", "2026-11-19"]);
+});
+
+test("all seven planned posts have distinct existing gallery assets", () => {
+  const planned = samples.filter(post => post.status === "Planned");
+  assert.equal(new Set(planned.map(post => post.photo)).size, 7);
+  for (const post of planned) {
+    assert.equal(post.photo, `/sample/candles/planned/${post.code}.jpg`);
+    assert.ok(existsSync(`public${post.photo}`), post.photo);
+  }
+});
+
+test("reset restores the sample week without touching personal work", () => {
+  const personal: Post = { id: "personal", text: "My caption", channel: "Facebook", date: "2026-11-13", status: "Planned" };
+  const reset = resetSamplePosts([personal, { ...samples[0], status: "Posted" }]);
+  assert.deepEqual(reset.find(post => post.id === personal.id), personal);
+  assert.equal(reset.filter(post => post.sample && post.status === "Planned").length, 7);
+  assert.equal(reset.filter(post => post.sample && post.status === "Posted").length, 8);
+});
+
+test("marking a personal post published never invents platform metrics", () => {
+  const personal: Post = { id: "personal", text: "My caption", channel: "Facebook", date: "2026-11-15", status: "Planned" };
+  const published = publishedPost(personal, "2026-11-12");
+  assert.equal(published.status, "Posted");
+  assert.equal(published.date, "2026-11-12");
+  assert.equal(published.reach, undefined);
+  assert.equal(published.engagements, undefined);
+  assert.equal(publishedPost(samples[0], "2026-11-12").reach, 0);
 });
 
 test("natural performance questions give one Hunch answer linked to a displayed post", () => {

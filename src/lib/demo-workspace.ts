@@ -68,6 +68,14 @@ export function mergeDemoPlatform(posts: Post[], platform: string | null): Post[
   return [...posts.filter(post => !post.sample || post.channel !== platform), ...sampleWorkspacePosts().filter(post => post.channel === platform && !posts.some(existing => !existing.sample && existing.id === post.id))];
 }
 
+export function resetSamplePosts(posts: Post[]): Post[] {
+  return [...posts.filter(post => !post.sample), ...sampleWorkspacePosts()];
+}
+
+export function publishedPost(post: Post, today: string): Post {
+  return { ...post, status: "Posted", date: today && (!post.date || post.date > today) ? today : post.date, ...(post.sample ? { reach: 0, engagements: 0 } : {}) };
+}
+
 // For stored rows: drops older sample sets and restores the fields Supabase does not keep.
 export function refreshSamples(posts: Post[]): Post[] {
   const fresh = new Map(sampleWorkspacePosts().map(post => [post.id, post]));
