@@ -311,27 +311,6 @@ function Posts({ scene, poised, dealt, days, still }: { scene: number; poised: b
           </motion.div>
         )
       })}
-      {CODES.map((code, j) => {
-        const spot = fanSpot(j)
-        const on = scene === 3
-        return (
-          <motion.div
-            key={`tag-${code}`}
-            className="ifl-tag"
-            style={{ left: spot.cx - FAN.w / 2, top: spot.cy + (FAN.w * 8) / 9 + 30 }}
-            initial={false}
-            animate={{ opacity: on ? 1 : 0, y: on || still ? 0 : 14 }}
-            transition={on && !still ? { duration: 0.7, ease: EASE, delay: 2.2 + j * 0.05 } : { duration: 0.25 }}
-          >
-            <b>₱99</b>
-            <span className="ifl-days" aria-hidden>
-              {[0, 1, 2].map((d) => (
-                <i key={d} data-on={still || days > d ? "" : undefined} />
-              ))}
-            </span>
-          </motion.div>
-        )
-      })}
     </>
   )
 }
