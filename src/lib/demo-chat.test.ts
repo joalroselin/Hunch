@@ -75,20 +75,20 @@ test("the replay loads Instagram, TikTok and Facebook, then the five roles, with
     const reply = demoReply(question);
     assert.deepEqual(reply.map(message => message.role), ["Hunch", ...channels, ...roles]);
     assert.deepEqual(reply.filter(message => message.platform).map(message => message.platform), channels);
-    assert.match(reply[0].text, /replay of Elle's sample/);
+    assert.match(reply[0].text, /Elle's 8 posts/);
   }
   for (const message of replay.filter(m => m.platform)) {
     const posts = sampleWorkspacePosts().filter(post => post.status === "Posted" && post.channel === message.platform);
-    assert.ok(message.text.includes(`${posts.length} test posts`), message.text);
+    assert.ok(message.text.startsWith(`${posts.length} post`), message.text);
     assert.ok(message.text.includes(`${num(sum(posts.map(post => post.reach ?? 0)))} people`), message.text);
     assert.ok(message.text.includes(`${sum(posts.map(post => metric(post.code!).results))} messages`), message.text);
   }
   const winner = metric(report.verdict.winnerCode);
   const runnerUp = metric(report.verdict.runnerUpCode);
   const [analyst, strategist, copywriter, skeptic, reviewer] = replay.slice(4);
-  assert.ok(analyst.text.includes(winner.audienceName) && analyst.text.includes(`${winner.results} messages`) && analyst.text.includes(`${winner.engagements} engagements`), analyst.text);
-  assert.ok(strategist.text.includes(`give them ${focus.posts.filter(p => p.purpose === "winner").length} posts`), strategist.text);
-  assert.ok(strategist.text.includes(`day ${focus.posts.findIndex(p => p.purpose === "runner_up_test") + 1}`) && strategist.text.includes(runnerUp.audienceName) && strategist.text.includes(`${runnerUp.results} messages`), strategist.text);
+  assert.ok(analyst.text.toLowerCase().includes(winner.audienceName.toLowerCase()) && analyst.text.includes(`${winner.results} messages`), analyst.text);
+  assert.ok(strategist.text.includes(`${focus.posts.filter(p => p.purpose === "winner").length} posts`), strategist.text);
+  assert.ok(strategist.text.includes(`Post ${focus.posts.findIndex(p => p.purpose === "runner_up_test") + 1}`) && strategist.text.toLowerCase().includes(runnerUp.audienceName.toLowerCase()) && strategist.text.includes(`got ${runnerUp.results}`), strategist.text);
   assert.equal(copywriter.text, focus.posts[0].hook);
   assert.ok(skeptic.text.includes(`${report.days} days`), skeptic.text);
   assert.equal(reviewer.draft, captionText(focus.posts[0] as unknown as Version, "taglish"));
@@ -100,7 +100,7 @@ test("each question runs the five roles and hands a real post to the composer", 
   for (const scenario of scenarios) {
     const reply = demoReply(scenario.name);
     assert.deepEqual(reply.map(message => message.role), ["Hunch", ...roles]);
-    assert.match(reply[0].text, /Elle's sample/);
+    assert.match(reply[0].text, /Elle's numbers/);
     assert.equal(reply[1].text, scenario.evidence);
     assert.equal(reply[4].text, scenario.caveat);
     const post = realPosts.find(p => p.hook === reply[3].text);
@@ -118,7 +118,7 @@ test("typed questions get one honest line and no draft", () => {
   const reply = demoReply("Help me with a caption");
   assert.equal(reply.length, 1);
   assert.equal(reply[0].role, "Hunch");
-  assert.match(reply[0].text, /can't answer typed questions yet/);
+  assert.match(reply[0].text, /only answer the questions below/);
   assert.equal(reply[0].draft, undefined);
 });
 

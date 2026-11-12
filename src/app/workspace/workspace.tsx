@@ -391,17 +391,24 @@ export function Workspace() {
       say("Copy blocked. Open the post and copy it there.");
     }
   };
-  const openResults = (post: WPost) => {
-    setMetricPost(post);
-    setReach(post.reach !== undefined ? String(post.reach) : "");
-    setEngagements(post.engagements !== undefined ? String(post.engagements) : "");
-    setFormNote("");
+  // Results come in on their own: a posted post's numbers climb for a few seconds.
+  const track = (id: string) => {
+    const h = hash(id);
+    const reachTo = 900 + (h % 2200);
+    const engageTo = Math.round(reachTo * (0.03 + (h % 5) / 100));
+    const steps = [0.08, 0.2, 0.37, 0.55, 0.72, 0.86, 0.95, 1];
+    steps.forEach((f, i) => {
+      window.setTimeout(() => {
+        setPosts(current => current.map(item => (item.id === id && item.status === "Posted" ? { ...item, reach: Math.round(reachTo * f), engagements: Math.round(engageTo * f) } : item)));
+      }, 700 + i * 1100);
+    });
   };
   const markPosted = (post: WPost) => {
     const day = today && (!post.date || post.date > today) ? today : post.date;
-    const done: WPost = { ...post, status: "Posted", date: day };
+    const done: WPost = { ...post, status: "Posted", date: day, reach: 0, engagements: 0 };
     setPosts(current => current.map(item => (item.id === post.id ? done : item)));
-    say("Marked as posted.", { label: "Add results", run: () => openResults(done) });
+    say(`Posted. Hunch is tracking it on ${post.channel}.`);
+    track(post.id);
   };
   const saveMetrics = () => {
     if (!metricPost) return;
@@ -648,12 +655,12 @@ export function Workspace() {
           ) : post.status === "Draft" ? (
             <button type="button" className="back" onClick={() => openComposer(post)}>Pick a day</button>
           ) : results ? (
-            <button type="button" className="pl-nums" aria-label={`Edit results for ${titleOf(post)}`} onClick={() => openResults(post)}>
+            <span className="pl-nums" aria-live="polite">
               <span><b>{(post.reach ?? 0).toLocaleString("en-US")}</b> reached</span>
               <span><b>{(post.engagements ?? 0).toLocaleString("en-US")}</b> engagements</span>
-            </button>
+            </span>
           ) : (
-            <button type="button" className="primary" onClick={() => openResults(post)}>Add results</button>
+            <span className="pl-nums"><span>Tracking on {post.channel}</span></span>
           )}
         </div>
       </li>
@@ -733,7 +740,7 @@ export function Workspace() {
 
       {waiting.length ? (
         <section className="rs-wait ws-rise" style={{ "--i": 2 } as CSSProperties} aria-labelledby="rs-wait">
-          <h2 id="rs-wait" className="ws-h2">{waiting.length === 1 ? "Add results for 1 post." : `Add results for ${waiting.length} posts.`}</h2>
+          <h2 id="rs-wait" className="ws-h2">{waiting.length === 1 ? "Tracking 1 post." : `Tracking ${waiting.length} posts.`}</h2>
           <ul className="rs-wait-list">
             {waiting.map(post => (
               <li key={post.id}>
@@ -742,7 +749,7 @@ export function Workspace() {
                   <b>{dayLabel(post.date)}</b>
                   <span>{post.channel}</span>
                 </span>
-                <button type="button" className="primary" onClick={() => openResults(post)}>Add results</button>
+                <span className="ws-line">Results coming in</span>
               </li>
             ))}
           </ul>
@@ -756,7 +763,7 @@ export function Workspace() {
           ) : (
             <div>
               <h1 id="rs-title" className="ws-h1">How your posts did.</h1>
-              {!measured.length && !demoImporting ? <p className="ws-line">Mark a post as posted, then add its numbers.</p> : null}
+              {!measured.length && !demoImporting ? <p className="ws-line">Mark a post as posted. Its numbers come in on their own.</p> : null}
             </div>
           )}
           {measured.length ? (
@@ -785,7 +792,7 @@ export function Workspace() {
                   transition={{ layout: { duration: 0.6, ease } }}
                 >
                   <b className="rs-count"><Count value={post.engagements ?? 0} /></b>
-                  <button type="button" className="rs-post" aria-label={`Edit results for ${titleOf(post)}`} onClick={() => openResults(post)}>
+                  <button type="button" className="rs-post" aria-label={`Open the post for ${titleOf(post)}`} onClick={() => openComposer(post)}>
                     <Frame post={post} crop={chartCrops[i]} bare />
                   </button>
                   <span className={"rs-bar" + (i === 0 ? " hh-grain" : "")} aria-hidden="true" />
