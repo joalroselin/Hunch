@@ -146,11 +146,11 @@ function WeekView({ plan, run }: { plan: FocusPlan; run: TestRun }) {
         <div className="hw-top">
           <ScreenTitle
             className="hw-head"
-            title="Post to them next week."
+            title="Next week, post to your suki."
             line={
               runnerUp
-                ? `Post ${posts.length - 1} days for ${lowerFirst(plan.audience.name)} and 1 for ${lowerFirst(runnerUp.audienceName)}.`
-                : `Post ${posts.length} days for ${lowerFirst(plan.audience.name)}.`
+                ? `${posts.length - 1} posts for ${lowerFirst(plan.audience.name)}. 1 for ${lowerFirst(runnerUp.audienceName)}.`
+                : `${posts.length} posts for ${lowerFirst(plan.audience.name)}.`
             }
           />
           <ol className="hw-week" aria-label="The next 7 days">
