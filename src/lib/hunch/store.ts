@@ -136,7 +136,7 @@ function load() {
     focusFor: run ? (focus?.forReport ?? null) : null,
     language: prefs?.language ? normalizeLanguage(prefs.language) : null,
     postLanguage: Object.fromEntries(Object.entries(prefs?.postLanguage ?? {}).map(([k, v]) => [k, normalizeLanguage(v)])),
-    setup: setupFor(prefs?.budget === 49 || prefs?.budget === 199 ? prefs.budget : 99),
+    setup: setupFor(99),
     grid: read<GridRow[]>(KEYS.grid),
     handedOff: read<Record<string, number>>(KEYS.handedOff) ?? {},
     studio,

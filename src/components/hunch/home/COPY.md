@@ -194,7 +194,7 @@ A chat with Hunch. At most 4 questions; each answer is one line of 12 words or f
 
 ## footer.tsx
 
-- One row: Made in Manila for sellers just starting out. / Open Elle’s test / Back to top
+- One row: Made in Manila for sellers just starting out. / Elle’s Candles case study / Back to top
 - No step list, no wordmark, no tagline, no sample note.
 
 ## hidden-ending.tsx

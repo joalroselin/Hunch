@@ -1,19 +1,18 @@
 "use client"
 
 import * as React from "react"
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 import { GoLink } from "@/components/ui/button"
 import { UgcPost } from "@/components/hunch/home/ugc-post"
 import { applyDemo, stripDemoParam } from "@/components/hunch/screens/demo"
 import { EmptyScreen, LoadingScreen, Screen, ScreenTitle, StepAction } from "@/components/hunch/shell"
-import { hunchStore, useHunch } from "@/lib/hunch/store"
-import type { BudgetPreset, TestRun } from "@/lib/hunch/types"
+import { useHunch } from "@/lib/hunch/store"
+import type { TestRun } from "@/lib/hunch/types"
 
 import { usePostFrame } from "./run-post"
 import "./test.css"
 
-const PRESETS: BudgetPreset[] = [49, 99, 199]
 
 const peso = (n: number) => `₱${Math.round(n).toLocaleString("en-PH")}`
 const codeNum = (code: string) => Number(code.replace(/\D/g, "")) || 0
@@ -50,46 +49,6 @@ function useChecklist(runId: string) {
       return next
     })
   return { done, toggle }
-}
-
-function BudgetPicker({ value, onChange, labelId }: { value: BudgetPreset; onChange: (b: BudgetPreset) => void; labelId: string }) {
-  const refs = useRef<(HTMLButtonElement | null)[]>([])
-  const move = (i: number, dir: 1 | -1) => {
-    const j = (i + dir + PRESETS.length) % PRESETS.length
-    onChange(PRESETS[j])
-    refs.current[j]?.focus()
-  }
-  return (
-    <div role="radiogroup" aria-labelledby={labelId} className="ha-seg ht-seg">
-      {PRESETS.map((b, i) => {
-        const on = b === value
-        return (
-          <button
-            key={b}
-            ref={(el) => {
-              refs.current[i] = el
-            }}
-            type="button"
-            role="radio"
-            aria-checked={on}
-            tabIndex={on ? 0 : -1}
-            onClick={() => onChange(b)}
-            onKeyDown={(e) => {
-              if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-                e.preventDefault()
-                move(i, 1)
-              } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-                e.preventDefault()
-                move(i, -1)
-              }
-            }}
-          >
-            {peso(b)}
-          </button>
-        )
-      })}
-    </div>
-  )
 }
 
 // Where each of the 8 sits in the hand: angle in degrees and one of 3 sizes. The fourth leads.
@@ -190,14 +149,7 @@ function RunTestView({ run }: { run: TestRun }) {
   return (
     <Screen aria-label="Run the test">
       <div className="ht">
-        <ScreenTitle className="ht-head" title={`Boost all ${count} the same.`} line="Give every post the same budget, days and goal." />
-
-        <div className="ht-budget ha-rise" style={{ "--i": 7 } as React.CSSProperties}>
-          <p id="test-budget" className="ha-label">
-            Per post
-          </p>
-          <BudgetPicker value={perPost} onChange={(b) => hunchStore.setBudget(b)} labelId="test-budget" />
-        </div>
+        <ScreenTitle className="ht-head" title={`Promote all ${count} the same.`} line={`₱${perPost} each, for ${days} days, with the same goal.`} />
 
         <div className="ht-stage">
           <Hand run={run} perPost={perPost} />

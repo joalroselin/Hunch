@@ -19,7 +19,7 @@ export function HomeFooter() {
     <motion.footer ref={ref} id="footer" className="ft" style={moving ? { y: under } : undefined}>
       <div className="ft-small">
         <p>Made in Manila for sellers just starting out.</p>
-        <Link href="/start?demo=1" className="ft-up">{`Open ${persona}’s test`}</Link>
+        <Link href="/start?demo=1" className="ft-up">{`${persona}’s Candles case study`}</Link>
         <a
           href="#main"
           className="ft-up"

@@ -91,7 +91,7 @@ export function HomeHeader() {
             <LetterRoll text="How it works" />
           </a>
           <Link href="/start?demo=1" className="hh-link hh-nav-mid group">
-            <LetterRoll text="Elle's test" />
+            <LetterRoll text="Elle's Candles case study" />
           </Link>
           <button type="button" className="hh-pill group" onClick={() => tryYourProduct(reduced)}>
             <LetterRoll text="Try it free" />
