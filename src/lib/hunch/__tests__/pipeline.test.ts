@@ -142,7 +142,7 @@ describe("Analyst and Planner on the mocked model", () => {
 
   it("catches an explanation that contradicts the verdict", () => {
     const v = { metric: "cost_per_result" as const, ranking: [], winnerCode: "A3", runnerUpCode: "A4", confidence: "high" as const, caveats: [] };
-    const names = { A3: "Hosts getting the sala ready", A4: "Night shift workers coming home" };
+    const names = { A3: "Noche Buena hosts", A4: "Night shift workers coming home" };
     expect(contradicts("A4 won this test. It was close.", v, names)).toBeTruthy();
     expect(contradicts("A3 won with low confidence. It was close.", v, names)).toBeTruthy();
     expect(contradicts("A3 won at about ₱7 a message. A4 came second at ₱10.", v, names)).toBeNull();

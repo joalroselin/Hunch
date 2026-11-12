@@ -72,7 +72,7 @@
       },
       {
         "id": "c05",
-        "name": "Hosts getting the sala ready",
+        "name": "Noche Buena hosts",
         "who": "Someone who has guests over this December and gets the sala ready before they arrive.",
         "situation": "Thirty minutes before the doorbell: the guest glasses are out, but the house still smells like lunch.",
         "whyItFits": "December is full of visits, and a candle lit before guests arrive is a reason to buy that isn't a gift.",
@@ -333,7 +333,7 @@
       },
       {
         "id": "c05",
-        "name": "Hosts getting the sala ready",
+        "name": "Noche Buena hosts",
         "who": "Someone who has guests over this December and gets the sala ready before they arrive.",
         "situation": "Thirty minutes before the doorbell: the guest glasses are out, but the house still smells like lunch.",
         "whyItFits": "December is full of visits, and a candle lit before guests arrive is a reason to buy that isn't a gift.",
@@ -556,7 +556,7 @@
         "id": "v_elle_a3",
         "code": "A3",
         "audienceId": "c05",
-        "audienceName": "Hosts getting the sala ready",
+        "audienceName": "Noche Buena hosts",
         "hook": "nagluto ako ng 5 ulam pero ang tinanong ng bisita: ano yung mabango? 😭",
         "slides": [
           "nagluto ako ng 5 ulam pero ang tinanong ng bisita: ano yung mabango? 😭",
@@ -1040,7 +1040,7 @@
       {
         "id": "c04",
         "category": "stereotype",
-        "reason": "A label about age and gender, not a buying moment. The hosting moment it points at is already kept as 'Hosts getting the sala ready', which anyone can be in."
+        "reason": "A label about age and gender, not a buying moment. The hosting moment it points at is already kept as 'Noche Buena hosts', which anyone can be in."
       },
       {
         "id": "c06",
@@ -1144,7 +1144,7 @@
         "agent": "strategist",
         "kind": "candidate_proposed",
         "refId": "c05",
-        "text": "Strategist proposed 'Hosts getting the sala ready'.",
+        "text": "Strategist proposed 'Noche Buena hosts'.",
         "detail": "Thirty minutes before the doorbell: the guest glasses are out, but the house still smells like lunch."
       },
       {
@@ -1316,7 +1316,7 @@
         "kind": "candidate_rejected",
         "refId": "c04",
         "text": "Skeptic dropped 'Titas of Manila': a label about age and gender, not a buying moment.",
-        "detail": "A label about age and gender, not a buying moment. The hosting moment it points at is already kept as 'Hosts getting the sala ready', which anyone can be in."
+        "detail": "A label about age and gender, not a buying moment. The hosting moment it points at is already kept as 'Noche Buena hosts', which anyone can be in."
       },
       {
         "id": "e26",
@@ -1324,7 +1324,7 @@
         "agent": "skeptic",
         "kind": "audience_kept",
         "refId": "c05",
-        "text": "Skeptic kept 'Hosts getting the sala ready' as A3.",
+        "text": "Skeptic kept 'Noche Buena hosts' as A3.",
         "detail": "December fills the sala with guests, and lighting a candle before they arrive is a reason to buy that isn't a gift."
       },
       {
@@ -1486,7 +1486,7 @@
         "agent": "copywriter",
         "kind": "post_drafted",
         "refId": "A3",
-        "text": "Copywriter drafted A3 for 'Hosts getting the sala ready'.",
+        "text": "Copywriter drafted A3 for 'Noche Buena hosts'.",
         "detail": "nagluto ako ng 5 ulam pero ang tinanong ng bisita: ano yung mabango? 😭"
       },
       {
@@ -1660,7 +1660,7 @@
       {
         "versionId": "v_elle_a3",
         "code": "A3",
-        "audienceName": "Hosts getting the sala ready",
+        "audienceName": "Noche Buena hosts",
         "matchedBy": "code",
         "spend": 99,
         "impressions": 2641,
@@ -2901,8 +2901,8 @@
     "winnerId": "v_elle_a3",
     "runnerUpId": "v_elle_a6",
     "icp": {
-      "headline": "Your people: hosts getting the sala ready.",
-      "audienceName": "Hosts getting the sala ready",
+      "headline": "Your people: Noche Buena hosts.",
+      "audienceName": "Noche Buena hosts",
       "who": "Someone who has guests over this December and gets the sala ready before they arrive. Thirty minutes before the doorbell: the guest glasses are out, but the house still smells like lunch.",
       "reachedMostly": "Mostly women, largest group 25-34, about half in Metro Manila",
       "whatWorked": [
@@ -2963,7 +2963,7 @@
       "winnerCode": "A3",
       "runnerUpCode": "A6",
       "confidence": "high",
-      "explanation": "Hosts getting the sala ready won: A3 started 14 message conversations for ₱99. Officemates buying an exchange gift came second with 10. Next week, aim six posts at hosting at home and keep day 4 to test the exchange gift again.",
+      "explanation": "Noche Buena hosts won: A3 started 14 message conversations for ₱99. Officemates buying an exchange gift came second with 10. Next week, aim six posts at hosting at home and keep day 4 to test the exchange gift again.",
       "caveats": [],
       "caveatChecks": [
         {
@@ -2995,7 +2995,7 @@
     "mode": "sample",
     "audience": {
       "id": "c05",
-      "name": "Hosts getting the sala ready",
+      "name": "Noche Buena hosts",
       "who": "Someone who has guests over this December and gets the sala ready before they arrive.",
       "situation": "Thirty minutes before the doorbell: the guest glasses are out, but the house still smells like lunch.",
       "whyItFits": "December is full of visits, and a candle lit before guests arrive is a reason to buy that isn't a gift.",
@@ -3013,7 +3013,7 @@
         "id": "v_elle_p1",
         "code": "P1",
         "audienceId": "c05",
-        "audienceName": "Hosts getting the sala ready",
+        "audienceName": "Noche Buena hosts",
         "hook": "POV: kandila lang pala ang kulang sa sala niyo 🤍",
         "slides": [
           "POV: kandila lang pala ang kulang sa sala niyo 🤍",
@@ -3080,7 +3080,7 @@
         "id": "v_elle_p2",
         "code": "P2",
         "audienceId": "c05",
-        "audienceName": "Hosts getting the sala ready",
+        "audienceName": "Noche Buena hosts",
         "hook": "May bisita ngayong December? tara pili tayo ng scent 🕯️",
         "slides": [
           "May bisita ngayong December? tara pili tayo ng scent 🕯️",
@@ -3147,7 +3147,7 @@
         "id": "v_elle_p3",
         "code": "P3",
         "audienceId": "c05",
-        "audienceName": "Hosts getting the sala ready",
+        "audienceName": "Noche Buena hosts",
         "hook": "₱350 na good for ilang handaan (syempre depende sa kwentuhan) 😆",
         "slides": [
           "₱350 na good for ilang handaan (syempre depende sa kwentuhan) 😆",
@@ -3280,7 +3280,7 @@
         "id": "v_elle_p5",
         "code": "P5",
         "audienceId": "c05",
-        "audienceName": "Hosts getting the sala ready",
+        "audienceName": "Noche Buena hosts",
         "hook": "Yung nakauwi na lahat ng bisita, saka ka lang nakaupo 🥹",
         "slides": [
           "Yung nakauwi na lahat ng bisita, saka ka lang nakaupo 🥹",
@@ -3347,7 +3347,7 @@
         "id": "v_elle_p6",
         "code": "P6",
         "audienceId": "c05",
-        "audienceName": "Hosts getting the sala ready",
+        "audienceName": "Noche Buena hosts",
         "hook": "Saan nga ba makikita ang Elle's Candles? 🤗",
         "slides": [
           "Saan nga ba makikita ang Elle's Candles? 🤗",
@@ -3414,7 +3414,7 @@
         "id": "v_elle_p7",
         "code": "P7",
         "audienceId": "c05",
-        "audienceName": "Hosts getting the sala ready",
+        "audienceName": "Noche Buena hosts",
         "hook": "30 minutes na lang, Noche Buena na 🎄",
         "slides": [
           "30 minutes na lang, Noche Buena na 🎄",

@@ -27,6 +27,8 @@ export function count(n: number) {
 
 export function lowerFirst(s: string) {
   if (s.length > 1 && /[A-Z]/.test(s[1])) return s
+  // Names like "Noche Buena hosts", "Cubao Expo art kids" or "TikTok" keep their capital.
+  if (/^\S+\s+[A-Z]/.test(s) || /^[A-Z][a-z]+[A-Z]/.test(s)) return s
   return s.charAt(0).toLowerCase() + s.slice(1)
 }
 

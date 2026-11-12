@@ -184,8 +184,8 @@ describe("Elle's sample export", () => {
     const r = sampleReport(sampleRunFor());
     expect(r.isSample).toBe(true);
     expect(r.hasBreakdown).toBe(true);
-    expect(r.verdict.explanation).toMatch(/^Hosts getting the sala ready won: A3/);
-    expect(r.icp.headline).toBe("Your people: hosts getting the sala ready.");
+    expect(r.verdict.explanation).toMatch(/^Noche Buena hosts won: A3/);
+    expect(r.icp.headline).toBe("Your people: Noche Buena hosts.");
     expect(r.icp.confidence).toBe("strong");
     expect(r.icp.reachedMostly).not.toBe(NO_BREAKDOWN);
     expect(r.notes?.[0]).toBe("Sample data. No real ads were run.");

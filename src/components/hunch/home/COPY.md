@@ -65,7 +65,7 @@ Results (cream), `proof/results.tsx`:
 
 Winner (red field), `proof/winner.tsx`:
 
-- Title: the audience name (Hosts getting the sala ready)
+- Title: the audience name (Noche Buena hosts)
 - Kicker above it: Most messages came from
 - Facts: `14` messages / `₱100` spent (no cost per message: readers had to do the math)
 - Runner-up line: {audience} came second with 10 messages.
@@ -121,7 +121,7 @@ Results (cream), `proof/results.tsx`:
 
 Winner (red field), `proof/winner.tsx`:
 
-- Title: the audience name (Hosts getting the sala ready)
+- Title: the audience name (Noche Buena hosts)
 - Line under it: the audience `who` sentence from the data (Someone who has guests over this December and gets the sala ready before they arrive.)
 - Fact 1: `14` messages / The next best got 10.
 - Fact 2: about `₱7` a message / The next best paid ₱10. ("about" only when the cost was rounded)
