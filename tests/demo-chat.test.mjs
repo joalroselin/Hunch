@@ -34,8 +34,8 @@ test("platform playback populates each channel before analyzing and drafting", (
     assert.match(reply.at(-1).text, /in this sample/);
   }
   const measured = sampleWorkspacePosts().filter(post => post.reach !== undefined);
-  assert.equal(measured.reduce((sum, post) => sum + post.reach, 0), 5940);
-  assert.equal(measured.reduce((sum, post) => sum + post.engagements, 0), 412);
+  assert.equal(measured.reduce((sum, post) => sum + post.reach, 0), 18629);
+  assert.equal(measured.reduce((sum, post) => sum + post.engagements, 0), 657);
 });
 
 test("replaying imports preserves personal posts and does not duplicate samples", () => {
@@ -44,6 +44,6 @@ test("replaying imports preserves personal posts and does not duplicate samples"
   assert.deepEqual(posts, [personal]);
   for (const channel of ["Instagram", "TikTok", "Facebook", "TikTok"]) posts = mergeDemoPlatform(posts, channel);
   assert.deepEqual(posts.find(post => post.id === personal.id), personal);
-  assert.equal(posts.length, 7);
-  assert.equal(new Set(posts.map(post => post.id)).size, 7);
+  assert.equal(posts.length, 16);
+  assert.equal(new Set(posts.map(post => post.id)).size, 16);
 });

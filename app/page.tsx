@@ -2,7 +2,9 @@
 
 import { useEffect, useMemo, useState } from "react";
 import ChatSidebar from "./chat-sidebar";
-import { mergeDemoPlatform, sampleWorkspacePosts, type Post } from "../lib/demo-workspace";
+import Analytics from "../components/analytics";
+import { campaignFor } from "../lib/analytics";
+import { mergeDemoPlatform, refreshSamplePosts, samplePhotoFor, sampleWorkspacePosts, type Post } from "../lib/demo-workspace";
 import { createSupabaseBrowserClient } from "../lib/supabase/client";
 
 type View = "Home" | "Calendar" | "Posts" | "Analytics" | "Insights" | "How to use" | "About Hunch" | "Build notes";
@@ -30,6 +32,8 @@ export default function Home() {
   const [metricPost, setMetricPost] = useState<Post | null>(null);
   const [reach, setReach] = useState("");
   const [engagements, setEngagements] = useState("");
+  const [spend, setSpend] = useState("");
+  const [messages, setMessages] = useState("");
   const [chatOpen, setChatOpen] = useState(true);
   const [demoImporting, setDemoImporting] = useState(false);
   const [demoPlatforms, setDemoPlatforms] = useState<string[]>([]);
@@ -59,7 +63,7 @@ export default function Home() {
     const openWorkspace = async () => {
       let localPosts: Post[] = [];
       const hasLocalWorkspace = localStorage.getItem(storeKey) !== null;
-      try { localPosts = JSON.parse(localStorage.getItem(storeKey) || "[]"); } catch { localPosts = []; }
+      try { localPosts = refreshSamplePosts(JSON.parse(localStorage.getItem(storeKey) || "[]")); } catch { localPosts = []; }
       if (!supabase) {
         if (!cancelled) { setPosts(localPosts.length || hasLocalWorkspace ? localPosts : sampleWorkspacePosts()); setStorageMode("local"); setLoaded(true); }
         return;
@@ -74,8 +78,8 @@ export default function Home() {
         }
         const { data, error: readError } = await supabase.from("creator_posts").select("id,caption,channel,post_date,status,reach,engagements,is_sample").order("post_date", { ascending: true, nullsFirst: false });
         if (readError) throw readError;
-        const cloudPosts: Post[] = (data ?? []).map(row => ({ id: row.id, text: row.caption, channel: row.channel, date: row.post_date ?? "", status: row.status, reach: row.reach ?? undefined, engagements: row.engagements ?? undefined, sample: row.is_sample }));
-        if (!cancelled) { setPosts(cloudPosts.length ? cloudPosts : localPosts.length || hasLocalWorkspace ? localPosts : sampleWorkspacePosts()); setStorageMode("cloud"); setLoaded(true); }
+        const cloudPosts: Post[] = (data ?? []).map(row => ({ id: row.id, text: row.caption, channel: row.channel, date: row.post_date ?? "", status: row.status, reach: row.reach ?? undefined, engagements: row.engagements ?? undefined, sample: row.is_sample, spend: localPosts.find(post => post.id === row.id)?.spend, messages: localPosts.find(post => post.id === row.id)?.messages }));
+        if (!cancelled) { setPosts(cloudPosts.length ? refreshSamplePosts(cloudPosts) : localPosts.length || hasLocalWorkspace ? localPosts : sampleWorkspacePosts()); setStorageMode("cloud"); setLoaded(true); }
       } catch (error) {
         if (!cancelled) { setPosts(localPosts.length || hasLocalWorkspace ? localPosts : sampleWorkspacePosts()); setStorageMode("error"); setStorageMessage(error instanceof Error ? error.message : "Could not connect to cloud storage."); setLoaded(true); }
       }
@@ -111,7 +115,7 @@ export default function Home() {
   };
   const savePost = (status: Post["status"]) => {
     if (!postText.trim()) { setNotice("Add a caption or post idea first."); return; }
-    const post: Post = { id: editingId ?? crypto.randomUUID(), text: postText.trim(), channel, date, status };
+    const post: Post = { ...posts.find(post => post.id === editingId), id: editingId ?? crypto.randomUUID(), text: postText.trim(), channel, date, status };
     setPosts(current => editingId ? current.map(item => item.id === editingId ? post : item) : [post, ...current]);
     setShowComposer(false); setNotice(status === "Planned" ? "Added to your plan. Hunch will remind you; it won’t publish automatically." : "Draft saved on this device.");
   };
@@ -123,10 +127,20 @@ export default function Home() {
     setPosts(current => current.map(item => item.id === post.id ? { ...item, status: "Posted" } : item));
     setNotice("Marked as posted. Add its results when they’re available.");
   };
+  const openMetrics = (post: Post) => {
+    const campaign = campaignFor(post);
+    setMetricPost(post); setReach(String(post.reach ?? "")); setEngagements(String(post.engagements ?? "")); setSpend(String(campaign?.spend ?? "")); setMessages(String(campaign?.results ?? "")); setNotice("");
+  };
   const saveMetrics = () => {
-    if (!metricPost || !reach || !engagements) return;
-    setPosts(current => current.map(item => item.id === metricPost.id ? { ...item, reach: Number(reach), engagements: Number(engagements) } : item));
-    setMetricPost(null); setNotice("Performance saved.");
+    if (!metricPost) return;
+    const r = reach.trim() ? Number(reach) : undefined;
+    const e = engagements.trim() ? Number(engagements) : undefined;
+    const s = spend.trim() ? Number(spend) : undefined;
+    const m = messages.trim() ? Number(messages) : undefined;
+    if ([r,e,m].some(value => value !== undefined && (!Number.isInteger(value) || value < 0)) || (s !== undefined && (!Number.isFinite(s) || s < 0))) { setNotice("Use nonnegative whole numbers for counts and a nonnegative amount for spend."); return; }
+    if ((s === undefined) !== (m === undefined)) { setNotice("Enter both spend and conversations to calculate cost per conversation, or leave both blank."); return; }
+    setPosts(current => current.map(item => item.id === metricPost.id ? { ...item, reach: r, engagements: e, spend: s, messages: m } : item));
+    setMetricPost(null); setNotice("Results saved. Spend and conversations are kept on this device.");
   };
   const totals = useMemo(() => posts.reduce((acc, post) => ({ reach: acc.reach + (post.reach || 0), engagements: acc.engagements + (post.engagements || 0), measured: acc.measured + (post.reach !== undefined ? 1 : 0) }), { reach: 0, engagements: 0, measured: 0 }), [posts]);
   const plannedCount = posts.filter(post => post.status === "Planned").length;
@@ -136,13 +150,13 @@ export default function Home() {
   const visiblePosts = view === "Calendar" ? posts.filter(post => post.date).sort((a,b) => a.date.localeCompare(b.date)) : posts;
   const statusClass = (status: Post["status"]) => status === "Posted" ? "published" : status === "Planned" ? "scheduled" : "draft";
 
-  const postRows = (items: Post[]) => items.length ? <div className="week-list">{items.map(post => <article className="week-item" key={post.id}><div className="date-block"><span>{post.date ? new Date(`${post.date}T12:00:00`).toLocaleDateString(undefined,{weekday:"short"}) : "—"}</span><b>{post.date ? new Date(`${post.date}T12:00:00`).getDate() : "·"}</b></div><div className="week-detail"><strong>{post.text}{post.sample && <span className="sample-tag">Sample</span>}</strong><small>{post.channel}{post.reach !== undefined ? ` · ${post.reach.toLocaleString()} reach` : ""}</small></div><span className={`status ${statusClass(post.status)}`}>{post.status}</span>{post.status === "Posted" ? <button className="subtle-link" onClick={() => { setMetricPost(post); setReach(String(post.reach ?? "")); setEngagements(String(post.engagements ?? "")); }}>Add results</button> : <button className="subtle-link" onClick={() => openComposer(post)}>Edit</button>}{post.status === "Planned" && <><button className="subtle-link" onClick={() => copyCaption(post)}>Copy caption</button><button className="subtle-link" onClick={() => markPosted(post)}>Mark posted</button></>}</article>)}</div> : <div className="empty-state"><h3>{view === "Calendar" ? "Nothing planned yet" : "Your post library is ready"}</h3><p>Create a draft or add a planned post. They’ll be saved in this browser.</p><button className="primary" onClick={() => openComposer()}>Create a post</button></div>;
+  const postRows = (items: Post[]) => items.length ? <div className="week-list">{items.map(post => <article className="week-item" key={post.id}>{view === "Posts" && samplePhotoFor(post) && <img className="post-gallery-photo" src={samplePhotoFor(post)} alt="" loading="lazy" />}<div className="date-block"><span>{post.date ? new Date(`${post.date}T12:00:00`).toLocaleDateString(undefined,{weekday:"short"}) : "—"}</span><b>{post.date ? new Date(`${post.date}T12:00:00`).getDate() : "·"}</b></div><div className="week-detail"><strong>{post.text}{post.sample && <span className="sample-tag">Sample</span>}</strong><small>{post.channel}{post.reach !== undefined ? ` · ${post.reach.toLocaleString()} reach` : ""}</small></div><span className={`status ${statusClass(post.status)}`}>{post.status}</span>{post.status === "Posted" ? <button className="subtle-link" onClick={() => openMetrics(post)}>Add results</button> : <button className="subtle-link" onClick={() => openComposer(post)}>Edit</button>}{post.status === "Planned" && <><button className="subtle-link" onClick={() => copyCaption(post)}>Copy caption</button><button className="subtle-link" onClick={() => markPosted(post)}>Mark posted</button></>}</article>)}</div> : <div className="empty-state"><h3>{view === "Calendar" ? "Nothing planned yet" : "Your post library is ready"}</h3><p>Create a draft or add a planned post. They’ll be saved in this browser.</p><button className="primary" onClick={() => openComposer()}>Create a post</button></div>;
 
   if (!loaded) return <main className="workspace-loading" role="status"><div className="magic-orbit" aria-hidden="true" /><strong>Opening your workspace</strong><p>Setting up your private demo space…</p></main>;
 
   return <main className={"creator-app" + (chatOpen ? " chat-open" : "")}>
-    <aside className="sidebar"><a className="brand" href="#"><span className="brand-mark" aria-hidden="true" /><img className="brand-word" src="/brand/wordmark.svg" alt="hunch" /></a><div className="workspace-label">Creator workspace</div><nav className="side-nav" aria-label="Main navigation">{navItems.map(item => <button key={item} className={view === item ? "side-link selected" : "side-link"} onClick={() => setView(item)}><span className="nav-label">{navLabels[item] ?? item}</span></button>)}</nav><div className="sidebar-bottom"><div className="avatar">ER</div><div><strong>Elle Reyes</strong><small>Food creator · local demo</small></div></div></aside>
-    <section className={"main-panel" + (view === "Analytics" && (demoImporting || demoPlatforms.length) ? " demo-replay" : "")}><header className="workspace-top"><div className="mobile-brand"><span className="brand-mark" aria-hidden="true" /><img className="brand-word" src="/brand/wordmark.svg" alt="hunch" /></div><div className="breadcrumb">My workspace <span>/</span> {view}</div><div className="top-actions"><button className="back chat-toggle" aria-expanded={chatOpen} aria-controls="hunch-chat" onClick={() => setChatOpen(open => !open)}>Ask Hunch</button><span className="sample-pill">{storageMode === "connecting" ? "Connecting…" : storageMode === "cloud" ? "Cloud workspace" : storageMode === "error" ? "Local backup" : "Local workspace"}</span><div className="avatar small-avatar">ER</div></div></header>
+    <aside className="sidebar"><a className="brand" href="#"><span className="brand-mark" aria-hidden="true" /><img className="brand-word" src="/brand/wordmark.svg" alt="hunch" /></a><div className="workspace-label">Creator workspace</div><nav className="side-nav" aria-label="Main navigation">{navItems.map(item => <button key={item} className={view === item ? "side-link selected" : "side-link"} onClick={() => setView(item)}><span className="nav-label">{navLabels[item] ?? item}</span></button>)}</nav><div className="sidebar-bottom"><div className="avatar">ER</div><div><strong>Elle Reyes</strong><small>Candle creator · sample</small></div></div></aside>
+    <section className={"main-panel" + (view === "Analytics" ? " analytics-active" : "") + (view === "Analytics" && (demoImporting || demoPlatforms.length) ? " demo-replay" : "")}><header className="workspace-top"><div className="mobile-brand"><span className="brand-mark" aria-hidden="true" /><img className="brand-word" src="/brand/wordmark.svg" alt="hunch" /></div><div className="breadcrumb">My workspace <span>/</span> {view}</div><div className="top-actions"><button className="back chat-toggle" aria-expanded={chatOpen} aria-controls="hunch-chat" onClick={() => setChatOpen(open => !open)}>Ask Hunch</button><span className="sample-pill">{storageMode === "connecting" ? "Connecting…" : storageMode === "cloud" ? "Cloud workspace" : storageMode === "error" ? "Local backup" : "Local workspace"}</span><div className="avatar small-avatar">ER</div></div></header>
       <div className="page-content"><div className="welcome-row"><div><h1>{view === "Home" ? "Your creator desk" : view}</h1><p className="welcome-copy">Plan posts, hand them off to your channels, and learn from the results.</p></div>{view !== "Home" && <button className="primary create-button" onClick={() => openComposer()}><span>Create a post</span></button>}</div>
       {notice && <div className="success-note" role="status">{notice}</div>}
       {storageMode === "error" && <div className="storage-warning" role="status">Cloud workspace isn’t available, so this browser is using local storage. {storageMessage}</div>}
@@ -161,13 +175,14 @@ export default function Home() {
         </div>
       </div>}
       {view === "Calendar" && <section className="panel full-panel"><div className="panel-head"><div><span className="section-kicker">Planning</span><h2>Planned posts</h2></div><button className="primary" onClick={() => openComposer()}>Create a post</button></div>{postRows(visiblePosts)}</section>}
-      {view === "Posts" && <section className="panel full-panel"><div className="panel-head"><div><span className="section-kicker">Content library</span><h2>Your posts</h2></div><button className="primary" onClick={() => openComposer()}>Create a post</button></div>{postRows(visiblePosts)}</section>}
-      {view === "Analytics" && <section className="panel full-panel"><div className="panel-head"><div><span className="section-kicker">Manual results</span><h2>Performance you’ve recorded</h2></div><span className="evidence-pill">{hasSamples ? "Sample data included" : "Your data"}</span></div><div className="metric-grid analytics-metrics"><article className="metric-card"><span>Reach</span><strong>{totals.measured ? totals.reach.toLocaleString() : "—"}</strong><div className="metric-foot">Across {totals.measured} measured posts</div></article><article className="metric-card"><span>Engagements</span><strong>{totals.measured ? totals.engagements.toLocaleString() : "—"}</strong><div className="metric-foot">Entered by you</div></article><article className="metric-card"><span>Posts tracked</span><strong>{totals.measured}</strong><div className="metric-foot">With a reach value</div></article><article className="metric-card"><span>Posts total</span><strong>{posts.length}</strong><div className="metric-foot">In this browser</div></article></div><div className="platform-results">
-        <div className="panel-head"><div><span className="section-kicker">Channel breakdown</span><h3>Where the numbers come from</h3></div>{demoImporting && <span className="import-pulse" role="status">Loading example channels…</span>}</div>
-        <p className="data-note">Sample rows are fictional. Other rows contain results entered manually.</p>
-        <div className="platform-sources">{channels.map(item => <span className={"platform-source" + (demoPlatforms.includes(item) ? " source-ready" : "")} key={item}>{item}<small>{demoImporting && !demoPlatforms.includes(item) ? "Queued" : demoPlatforms.includes(item) ? "Sample loaded ✓" : "Manual / sample"}</small></span>)}</div>
-        <div className="results-table-wrap"><table className="results-table"><caption className="chat-sr-only">Recorded post performance by channel</caption><thead><tr><th scope="col">Post / channel</th><th scope="col">Reach</th><th scope="col">Engagements</th><th scope="col">Rate</th></tr></thead><tbody>{posts.filter(post => post.reach !== undefined).map(post => <tr key={post.id}><th scope="row">{post.text}<small>{post.channel}{post.sample ? " · Sample" : " · Manual"}</small></th><td>{post.reach?.toLocaleString()}</td><td>{post.engagements?.toLocaleString() ?? "—"}</td><td>{post.reach && post.engagements !== undefined ? `${(post.engagements / post.reach * 100).toFixed(1)}%` : "—"}</td></tr>)}</tbody></table>{!posts.some(post => post.reach !== undefined) && <p className="table-empty">{demoImporting ? "Waiting for the first example channel…" : "Add post results to populate this table."}</p>}</div>
-        </div><p className="data-note">Results are not synced from Instagram, TikTok, or Facebook. Mark a post as posted, then add its reach and engagements from the platform.</p>{hasSamples && <button className="subtle-link" onClick={removeSampleData}>Remove sample data</button>}<button className="primary" onClick={() => setView("Posts")}>View posts to add results</button></section>}
+      {view === "Posts" && <section className="panel full-panel posts-photo-gallery"><div className="panel-head"><div><span className="section-kicker">Content library</span><h2>Your posts</h2></div><button className="primary" onClick={() => openComposer()}>Create a post</button></div>{postRows(visiblePosts)}</section>}
+      {view === "Analytics" && <Analytics posts={posts} onInspect={post => openComposer(post)} onAddResults={() => setView("Posts")} onPlan={post => {
+        const campaign = campaignFor(post);
+        const existing = campaign?.followupId ? posts.find(item => item.status !== "Posted" && (item.id === campaign.followupId || item.id.startsWith(`${campaign.followupId}-`))) : undefined;
+        openComposer(existing);
+        if (!existing?.text.includes("\n")) setPostText(campaign?.followupCaption ?? post.text);
+        setChannel(existing?.channel ?? post.channel);
+      }} />}
       {view === "Insights" && <section className="panel full-panel">
         <div className="panel-head"><div><span className="section-kicker">A second opinion, wherever you work</span><h2>Work through your next move with Hunch</h2></div></div>
         <p className="guide-intro">Open the chat beside your workspace to review example results and shape your next post. Your conversation stays with you as you move between screens.</p>
@@ -180,6 +195,6 @@ export default function Home() {
       </div></section>
     <ChatSidebar onDemoImport={importDemoPlatform} open={chatOpen} view={view} onClose={() => setChatOpen(false)} onUseDraft={(draft, suggestedChannel) => { setPostText(draft); setChannel(suggestedChannel ?? "Instagram"); setDate(""); setEditingId(null); setNotice(""); setShowComposer(true); }} />
     {showComposer && <div className="modal-backdrop" role="presentation" onClick={() => setShowComposer(false)}><section className="composer-modal" role="dialog" aria-modal="true" aria-labelledby="composer-title" onClick={e => e.stopPropagation()}><button className="modal-close" onClick={() => setShowComposer(false)} aria-label="Close">×</button><span className="section-kicker">Post planner</span><h2 id="composer-title">{editingId ? "Edit your post" : "Create a post"}</h2><label className="field-label" htmlFor="post-copy">Caption or post idea</label><textarea id="post-copy" value={postText} onChange={e => setPostText(e.target.value)} placeholder="Write a draft or start with a post idea…"/><label className="field-label" htmlFor="channel">Channel</label><select id="channel" value={channel} onChange={e=>setChannel(e.target.value)}>{channels.map(item=><option key={item}>{item}</option>)}</select><label className="field-label" htmlFor="planned-date">Planned date (optional)</label><input id="planned-date" type="date" value={date} onChange={e=>setDate(e.target.value)}/>{notice && <p role="alert" className="data-note">{notice}</p>}<div className="composer-actions"><button className="back" onClick={() => setShowComposer(false)}>Cancel</button><button className="primary" onClick={() => savePost("Draft")}>Save draft</button><button className="primary publish-button" onClick={() => savePost(date ? "Planned" : "Draft")}>{date ? "Add to plan" : "Save post"}</button></div></section></div>}
-    {metricPost && <div className="modal-backdrop" role="presentation" onClick={() => setMetricPost(null)}><section className="composer-modal" role="dialog" aria-modal="true" aria-labelledby="metrics-title" onClick={e=>e.stopPropagation()}><button className="modal-close" onClick={() => setMetricPost(null)} aria-label="Close">×</button><span className="section-kicker">Post performance</span><h2 id="metrics-title">Add results</h2><p className="data-note">Enter the numbers shown by {metricPost.channel} for this post.</p><label className="field-label" htmlFor="reach">Reach</label><input id="reach" type="number" min="0" value={reach} onChange={e=>setReach(e.target.value)}/><label className="field-label" htmlFor="engagements">Engagements</label><input id="engagements" type="number" min="0" value={engagements} onChange={e=>setEngagements(e.target.value)}/><div className="composer-actions"><button className="back" onClick={()=>setMetricPost(null)}>Cancel</button><button className="primary" onClick={saveMetrics}>Save results</button></div></section></div>}
+    {metricPost && <div className="modal-backdrop" role="presentation" onClick={() => setMetricPost(null)}><section className="composer-modal" role="dialog" aria-modal="true" aria-labelledby="metrics-title" onClick={e=>e.stopPropagation()}><button className="modal-close" onClick={() => setMetricPost(null)} aria-label="Close">×</button><span className="section-kicker">Post performance</span><h2 id="metrics-title">Add results</h2><p className="data-note">Enter the numbers shown by {metricPost.channel} for this post.</p><label className="field-label" htmlFor="reach">Reach</label><input id="reach" type="number" min="0" value={reach} onChange={e=>setReach(e.target.value)}/><label className="field-label" htmlFor="engagements">Engagements</label><input id="engagements" type="number" min="0" value={engagements} onChange={e=>setEngagements(e.target.value)}/><label className="field-label" htmlFor="ad-spend">Ad spend, ₱ (optional)</label><input id="ad-spend" type="number" min="0" step="0.01" value={spend} onChange={event => setSpend(event.target.value)} /><label className="field-label" htmlFor="conversations">Conversations started (optional)</label><input id="conversations" type="number" min="0" step="1" value={messages} onChange={event => setMessages(event.target.value)} /><p className="data-note">Use the messaging-conversation count from your ad report. Spend and conversations are saved on this device.</p>{notice && <p role="alert" className="data-note">{notice}</p>}<div className="composer-actions"><button className="back" onClick={()=>setMetricPost(null)}>Cancel</button><button className="primary" onClick={saveMetrics}>Save results</button></div></section></div>}
   </main>;
 }

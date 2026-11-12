@@ -1,0 +1,234 @@
+[
+  {
+    "id": "elle-p1",
+    "text": "POV: kandila lang pala ang kulang sa sala niyo 🤍",
+    "channel": "Facebook",
+    "offset": 1,
+    "status": "Planned",
+    "photo": "/sample/candles/planned/P1.jpg"
+  },
+  {
+    "id": "elle-p2",
+    "text": "May bisita ngayong December? tara pili tayo ng scent 🕯️",
+    "channel": "Instagram",
+    "offset": 2,
+    "status": "Planned",
+    "photo": "/sample/candles/planned/P2.jpg"
+  },
+  {
+    "id": "elle-p3",
+    "text": "₱350 na good for ilang handaan (syempre depende sa kwentuhan) 😆",
+    "channel": "TikTok",
+    "offset": 3,
+    "status": "Planned",
+    "photo": "/sample/candles/planned/P3.jpg"
+  },
+  {
+    "id": "elle-p4",
+    "text": "napaka perfect nito pang exchange gift this coming christmas 😍",
+    "channel": "Facebook",
+    "offset": 4,
+    "status": "Planned",
+    "photo": "/sample/candles/planned/P4.jpg"
+  },
+  {
+    "id": "elle-p5",
+    "text": "Yung nakauwi na lahat ng bisita, saka ka lang nakaupo 🥹",
+    "channel": "Instagram",
+    "offset": 5,
+    "status": "Planned",
+    "photo": "/sample/candles/planned/P5.jpg"
+  },
+  {
+    "id": "elle-p6",
+    "text": "Saan nga ba makikita ang Elle's Candles? 🤗",
+    "channel": "Facebook",
+    "offset": 6,
+    "status": "Planned",
+    "photo": "/sample/candles/planned/P6.jpg"
+  },
+  {
+    "id": "elle-p7",
+    "text": "30 minutes na lang, Noche Buena na 🎄",
+    "channel": "TikTok",
+    "offset": 7,
+    "status": "Planned",
+    "photo": "/sample/candles/planned/P7.jpg"
+  },
+  {
+    "id": "elle-a1",
+    "text": "POV: hindi mo inexpect na ganito kabango ang ilang-ilang 😍",
+    "channel": "Instagram",
+    "offset": -3,
+    "status": "Posted",
+    "reach": 3015,
+    "engagements": 58,
+    "photo": "/sample/candles/A1.jpg",
+    "campaign": {
+      "spend": 99,
+      "impressions": 3762,
+      "clicks": 15,
+      "saves": 9,
+      "shares": 8,
+      "comments": 3,
+      "results": 2,
+      "audience": "Thrifters back from Cubao Expo",
+      "code": "A1"
+    }
+  },
+  {
+    "id": "elle-a2",
+    "text": "saturday condo diaries ☕🕯️",
+    "channel": "Instagram",
+    "offset": -3,
+    "status": "Posted",
+    "reach": 2836,
+    "engagements": 82,
+    "photo": "/sample/candles/A2.jpg",
+    "campaign": {
+      "spend": 99,
+      "impressions": 3478,
+      "clicks": 20,
+      "saves": 12,
+      "shares": 5,
+      "comments": 4,
+      "results": 6,
+      "audience": "Condo folks on a Saturday reset",
+      "code": "A2"
+    }
+  },
+  {
+    "id": "elle-a3",
+    "text": "nagluto ako ng 5 ulam pero ang tinanong ng bisita: ano yung mabango? 😭",
+    "channel": "Facebook",
+    "offset": -3,
+    "status": "Posted",
+    "reach": 2109,
+    "engagements": 134,
+    "photo": "/sample/candles/A3.jpg",
+    "campaign": {
+      "spend": 99,
+      "impressions": 2641,
+      "clicks": 31,
+      "saves": 19,
+      "shares": 14,
+      "comments": 12,
+      "results": 14,
+      "audience": "Hosts getting the sala ready",
+      "code": "A3",
+      "followupId": "elle-p1",
+      "followupCaption": "POV: kandila lang pala ang kulang sa sala niyo 🤍\n\nSobrang simple pero ang laki ng nabago sa sala.\nElle's Candles • Pandan Coconut • soy wax, gawa sa bahay • 180 g amber jar na may takip • mga 35 hours\n₱350 each, pm for order\n\n#roomglowup #homevibesph #christmashandaan #handmadecandle"
+    }
+  },
+  {
+    "id": "elle-a4",
+    "text": "POV: kakauwi mo lang galing night shift 🕯️",
+    "channel": "TikTok",
+    "offset": -2,
+    "status": "Posted",
+    "reach": 2377,
+    "engagements": 88,
+    "photo": "/sample/candles/A4.jpg",
+    "campaign": {
+      "spend": 99,
+      "impressions": 2906,
+      "clicks": 19,
+      "saves": 9,
+      "shares": 6,
+      "comments": 8,
+      "results": 7,
+      "audience": "Night shift workers coming home",
+      "code": "A4",
+      "followupId": "elle-t2",
+      "followupCaption": "POV: Noche Buena ng night shift be like 🥲\n\nPag-uwi mo ng 7 AM sa Pasko, tulog na lahat. 😭\nSindihan habang kumakain ka ng tirang ham, tapos patayin bago matulog.\nElle's Candles • Pandan Coconut • soy wax • 180 g amber jar • mga 35 hours\n₱350 each, pm for order\n\n#nightshift #bpo #pasko #candles"
+    }
+  },
+  {
+    "id": "elle-a5",
+    "text": "ambagan sa unit: kuryente, wifi, tubig, at... kandila? 😭",
+    "channel": "TikTok",
+    "offset": -2,
+    "status": "Posted",
+    "reach": 2655,
+    "engagements": 95,
+    "photo": "/sample/candles/A5.jpg",
+    "campaign": {
+      "spend": 99,
+      "impressions": 3290,
+      "clicks": 22,
+      "saves": 6,
+      "shares": 16,
+      "comments": 11,
+      "results": 8,
+      "audience": "Barkadas splitting the bills",
+      "code": "A5",
+      "followupId": "elle-t1",
+      "followupCaption": "Sa unit niyo na naman ang watch party? 😭\n\nHabang wala pa yung tropa niyo, sindihan niyo na. Patayin pagkatapos ng game.\nElle's Candles • Calamansi Basil • soy wax • 180 g amber jar na may takip • mga 35 hours\n₱350 each, pm for order\n\n#barkada #relatable #handmadecandle #candles"
+    }
+  },
+  {
+    "id": "elle-a6",
+    "text": "Below 500 pesos na pang exchange gift sa office 🎄",
+    "channel": "Facebook",
+    "offset": -2,
+    "status": "Posted",
+    "reach": 2493,
+    "engagements": 105,
+    "photo": "/sample/candles/A6.jpg",
+    "campaign": {
+      "spend": 99,
+      "impressions": 3117,
+      "clicks": 24,
+      "saves": 11,
+      "shares": 9,
+      "comments": 10,
+      "results": 10,
+      "audience": "Officemates buying an exchange gift",
+      "code": "A6",
+      "followupId": "elle-p4",
+      "followupCaption": "napaka perfect nito pang exchange gift this coming christmas 😍\n\nMay takip na yung amber jar, lagyan mo lang ng ribbon, pang regalo na. 🎁\nElle's Candles • Ilang-ilang, Calamansi Basil o Pandan Coconut • soy wax • 180 g • mga 35 hours\n₱350 each, pasok sa ₱500 na budget. pm for order\n\n#exchangegift #monitomonita #christmasgift #handmadecandle"
+    }
+  },
+  {
+    "id": "elle-a7",
+    "text": "meron ka na bang regalo sa monthsary niyo bukas? 🎁",
+    "channel": "TikTok",
+    "offset": -1,
+    "status": "Posted",
+    "reach": 1846,
+    "engagements": 66,
+    "photo": "/sample/candles/A7.jpg",
+    "campaign": {
+      "spend": 99,
+      "impressions": 2254,
+      "clicks": 14,
+      "saves": 4,
+      "shares": 5,
+      "comments": 6,
+      "results": 4,
+      "audience": "Partners with no monthsary gift yet",
+      "code": "A7"
+    }
+  },
+  {
+    "id": "elle-a8",
+    "text": "perfect pang design sa counter ng cafe o salon niyo 🕯️",
+    "channel": "Facebook",
+    "offset": -1,
+    "status": "Posted",
+    "reach": 1298,
+    "engagements": 29,
+    "photo": "/sample/candles/A8.jpg",
+    "campaign": {
+      "spend": 99,
+      "impressions": 1563,
+      "clicks": 7,
+      "saves": 2,
+      "shares": 1,
+      "comments": 1,
+      "results": 1,
+      "audience": "Café and salon owners",
+      "code": "A8"
+    }
+  }
+]

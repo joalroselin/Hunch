@@ -399,3 +399,83 @@
 
 .chat-draft { margin-top: 16px; padding: 14px; border-radius: 14px; background: var(--sheet); }
 .chat-draft > p { margin: 0; }
+
+/* Photos belong only to the Posts tab; other post lists retain their layout. */
+.posts-photo-gallery .week-list { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); align-items: start; }
+.posts-photo-gallery .week-item { overflow: hidden; }
+.posts-photo-gallery .post-gallery-photo { display: block; width: calc(100% + 34px); max-width: none; flex: 0 0 calc(100% + 34px); aspect-ratio: 4 / 5; object-fit: cover; margin: -14px -20px 8px -14px; }
+.posts-photo-gallery .week-detail { flex-basis: 100%; }
+@media (max-width: 700px) {
+  .posts-photo-gallery .post-gallery-photo { width: calc(100% + 26px); flex-basis: calc(100% + 26px); margin: -12px -16px 8px -10px; }
+}
+
+/* Analytics is scoped to its tab; figures come from recorded post data. */
+.analytics-page { display: grid; grid-template-columns: minmax(0,1fr); min-width: 0; gap: 32px; }
+.analytics-page > * { min-width: 0; }
+.analytics-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; }
+.analytics-header h2 { margin: 8px 0; font-size: clamp(30px, 3.6vw, 48px); line-height: 1; }
+.analytics-header p { max-width: 42ch; margin: 0; font-size: 17px; line-height: 1.4; }
+.analytics-filter { display: grid; gap: 8px; font-size: 12px; font-weight: 700; }
+.analytics-filter select { min-height: 44px; border: 0; border-radius: 14px; padding: 10px 14px; background: var(--sheet); min-width: 150px; }
+.analytics-source { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13px; line-height: 1.5; }
+.analytics-source > span { font-weight: 800; }
+.analytics-kpis { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; padding: 26px; background: var(--sheet); border-radius: 24px; box-shadow: var(--shadow-slip); }
+.analytics-kpis article { min-width: 0; }
+.analytics-kpis article > span { font-size: 12px; font-weight: 600; }
+.analytics-kpis strong { display: block; margin: 12px 0; font-size: clamp(30px,3vw,50px); font-weight: 800; letter-spacing: -0.055em; font-variant-numeric: tabular-nums; line-height: 1; }
+.analytics-kpis small { display: block; font-size: 12px; line-height: 1.4; color: var(--ink-soft); }
+.analytics-lead { display: grid; grid-template-columns: 1fr 160px; gap: 24px; padding: clamp(22px,3vw,36px); background: var(--ink); color: var(--sheet); border-radius: 28px; }
+.analytics-lead h3 { max-width: 22ch; margin: 10px 0 20px; font-size: clamp(28px,3vw,40px); line-height: 1.05; }
+.analytics-lead p { margin: 12px 0; font-size: 15px; line-height: 1.5; }
+.analytics-lead > img { width: 100%; height: 100%; max-height: 340px; object-fit: cover; border-radius: 18px; align-self: center; }
+.analytics-lead .analytics-caution { font-size: 12px; opacity: 0.75; }
+.analytics-lead .primary { background: var(--gold); color: var(--ink); }
+.analytics-lead .subtle-link { color: var(--sheet); }
+.analytics-lead :focus-visible { outline-color: var(--gold); }
+.analytics-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 24px; }
+.analytics-charts { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); gap: 28px; }
+.analytics-chart { min-width: 0; padding: 24px; border-radius: 24px; background: var(--sheet); box-shadow: var(--shadow-slip); }
+.analytics-chart-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.analytics-chart h3, .analytics-next > h3, .analytics-recorded > h3 { margin: 8px 0; font-size: 27px; line-height: 1.1; }
+.analytics-chart-head > span { font-size: 11px; white-space: nowrap; color: var(--ink-soft); }
+.analytics-chart-note { margin: 14px 0 22px; color: var(--ink-soft); font-size: 12px; line-height: 1.5; }
+.analytics-bars { display: grid; gap: 20px; padding: 0; list-style: none; margin: 0; }
+.analytics-bars li { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 8px 12px; align-items: center; }
+.analytics-bar-label { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 8px; padding: 0; border: 0; background: none; text-align: left; font-size: 13px; line-height: 1.35; }
+.analytics-bar-label b { flex: none; font-size: 11px; color: var(--chili); }
+.analytics-bar-track { height: 12px; overflow: hidden; border-radius: 99px; background: var(--tint); }
+.analytics-bar-track > span { display: block; height: 100%; border-radius: inherit; background: var(--persimmon); animation: analytics-bar-in 0.65s var(--ease-out) both; transform-origin: left; }
+.analytics-bar-track > span.bar-best { background: var(--ink); }
+.analytics-bar-value { display: flex; align-items: baseline; gap: 8px; min-width: 120px; justify-content: flex-end; }
+.analytics-bar-value > b { font-size: 19px; font-variant-numeric: tabular-nums; }
+.analytics-bar-value small { font-size: 10px; color: var(--ink-soft); }
+.analytics-channel-bars { display: grid; gap: 30px; }
+.analytics-channel-bars header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 10px; }
+.analytics-channel-bars header strong { font-size: 24px; letter-spacing: -0.04em; }
+.analytics-channel-bars article p { font-size: 12px; line-height: 1.5; color: var(--ink-soft); }
+.analytics-next-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; margin-top: 24px; }
+.analytics-next-grid article { min-width: 0; border-top: 2px solid var(--tint-strong); padding-top: 16px; }
+.analytics-next-grid article > span { font-size: 12px; font-weight: 700; color: var(--chili); }
+.analytics-next-grid h4 { margin: 12px 0; font-size: 23px; line-height: 1.15; letter-spacing: -0.035em; }
+.analytics-next-grid p, .analytics-recorded > p { font-size: 14px; line-height: 1.6; }
+.analytics-activity { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; margin: 24px 0; }
+.analytics-activity dt { font-size: 12px; font-weight: 600; }
+.analytics-activity dd { margin: 10px 0; font-size: 34px; font-weight: 800; letter-spacing: -0.045em; }
+.analytics-activity small { font-size: 11px; line-height: 1.5; color: var(--ink-soft); }
+.analytics-table-wrap { max-width: 100%; overflow-x: auto; border-radius: 20px; background: var(--sheet); padding: 16px; }
+.analytics-table { width: 100%; text-align: left; border-collapse: collapse; font-size: 12px; }
+.analytics-table caption { text-align: left; padding: 0 10px 16px; font-weight: 700; }
+.analytics-table th, .analytics-table td { padding: 14px 10px; border-bottom: 1px solid var(--tint); }
+.analytics-table tbody th { min-width: 170px; font-weight: 600; }
+.analytics-table tbody button { border: 0; background: none; text-align: left; padding: 0; font-weight: 600; }
+.analytics-table small { display: block; margin-top: 6px; font-size: 10px; color: var(--ink-soft); }
+.analytics-table td { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.analytics-recorded .analytics-footnote { font-size: 12px; color: var(--ink-soft); }
+@keyframes analytics-bar-in { from { transform: scaleX(0); } }
+@media (max-width: 1500px) { .chat-open .analytics-charts { grid-template-columns: 1fr; } .chat-open .analytics-kpis, .chat-open .analytics-next-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 1100px) { .analytics-charts { grid-template-columns: 1fr; } .analytics-kpis { grid-template-columns: repeat(2,minmax(0,1fr)); } .analytics-next-grid { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .analytics-header { align-items: flex-start; flex-direction: column; } .analytics-kpis { gap: 22px 14px; padding: 22px 18px; } .analytics-lead { grid-template-columns: 1fr; } .analytics-lead > img { max-height: 210px; width: 100%; object-position: center 60%; } .analytics-chart { padding: 20px 16px; } .analytics-chart-head { flex-direction: column; gap: 4px; } .analytics-next-grid, .chat-open .analytics-next-grid { grid-template-columns: 1fr; } .analytics-activity { grid-template-columns: 1fr; gap: 22px; } }
+.analytics-active .welcome-row { margin-bottom: 24px; }
+.analytics-active .welcome-row h1 { font-size: 36px; }
+.analytics-active .welcome-copy { display: none; }
+@media (min-width: 701px) { .analytics-active .page-content { padding-top: 24px; } }
