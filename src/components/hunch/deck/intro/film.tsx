@@ -269,7 +269,7 @@ function Words({ scene, run, still }: { scene: number; run: boolean; still: bool
             </span>
           </p>
           <motion.p className="ifl-src" initial={still ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 3 }}>
-            Socialinsider, 2026. An average Facebook page post reaches 1.25% of followers, global.
+            Socialinsider, “Social Media Reach Statistics,” updated Nov 11, 2026. Average Facebook page post reach in August 2026: 1.25% of followers, from 67.6 million posts. socialinsider.io/blog/social-media-reach
           </motion.p>
         </motion.div>
       ) : null}
