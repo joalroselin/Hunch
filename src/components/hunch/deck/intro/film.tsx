@@ -11,7 +11,8 @@ import type { SlideProps } from "../types"
 import "./film.css"
 
 // Scenes: the candle, the guesses, the sellers, the test, the answer, then into the bubble and on to the landing page.
-export const HOLD = [8000, 9000, 8200, 10500, 6000, 1950]
+// 0 waits for the presenter's right arrow.
+export const HOLD = [8000, 9000, 0, 10500, 6000, 1950]
 const HANDOFF = HOLD.length - 1
 
 const EASE = [0.16, 1, 0.3, 1] as const
