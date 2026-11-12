@@ -1,0 +1,345 @@
+/* Home hero. [data-hx] on the home root: intro (first visit), fade (reduced motion), done. */
+
+.hx-hero {
+  /* One design pixel of the 1440 x 900 poster. Sizes in the hero are drawn in these. */
+  --px: calc(min(1vw, 1.6svh) / 14.4);
+  --cx: 50%;
+  --cy: 35%;
+  position: relative;
+  isolation: isolate;
+  height: 100svh;
+  min-height: 600px;
+  max-height: 92vw;
+  /* The posts leave past the bottom edge as the page moves on. */
+  overflow-x: clip;
+  background: radial-gradient(70% 60% at 50% 30%, #fffaef 0%, rgb(255 250 239 / 0) 70%);
+}
+
+.hunch-home section[id] {
+  scroll-margin-top: 72px;
+}
+
+/* Hidden until the entrance shows them. The failsafe shows them if the script never takes over. */
+[data-hx="intro"] :is(.hx-hide, .hx-hero [data-prompt-shell], .hx-hero [data-prompt-hint]) {
+  opacity: 0;
+  animation: hx-show 0.5s linear 6s both;
+}
+[data-hx="fade"] :is(.hx-hide, .hx-hero [data-prompt-shell], .hx-hero [data-prompt-hint]) {
+  animation: hx-show 0.4s linear both;
+}
+@keyframes hx-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* The posts' layer, the whole hero. */
+.hx-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Mark, headline, line and box: one centered column, hung from the middle so a taller box never moves the headline. */
+.hx-content {
+  position: absolute;
+  inset: 50% 0 auto;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: calc(-186 * var(--px));
+  padding: 0 var(--gutter);
+  text-align: center;
+  pointer-events: none;
+}
+.hx-ask {
+  pointer-events: auto;
+}
+
+/* The mark: the opening the posts come out of, then a window on their photos. */
+.hx-mark {
+  --d: calc(108 * var(--px));
+  position: relative;
+  flex: none;
+  width: var(--d);
+  height: var(--d);
+}
+.hx-mark-line {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.hx-mark-line path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.3;
+}
+.hx-mark .hx-mark-fill {
+  --grain: 0.5;
+  position: absolute;
+  inset: 0;
+}
+.hx-mark-win {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: var(--drop);
+}
+.hx-mark .hx-mark-win > * {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  clip-path: circle(0% at 9% 91%);
+  animation: hx-win 11s linear calc(var(--i) * 1.7s) infinite;
+  animation-play-state: paused;
+}
+.hx-mark .hx-mark-sun {
+  --i: var(--n, 4);
+  --grain: 0.5;
+  background: var(--sun);
+  animation-name: hx-win-sun;
+}
+/* Each photo opens from the tail and is covered by the next. */
+@keyframes hx-win {
+  0% {
+    clip-path: circle(0% at 9% 91%);
+    animation-timing-function: cubic-bezier(0.3, 0, 0.2, 1);
+  }
+  5%,
+  21% {
+    clip-path: circle(142% at 9% 91%);
+    animation-timing-function: steps(1, end);
+  }
+  21.01%,
+  100% {
+    clip-path: circle(0% at 9% 91%);
+  }
+}
+/* The sun comes last and drains back to the outline. */
+@keyframes hx-win-sun {
+  0% {
+    clip-path: circle(0% at 9% 91%);
+    animation-timing-function: cubic-bezier(0.3, 0, 0.2, 1);
+  }
+  5%,
+  16% {
+    clip-path: circle(142% at 9% 91%);
+    animation-timing-function: cubic-bezier(0.6, 0, 0.3, 1);
+  }
+  21.5%,
+  100% {
+    clip-path: circle(0% at 9% 91%);
+  }
+}
+[data-hx="done"] .hx-mark-win > * {
+  animation-play-state: running;
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* The entrance drains the fill; the window takes over. */
+  [data-hx="done"] .hx-mark-fill {
+    opacity: 0;
+  }
+}
+
+.hx-h1 {
+  margin-top: calc(30 * var(--px));
+  font-size: calc(120 * var(--px));
+  white-space: nowrap;
+}
+.hx-w {
+  display: inline-block;
+}
+.hx-support {
+  max-width: 34em;
+  text-wrap: balance;
+  margin-top: calc(26 * var(--px));
+  font-size: max(calc(20 * var(--px)), 15px);
+}
+.hx-ask {
+  width: max(calc(612 * var(--px)), 400px);
+  max-width: 100%;
+  margin-top: calc(30 * var(--px));
+}
+.hx-hero .hx-pbox {
+  --pfs: clamp(18px, calc(27 * var(--px)), 30px);
+}
+.hx-hero .hx-hint {
+  width: max-content;
+  max-width: calc(100vw - 2 * var(--gutter));
+  margin-left: 50%;
+  padding-left: 0;
+  translate: -50% 0;
+  text-align: center;
+}
+
+/* The 8 posts. at-x, at-y are places on the 1440 x 900 poster; at-w is design pixels. */
+.hx-posts {
+  position: absolute;
+  inset: 0;
+}
+.hx-slot {
+  --wpx: calc(var(--at-w) * var(--px));
+  position: absolute;
+  left: calc(var(--at-x) / 1440 * 100%);
+  top: calc(var(--at-y) / 900 * 100%);
+  width: var(--wpx);
+  z-index: var(--z, 2);
+  will-change: transform;
+}
+.hx-slot[data-slot="1"] { --at-x: 1176; --at-y: 508; --at-w: 240; --r: 5deg; --z: 6; }
+.hx-slot[data-slot="2"] { --at-x: 50; --at-y: 112; --at-w: 172; --r: -6deg; --z: 3; }
+.hx-slot[data-slot="3"] { --at-x: 1212; --at-y: 136; --at-w: 148; --r: 7deg; --z: 3; }
+.hx-slot[data-slot="4"] { --at-x: -40; --at-y: 520; --at-w: 196; --r: -8deg; --z: 4; }
+.hx-slot[data-slot="5"] { --at-x: 286; --at-y: 664; --at-w: 124; --r: 6deg; --z: 5; }
+.hx-slot[data-slot="6"] { --at-x: 410; --at-y: 104; --at-w: 100; --r: -4deg; --z: 2; }
+.hx-slot[data-slot="7"] { --at-x: 948; --at-y: 126; --at-w: 90; --r: 5deg; --z: 2; }
+.hx-slot[data-slot="8"] { --at-x: 850; --at-y: 730; --at-w: 140; --r: -5deg; --z: 5; }
+
+.hx-tilt {
+  position: relative;
+  rotate: var(--r);
+}
+.hx-post {
+  --ugc-shadow:
+    0 1px 2px rgb(70 35 10 / 0.3), calc(var(--wpx) * 0.025) calc(var(--wpx) * 0.055) calc(var(--wpx) * 0.08) rgb(70 35 10 / 0.22),
+    calc(var(--wpx) * 0.075) calc(var(--wpx) * 0.16) calc(var(--wpx) * 0.24) rgb(70 35 10 / 0.18);
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: 5.2% / 2.925%;
+  transition: translate 0.3s var(--ease-out);
+}
+@media (hover: hover) {
+  .hx-post:hover {
+    translate: 0 -3px;
+  }
+}
+.hx-post:active {
+  scale: 0.985;
+}
+.hx-post:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+/* Entrance only: posts that rush out of the mark and past the viewer. */
+.hx-flyby {
+  position: absolute;
+  left: var(--cx);
+  top: var(--cy);
+  z-index: 8;
+  display: none;
+  width: calc(120 * var(--px));
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+[data-hx="intro"] .hx-flyby {
+  display: block;
+}
+
+/* Slow ambient drift once the entrance is over. */
+.hx-drift {
+  animation: hx-drift var(--dd, 7.5s) var(--ease-breathe) var(--dl, 0s) infinite alternate;
+  animation-play-state: paused;
+}
+[data-hx="done"] .hx-drift {
+  animation-play-state: running;
+}
+.hx-hero[data-off] :is(.hx-drift, .hx-mark-win > *) {
+  animation-play-state: paused !important;
+}
+@keyframes hx-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(var(--ddx, 4px), var(--ddy, -6px), 0);
+  }
+}
+
+/* Phone: posts above and below, the column between them. Drawn on a 390 px wide sheet. */
+@media (max-width: 767px) {
+  .hx-hero {
+    --px: calc(100vw / 390);
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: clip;
+  }
+  .hx-content {
+    position: relative;
+    inset: auto;
+    margin-top: 0;
+    padding: calc(152 * var(--px)) var(--gutter) calc(226 * var(--px));
+  }
+  .hx-mark {
+    --d: calc(76 * var(--px));
+  }
+  .hx-h1 {
+    margin-top: calc(22 * var(--px));
+    font-size: calc(74 * var(--px));
+  }
+  .hx-line {
+    display: block;
+  }
+  .hx-support {
+    max-width: 17em;
+    margin-top: 18px;
+    font-size: 18px;
+  }
+  .hx-ask {
+    width: 100%;
+    margin-top: 22px;
+  }
+  .hx-hero .hx-pbox {
+    --pfs: 18px;
+  }
+  .hx-hero .hx-hint {
+    width: auto;
+    max-width: none;
+    margin-left: 0;
+    translate: none;
+  }
+  .hx-slot {
+    left: calc(var(--at-x) * var(--px));
+    top: calc(var(--at-y) * var(--px));
+  }
+  .hx-slot:is([data-slot="1"], [data-slot="4"], [data-slot="5"], [data-slot="8"]) {
+    top: auto;
+    bottom: calc(var(--at-b) * var(--px));
+  }
+  .hx-slot[data-slot="1"] { --at-x: 212; --at-b: -84; --at-w: 152; --r: 5deg; }
+  .hx-slot[data-slot="2"] { --at-x: -22; --at-y: 92; --at-w: 94; --r: -7deg; }
+  .hx-slot[data-slot="3"] { --at-x: 318; --at-y: 84; --at-w: 92; --r: 7deg; }
+  .hx-slot[data-slot="4"] { --at-x: -26; --at-b: -32; --at-w: 112; --r: -8deg; }
+  .hx-slot[data-slot="5"] { --at-x: 104; --at-b: -20; --at-w: 86; --r: 6deg; }
+  .hx-slot[data-slot="6"] { --at-x: 88; --at-y: 78; --at-w: 50; --r: -4deg; }
+  .hx-slot[data-slot="7"] { --at-x: 254; --at-y: 88; --at-w: 48; --r: 5deg; }
+  .hx-slot[data-slot="8"] { --at-x: 352; --at-b: 70; --at-w: 70; --r: -5deg; --z: 7; }
+  .hx-flyby {
+    width: calc(62 * var(--px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-drift,
+  .hx-mark-win > * {
+    animation: none !important;
+  }
+  .hx-post,
+  .hx-post:hover,
+  .hx-post:active {
+    translate: none;
+    scale: none;
+  }
+}

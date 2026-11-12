@@ -1,0 +1,3617 @@
+{
+  "run": {
+    "id": "run_elle_sample",
+    "createdAt": "2026-11-08T12:30:00.000Z",
+    "mode": "sample",
+    "product": {
+      "name": "Elle's Candles",
+      "description": "Soy wax candles poured at home in small batches. Three scents: Ilang-ilang, Calamansi Basil, Pandan Coconut. 180 g amber glass jar with a lid, about 35 hours of burn time.",
+      "price": "₱350 per 180 g jar",
+      "whereSold": "Shopee, Instagram and Facebook (orders by message)",
+      "goal": "Find out who to make content for this Christmas season.",
+      "language": "taglish"
+    },
+    "candidates": [
+      {
+        "id": "c01",
+        "name": "After a Cubao Expo thrift haul",
+        "who": "Someone who spends Saturday nights at Cubao Expo and comes home with vintage finds for their room.",
+        "situation": "Back from Cubao Expo with a lampshade, a record and a thrifted jacket, setting up the shelf.",
+        "whyItFits": "The room already has the look; a candle in an amber jar adds the one thing a thrift haul can't: how the room smells.",
+        "whereTheyAre": [
+          "Cubao Expo shop and gig pages",
+          "#cubaoexpo",
+          "thrift and ukay groups on Facebook",
+          "vintage decor accounts on Instagram"
+        ],
+        "tone": "Dry, cheeky and specific, like a friend reacting to your haul.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c02",
+        "name": "Candle lovers",
+        "who": "People who like scented candles.",
+        "situation": "Any time they want a candle.",
+        "whyItFits": "They already buy candles.",
+        "whereTheyAre": [
+          "#candles",
+          "home decor pages",
+          "candle review creators"
+        ],
+        "tone": "Cozy.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c03",
+        "name": "Salcedo Saturday condo reset",
+        "who": "Someone who shops the Salcedo Saturday market and spends the rest of the morning resetting a Makati condo.",
+        "situation": "Saturday late morning, flowers in a vase, sourdough on the counter, brunch at home.",
+        "whyItFits": "A fresh scent is the last touch on a slow weekend morning, and ₱350 fits a market-day treat.",
+        "whereTheyAre": [
+          "Salcedo market pages",
+          "#weekendreset",
+          "condo living groups on Facebook",
+          "brunch and home cafe accounts"
+        ],
+        "tone": "Light and knowing, a little smug about the good Saturday.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c04",
+        "name": "Titas of Manila",
+        "who": "Women in their forties who love home decor.",
+        "situation": "Decorating the house.",
+        "whyItFits": "Titas like nice things for the home.",
+        "whereTheyAre": [
+          "#titasofmanila",
+          "home decor groups",
+          "#titalife"
+        ],
+        "tone": "Warm, like a fellow tita.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c05",
+        "name": "Hosts getting the sala ready",
+        "who": "Someone who has guests over this December and gets the sala ready before they arrive.",
+        "situation": "Thirty minutes before the doorbell: the guest glasses are out, but the house still smells like lunch.",
+        "whyItFits": "December is full of visits, and a candle lit before guests arrive is a reason to buy that isn't a gift.",
+        "whereTheyAre": [
+          "home hosting and sala decor groups on Facebook",
+          "#hostingathome",
+          "plant parent pages",
+          "#nochebuena"
+        ],
+        "tone": "Warm and funny about the pre-guest rush, like a cousin helping set up.",
+        "motive": "sharing"
+      },
+      {
+        "id": "c06",
+        "name": "First apartment move-in",
+        "who": "Someone who just moved into their first rented place.",
+        "situation": "The first weekend in a new place, still unpacking boxes.",
+        "whyItFits": "A candle helps a new place feel like home.",
+        "whereTheyAre": [
+          "#firstapartment",
+          "condo rental groups on Facebook",
+          "small space decor pages"
+        ],
+        "tone": "Excited and new.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c07",
+        "name": "Home from the night shift",
+        "who": "Someone who works nights and gets home at around 7 AM while the street is waking up.",
+        "situation": "Home at sunrise, eating dinner while the neighbors have breakfast, before going to sleep.",
+        "whyItFits": "The commute home is a daily routine with its own small ritual, different from any evening at home.",
+        "whereTheyAre": [
+          "night shift groups on Facebook",
+          "#graveyardshift",
+          "call center work pages",
+          "Makati, Ortigas and Eastwood office pages"
+        ],
+        "tone": "Wry and on their side, about the upside-down hours.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c08",
+        "name": "Stressed-out millennials needing calm",
+        "who": "Millennials who are burned out and want to relax.",
+        "situation": "Feeling anxious after work.",
+        "whyItFits": "Candles are often bought for relaxation.",
+        "whereTheyAre": [
+          "#selfcare",
+          "wellness creators",
+          "#mentalhealthph"
+        ],
+        "tone": "Soothing.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c09",
+        "name": "Barkada unit splitting the bills",
+        "who": "Friends who share a condo unit or boarding house room and split the bills in a group chat.",
+        "situation": "The monthly ambagan after a pickup game, jerseys drying, shoes lined up at the door.",
+        "whyItFits": "₱350 split a few ways is small, and a candle on the shared table is something the whole unit uses.",
+        "whereTheyAre": [
+          "condo and boarding house groups on Facebook",
+          "pickup basketball pages",
+          "PC and console gaming pages",
+          "#boardinghouse"
+        ],
+        "tone": "Dry and funny, like a message in the barkada group chat.",
+        "motive": "sharing"
+      },
+      {
+        "id": "c10",
+        "name": "Gaming setup late nights",
+        "who": "Someone who games late at night at a desk setup in their room.",
+        "situation": "Midnight, a long session, the room getting stuffy.",
+        "whyItFits": "A candle can be part of the setup.",
+        "whereTheyAre": [
+          "#gamingsetup",
+          "PC building groups on Facebook",
+          "streamer pages"
+        ],
+        "tone": "Hype.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c11",
+        "name": "Car and motor crowd",
+        "who": "People who care about their car or motorcycle and keep it clean.",
+        "situation": "Detailing the car on a Sunday.",
+        "whyItFits": "They like their space to smell good.",
+        "whereTheyAre": [
+          "car club groups on Facebook",
+          "#carsofmanila",
+          "motorcycle rider pages"
+        ],
+        "tone": "Bro-to-bro.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c12",
+        "name": "Office exchange gift draw",
+        "who": "Someone who drew a coworker's name for the office Christmas exchange and has a set budget.",
+        "situation": "Mid-November, names are drawn, and the wishlist just says 'anything'.",
+        "whyItFits": "₱350 fits a common ₱500 exchange budget, and an amber jar with a lid already looks like a gift.",
+        "whereTheyAre": [
+          "#exchangegift",
+          "#christmasgiftideas",
+          "office Christmas party planning groups",
+          "gift idea pages on Facebook"
+        ],
+        "tone": "Helpful and a little amused, like a friend with a gift idea.",
+        "motive": "gifting"
+      },
+      {
+        "id": "c13",
+        "name": "Christmas gifts for family",
+        "who": "Someone buying Christmas gifts for relatives.",
+        "situation": "Making a gift list in December.",
+        "whyItFits": "A candle is a nice gift.",
+        "whereTheyAre": [
+          "#christmasgifts",
+          "gift guide pages",
+          "family groups on Facebook"
+        ],
+        "tone": "Festive.",
+        "motive": "gifting"
+      },
+      {
+        "id": "c14",
+        "name": "Monthsary tomorrow, no gift yet",
+        "who": "Someone whose monthsary is tomorrow, with dinner booked and no gift.",
+        "situation": "The night before a monthsary, scrolling for something that isn't flowers or a stuffed toy.",
+        "whyItFits": "A candle is a gift that keeps showing up: every time it's lit, the giver comes to mind.",
+        "whereTheyAre": [
+          "#monthsary",
+          "date idea pages",
+          "gift idea groups on Facebook"
+        ],
+        "tone": "Flirty and teasing, never mocking.",
+        "motive": "occasion"
+      },
+      {
+        "id": "c15",
+        "name": "Balikbayan box padala",
+        "who": "Families packing a balikbayan box for relatives abroad before Christmas.",
+        "situation": "Filling the last corners of the box before the cargo cutoff.",
+        "whyItFits": "Relatives abroad would like a scent from home.",
+        "whereTheyAre": [
+          "#balikbayanbox",
+          "OFW family groups on Facebook",
+          "cargo forwarder pages"
+        ],
+        "tone": "Warm, about missing home.",
+        "motive": "gifting"
+      },
+      {
+        "id": "c16",
+        "name": "Café and salon counters",
+        "who": "Someone who runs a small café or salon and wants the shop to smell good when people walk in.",
+        "situation": "The monthly supply run, deciding what goes on the counter.",
+        "whyItFits": "A homemade candle on the counter makes a small shop smell like itself, and repeat orders work by message.",
+        "whereTheyAre": [
+          "small cafe owner groups on Facebook",
+          "salon owner groups",
+          "#smallbusinessph",
+          "local cafe pages"
+        ],
+        "tone": "Straight and businesslike, facts first.",
+        "motive": "resale_bulk"
+      },
+      {
+        "id": "c17",
+        "name": "Wedding and debut giveaways",
+        "who": "Couples and families ordering giveaways for a wedding or a debut.",
+        "situation": "Choosing souvenirs for 100 guests.",
+        "whyItFits": "Small candles make popular giveaways.",
+        "whereTheyAre": [
+          "wedding supplier groups on Facebook",
+          "#weddingph",
+          "debut planning pages"
+        ],
+        "tone": "Sweet.",
+        "motive": "resale_bulk"
+      },
+      {
+        "id": "c18",
+        "name": "TikTok candle videos",
+        "who": "People who watch candle-pouring videos on TikTok.",
+        "situation": "Seeing a candle video and wanting one.",
+        "whyItFits": "Candle-pouring videos get millions of views.",
+        "whereTheyAre": [
+          "#candletok",
+          "TikTok home creators",
+          "#satisfying"
+        ],
+        "tone": "Trendy and fast.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c19",
+        "name": "Mall home-store shoppers",
+        "who": "Shoppers browsing candles at a mall home store.",
+        "situation": "Walking past the candle shelf on a mall trip.",
+        "whyItFits": "They are already looking at candles.",
+        "whereTheyAre": [
+          "mall sale pages",
+          "#mallhaul",
+          "home store pages"
+        ],
+        "tone": "Price-focused.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c20",
+        "name": "Anyone who wants a fresh home",
+        "who": "People who want their home to smell nice.",
+        "situation": "Any day at home.",
+        "whyItFits": "Everyone wants a nice-smelling home.",
+        "whereTheyAre": [
+          "home pages",
+          "#homeph",
+          "cleaning tips pages"
+        ],
+        "tone": "General.",
+        "motive": "self_use"
+      }
+    ],
+    "chosen": [
+      {
+        "id": "c01",
+        "name": "After a Cubao Expo thrift haul",
+        "who": "Someone who spends Saturday nights at Cubao Expo and comes home with vintage finds for their room.",
+        "situation": "Back from Cubao Expo with a lampshade, a record and a thrifted jacket, setting up the shelf.",
+        "whyItFits": "The room already has the look; a candle in an amber jar adds the one thing a thrift haul can't: how the room smells.",
+        "whereTheyAre": [
+          "Cubao Expo shop and gig pages",
+          "#cubaoexpo",
+          "thrift and ukay groups on Facebook",
+          "vintage decor accounts on Instagram"
+        ],
+        "tone": "Dry, cheeky and specific, like a friend reacting to your haul.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c03",
+        "name": "Salcedo Saturday condo reset",
+        "who": "Someone who shops the Salcedo Saturday market and spends the rest of the morning resetting a Makati condo.",
+        "situation": "Saturday late morning, flowers in a vase, sourdough on the counter, brunch at home.",
+        "whyItFits": "A fresh scent is the last touch on a slow weekend morning, and ₱350 fits a market-day treat.",
+        "whereTheyAre": [
+          "Salcedo market pages",
+          "#weekendreset",
+          "condo living groups on Facebook",
+          "brunch and home cafe accounts"
+        ],
+        "tone": "Light and knowing, a little smug about the good Saturday.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c05",
+        "name": "Hosts getting the sala ready",
+        "who": "Someone who has guests over this December and gets the sala ready before they arrive.",
+        "situation": "Thirty minutes before the doorbell: the guest glasses are out, but the house still smells like lunch.",
+        "whyItFits": "December is full of visits, and a candle lit before guests arrive is a reason to buy that isn't a gift.",
+        "whereTheyAre": [
+          "home hosting and sala decor groups on Facebook",
+          "#hostingathome",
+          "plant parent pages",
+          "#nochebuena"
+        ],
+        "tone": "Warm and funny about the pre-guest rush, like a cousin helping set up.",
+        "motive": "sharing"
+      },
+      {
+        "id": "c07",
+        "name": "Home from the night shift",
+        "who": "Someone who works nights and gets home at around 7 AM while the street is waking up.",
+        "situation": "Home at sunrise, eating dinner while the neighbors have breakfast, before going to sleep.",
+        "whyItFits": "The commute home is a daily routine with its own small ritual, different from any evening at home.",
+        "whereTheyAre": [
+          "night shift groups on Facebook",
+          "#graveyardshift",
+          "call center work pages",
+          "Makati, Ortigas and Eastwood office pages"
+        ],
+        "tone": "Wry and on their side, about the upside-down hours.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c09",
+        "name": "Barkada unit splitting the bills",
+        "who": "Friends who share a condo unit or boarding house room and split the bills in a group chat.",
+        "situation": "The monthly ambagan after a pickup game, jerseys drying, shoes lined up at the door.",
+        "whyItFits": "₱350 split a few ways is small, and a candle on the shared table is something the whole unit uses.",
+        "whereTheyAre": [
+          "condo and boarding house groups on Facebook",
+          "pickup basketball pages",
+          "PC and console gaming pages",
+          "#boardinghouse"
+        ],
+        "tone": "Dry and funny, like a message in the barkada group chat.",
+        "motive": "sharing"
+      },
+      {
+        "id": "c12",
+        "name": "Office exchange gift draw",
+        "who": "Someone who drew a coworker's name for the office Christmas exchange and has a set budget.",
+        "situation": "Mid-November, names are drawn, and the wishlist just says 'anything'.",
+        "whyItFits": "₱350 fits a common ₱500 exchange budget, and an amber jar with a lid already looks like a gift.",
+        "whereTheyAre": [
+          "#exchangegift",
+          "#christmasgiftideas",
+          "office Christmas party planning groups",
+          "gift idea pages on Facebook"
+        ],
+        "tone": "Helpful and a little amused, like a friend with a gift idea.",
+        "motive": "gifting"
+      },
+      {
+        "id": "c14",
+        "name": "Monthsary tomorrow, no gift yet",
+        "who": "Someone whose monthsary is tomorrow, with dinner booked and no gift.",
+        "situation": "The night before a monthsary, scrolling for something that isn't flowers or a stuffed toy.",
+        "whyItFits": "A candle is a gift that keeps showing up: every time it's lit, the giver comes to mind.",
+        "whereTheyAre": [
+          "#monthsary",
+          "date idea pages",
+          "gift idea groups on Facebook"
+        ],
+        "tone": "Flirty and teasing, never mocking.",
+        "motive": "occasion"
+      },
+      {
+        "id": "c16",
+        "name": "Café and salon counters",
+        "who": "Someone who runs a small café or salon and wants the shop to smell good when people walk in.",
+        "situation": "The monthly supply run, deciding what goes on the counter.",
+        "whyItFits": "A homemade candle on the counter makes a small shop smell like itself, and repeat orders work by message.",
+        "whereTheyAre": [
+          "small cafe owner groups on Facebook",
+          "salon owner groups",
+          "#smallbusinessph",
+          "local cafe pages"
+        ],
+        "tone": "Straight and businesslike, facts first.",
+        "motive": "resale_bulk"
+      }
+    ],
+    "versions": [
+      {
+        "id": "v_elle_a1",
+        "code": "A1",
+        "audienceId": "c01",
+        "audienceName": "After a Cubao Expo thrift haul",
+        "hook": "POV: hindi mo inexpect na ganito kabango ang ilang-ilang 😍",
+        "slides": [
+          "POV: hindi mo inexpect na ganito kabango ang ilang-ilang 😍",
+          "soy wax • amber jar na may takip",
+          "₱350 each, pm for order"
+        ],
+        "caption": "one of my faves talaga ang ilang-ilang. ✨\nbagay sa shelf ng mga ukay finds mo\nElle's Candles • soy wax, poured at home • 180 g amber jar na may takip • mga 35 hours\n₱350 each, pm for order",
+        "hashtags": [
+          "#ukayukayfinds",
+          "#ukayukay",
+          "#roomdecoration",
+          "#handmadecandle"
+        ],
+        "cta": "Message us",
+        "style": "bold",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Rewritten without 'Hey gays' or 'para sa mga beks'. Only Elle's facts."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the scent and the shelf, not about who thrifts."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only post about a shelf at home."
+          }
+        ],
+        "round": 2,
+        "copy": {
+          "english": {
+            "hook": "POV: you didn't expect ilang-ilang to smell this good 😍",
+            "slides": [
+              "POV: you didn't expect ilang-ilang to smell this good 😍",
+              "soy wax • amber jar with lid",
+              "₱350 each, message us to order"
+            ],
+            "caption": "ilang-ilang is honestly one of my faves. ✨\nperfect for your shelf of thrift finds\nElle's Candles • soy wax, poured at home • 180 g amber jar with lid • about 35 hours\n₱350 each, just message us to order",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "POV: hindi mo inakala na ganito kabango ang ilang-ilang 😍",
+            "slides": [
+              "POV: hindi mo inakala na ganito kabango ang ilang-ilang 😍",
+              "soy wax • amber na garapon na may takip",
+              "₱350 ang isa, mag-message para mag-order"
+            ],
+            "caption": "isa talaga sa mga paborito ko ang ilang-ilang. ✨\nbagay sa estante ng mga nabili mo sa ukay\nElle's Candles • soy wax, gawa sa bahay • 180 g amber na garapon na may takip • mga 35 oras\n₱350 ang isa, mag-message lang sa amin para mag-order",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "photoNote": "Night shot of a cluttered shelf: thrifted lampshade on, a stack of secondhand vinyl, an Expo gig wristband or flyer, the lit amber jar in the middle. Not styled too clean."
+      },
+      {
+        "id": "v_elle_a2",
+        "code": "A2",
+        "audienceId": "c03",
+        "audienceName": "Salcedo Saturday condo reset",
+        "hook": "saturday condo diaries ☕🕯️",
+        "slides": [
+          "saturday condo diaries ☕🕯️",
+          "today's scent: calamansi basil 🕯️",
+          "₱350 a jar, message us to order"
+        ],
+        "caption": "woke up late, coffee muna, then lit this.\nElle's Candles • Calamansi Basil • soy wax, poured at home • 180 g amber jar with lid • about 35 hours\n₱350 a jar, just message us to order",
+        "hashtags": [
+          "#condo",
+          "#livingindependently",
+          "#homevibesph",
+          "#soywaxcandles"
+        ],
+        "cta": "Message us",
+        "style": "soft",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only Elle's facts. No claims about mood or calm."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About a Saturday morning at the condo, not about who lives there."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only weekend-morning post."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "saturday condo diaries ☕🕯️",
+            "slides": [
+              "saturday condo diaries ☕🕯️",
+              "today's scent: calamansi basil 🕯️",
+              "₱350 a jar, message us to order"
+            ],
+            "caption": "woke up late, coffee first, then lit this.\nElle's Candles • Calamansi Basil • soy wax, poured at home • 180 g amber jar with lid • about 35 hours\n₱350 a jar, just message us to order",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "sabado sa condo ☕🕯️",
+            "slides": [
+              "sabado sa condo ☕🕯️",
+              "ngayong umaga: calamansi basil 🕯️",
+              "₱350 ang isa, mag-message para mag-order"
+            ],
+            "caption": "tinanghali ng gising, nagkape muna, tapos sinindihan ko 'to.\nElle's Candles • Calamansi Basil • soy wax, gawa sa bahay • 180 g amber na garapon na may takip • mga 35 oras\n₱350 ang isa, mag-message lang sa amin para mag-order",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "photoNote": "Morning light on a condo counter: the amber jar lit beside a sourdough loaf still in paper, market flowers in a glass vase, a woven tote on the stool, tower windows in soft focus."
+      },
+      {
+        "id": "v_elle_a3",
+        "code": "A3",
+        "audienceId": "c05",
+        "audienceName": "Hosts getting the sala ready",
+        "hook": "nagluto ako ng 5 ulam pero ang tinanong ng bisita: ano yung mabango? 😭",
+        "slides": [
+          "nagluto ako ng 5 ulam pero ang tinanong ng bisita: ano yung mabango? 😭",
+          "Sindihan 30 mins bago dumating ang bisita 👌",
+          "Pandan Coconut, ₱350 each"
+        ],
+        "caption": "pandan coconut pala yung bida sa handaan namin hahaha 🎄\nElle's Candles • Pandan Coconut • soy wax, gawa sa bahay • 180 g amber jar na may takip • mga 35 hours, good for ilang handaan\n₱350 each, pm for order",
+        "hashtags": [
+          "#christmashandaan",
+          "#pasko",
+          "#homevibesph",
+          "#handmadecandle"
+        ],
+        "cta": "Message us",
+        "style": "note",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Says what guests notice first, not that it covers anything up. Only Elle's facts."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the sala before guests arrive, never addresses the reader as a tita."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only post set before guests arrive."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "made 5 dishes and the guests asked about the candle 😭",
+            "slides": [
+              "made 5 dishes and the guests asked about the candle 😭",
+              "Light it 30 minutes before they arrive 👌",
+              "Pandan Coconut, ₱350 each"
+            ],
+            "caption": "pandan coconut stole the show at our handaan 🎄\nElle's Candles • Pandan Coconut • soy wax, poured at home • 180 g amber jar with lid • about 35 hours, good for a few handaan\n₱350 each, just message us to order",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "nagluto ako ng limang ulam pero ang tinanong ng bisita: ano yung mabango? 😭",
+            "slides": [
+              "nagluto ako ng limang ulam pero ang tinanong ng bisita: ano yung mabango? 😭",
+              "Sindihan 30 minuto bago dumating ang mga bisita 👌",
+              "Pandan Coconut, ₱350 ang isa"
+            ],
+            "caption": "pandan coconut pala ang bida sa handaan namin 🎄\nElle's Candles • Pandan Coconut • soy wax, gawa sa bahay • 180 g amber na garapon na may takip • mga 35 oras, aabot sa ilang handaan\n₱350 ang isa, mag-message lang sa amin para mag-order",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "photoNote": "A real family sala in December: narra or glass center table with a doily, the lit jar next to the good glasses on a tray, Christmas tree and belen behind, a plate of lumpia half in frame."
+      },
+      {
+        "id": "v_elle_a4",
+        "code": "A4",
+        "audienceId": "c07",
+        "audienceName": "Home from the night shift",
+        "hook": "POV: kakauwi mo lang galing night shift 🕯️",
+        "slides": [
+          "POV: kakauwi mo lang galing night shift 🕯️",
+          "Sindihan habang kumakain, patayin bago matulog",
+          "Calamansi Basil, ₱350 each"
+        ],
+        "caption": "Yung nagdi-dinner ka pero nag-aalmusal na yung kapitbahay mo. 😭\nSindihan mo muna habang kumakain ka, tapos patayin bago matulog.\nElle's Candles • Calamansi Basil • soy wax • 180 g amber jar • mga 35 hours\n₱350 each, pm for order",
+        "hashtags": [
+          "#nightshift",
+          "#bpo",
+          "#buhaycallcenter",
+          "#candles"
+        ],
+        "cta": "Message us",
+        "style": "soft",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Rewritten without stress, sleep or aromatherapy claims, and it says to blow it out before sleeping."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About getting home in the morning, not about the job or how the reader feels."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only post about getting home from work."
+          }
+        ],
+        "round": 2,
+        "copy": {
+          "english": {
+            "hook": "POV: you just got home from the night shift 🕯️",
+            "slides": [
+              "POV: you just got home from the night shift 🕯️",
+              "Light it while you eat, blow it out before you sleep",
+              "Calamansi Basil, ₱350 each"
+            ],
+            "caption": "When you're having dinner and your neighbors are having breakfast. 😭\nLight it while you eat, then blow it out before you sleep.\nElle's Candles • Calamansi Basil • soy wax • 180 g amber jar • about 35 hours\n₱350 each, just message us to order",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "POV: kakauwi mo lang galing trabaho, umaga na 🕯️",
+            "slides": [
+              "POV: kakauwi mo lang galing trabaho, umaga na 🕯️",
+              "Sindihan habang kumakain, patayin bago matulog",
+              "Calamansi Basil, ₱350 ang isa"
+            ],
+            "caption": "Yung naghahapunan ka pero nag-aalmusal na ang kapitbahay mo. 😭\nSindihan mo muna habang kumakain ka, tapos patayin bago matulog.\nElle's Candles • Calamansi Basil • soy wax • 180 g amber na garapon • mga 35 oras\n₱350 ang isa, mag-message lang sa amin para mag-order",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "photoNote": "Small dark unit at 7:30 AM: blackout curtain with a line of sunlight at the edge, ID lanyard and headset on the table, takeout sisig in styro, the amber jar lit beside a phone."
+      },
+      {
+        "id": "v_elle_a5",
+        "code": "A5",
+        "audienceId": "c09",
+        "audienceName": "Barkada unit splitting the bills",
+        "hook": "ambagan sa unit: kuryente, wifi, tubig, at... kandila? 😭",
+        "slides": [
+          "ambagan sa unit: kuryente, wifi, tubig, at... kandila? 😭",
+          "Pandan Coconut, sa center table habang may game",
+          "₱350 each, pm for order"
+        ],
+        "caption": "nag-vote kami, panalo yung pandan coconut 😂 hati-hati na lang ulit\nElle's Candles • Pandan Coconut • soy wax • 180 g amber jar na may takip • mga 35 hours, ilang game nights din yan\n₱350 each, pm for order",
+        "hashtags": [
+          "#barkada",
+          "#relatable",
+          "#candles"
+        ],
+        "cta": "Message us",
+        "style": "bold",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Says nothing about how the unit smells, so there is nothing to claim. Only Elle's facts."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About splitting the unit's bills, not about what the barkada is like."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only post about a shared place."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "unit bills: electric, wifi, water and... a candle? 😭",
+            "slides": [
+              "unit bills: electric, wifi, water and... a candle? 😭",
+              "Pandan Coconut, on the center table during the game",
+              "₱350 each, message us to order"
+            ],
+            "caption": "we voted and pandan coconut won 😂 splitting it again next month\nElle's Candles • Pandan Coconut • soy wax • 180 g amber jar with lid • about 35 hours, that's a lot of game nights\n₱350 each, just message us to order",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "hatian sa unit: kuryente, wifi, tubig, at... kandila? 😭",
+            "slides": [
+              "hatian sa unit: kuryente, wifi, tubig, at... kandila? 😭",
+              "Pandan Coconut, sa center table habang may laro",
+              "₱350 ang isa, mag-message para mag-order"
+            ],
+            "caption": "nagbotohan kami, panalo ang pandan coconut 😂 hati-hati ulit sa susunod\nElle's Candles • Pandan Coconut • soy wax • 180 g amber na garapon na may takip • mga 35 oras, ilang laro rin 'yan\n₱350 ang isa, mag-message lang sa amin para mag-order",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "photoNote": "Pasig condo sala: rubber shoes lined up at the door, a jersey drying on the window grill, a PS5 controller on the sofa, PBA on the TV, the jar lit on the center table next to a Gatorade bottle and the remote."
+      },
+      {
+        "id": "v_elle_a6",
+        "code": "A6",
+        "audienceId": "c12",
+        "audienceName": "Office exchange gift draw",
+        "hook": "Below 500 pesos na pang exchange gift sa office 🎄",
+        "slides": [
+          "Below 500 pesos na pang exchange gift sa office 🎄",
+          "₱350 lang, naka-amber jar na may takip",
+          "3 scents, pm for order"
+        ],
+        "caption": "ang ganda, for sure magagamit talaga. 🥰\nElle's Candles • Ilang-ilang, Calamansi Basil o Pandan Coconut • soy wax • 180 g amber jar na may takip • mga 35 hours\n₱350 each, pasok sa budget. pm for order",
+        "hashtags": [
+          "#exchangegift",
+          "#exchangegiftideas",
+          "#monitomonita",
+          "#christmasgiftideas"
+        ],
+        "cta": "Message us",
+        "style": "note",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "No gift wrap promised. Only Elle's facts and price."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the peso cap, not about the coworker."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only office gift post. The monthsary post is a gift for one person with a deadline."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Exchange gift idea below ₱500 🎄",
+            "slides": [
+              "Exchange gift idea below ₱500 🎄",
+              "₱350 each, in an amber jar with a lid",
+              "3 scents, message us to order"
+            ],
+            "caption": "so pretty, and they'll actually use it. 🥰\nElle's Candles • Ilang-ilang, Calamansi Basil or Pandan Coconut • soy wax • 180 g amber jar with lid • about 35 hours\n₱350 each, fits the budget. Just message us to order",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Pang-exchange gift sa opisina, wala pang 500 pesos 🎄",
+            "slides": [
+              "Pang-exchange gift sa opisina, wala pang 500 pesos 🎄",
+              "₱350 lang, nasa amber na garapon na may takip",
+              "3 klase ng bango, mag-message para mag-order"
+            ],
+            "caption": "ang ganda, siguradong magagamit talaga. 🥰\nElle's Candles • Ilang-ilang, Calamansi Basil o Pandan Coconut • soy wax • 180 g amber na garapon na may takip • mga 35 oras\n₱350 ang isa, pasok sa budget. Mag-message lang sa amin para mag-order",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "photoNote": "Office desk with a lanyard and a monitor, the bunutan paper strip with a name and 'kahit ano', three amber jars lined up, kraft paper and twine beside them, nothing wrapped yet."
+      },
+      {
+        "id": "v_elle_a7",
+        "code": "A7",
+        "audienceId": "c14",
+        "audienceName": "Monthsary tomorrow, no gift yet",
+        "hook": "meron ka na bang regalo sa monthsary niyo bukas? 🎁",
+        "slides": [
+          "meron ka na bang regalo sa monthsary niyo bukas? 🎁",
+          "Ilang-ilang, naka-amber jar na may takip",
+          "₱350 each, pm for order"
+        ],
+        "caption": "kung wala pa, try mo ito hehe.\nhindi ka talaga mapapahiya pag ganito kaganda yung regalo mo.\nElle's Candles • Ilang-ilang • soy wax • 180 g amber jar na may takip\n₱350 each. pm for order, itanong mo kung kailan makukuha",
+        "hashtags": [
+          "#giftideas",
+          "#gifts",
+          "#handmadecandle",
+          "#candles"
+        ],
+        "cta": "Message us",
+        "style": "bold",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "No delivery time promised: it asks the buyer to check when they can get it."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "Says 'niyo' and 'your monthsary', never who the partner is or who the buyer is."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only post about a gift for one person."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "got a gift for your monthsary tomorrow yet? 🎁",
+            "slides": [
+              "got a gift for your monthsary tomorrow yet? 🎁",
+              "Ilang-ilang in an amber jar with a lid",
+              "₱350 each, message us to order"
+            ],
+            "caption": "if not yet, try this one hehe.\nyou won't be embarrassed with a gift this pretty.\nElle's Candles • Ilang-ilang • soy wax • 180 g amber jar with lid\n₱350 each. Just message us and ask when you can get it",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "may regalo ka na ba para sa monthsary niyo bukas? 🎁",
+            "slides": [
+              "may regalo ka na ba para sa monthsary niyo bukas? 🎁",
+              "Ilang-ilang, nasa amber na garapon na may takip",
+              "₱350 ang isa, mag-message para mag-order"
+            ],
+            "caption": "kung wala pa, subukan mo ito hehe.\nhindi ka talaga mapapahiya pag ganito kaganda ang regalo mo.\nElle's Candles • Ilang-ilang • soy wax • 180 g amber na garapon na may takip\n₱350 ang isa. Mag-message lang sa amin at itanong kung kailan mo makukuha",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "photoNote": "Inside a Grab or a car in EDSA traffic at night, an office polo sleeve, the amber jar on a lap with a plain ribbon, a paper bag beside it, a phone showing a chat that says 'otw na ako'. No faces, no hearts, no bouquet."
+      },
+      {
+        "id": "v_elle_a8",
+        "code": "A8",
+        "audienceId": "c16",
+        "audienceName": "Café and salon counters",
+        "hook": "perfect pang design sa counter ng cafe o salon niyo 🕯️",
+        "slides": [
+          "perfect pang design sa counter ng cafe o salon niyo 🕯️",
+          "sa tabi ng cashier, para nakikita ng staff",
+          "₱350 each, pm for order po"
+        ],
+        "caption": "hindi lang isa kundi tatlong scent ang pagpipilian niyo. 😊\nElle's Candles • Ilang-ilang, Calamansi Basil o Pandan Coconut • soy wax • 180 g amber jar, mga 35 hours\n₱350 each. If you need a few jars every month, just message us po",
+        "hashtags": [
+          "#smallbusinessph",
+          "#smallcafe",
+          "#cafeph",
+          "#handmadecandle"
+        ],
+        "cta": "Message us",
+        "style": "note",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "No bulk discount promised, because Elle hasn't set one. The counter is by the cashier, where staff can see it."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the shop counter, not about the owner."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only post about buying several jars."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Perfect for your cafe or salon counter 🕯️",
+            "slides": [
+              "Perfect for your cafe or salon counter 🕯️",
+              "next to the cashier, where staff can see it",
+              "₱350 each, message us to order"
+            ],
+            "caption": "not just one but three scents to choose from. 😊\nElle's Candles • Ilang-ilang, Calamansi Basil or Pandan Coconut • soy wax • 180 g amber jar, about 35 hours\n₱350 each. If you need a few jars every month, just message us",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Bagay sa counter ng cafe o salon niyo 🕯️",
+            "slides": [
+              "Bagay sa counter ng cafe o salon niyo 🕯️",
+              "sa tabi ng cashier, para nakikita ng staff",
+              "₱350 ang isa, mag-message lang po"
+            ],
+            "caption": "hindi lang isa kundi tatlong klase ng bango ang pagpipilian niyo. 😊\nElle's Candles • Ilang-ilang, Calamansi Basil o Pandan Coconut • soy wax • 180 g amber na garapon, mga 35 oras\n₱350 ang isa. Kung kailangan niyo ng ilang garapon kada buwan, mag-message lang po sa amin",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "photoNote": "A real small shop counter (café, salon, barbershop or a vintage stall with old price tags), the jar lit next to the cash box, the shop behind it slightly out of focus."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "r_elle_a1_1",
+        "audienceId": "c01",
+        "audienceName": "After a Cubao Expo thrift haul",
+        "draft": {
+          "hook": "Hey gays! Galing Cubao Expo? Para sa mga beks ang candle na 'to.",
+          "slides": [
+            "Hey gays! Galing Cubao Expo? Para sa mga beks ang candle na 'to.",
+            "Ilang-ilang, kasi alam naming may taste kayo.",
+            "₱350 per jar!"
+          ],
+          "caption": "Hey gays! Galing Cubao Expo? Para sa mga beks ang candle na 'to, kasi alam naming may taste kayo at aesthetic ang mga kwarto niyo. Elle's Candles, Ilang-ilang, ₱350 per jar. Message us!"
+        },
+        "reasons": [
+          {
+            "kind": "policy",
+            "passed": false,
+            "note": "Calls the reader gay. Meta doesn't allow ads that say or imply a viewer's sexuality, even as a friendly greeting. Talk about the scent and the shelf, not about who is reading.",
+            "rule": "Meta personal attributes: sexuality",
+            "quote": "Hey gays!",
+            "type": "ad_policy"
+          },
+          {
+            "kind": "stereotype",
+            "passed": false,
+            "note": "Says the candle is for gay men because they have taste. That's a cliché, and it shuts out everyone else who thrifts. Keep the cheek and aim it at the ilang-ilang.",
+            "rule": "No 'this is for a type of person'",
+            "quote": "Para sa mga beks ang candle na 'to, kasi alam naming may taste kayo at aesthetic ang mga kwarto niyo",
+            "type": "stereotype"
+          }
+        ],
+        "fixedVersionId": "v_elle_a1",
+        "round": 1
+      },
+      {
+        "id": "r_elle_a4_1",
+        "audienceId": "c07",
+        "audienceName": "Home from the night shift",
+        "draft": {
+          "hook": "Pampawala ng stress pagkatapos ng night shift!",
+          "slides": [
+            "Pampawala ng stress pagkatapos ng night shift!",
+            "May aromatherapy benefits pa.",
+            "Sindihan pagkauwi para makatulog ka agad."
+          ],
+          "caption": "Pampawala ng stress pagkatapos ng night shift! Ang Elle's Candles, Calamansi Basil, may aromatherapy benefits pa. Sindihan pagkauwi para makatulog ka agad. ₱350 per jar. Message us!"
+        },
+        "reasons": [
+          {
+            "kind": "policy",
+            "passed": false,
+            "note": "Says the candle takes away stress. That's a wellness claim Elle never made. Talk about getting home from the shift instead.",
+            "rule": "Health claim: relieves stress",
+            "quote": "Pampawala ng stress",
+            "type": "claim"
+          },
+          {
+            "kind": "policy",
+            "passed": false,
+            "note": "Aromatherapy benefits are a health claim too. The scent is Calamansi Basil, and that's all the post needs to say.",
+            "rule": "Health claim: aromatherapy",
+            "quote": "May aromatherapy benefits pa.",
+            "type": "claim"
+          },
+          {
+            "kind": "policy",
+            "passed": false,
+            "note": "Promises better sleep and tells people to light it as they fall asleep. That's a claim and it's unsafe. Say 'patayin bago matulog' instead.",
+            "rule": "Sleep claim and an unsafe tip",
+            "quote": "Sindihan pagkauwi para makatulog ka agad.",
+            "type": "claim"
+          }
+        ],
+        "fixedVersionId": "v_elle_a4",
+        "round": 1
+      }
+    ],
+    "criticCanaryCaught": true,
+    "keptReasons": {
+      "c01": "The Cubao Expo crowd buys for their rooms on the spot, and a thrift haul is a clear moment to add a scent.",
+      "c03": "A Saturday reset at the condo is a self-treat moment no other kept audience covers.",
+      "c05": "December fills the sala with guests, and lighting a candle before they arrive is a reason to buy that isn't a gift.",
+      "c07": "Coming home at sunrise is its own routine, different from any evening at home.",
+      "c09": "Splitting bills in a shared unit makes ₱350 small, and it gives the candle a job that isn't decor.",
+      "c12": "A clear November moment with a budget that ₱350 fits.",
+      "c14": "A gift with a deadline for one person, a different moment from the office draw.",
+      "c16": "The only kept audience that could order several jars at once, so it tests a bulk reason to buy."
+    },
+    "cuts": [
+      {
+        "id": "c02",
+        "category": "too_broad",
+        "reason": "Anyone could like candles, so there is no one moment to write a post for."
+      },
+      {
+        "id": "c04",
+        "category": "stereotype",
+        "reason": "A label about age and gender, not a buying moment. The hosting moment it points at is already kept as 'Hosts getting the sala ready', which anyone can be in."
+      },
+      {
+        "id": "c06",
+        "category": "duplicate",
+        "reason": "Same moment as 'Salcedo Saturday condo reset': making a small rented place feel like yours. The Saturday reset is more specific."
+      },
+      {
+        "id": "c08",
+        "category": "stereotype",
+        "reason": "A label about age and mental state, not a buying moment, and reaching it would need stress-relief claims Elle doesn't make."
+      },
+      {
+        "id": "c10",
+        "category": "duplicate",
+        "reason": "Same place and crowd as 'Barkada unit splitting the bills'. The shared unit has the clearer reason to buy, and gaming fits inside that post."
+      },
+      {
+        "id": "c11",
+        "category": "implausible",
+        "reason": "A candle can't be lit in a moving car, and soy wax softens in a car parked in the sun. For this crowd the candle makes sense at the unit, which is kept."
+      },
+      {
+        "id": "c13",
+        "category": "duplicate",
+        "reason": "Same moment as 'Office exchange gift draw': a Christmas gift for someone. The office draw has a budget and a date, so that one stays."
+      },
+      {
+        "id": "c15",
+        "category": "implausible",
+        "reason": "Soy wax can soften and glass can crack after weeks in a hot cargo container, and Elle hasn't said how she packs for shipping."
+      },
+      {
+        "id": "c17",
+        "category": "implausible",
+        "reason": "Giveaways need dozens of jars by a fixed date. Small home batches at ₱350 don't fit, and Elle hasn't set a bulk price."
+      },
+      {
+        "id": "c18",
+        "category": "off_channel",
+        "reason": "Elle sells on Shopee, Instagram and Facebook, not TikTok, and this group is defined by an app, not by a moment."
+      },
+      {
+        "id": "c19",
+        "category": "off_channel",
+        "reason": "Elle doesn't sell in stores, so people browsing a mall shelf can't buy where they are looking."
+      },
+      {
+        "id": "c20",
+        "category": "too_broad",
+        "reason": "Every home wants to smell nice, so this says nothing about when someone would buy."
+      }
+    ],
+    "events": [
+      {
+        "id": "e01",
+        "at": 0,
+        "agent": "system",
+        "kind": "run_started",
+        "text": "Hunch started a test for Elle's Candles.",
+        "detail": "Sample replay. Elle is a persona made for this demo."
+      },
+      {
+        "id": "e02",
+        "at": 795,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c01",
+        "text": "Strategist proposed 'After a Cubao Expo thrift haul'.",
+        "detail": "Back from Cubao Expo with a lampshade, a record and a thrifted jacket, setting up the shelf."
+      },
+      {
+        "id": "e03",
+        "at": 1273,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c02",
+        "text": "Strategist proposed 'Candle lovers'.",
+        "detail": "Any time they want a candle."
+      },
+      {
+        "id": "e04",
+        "at": 1750,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c03",
+        "text": "Strategist proposed 'Salcedo Saturday condo reset'.",
+        "detail": "Saturday late morning, flowers in a vase, sourdough on the counter, brunch at home."
+      },
+      {
+        "id": "e05",
+        "at": 2227,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c04",
+        "text": "Strategist proposed 'Titas of Manila'.",
+        "detail": "Decorating the house."
+      },
+      {
+        "id": "e06",
+        "at": 2705,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c05",
+        "text": "Strategist proposed 'Hosts getting the sala ready'.",
+        "detail": "Thirty minutes before the doorbell: the guest glasses are out, but the house still smells like lunch."
+      },
+      {
+        "id": "e07",
+        "at": 3182,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c06",
+        "text": "Strategist proposed 'First apartment move-in'.",
+        "detail": "The first weekend in a new place, still unpacking boxes."
+      },
+      {
+        "id": "e08",
+        "at": 3659,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c07",
+        "text": "Strategist proposed 'Home from the night shift'.",
+        "detail": "Home at sunrise, eating dinner while the neighbors have breakfast, before going to sleep."
+      },
+      {
+        "id": "e09",
+        "at": 4136,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c08",
+        "text": "Strategist proposed 'Stressed-out millennials needing calm'.",
+        "detail": "Feeling anxious after work."
+      },
+      {
+        "id": "e10",
+        "at": 4614,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c09",
+        "text": "Strategist proposed 'Barkada unit splitting the bills'.",
+        "detail": "The monthly ambagan after a pickup game, jerseys drying, shoes lined up at the door."
+      },
+      {
+        "id": "e11",
+        "at": 5091,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c10",
+        "text": "Strategist proposed 'Gaming setup late nights'.",
+        "detail": "Midnight, a long session, the room getting stuffy."
+      },
+      {
+        "id": "e12",
+        "at": 5568,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c11",
+        "text": "Strategist proposed 'Car and motor crowd'.",
+        "detail": "Detailing the car on a Sunday."
+      },
+      {
+        "id": "e13",
+        "at": 6045,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c12",
+        "text": "Strategist proposed 'Office exchange gift draw'.",
+        "detail": "Mid-November, names are drawn, and the wishlist just says 'anything'."
+      },
+      {
+        "id": "e14",
+        "at": 6523,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c13",
+        "text": "Strategist proposed 'Christmas gifts for family'.",
+        "detail": "Making a gift list in December."
+      },
+      {
+        "id": "e15",
+        "at": 7000,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c14",
+        "text": "Strategist proposed 'Monthsary tomorrow, no gift yet'.",
+        "detail": "The night before a monthsary, scrolling for something that isn't flowers or a stuffed toy."
+      },
+      {
+        "id": "e16",
+        "at": 7477,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c15",
+        "text": "Strategist proposed 'Balikbayan box padala'.",
+        "detail": "Filling the last corners of the box before the cargo cutoff."
+      },
+      {
+        "id": "e17",
+        "at": 7955,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c16",
+        "text": "Strategist proposed 'Café and salon counters'.",
+        "detail": "The monthly supply run, deciding what goes on the counter."
+      },
+      {
+        "id": "e18",
+        "at": 8432,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c17",
+        "text": "Strategist proposed 'Wedding and debut giveaways'.",
+        "detail": "Choosing souvenirs for 100 guests."
+      },
+      {
+        "id": "e19",
+        "at": 8909,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c18",
+        "text": "Strategist proposed 'TikTok candle videos'.",
+        "detail": "Seeing a candle video and wanting one."
+      },
+      {
+        "id": "e20",
+        "at": 9386,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c19",
+        "text": "Strategist proposed 'Mall home-store shoppers'.",
+        "detail": "Walking past the candle shelf on a mall trip."
+      },
+      {
+        "id": "e21",
+        "at": 9864,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c20",
+        "text": "Strategist proposed 'Anyone who wants a fresh home'.",
+        "detail": "Any day at home."
+      },
+      {
+        "id": "e22",
+        "at": 10682,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c01",
+        "text": "Skeptic kept 'After a Cubao Expo thrift haul' as A1.",
+        "detail": "The Cubao Expo crowd buys for their rooms on the spot, and a thrift haul is a clear moment to add a scent."
+      },
+      {
+        "id": "e23",
+        "at": 10977,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c02",
+        "text": "Skeptic dropped 'Candle lovers': too broad, it fits anyone.",
+        "detail": "Anyone could like candles, so there is no one moment to write a post for."
+      },
+      {
+        "id": "e24",
+        "at": 11273,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c03",
+        "text": "Skeptic kept 'Salcedo Saturday condo reset' as A2.",
+        "detail": "A Saturday reset at the condo is a self-treat moment no other kept audience covers."
+      },
+      {
+        "id": "e25",
+        "at": 11568,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c04",
+        "text": "Skeptic dropped 'Titas of Manila': a label about age and gender, not a buying moment.",
+        "detail": "A label about age and gender, not a buying moment. The hosting moment it points at is already kept as 'Hosts getting the sala ready', which anyone can be in."
+      },
+      {
+        "id": "e26",
+        "at": 11864,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c05",
+        "text": "Skeptic kept 'Hosts getting the sala ready' as A3.",
+        "detail": "December fills the sala with guests, and lighting a candle before they arrive is a reason to buy that isn't a gift."
+      },
+      {
+        "id": "e27",
+        "at": 12159,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c06",
+        "text": "Skeptic dropped 'First apartment move-in': same moment as 'Salcedo Saturday condo reset'.",
+        "detail": "Same moment as 'Salcedo Saturday condo reset': making a small rented place feel like yours. The Saturday reset is more specific."
+      },
+      {
+        "id": "e28",
+        "at": 12455,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c07",
+        "text": "Skeptic kept 'Home from the night shift' as A4.",
+        "detail": "Coming home at sunrise is its own routine, different from any evening at home."
+      },
+      {
+        "id": "e29",
+        "at": 12750,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c08",
+        "text": "Skeptic dropped 'Stressed-out millennials needing calm': a stereotype that would need stress-relief claims.",
+        "detail": "A label about age and mental state, not a buying moment, and reaching it would need stress-relief claims Elle doesn't make."
+      },
+      {
+        "id": "e30",
+        "at": 13045,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c09",
+        "text": "Skeptic kept 'Barkada unit splitting the bills' as A5.",
+        "detail": "Splitting bills in a shared unit makes ₱350 small, and it gives the candle a job that isn't decor."
+      },
+      {
+        "id": "e31",
+        "at": 13341,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c10",
+        "text": "Skeptic dropped 'Gaming setup late nights': same crowd as 'Barkada unit splitting the bills'.",
+        "detail": "Same place and crowd as 'Barkada unit splitting the bills'. The shared unit has the clearer reason to buy, and gaming fits inside that post."
+      },
+      {
+        "id": "e32",
+        "at": 13636,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c11",
+        "text": "Skeptic dropped 'Car and motor crowd': a candle can't be lit in a car.",
+        "detail": "A candle can't be lit in a moving car, and soy wax softens in a car parked in the sun. For this crowd the candle makes sense at the unit, which is kept."
+      },
+      {
+        "id": "e33",
+        "at": 13932,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c12",
+        "text": "Skeptic kept 'Office exchange gift draw' as A6.",
+        "detail": "A clear November moment with a budget that ₱350 fits."
+      },
+      {
+        "id": "e34",
+        "at": 14227,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c13",
+        "text": "Skeptic dropped 'Christmas gifts for family': same moment as 'Office exchange gift draw'.",
+        "detail": "Same moment as 'Office exchange gift draw': a Christmas gift for someone. The office draw has a budget and a date, so that one stays."
+      },
+      {
+        "id": "e35",
+        "at": 14523,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c14",
+        "text": "Skeptic kept 'Monthsary tomorrow, no gift yet' as A7.",
+        "detail": "A gift with a deadline for one person, a different moment from the office draw."
+      },
+      {
+        "id": "e36",
+        "at": 14818,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c15",
+        "text": "Skeptic dropped 'Balikbayan box padala': wax and glass don't travel well in a cargo box.",
+        "detail": "Soy wax can soften and glass can crack after weeks in a hot cargo container, and Elle hasn't said how she packs for shipping."
+      },
+      {
+        "id": "e37",
+        "at": 15114,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c16",
+        "text": "Skeptic kept 'Café and salon counters' as A8.",
+        "detail": "The only kept audience that could order several jars at once, so it tests a bulk reason to buy."
+      },
+      {
+        "id": "e38",
+        "at": 15409,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c17",
+        "text": "Skeptic dropped 'Wedding and debut giveaways': small home batches can't fill a giveaway order.",
+        "detail": "Giveaways need dozens of jars by a fixed date. Small home batches at ₱350 don't fit, and Elle hasn't set a bulk price."
+      },
+      {
+        "id": "e39",
+        "at": 15705,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c18",
+        "text": "Skeptic dropped 'TikTok candle videos': Elle doesn't sell on TikTok.",
+        "detail": "Elle sells on Shopee, Instagram and Facebook, not TikTok, and this group is defined by an app, not by a moment."
+      },
+      {
+        "id": "e40",
+        "at": 16000,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c19",
+        "text": "Skeptic dropped 'Mall home-store shoppers': Elle doesn't sell in stores.",
+        "detail": "Elle doesn't sell in stores, so people browsing a mall shelf can't buy where they are looking."
+      },
+      {
+        "id": "e41",
+        "at": 16295,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c20",
+        "text": "Skeptic dropped 'Anyone who wants a fresh home': too broad, it fits every home.",
+        "detail": "Every home wants to smell nice, so this says nothing about when someone would buy."
+      },
+      {
+        "id": "e42",
+        "at": 17727,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A1",
+        "text": "Copywriter drafted A1 for 'After a Cubao Expo thrift haul'.",
+        "detail": "Hey gays! Galing Cubao Expo? Para sa mga beks ang candle na 'to."
+      },
+      {
+        "id": "e43",
+        "at": 18409,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A2",
+        "text": "Copywriter drafted A2 for 'Salcedo Saturday condo reset'.",
+        "detail": "saturday condo diaries ☕🕯️"
+      },
+      {
+        "id": "e44",
+        "at": 18977,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A3",
+        "text": "Copywriter drafted A3 for 'Hosts getting the sala ready'.",
+        "detail": "nagluto ako ng 5 ulam pero ang tinanong ng bisita: ano yung mabango? 😭"
+      },
+      {
+        "id": "e45",
+        "at": 19318,
+        "agent": "reviewer",
+        "kind": "revision_requested",
+        "refId": "A1",
+        "text": "Reviewer sent A1 back: 'Hey gays' labels the reader's sexuality, and Meta doesn't allow that.",
+        "detail": "Calls the reader gay. Meta doesn't allow ads that say or imply a viewer's sexuality, even as a friendly greeting. Talk about the scent and the shelf, not about who is reading."
+      },
+      {
+        "id": "e46",
+        "at": 19773,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A4",
+        "text": "Copywriter drafted A4 for 'Home from the night shift'.",
+        "detail": "Pampawala ng stress pagkatapos ng night shift!"
+      },
+      {
+        "id": "e47",
+        "at": 19886,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A2",
+        "text": "Reviewer approved A2.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e48",
+        "at": 20455,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A3",
+        "text": "Reviewer approved A3.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e49",
+        "at": 20795,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A5",
+        "text": "Copywriter drafted A5 for 'Barkada unit splitting the bills'.",
+        "detail": "ambagan sa unit: kuryente, wifi, tubig, at... kandila? 😭"
+      },
+      {
+        "id": "e50",
+        "at": 21364,
+        "agent": "reviewer",
+        "kind": "revision_requested",
+        "refId": "A4",
+        "text": "Reviewer sent A4 back: it says the candle takes away stress and helps you sleep. Those are health claims.",
+        "detail": "Says the candle takes away stress. That's a wellness claim Elle never made. Talk about getting home from the shift instead."
+      },
+      {
+        "id": "e51",
+        "at": 21591,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A6",
+        "text": "Copywriter drafted A6 for 'Office exchange gift draw'.",
+        "detail": "Below 500 pesos na pang exchange gift sa office 🎄"
+      },
+      {
+        "id": "e52",
+        "at": 22045,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A5",
+        "text": "Reviewer approved A5.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e53",
+        "at": 22159,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A7",
+        "text": "Copywriter drafted A7 for 'Monthsary tomorrow, no gift yet'.",
+        "detail": "meron ka na bang regalo sa monthsary niyo bukas? 🎁"
+      },
+      {
+        "id": "e54",
+        "at": 22727,
+        "agent": "copywriter",
+        "kind": "post_revised",
+        "refId": "A1",
+        "text": "Copywriter rewrote A1 as a POV about the ilang-ilang. Same cheek, no labels.",
+        "detail": "POV: hindi mo inexpect na ganito kabango ang ilang-ilang 😍"
+      },
+      {
+        "id": "e55",
+        "at": 22955,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A6",
+        "text": "Reviewer approved A6.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e56",
+        "at": 23409,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A7",
+        "text": "Reviewer approved A7.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e57",
+        "at": 23750,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A8",
+        "text": "Copywriter drafted A8 for 'Café and salon counters'.",
+        "detail": "perfect pang design sa counter ng cafe o salon niyo 🕯️"
+      },
+      {
+        "id": "e58",
+        "at": 24205,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A1",
+        "text": "Reviewer approved A1 on the second round.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e59",
+        "at": 25114,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A8",
+        "text": "Reviewer approved A8.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e60",
+        "at": 25909,
+        "agent": "copywriter",
+        "kind": "post_revised",
+        "refId": "A4",
+        "text": "Copywriter rewrote A4 as a POV of getting home from the night shift, with a line to blow it out before sleeping.",
+        "detail": "POV: kakauwi mo lang galing night shift 🕯️"
+      },
+      {
+        "id": "e61",
+        "at": 27955,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A4",
+        "text": "Reviewer approved A4 on the second round.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e62",
+        "at": 30000,
+        "agent": "system",
+        "kind": "run_ready",
+        "text": "All 8 posts are ready. See your 8 hunches."
+      }
+    ]
+  },
+  "report": {
+    "runId": "run_elle_sample",
+    "mode": "sample",
+    "days": 3,
+    "totalSpend": 792,
+    "metrics": [
+      {
+        "versionId": "v_elle_a3",
+        "code": "A3",
+        "audienceName": "Hosts getting the sala ready",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 2641,
+        "reach": 2109,
+        "clicks": 31,
+        "saves": 19,
+        "shares": 14,
+        "comments": 12,
+        "reactions": 58,
+        "engagements": 134,
+        "engagementsPer100": 135.4,
+        "savesSharesPer1k": 12.5,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 142,
+            "engagements": 8
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 99,
+            "engagements": 5
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 9,
+            "engagements": 0
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 475,
+            "engagements": 26
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 334,
+            "engagements": 19
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 24,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 400,
+            "engagements": 21
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 353,
+            "engagements": 18
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 23,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 265,
+            "engagements": 12
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 206,
+            "engagements": 10
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 14,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 134,
+            "engagements": 6
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 79,
+            "engagements": 3
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 7,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 42,
+            "engagements": 2
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 32,
+            "engagements": 1
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 3,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 1294,
+            "engagements": 66
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 634,
+            "engagements": 32
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 396,
+            "engagements": 20
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 317,
+            "engagements": 16
+          }
+        ],
+        "rank": 1,
+        "results": 14,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 31,
+        "costPerResult": 7.07,
+        "adName": "A3 Sala before guests"
+      },
+      {
+        "versionId": "v_elle_a6",
+        "code": "A6",
+        "audienceName": "Office exchange gift draw",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 3117,
+        "reach": 2493,
+        "clicks": 24,
+        "saves": 11,
+        "shares": 9,
+        "comments": 10,
+        "reactions": 51,
+        "engagements": 105,
+        "engagementsPer100": 106.1,
+        "savesSharesPer1k": 6.4,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 344,
+            "engagements": 12
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 214,
+            "engagements": 8
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 17,
+            "engagements": 0
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 801,
+            "engagements": 28
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 496,
+            "engagements": 18
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 32,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 407,
+            "engagements": 14
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 291,
+            "engagements": 11
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 21,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 199,
+            "engagements": 6
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 131,
+            "engagements": 3
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 9,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 62,
+            "engagements": 2
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 53,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 4,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 20,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 14,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 1403,
+            "engagements": 47
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 810,
+            "engagements": 27
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 530,
+            "engagements": 18
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 374,
+            "engagements": 13
+          }
+        ],
+        "rank": 2,
+        "results": 10,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 24,
+        "costPerResult": 9.9,
+        "adName": "A6 Office exchange gift"
+      },
+      {
+        "versionId": "v_elle_a5",
+        "code": "A5",
+        "audienceName": "Barkada unit splitting the bills",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 3290,
+        "reach": 2655,
+        "clicks": 22,
+        "saves": 6,
+        "shares": 16,
+        "comments": 11,
+        "reactions": 40,
+        "engagements": 95,
+        "engagementsPer100": 96.0,
+        "savesSharesPer1k": 6.7,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 350,
+            "engagements": 11
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 706,
+            "engagements": 20
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 26,
+            "engagements": 1
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 386,
+            "engagements": 12
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 1061,
+            "engagements": 33
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 33,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 131,
+            "engagements": 3
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 319,
+            "engagements": 10
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 10,
+            "engagements": 0
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 49,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 107,
+            "engagements": 2
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 4,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 21,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 50,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 3,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 11,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 21,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 1513,
+            "engagements": 44
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 823,
+            "engagements": 24
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 559,
+            "engagements": 16
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 395,
+            "engagements": 11
+          }
+        ],
+        "rank": 3,
+        "results": 8,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 22,
+        "costPerResult": 12.38,
+        "adName": "A5 Barkada unit ambagan"
+      },
+      {
+        "versionId": "v_elle_a4",
+        "code": "A4",
+        "audienceName": "Home from the night shift",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 2906,
+        "reach": 2377,
+        "clicks": 19,
+        "saves": 9,
+        "shares": 6,
+        "comments": 8,
+        "reactions": 46,
+        "engagements": 88,
+        "engagementsPer100": 88.9,
+        "savesSharesPer1k": 5.2,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 394,
+            "engagements": 12
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 367,
+            "engagements": 12
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 25,
+            "engagements": 1
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 681,
+            "engagements": 21
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 644,
+            "engagements": 19
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 34,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 235,
+            "engagements": 8
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 247,
+            "engagements": 8
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 12,
+            "engagements": 0
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 85,
+            "engagements": 2
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 82,
+            "engagements": 2
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 5,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 28,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 32,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 17,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 14,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 1453,
+            "engagements": 44
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 639,
+            "engagements": 19
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 465,
+            "engagements": 14
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 349,
+            "engagements": 11
+          }
+        ],
+        "rank": 4,
+        "results": 7,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 19,
+        "costPerResult": 14.14,
+        "adName": "A4 Night shift home"
+      },
+      {
+        "versionId": "v_elle_a2",
+        "code": "A2",
+        "audienceName": "Salcedo Saturday condo reset",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 3478,
+        "reach": 2836,
+        "clicks": 20,
+        "saves": 12,
+        "shares": 5,
+        "comments": 4,
+        "reactions": 41,
+        "engagements": 82,
+        "engagementsPer100": 82.8,
+        "savesSharesPer1k": 4.9,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 498,
+            "engagements": 12
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 243,
+            "engagements": 5
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 18,
+            "engagements": 0
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 1021,
+            "engagements": 26
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 506,
+            "engagements": 12
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 45,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 449,
+            "engagements": 11
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 209,
+            "engagements": 5
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 16,
+            "engagements": 0
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 225,
+            "engagements": 5
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 100,
+            "engagements": 2
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 9,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 63,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 37,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 4,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 20,
+            "engagements": 1
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 13,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 2156,
+            "engagements": 51
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 661,
+            "engagements": 16
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 383,
+            "engagements": 9
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 278,
+            "engagements": 6
+          }
+        ],
+        "rank": 5,
+        "results": 6,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 20,
+        "costPerResult": 16.5,
+        "adName": "A2 Salcedo Saturday"
+      },
+      {
+        "versionId": "v_elle_a7",
+        "code": "A7",
+        "audienceName": "Monthsary tomorrow, no gift yet",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 2254,
+        "reach": 1846,
+        "clicks": 14,
+        "saves": 4,
+        "shares": 5,
+        "comments": 6,
+        "reactions": 37,
+        "engagements": 66,
+        "engagementsPer100": 66.7,
+        "savesSharesPer1k": 4.0,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 352,
+            "engagements": 11
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 391,
+            "engagements": 12
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 23,
+            "engagements": 0
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 397,
+            "engagements": 12
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 556,
+            "engagements": 17
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 25,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 111,
+            "engagements": 3
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 200,
+            "engagements": 6
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 9,
+            "engagements": 0
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 41,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 69,
+            "engagements": 2
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 4,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 20,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 28,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 11,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 14,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 1,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 992,
+            "engagements": 29
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 609,
+            "engagements": 18
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 383,
+            "engagements": 11
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 270,
+            "engagements": 8
+          }
+        ],
+        "rank": 6,
+        "results": 4,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 14,
+        "costPerResult": 24.75,
+        "adName": "A7 Monthsary tomorrow"
+      },
+      {
+        "versionId": "v_elle_a1",
+        "code": "A1",
+        "audienceName": "After a Cubao Expo thrift haul",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 3762,
+        "reach": 3015,
+        "clicks": 15,
+        "saves": 9,
+        "shares": 8,
+        "comments": 3,
+        "reactions": 23,
+        "engagements": 58,
+        "engagementsPer100": 58.6,
+        "savesSharesPer1k": 4.5,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 537,
+            "engagements": 8
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 529,
+            "engagements": 8
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 29,
+            "engagements": 0
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 837,
+            "engagements": 15
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 814,
+            "engagements": 13
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 46,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 281,
+            "engagements": 4
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 315,
+            "engagements": 5
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 18,
+            "engagements": 0
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 99,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 103,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 7,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 52,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 53,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 4,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 20,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 16,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 2182,
+            "engagements": 34
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 752,
+            "engagements": 11
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 452,
+            "engagements": 7
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 376,
+            "engagements": 6
+          }
+        ],
+        "rank": 7,
+        "results": 2,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 15,
+        "costPerResult": 49.5,
+        "adName": "A1 Cubao Expo thrift haul"
+      },
+      {
+        "versionId": "v_elle_a8",
+        "code": "A8",
+        "audienceName": "Café and salon counters",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 1563,
+        "reach": 1298,
+        "clicks": 7,
+        "saves": 2,
+        "shares": 1,
+        "comments": 1,
+        "reactions": 18,
+        "engagements": 29,
+        "engagementsPer100": 29.3,
+        "savesSharesPer1k": 1.9,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 70,
+            "engagements": 1
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 45,
+            "engagements": 1
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 4,
+            "engagements": 0
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 319,
+            "engagements": 8
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 171,
+            "engagements": 3
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 15,
+            "engagements": 0
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 325,
+            "engagements": 6
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 174,
+            "engagements": 4
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 14,
+            "engagements": 0
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 174,
+            "engagements": 3
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 94,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 7,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 74,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 39,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 4,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 18,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 14,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 750,
+            "engagements": 14
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 375,
+            "engagements": 7
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 250,
+            "engagements": 5
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 188,
+            "engagements": 3
+          }
+        ],
+        "rank": 8,
+        "results": 1,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 7,
+        "costPerResult": 99.0,
+        "adName": "A8 Cafe salon counter"
+      }
+    ],
+    "winnerId": "v_elle_a3",
+    "runnerUpId": "v_elle_a6",
+    "icp": {
+      "headline": "Your people: hosts getting the sala ready.",
+      "audienceName": "Hosts getting the sala ready",
+      "who": "Someone who has guests over this December and gets the sala ready before they arrive. Thirty minutes before the doorbell: the guest glasses are out, but the house still smells like lunch.",
+      "reachedMostly": "Mostly women, largest group 25-34, about half in Metro Manila",
+      "whatWorked": [
+        "A3 started 14 message conversations for ₱99. A6 came next with 10.",
+        "It also got the most link clicks: 31 for ₱99, against 24 for A6.",
+        "The hook named the moment, not the person: \"nagluto ako ng 5 ulam pero ang tinanong ng bisita: ano yung mabango? 😭\""
+      ],
+      "whatToPostNext": [
+        "Show the jar lit on the sala table before guests arrive, next to the guest glasses.",
+        "Match a scent to each kind of visit: Pandan Coconut for a handaan, Calamansi Basil for morning coffee.",
+        "Keep day 4 for Office exchange gift draw, to see if second place holds."
+      ],
+      "confidence": "strong",
+      "caveat": "Each audience got ₱99 for 3 days, so these are small numbers: 14 conversations against 10. That clears Hunch's bar for a clear lead, but with numbers this small, next week's posts are the real check on whether it holds into December."
+    },
+    "unmatchedRows": [],
+    "notes": [
+      "Using sample results. No real ads were run.",
+      "Elle is a persona made for this demo."
+    ],
+    "resultType": "Messaging conversations started",
+    "verdict": {
+      "metric": "cost_per_result",
+      "ranking": [
+        {
+          "code": "A3",
+          "value": 7.07
+        },
+        {
+          "code": "A6",
+          "value": 9.9
+        },
+        {
+          "code": "A5",
+          "value": 12.38
+        },
+        {
+          "code": "A4",
+          "value": 14.14
+        },
+        {
+          "code": "A2",
+          "value": 16.5
+        },
+        {
+          "code": "A7",
+          "value": 24.75
+        },
+        {
+          "code": "A1",
+          "value": 49.5
+        },
+        {
+          "code": "A8",
+          "value": 99.0
+        }
+      ],
+      "winnerCode": "A3",
+      "runnerUpCode": "A6",
+      "confidence": "high",
+      "explanation": "Hosts getting the sala ready won: A3 started 14 message conversations for ₱99. Office exchange gift draw came second with 10. Next week, aim six posts at hosting at home and keep day 4 to test the exchange gift again.",
+      "caveats": [],
+      "caveatChecks": [
+        {
+          "rule": "Total spend under ₱400",
+          "fired": false,
+          "value": "₱792 total"
+        },
+        {
+          "rule": "Runner-up within 10%",
+          "fired": false,
+          "value": "28.6% behind"
+        },
+        {
+          "rule": "Spend differs by more than 20% between audiences",
+          "fired": false,
+          "value": "₱99 each"
+        }
+      ],
+      "margin": {
+        "winnerCostPerResult": 7.07,
+        "runnerUpCostPerResult": 9.9,
+        "percentCheaper": 28.6,
+        "percentMoreForRunnerUp": 40.0,
+        "winnerResults": 14
+      }
+    }
+  },
+  "focus": {
+    "mode": "sample",
+    "audience": {
+      "id": "c05",
+      "name": "Hosts getting the sala ready",
+      "who": "Someone who has guests over this December and gets the sala ready before they arrive.",
+      "situation": "Thirty minutes before the doorbell: the guest glasses are out, but the house still smells like lunch.",
+      "whyItFits": "December is full of visits, and a candle lit before guests arrive is a reason to buy that isn't a gift.",
+      "whereTheyAre": [
+        "home hosting and sala decor groups on Facebook",
+        "#hostingathome",
+        "plant parent pages",
+        "#nochebuena"
+      ],
+      "tone": "Warm and funny about the pre-guest rush, like a cousin helping set up.",
+      "motive": "sharing"
+    },
+    "posts": [
+      {
+        "id": "v_elle_p1",
+        "code": "P1",
+        "audienceId": "c05",
+        "audienceName": "Hosts getting the sala ready",
+        "hook": "POV: kandila lang pala ang kulang sa sala niyo 🤍",
+        "slides": [
+          "POV: kandila lang pala ang kulang sa sala niyo 🤍",
+          "ang ganda pa ring tignan kahit di nakasindi",
+          "Pandan Coconut, ₱350 each"
+        ],
+        "caption": "Sobrang simple pero ang laki ng nabago sa sala.\nElle's Candles • Pandan Coconut • soy wax, gawa sa bahay • 180 g amber jar na may takip • mga 35 hours\n₱350 each, pm for order",
+        "hashtags": [
+          "#roomglowup",
+          "#homevibesph",
+          "#christmashandaan",
+          "#handmadecandle"
+        ],
+        "cta": "Message us",
+        "style": "soft",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only Elle's facts: the jar, the lid, the scent, the price."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the sala, not about who is hosting."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only post that shows the jar as part of the room."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "POV: a candle was all your sala needed 🤍",
+            "slides": [
+              "POV: a candle was all your sala needed 🤍",
+              "still looks good even unlit",
+              "Pandan Coconut, ₱350 each"
+            ],
+            "caption": "So simple, but what a difference in the sala.\nElle's Candles • Pandan Coconut • soy wax, poured at home • 180 g amber jar with lid • about 35 hours\n₱350 each, just message us to order",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "POV: kandila lang pala ang kulang sa sala niyo 🤍",
+            "slides": [
+              "POV: kandila lang pala ang kulang sa sala niyo 🤍",
+              "maganda pa ring tignan kahit hindi nakasindi",
+              "Pandan Coconut, ₱350 ang isa"
+            ],
+            "caption": "Sobrang simple pero ang laki ng nabago sa sala.\nElle's Candles • Pandan Coconut • soy wax, gawa sa bahay • 180 g amber na garapon na may takip • mga 35 oras\n₱350 ang isa, mag-message lang sa amin para mag-order",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "day": "Day 1",
+        "theme": "The jar on the sala table",
+        "purpose": "winner"
+      },
+      {
+        "id": "v_elle_p2",
+        "code": "P2",
+        "audienceId": "c05",
+        "audienceName": "Hosts getting the sala ready",
+        "hook": "May bisita ngayong December? tara pili tayo ng scent 🕯️",
+        "slides": [
+          "May bisita ngayong December? tara pili tayo ng scent 🕯️",
+          "Pandan Coconut, Calamansi Basil o Ilang-ilang?",
+          "₱350 each, comment 'order'"
+        ],
+        "caption": "Pandan Coconut pang handaan, Calamansi Basil pang kape sa umaga, Ilang-ilang pang kwentuhan sa gabi.\nElle's Candles • soy wax • 180 g amber jar na may takip • mga 35 hours\n₱350 each. Comment 'order' + yung scent na gusto mo 👇",
+        "hashtags": [
+          "#christmashandaan",
+          "#pasko",
+          "#candles",
+          "#handmadecandle"
+        ],
+        "cta": "Comment 'order'",
+        "style": "note",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Scent pairings only. No claims about mood."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the kind of visit, not about the people visiting."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only post that walks through all three scents."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Guests coming this December? let's pick a scent 🕯️",
+            "slides": [
+              "Guests coming this December? let's pick a scent 🕯️",
+              "Pandan Coconut, Calamansi Basil or Ilang-ilang?",
+              "₱350 each, comment 'order'"
+            ],
+            "caption": "Pandan Coconut for a handaan, Calamansi Basil for morning coffee, Ilang-ilang for late-night kwentuhan.\nElle's Candles • soy wax • 180 g amber jar with lid • about 35 hours\n₱350 each. Comment 'order' + the scent you want 👇",
+            "cta": "Comment 'order'"
+          },
+          "tagalog": {
+            "hook": "May bisita ngayong Disyembre? tara pili tayo ng bango 🕯️",
+            "slides": [
+              "May bisita ngayong Disyembre? tara pili tayo ng bango 🕯️",
+              "Pandan Coconut, Calamansi Basil o Ilang-ilang?",
+              "₱350 ang isa, mag-comment ng 'order'"
+            ],
+            "caption": "Pandan Coconut pang handaan, Calamansi Basil pang kape sa umaga, Ilang-ilang pang kwentuhan sa gabi.\nElle's Candles • soy wax • 180 g amber na garapon na may takip • mga 35 oras\n₱350 ang isa. Mag-comment ng 'order' at kung anong bango ang gusto mo 👇",
+            "cta": "Mag-comment ng 'order'"
+          }
+        },
+        "day": "Day 2",
+        "theme": "Which scent for which visit",
+        "purpose": "winner"
+      },
+      {
+        "id": "v_elle_p3",
+        "code": "P3",
+        "audienceId": "c05",
+        "audienceName": "Hosts getting the sala ready",
+        "hook": "₱350 na good for ilang handaan (syempre depende sa kwentuhan) 😆",
+        "slides": [
+          "₱350 na good for ilang handaan (syempre depende sa kwentuhan) 😆",
+          "long lasting, mga 35 hours",
+          "Pandan Coconut, pm for order"
+        ],
+        "caption": "Pag-alis ng bisita, patayin niyo na tapos takpan, may pang next handaan pa.\nElle's Candles • Pandan Coconut • soy wax • 180 g amber jar na may takip • mga 35 hours\n₱350 each, pm for order",
+        "hashtags": [
+          "#christmashandaan",
+          "#handaanpinoypasko",
+          "#handmadecandle"
+        ],
+        "cta": "Message us",
+        "style": "bold",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only Elle's 35 hours, and it says to blow it out and put the lid on when guests leave."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About how long a jar lasts, not about who is hosting."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only post about how long one jar lasts."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "₱350, good for a few handaan (depends on the kwentuhan) 😆",
+            "slides": [
+              "₱350, good for a few handaan (depends on the kwentuhan) 😆",
+              "long lasting, about 35 hours",
+              "Pandan Coconut, message us to order"
+            ],
+            "caption": "When the guests leave, blow it out and put the lid on. There's still some for the next handaan.\nElle's Candles • Pandan Coconut • soy wax • 180 g amber jar with lid • about 35 hours\n₱350 each, just message us to order",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "₱350 na aabot sa ilang handaan (syempre depende sa kwentuhan) 😆",
+            "slides": [
+              "₱350 na aabot sa ilang handaan (syempre depende sa kwentuhan) 😆",
+              "pangmatagalan, mga 35 oras",
+              "Pandan Coconut, mag-message para mag-order"
+            ],
+            "caption": "Pag-alis ng bisita, patayin niyo na tapos takpan, may pang susunod na handaan pa.\nElle's Candles • Pandan Coconut • soy wax • 180 g amber na garapon na may takip • mga 35 oras\n₱350 ang isa, mag-message lang sa amin para mag-order",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "day": "Day 3",
+        "theme": "How many handaan one jar lasts",
+        "purpose": "winner"
+      },
+      {
+        "id": "v_elle_p4",
+        "code": "P4",
+        "audienceId": "c12",
+        "audienceName": "Office exchange gift draw",
+        "hook": "napaka perfect nito pang exchange gift this coming christmas 😍",
+        "slides": [
+          "napaka perfect nito pang exchange gift this coming christmas 😍",
+          "₱350, pasok sa ₱500 na budget",
+          "3 scents, pm for order"
+        ],
+        "caption": "May takip na yung amber jar, lagyan mo lang ng ribbon, pang regalo na. 🎁\nElle's Candles • Ilang-ilang, Calamansi Basil o Pandan Coconut • soy wax • 180 g • mga 35 hours\n₱350 each, pasok sa ₱500 na budget. pm for order",
+        "hashtags": [
+          "#exchangegift",
+          "#monitomonita",
+          "#christmasgift",
+          "#handmadecandle"
+        ],
+        "cta": "Message us",
+        "style": "note",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "No gift wrap promised. The ribbon is the buyer's own touch."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the jar as a gift, not about the person giving it."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "A new angle for the runner-up, different from A6's peso cap."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "so perfect for an exchange gift this christmas 😍",
+            "slides": [
+              "so perfect for an exchange gift this christmas 😍",
+              "₱350, fits a ₱500 budget",
+              "3 scents, message us to order"
+            ],
+            "caption": "The amber jar already has a lid, just add a ribbon and it's a gift. 🎁\nElle's Candles • Ilang-ilang, Calamansi Basil or Pandan Coconut • soy wax • 180 g • about 35 hours\n₱350 each, fits a ₱500 budget. Just message us to order",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "bagay na bagay ito pang-exchange gift ngayong Pasko 😍",
+            "slides": [
+              "bagay na bagay ito pang-exchange gift ngayong Pasko 😍",
+              "₱350, pasok sa ₱500 na budget",
+              "3 klase ng bango, mag-message para mag-order"
+            ],
+            "caption": "May takip na ang amber na garapon, lagyan mo lang ng ribbon, pang-regalo na. 🎁\nElle's Candles • Ilang-ilang, Calamansi Basil o Pandan Coconut • soy wax • 180 g • mga 35 oras\n₱350 ang isa, pasok sa ₱500 na budget. Mag-message lang sa amin para mag-order",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "day": "Day 4",
+        "theme": "Testing runner-up: a gift that already looks wrapped",
+        "purpose": "runner_up_test"
+      },
+      {
+        "id": "v_elle_p5",
+        "code": "P5",
+        "audienceId": "c05",
+        "audienceName": "Hosts getting the sala ready",
+        "hook": "Yung nakauwi na lahat ng bisita, saka ka lang nakaupo 🥹",
+        "slides": [
+          "Yung nakauwi na lahat ng bisita, saka ka lang nakaupo 🥹",
+          "patayin bago matulog, tapos takpan",
+          "Pandan Coconut, ₱350 each"
+        ],
+        "caption": "Hayaan mo munang nakasindi habang nakaupo ka, tapos patayin bago matulog.\nElle's Candles • Pandan Coconut • soy wax • 180 g amber jar na may takip • mga 35 hours, may matitira pa pang New Year\n₱350 each, pm for order",
+        "hashtags": [
+          "#pasko",
+          "#christmashandaan",
+          "#homevibesph",
+          "#handmadecandle"
+        ],
+        "cta": "Message us",
+        "style": "soft",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "A pictured moment, not a customer review. It ends with blowing the candle out before sleeping."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the quiet house after the visit, not about who did the hosting."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only post set after the guests leave."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "When everyone's gone home and you finally sit down 🥹",
+            "slides": [
+              "When everyone's gone home and you finally sit down 🥹",
+              "blow it out before bed, then put the lid on",
+              "Pandan Coconut, ₱350 each"
+            ],
+            "caption": "Leave it lit while you sit, then blow it out before you sleep.\nElle's Candles • Pandan Coconut • soy wax • 180 g amber jar with lid • about 35 hours, with some left for New Year\n₱350 each, just message us to order",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Yung nakauwi na lahat ng bisita, saka ka lang nakaupo 🥹",
+            "slides": [
+              "Yung nakauwi na lahat ng bisita, saka ka lang nakaupo 🥹",
+              "patayin bago matulog, tapos takpan",
+              "Pandan Coconut, ₱350 ang isa"
+            ],
+            "caption": "Hayaan mo munang nakasindi habang nakaupo ka, tapos patayin bago matulog.\nElle's Candles • Pandan Coconut • soy wax • 180 g amber na garapon na may takip • mga 35 oras, may matitira pa para sa Bagong Taon\n₱350 ang isa, mag-message lang sa amin para mag-order",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "day": "Day 5",
+        "theme": "Christmas night, after the guests go home",
+        "purpose": "winner"
+      },
+      {
+        "id": "v_elle_p6",
+        "code": "P6",
+        "audienceId": "c05",
+        "audienceName": "Hosts getting the sala ready",
+        "hook": "Saan nga ba makikita ang Elle's Candles? 🤗",
+        "slides": [
+          "Saan nga ba makikita ang Elle's Candles? 🤗",
+          "Sa Shopee 🧡 i-search lang ang Elle's Candles",
+          "₱350 each, checkout na"
+        ],
+        "caption": "Nasa Shopee na rin kami, i-search lang ang Elle's Candles. 🧡\nIlang-ilang, Calamansi Basil o Pandan Coconut • soy wax • 180 g amber jar na may takip • mga 35 hours\n₱350 each, isama mo na sa cart ng mga pang-handaan mo",
+        "hashtags": [
+          "#shopeeph",
+          "#shopeefinds",
+          "#christmashandaan",
+          "#handmadecandle"
+        ],
+        "cta": "Order on Shopee",
+        "style": "bold",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "No vouchers or free shipping promised."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About how to order, not about the person."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only Shopee post in the week."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Where can you find Elle's Candles? 🤗",
+            "slides": [
+              "Where can you find Elle's Candles? 🤗",
+              "On Shopee 🧡 just search Elle's Candles",
+              "₱350 each, check out now"
+            ],
+            "caption": "We're on Shopee too, just search Elle's Candles. 🧡\nIlang-ilang, Calamansi Basil or Pandan Coconut • soy wax • 180 g amber jar with lid • about 35 hours\n₱350 each, add it to the cart with your handaan stuff",
+            "cta": "Order on Shopee"
+          },
+          "tagalog": {
+            "hook": "Saan nga ba makikita ang Elle's Candles? 🤗",
+            "slides": [
+              "Saan nga ba makikita ang Elle's Candles? 🤗",
+              "Sa Shopee 🧡 hanapin lang ang Elle's Candles",
+              "₱350 ang isa, i-checkout na"
+            ],
+            "caption": "Nasa Shopee na rin kami, hanapin lang ang Elle's Candles. 🧡\nIlang-ilang, Calamansi Basil o Pandan Coconut • soy wax • 180 g amber na garapon na may takip • mga 35 oras\n₱350 ang isa, isama mo na sa cart ng mga pang-handaan mo",
+            "cta": "Mag-order sa Shopee"
+          }
+        },
+        "day": "Day 6",
+        "theme": "Checking out on Shopee",
+        "purpose": "winner"
+      },
+      {
+        "id": "v_elle_p7",
+        "code": "P7",
+        "audienceId": "c05",
+        "audienceName": "Hosts getting the sala ready",
+        "hook": "30 minutes na lang, Noche Buena na 🎄",
+        "slides": [
+          "30 minutes na lang, Noche Buena na 🎄",
+          "sindihan sa gitna ng mesa, malayo sa kurtina",
+          "Pandan Coconut, ₱350 each"
+        ],
+        "caption": "Sindihan niyo na sa gitna ng mesa, malayo sa kurtina at sa abot ng mga bata.\nElle's Candles • Pandan Coconut, bagay sa buko pandan niyo 😆\nsoy wax • 180 g amber jar na may takip\n₱350 each. Comment 'order' + ilang jar",
+        "hashtags": [
+          "#handaanpinoypasko",
+          "#pasko",
+          "#christmashandaan",
+          "#handmadecandle"
+        ],
+        "cta": "Comment 'order'",
+        "style": "note",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "No bundle price promised. Each jar is ₱350, and it says where to put a lit candle."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the Noche Buena table, not about the family."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only post about buying more than one."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "30 minutes to Noche Buena 🎄",
+            "slides": [
+              "30 minutes to Noche Buena 🎄",
+              "light it in the middle of the table, away from the curtains",
+              "Pandan Coconut, ₱350 each"
+            ],
+            "caption": "Light it now in the middle of the table, away from the curtains and out of the kids' reach.\nElle's Candles • Pandan Coconut, a match for your buko pandan 😆\nsoy wax • 180 g amber jar with lid\n₱350 each. Comment 'order' + how many jars",
+            "cta": "Comment 'order'"
+          },
+          "tagalog": {
+            "hook": "30 minuto na lang, Noche Buena na 🎄",
+            "slides": [
+              "30 minuto na lang, Noche Buena na 🎄",
+              "sindihan sa gitna ng mesa, malayo sa kurtina",
+              "Pandan Coconut, ₱350 ang isa"
+            ],
+            "caption": "Sindihan niyo na sa gitna ng mesa, malayo sa kurtina at sa abot ng mga bata.\nElle's Candles • Pandan Coconut, bagay sa buko pandan niyo 😆\nsoy wax • 180 g amber na garapon na may takip\n₱350 ang isa. Mag-comment ng 'order' at kung ilang garapon",
+            "cta": "Mag-comment ng 'order'"
+          }
+        },
+        "day": "Day 7",
+        "theme": "Noche Buena, half an hour before midnight",
+        "purpose": "winner"
+      }
+    ],
+    "tests": [
+      {
+        "id": "v_elle_t1",
+        "code": "T1",
+        "audienceId": "c09",
+        "audienceName": "Barkada unit splitting the bills",
+        "hook": "Sa unit niyo na naman ang watch party? 😭",
+        "slides": [
+          "Sa unit niyo na naman ang watch party? 😭",
+          "sa mesang di masasagi pag may tumalon 😂",
+          "₱350 each, pm for order"
+        ],
+        "caption": "Habang wala pa yung tropa niyo, sindihan niyo na. Patayin pagkatapos ng game.\nElle's Candles • Calamansi Basil • soy wax • 180 g amber jar na may takip • mga 35 hours\n₱350 each, pm for order",
+        "hashtags": [
+          "#barkada",
+          "#relatable",
+          "#handmadecandle",
+          "#candles"
+        ],
+        "cta": "Message us",
+        "style": "bold",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only Elle's facts, and it says where to put the candle and when to blow it out."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the watch party, not about what the barkada is like."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "A new moment for the barkada unit, different from A5's tag line."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Watch party at your unit again? 😭",
+            "slides": [
+              "Watch party at your unit again? 😭",
+              "on a table no one will bump when somebody jumps 😂",
+              "₱350 each, message us to order"
+            ],
+            "caption": "Light it before the barkada gets there, and blow it out after the game.\nElle's Candles • Calamansi Basil • soy wax • 180 g amber jar with lid • about 35 hours\n₱350 each, just message us to order",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Sa unit niyo na naman manonood ang tropa? 😭",
+            "slides": [
+              "Sa unit niyo na naman manonood ang tropa? 😭",
+              "sa mesang hindi masasagi kapag may tumalon 😂",
+              "₱350 ang isa, mag-message para mag-order"
+            ],
+            "caption": "Habang wala pa ang tropa, sindihan niyo na. Patayin pagkatapos ng laro.\nElle's Candles • Calamansi Basil • soy wax • 180 g amber na garapon na may takip • mga 35 oras\n₱350 ang isa, mag-message lang sa amin para mag-order",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "why": "The barkada unit came third and had more shares than any post but the winner. Hosting won, so one ₱99 post tests the two together: a watch party at the shared unit."
+      },
+      {
+        "id": "v_elle_t2",
+        "code": "T2",
+        "audienceId": "c07",
+        "audienceName": "Home from the night shift",
+        "hook": "POV: Noche Buena ng night shift be like 🥲",
+        "slides": [
+          "POV: Noche Buena ng night shift be like 🥲",
+          "sindihan habang kumakain, patayin bago matulog",
+          "Pandan Coconut, ₱350 each"
+        ],
+        "caption": "Pag-uwi mo ng 7 AM sa Pasko, tulog na lahat. 😭\nSindihan habang kumakain ka ng tirang ham, tapos patayin bago matulog.\nElle's Candles • Pandan Coconut • soy wax • 180 g amber jar • mga 35 hours\n₱350 each, pm for order",
+        "hashtags": [
+          "#nightshift",
+          "#bpo",
+          "#pasko",
+          "#candles"
+        ],
+        "cta": "Message us",
+        "style": "soft",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "No claims, just the Christmas morning meal, and it says to blow it out before bed."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About Christmas morning after a shift, not about the job or how the reader feels."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "A new hook for the night shift, different from A4's everyday trip home."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "POV: Noche Buena on the night shift be like 🥲",
+            "slides": [
+              "POV: Noche Buena on the night shift be like 🥲",
+              "light it while you eat, blow it out before you sleep",
+              "Pandan Coconut, ₱350 each"
+            ],
+            "caption": "You get home at 7 AM on Christmas and everyone's asleep. 😭\nLight it while you eat the leftover ham, then blow it out before you sleep.\nElle's Candles • Pandan Coconut • soy wax • 180 g amber jar • about 35 hours\n₱350 each, just message us to order",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "POV: alas-siyete ng umaga ang Noche Buena mo 🥲",
+            "slides": [
+              "POV: alas-siyete ng umaga ang Noche Buena mo 🥲",
+              "sindihan habang kumakain, patayin bago matulog",
+              "Pandan Coconut, ₱350 ang isa"
+            ],
+            "caption": "Pag-uwi mo sa umaga ng Pasko, tulog na lahat. 😭\nSindihan habang kumakain ka ng tirang hamon, tapos patayin bago matulog.\nElle's Candles • Pandan Coconut • soy wax • 180 g amber na garapon • mga 35 oras\n₱350 ang isa, mag-message lang sa amin para mag-order",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "why": "Home from the night shift came fourth. Many night-shift teams work through Christmas, so one ₱99 post tests if a Christmas-morning moment brings more messages than the everyday 7 AM post."
+      }
+    ],
+    "notes": [
+      "Sample plan. Day 4 tests the runner-up, Office exchange gift draw."
+    ]
+  }
+}

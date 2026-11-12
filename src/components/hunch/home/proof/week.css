@@ -1,0 +1,277 @@
+/* Next week: 7 posts hung on a line, tomorrow's in front. */
+
+.nw {
+  /* A cream sheet that slides up over the winner's field. */
+  --lap: clamp(28px, calc(56 * var(--u)), 64px);
+  position: relative;
+  z-index: 2;
+  margin-top: calc(var(--lap) * -1);
+  padding: calc(150 * var(--u)) var(--gutter) calc(150 * var(--u));
+  overflow: clip;
+  border-radius: var(--lap) var(--lap) 0 0;
+  background: var(--cream);
+  box-shadow: 0 -14px 48px rgb(60 0 10 / 0.26);
+}
+.nw-top {
+  position: relative;
+}
+.nw-head {
+  position: absolute;
+  left: calc(392 * var(--u));
+  top: 0;
+  z-index: 2;
+}
+.nw-title {
+  width: 6.4em;
+  font-size: calc(96 * var(--u));
+}
+.nw-line {
+  width: 16em;
+  margin-top: calc(26 * var(--u));
+  font-size: max(calc(20 * var(--u)), 17px);
+}
+
+.nw-week {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: calc(724 * var(--u));
+}
+.nw-day {
+  --wpx: calc(var(--w) * var(--u));
+  position: relative;
+  flex: none;
+  width: var(--wpx);
+  padding-bottom: calc(58 * var(--u));
+  translate: 0 calc(var(--up) * var(--u) * -1);
+}
+.nw-day[data-lead] {
+  margin-right: calc(24 * var(--u));
+}
+.nw-post {
+  --ugc-shadow:
+    0 1px 2px rgb(70 35 10 / 0.3), calc(var(--wpx) * 0.025) calc(var(--wpx) * 0.055) calc(var(--wpx) * 0.08) rgb(70 35 10 / 0.22),
+    calc(var(--wpx) * 0.075) calc(var(--wpx) * 0.16) calc(var(--wpx) * 0.24) rgb(70 35 10 / 0.18);
+  display: block;
+  width: 100%;
+  border-radius: 5.2% / 2.925%;
+  rotate: var(--r, 0deg);
+}
+@media (hover: hover) {
+  .nw-post:hover .ugc {
+    translate: 0 -3px;
+  }
+}
+.nw-post .ugc {
+  transition: translate 0.3s var(--ease-out);
+}
+.nw-post:active {
+  scale: 0.985;
+}
+
+/* The same shoot, framed differently each day. */
+.nw-day .ugc-photo {
+  scale: var(--zoom, 1);
+  transform-origin: var(--at, 50% 50%);
+}
+.nw-day:nth-child(2) { --zoom: 1.5; --at: 70% 78%; }
+.nw-day:nth-child(3) { --zoom: 1.9; --at: 22% 34%; }
+.nw-day:nth-child(5) { --zoom: 1.35; --at: 86% 20%; }
+.nw-day:nth-child(6) { --zoom: 2.1; --at: 60% 92%; }
+.nw-day:nth-child(7) { --zoom: 1.6; --at: 10% 70%; }
+
+.nw-when {
+  position: absolute;
+  left: 2%;
+  top: calc(100% - 44 * var(--u));
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: max-content;
+  max-width: 150%;
+  font-size: max(calc(12.5 * var(--u)), 11.5px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.nw-day[data-lead] .nw-when {
+  font-size: max(calc(17 * var(--u)), 14px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.nw-tag {
+  white-space: nowrap;
+}
+.nw-copy {
+  position: absolute;
+  right: 0;
+  top: calc(100% - 56 * var(--u));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.nw-said {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: max-content;
+  max-width: 260px;
+  padding: 9px 14px 10px;
+  border-radius: 16px 4px 16px 16px;
+  background: var(--ink);
+  color: var(--sheet);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  opacity: 0;
+  transform: translate3d(0, -6px, 0) scale(0.95);
+  transform-origin: 100% 0;
+  transition:
+    opacity 0.2s linear,
+    transform 0.35s var(--ease-out);
+  pointer-events: none;
+}
+.nw-said[data-on] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Two side bets, set off to the right. */
+.nw-tests {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: calc(72 * var(--u));
+  margin-top: calc(130 * var(--u));
+}
+.nw-tests-title {
+  font-size: calc(84 * var(--u));
+}
+.nw-tests-line {
+  width: 15em;
+  margin-top: calc(18 * var(--u));
+  font-size: max(calc(20 * var(--u)), 17px);
+}
+.nw-tests-words {
+  padding-bottom: calc(40 * var(--u));
+}
+.nw-tests-posts {
+  display: flex;
+  align-items: flex-end;
+}
+.nw-test {
+  --wpx: calc(190 * var(--u));
+  --r: -5deg;
+  position: relative;
+  width: var(--wpx);
+  padding-bottom: calc(40 * var(--u));
+}
+.nw-test:nth-child(2) {
+  --wpx: calc(232 * var(--u));
+  --r: 4deg;
+  z-index: 1;
+  margin-left: calc(-22 * var(--u));
+}
+.nw-test .nw-when {
+  top: calc(100% - 22 * var(--u));
+  left: 6%;
+  width: 88%;
+  text-wrap: balance;
+}
+.nw-tests-posts {
+  margin-right: calc(60 * var(--u));
+}
+
+@media (max-width: 899px) {
+  .nw {
+    padding: 88px 0 96px;
+  }
+  .nw-head {
+    position: static;
+    padding: 0 var(--gutter);
+  }
+  .nw-title {
+    width: auto;
+    font-size: clamp(46px, 13.2vw, 76px);
+  }
+  .nw-line {
+    margin-top: 16px;
+    font-size: 18px;
+  }
+  /* Swipe through the week; tomorrow comes first. */
+  .nw-week {
+    --u: 1px;
+    justify-content: flex-start;
+    gap: 22px;
+    min-height: 0;
+    margin-top: 28px;
+    padding: 56px var(--gutter) 30px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .nw-week::-webkit-scrollbar {
+    display: none;
+  }
+  .nw-day {
+    --wpx: calc(var(--w) * 0.86px);
+    padding-bottom: 54px;
+    scroll-snap-align: center;
+  }
+  .nw-day[data-lead] {
+    --wpx: min(62vw, 260px);
+    margin-right: 6px;
+  }
+  .nw-when {
+    top: calc(100% - 40px);
+    max-width: 130%;
+  }
+  .nw-copy {
+    top: calc(100% - 46px);
+  }
+  .nw-tests {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 34px;
+    margin-top: 72px;
+    padding: 0 var(--gutter);
+  }
+  .nw-tests-title {
+    font-size: clamp(38px, 10.6vw, 56px);
+  }
+  .nw-tests-line {
+    margin-top: 12px;
+    font-size: 18px;
+  }
+  .nw-tests-words {
+    padding: 0;
+  }
+  .nw-tests-posts {
+    justify-content: center;
+  }
+  .nw-test {
+    --wpx: 39vw;
+    padding-bottom: 46px;
+  }
+  .nw-test:nth-child(2) {
+    --wpx: 46vw;
+    margin-left: -3vw;
+  }
+  .nw-test .nw-when {
+    top: calc(100% - 30px);
+  }
+  .nw-tests-posts {
+    margin-right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nw-post:hover .ugc,
+  .nw-post:active {
+    translate: none;
+    scale: none;
+  }
+  .nw-said {
+    transform: none;
+  }
+}

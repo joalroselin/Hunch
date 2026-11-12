@@ -1,0 +1,1081 @@
+/* Results. Entry: the CSV as a sheet of paper and 8 rows to type in. Verdict: the winner on a poster. See APP-LOOK.md. */
+
+.hr-h2 {
+  font-size: clamp(2.1rem, 5.4vw, 5rem);
+}
+.hr-h3 {
+  font-size: clamp(1.35rem, 1.9vw, 1.75rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.hr-peso {
+  margin-right: 0.04em;
+  font-family: var(--display);
+  font-size: 0.78em;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+/* Arrivals below the fold: 12 px up, soft to sharp, once seen. */
+[data-rise] .hr-rise {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  filter: blur(6px);
+  transition:
+    opacity 0.6s linear var(--rd, 0s),
+    transform 0.8s var(--ease-out) var(--rd, 0s),
+    filter 0.7s var(--ease-out) var(--rd, 0s);
+  animation: none;
+}
+[data-rise][data-seen] .hr-rise {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* ---------- Entry ---------- */
+
+.hr-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "head csv" "grid csv";
+  grid-template-rows: auto 1fr;
+  column-gap: clamp(28px, 5vw, 84px);
+  align-items: start;
+}
+.hr-entry-head {
+  grid-area: head;
+}
+.hr-entry-head .ha-line {
+  max-width: 44ch;
+}
+.hr-entry-grid {
+  grid-area: grid;
+  min-width: 0;
+  max-width: 58rem;
+  margin-top: clamp(26px, 2.6vw, 38px);
+}
+
+/* The paper. */
+.hr-csv {
+  --pw: clamp(232px, 20.5vw, 296px);
+  grid-area: csv;
+  position: sticky;
+  top: calc(var(--bar) + 20px);
+  display: grid;
+  justify-items: center;
+  width: var(--pw);
+  margin: clamp(2px, 0.8vw, 12px) clamp(0px, 3.4vw, 56px) 0 0;
+}
+.hr-paper {
+  display: block;
+  width: 100%;
+  rotate: 4deg;
+  filter: drop-shadow(0 1px 1px rgb(80 40 10 / 0.26)) drop-shadow(6px 14px 13px rgb(90 50 15 / 0.14)) drop-shadow(18px 40px 34px rgb(90 50 15 / 0.1));
+  text-align: left;
+  transition:
+    rotate 0.6s var(--ease-out),
+    scale 0.6s var(--ease-out),
+    translate 0.4s var(--ease-out);
+  animation: hr-land 1.1s var(--ease-out) 0.12s both;
+}
+@keyframes hr-land {
+  from {
+    opacity: 0;
+    translate: 0 36px;
+    rotate: 11deg;
+  }
+}
+@media (hover: hover) {
+  .hr-paper:hover:not(:disabled) {
+    translate: 0 -3px;
+  }
+}
+.hr-paper[data-over] {
+  rotate: 0deg;
+  scale: 1.05;
+}
+.hr-paper:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 6px;
+  border-radius: 14px;
+}
+.hr-paper-in {
+  --fold: calc(var(--pw) * 0.13);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1 / 1.3;
+  padding: calc(var(--pw) * 0.085) calc(var(--pw) * 0.09) calc(var(--pw) * 0.08);
+  border-radius: 12px;
+  background: var(--sheet);
+  color: var(--ink);
+  clip-path: polygon(0 0, calc(100% - var(--fold)) 0, 100% var(--fold), 100% 100%, 0 100%);
+}
+/* The folded corner. */
+.hr-paper-in::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--fold);
+  height: var(--fold);
+  border-bottom-left-radius: 7px;
+  background: linear-gradient(225deg, transparent 50%, #efe3cc 50%, #f8f0df);
+  box-shadow: -2px 2px 4px rgb(90 50 15 / 0.14);
+}
+.hr-paper-name {
+  display: grid;
+  gap: 2px;
+  min-height: 2.5em;
+  padding-right: var(--fold);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+}
+.hr-paper-name > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 8 rows of 4 cells: the grid in small. A cell turns ink when its number is in; a ready row gets the drop. */
+.hr-paper-map {
+  display: grid;
+  gap: calc(var(--pw) * 0.021);
+  margin-top: calc(var(--pw) * 0.04);
+}
+.hr-paper-map > span {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr auto;
+  gap: calc(var(--pw) * 0.028);
+  align-items: center;
+}
+.hr-paper-map i {
+  height: calc(var(--pw) * 0.026);
+  border-radius: 99px;
+  background: var(--tint-strong);
+  transition:
+    background-color 0.4s var(--ease-out) calc(var(--r) * 45ms),
+    scale 0.5s var(--ease-out) calc(var(--r) * 45ms);
+  transform-origin: 0 50%;
+  scale: 0.72 1;
+}
+.hr-paper-map i[data-on] {
+  background: var(--ink);
+  scale: 1;
+}
+.hr-paper-map b {
+  --grain: 0.5;
+  width: calc(var(--pw) * 0.04);
+  height: calc(var(--pw) * 0.04);
+  border-radius: var(--drop);
+  background: var(--sun);
+  opacity: 0;
+  scale: 0.3;
+  transition:
+    opacity 0.3s linear calc(var(--r) * 45ms + 120ms),
+    scale 0.5s cubic-bezier(0.34, 1.5, 0.5, 1) calc(var(--r) * 45ms + 120ms);
+}
+.hr-paper-map [data-ready] b {
+  opacity: 1;
+  scale: 1;
+}
+.hr-paper-ask {
+  margin-top: auto;
+  font-size: calc(var(--pw) * 0.108);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+.hr-paper-hint {
+  margin-top: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.hr-csv-tools {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 30px;
+}
+.hr-csv-said {
+  display: grid;
+  justify-items: center;
+  margin-top: 12px;
+}
+.hr-csv-said:empty {
+  display: none;
+}
+
+/* The rows. Fields are slips straight on the cream. */
+.hr-grid {
+  --cols: minmax(0, 1fr) 8.25rem 6.75rem 6.75rem 7.5rem 16px;
+}
+.hr-grid-head,
+.hr-row {
+  display: grid;
+  grid-template-columns: var(--cols);
+  column-gap: 10px;
+  align-items: center;
+}
+.hr-grid-head {
+  padding-bottom: 10px;
+}
+.hr-grid-head > span {
+  padding-left: 2px;
+}
+.hr-grid > ul {
+  display: grid;
+  gap: 7px;
+}
+.hr-row-post {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding-right: 8px;
+}
+.hr-row-post > p {
+  min-width: 0;
+  font-size: clamp(15px, 1.2vw, 17px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.hr-thumb {
+  --ugc-shadow: 0 1px 1.5px rgb(70 35 10 / 0.34), 2px 4px 7px rgb(70 35 10 / 0.2);
+  flex: none;
+  width: 30px;
+}
+.hr-thumb .ugc {
+  border-radius: 5px;
+}
+.hr-thumb .ugc-photo {
+  animation: ha-fade 0.5s linear both;
+}
+.hr-cell {
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+.hr-cell-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.hr-cell > input {
+  height: 46px;
+  padding: 0 14px;
+  font-variant-numeric: tabular-nums;
+}
+.hr-cell[data-prefix] > span[aria-hidden] {
+  position: absolute;
+  bottom: 23px;
+  left: 14px;
+  translate: 0 50%;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  pointer-events: none;
+}
+.hr-cell[data-prefix] > input {
+  padding-left: 31px;
+}
+.hr-ready {
+  --grain: 0.5;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--tint-strong);
+  transition:
+    border-radius 0.45s var(--ease-out),
+    scale 0.45s cubic-bezier(0.34, 1.5, 0.5, 1);
+}
+.hr-ready::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--sun);
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+.hr-ready::after {
+  opacity: 0;
+}
+.hr-ready[data-on] {
+  border-radius: var(--drop);
+  scale: 1.15;
+}
+.hr-ready[data-on]::before {
+  opacity: 1;
+}
+.hr-ready[data-on]::after {
+  opacity: var(--grain);
+}
+
+.hr-unmatched {
+  margin-top: clamp(34px, 4vw, 52px);
+}
+.hr-unmatched > ul {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+.hr-unmatched li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 17rem;
+  gap: 10px 20px;
+  align-items: center;
+}
+.hr-unmatched li > p {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.hr-unmatched li b {
+  overflow: hidden;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hr-unmatched li span {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.hr-send {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 16px;
+  margin-top: clamp(24px, 2.4vw, 34px);
+}
+.hr-send > .ha-note {
+  flex: 1 1 14rem;
+  max-width: 24rem;
+  margin-left: 6px;
+  text-wrap: balance;
+}
+.hr-go {
+  position: relative;
+  display: flex;
+}
+.hr-go-tip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  z-index: 5;
+  width: max-content;
+  max-width: min(22rem, calc(100vw - 2 * var(--gutter)));
+}
+
+/* ---------- Verdict ---------- */
+
+.hr-v {
+  /* One design pixel of a 1440 wide poster. */
+  --u: calc(clamp(900px, 100vw, 1680px) / 1440);
+  padding-top: clamp(10px, 1.2vw, 18px);
+}
+.hr-poster {
+  --grain: 0.5;
+  border-radius: clamp(26px, 3vw, 44px);
+  animation: hr-poster-in 0.9s var(--ease-out) both;
+}
+@keyframes hr-poster-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.985);
+  }
+}
+.hr-poster-in {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) calc(480 * var(--u));
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "tools stage" "words stage" "note stage";
+  min-height: min(calc(640 * var(--u)), calc(100dvh - var(--bar) - 150px));
+  padding: calc(52 * var(--u)) calc(56 * var(--u)) calc(44 * var(--u));
+}
+.hr-words {
+  grid-area: words;
+  align-self: end;
+  padding-top: calc(36 * var(--u));
+}
+.hr-name {
+  max-width: 7.6em;
+  margin-left: calc(-4 * var(--u));
+  font-size: calc(98 * var(--u));
+}
+.hr-next {
+  margin-top: calc(26 * var(--u));
+  font-size: max(calc(20 * var(--u)), 17px);
+}
+.hr-note {
+  grid-area: note;
+  margin-top: calc(30 * var(--u));
+  opacity: 0.9;
+}
+
+/* Instruments, drawn thin in the paper color. */
+.hr-tools {
+  grid-area: tools;
+  display: flex;
+  align-items: flex-end;
+  gap: calc(60 * var(--u));
+}
+.hr-cap {
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.hr-cap b {
+  font-weight: 800;
+}
+.hr-dial {
+  position: relative;
+  width: 132px;
+  border-radius: 8px;
+  cursor: default;
+}
+.hr-dial:focus-visible {
+  outline: 2px solid var(--sheet);
+  outline-offset: 6px;
+}
+.hr-dial > svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+.hr-needle {
+  transform-origin: 60px 60px;
+  transform: rotate(-90deg);
+  transition: transform 1.4s cubic-bezier(0.34, 1.16, 0.5, 1) 0.5s;
+}
+[data-seen] .hr-needle {
+  transform: rotate(var(--to));
+}
+.hr-tip {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 10px);
+  z-index: 5;
+  width: max-content;
+  max-width: 240px;
+  padding: 9px 14px 10px;
+  border-radius: 6px 20px 20px 20px;
+  background: var(--ink);
+  color: var(--sheet);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  opacity: 0;
+  transform: translate3d(0, -6px, 0) scale(0.96);
+  transform-origin: 0 0;
+  transition:
+    opacity 0.2s linear,
+    transform 0.3s var(--ease-out);
+  pointer-events: none;
+}
+.hr-dial:hover .hr-tip,
+.hr-dial:focus-visible .hr-tip {
+  opacity: 1;
+  transform: none;
+}
+.hr-ages {
+  margin: 0;
+}
+.hr-ages > div {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+.hr-ages > div > span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.66;
+}
+.hr-ages > div > span[data-top] {
+  opacity: 1;
+}
+.hr-ages > div > span > :first-child {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 3px;
+  width: 33px;
+}
+.hr-ages i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0;
+  transform: scale(0.2);
+  transition:
+    opacity 0.3s linear var(--d, 0s),
+    transform 0.5s var(--ease-out) var(--d, 0s);
+}
+[data-seen] .hr-ages i {
+  opacity: 1;
+  transform: none;
+}
+.hr-ages > div > span > :last-child {
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.hr-add {
+  align-self: center;
+  gap: 8px;
+}
+.hr-add:focus-visible {
+  outline: 2px solid var(--sheet);
+  outline-offset: 3px;
+}
+
+/* The winning post, with what it got. */
+.hr-stage {
+  --wpx: calc(306 * var(--u));
+  --ugc-shadow: 0 1px 2px rgb(40 5 0 / 0.4), calc(var(--wpx) * 0.03) calc(var(--wpx) * 0.06) calc(var(--wpx) * 0.09) rgb(60 5 0 / 0.3),
+    calc(var(--wpx) * 0.08) calc(var(--wpx) * 0.18) calc(var(--wpx) * 0.28) rgb(60 5 0 / 0.3);
+  grid-area: stage;
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  width: var(--wpx);
+  margin-left: calc(40 * var(--u));
+  rotate: 4deg;
+  animation: hr-stage-in 1.1s var(--ease-out) 0.15s both;
+}
+@keyframes hr-stage-in {
+  from {
+    opacity: 0;
+    translate: 0 36px;
+    rotate: 11deg;
+  }
+}
+.hr-stage > .ugc {
+  animation: hr-drift 8s var(--ease-breathe) 1.6s infinite alternate;
+}
+@keyframes hr-drift {
+  to {
+    transform: translate3d(0, -7px, 0);
+  }
+}
+.hr-stage .ugc-photo {
+  animation: ha-fade 0.6s linear both;
+}
+.hr-bub {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  width: var(--b);
+  height: var(--b);
+  border-radius: var(--drop-out);
+  background: var(--ink);
+  color: var(--sheet);
+  box-shadow: 0 1px 2px rgb(40 5 0 / 0.5), calc(var(--b) * 0.05) calc(var(--b) * 0.1) calc(var(--b) * 0.16) rgb(40 5 0 / 0.34);
+  animation: hr-bub-in 0.9s cubic-bezier(0.34, 1.3, 0.5, 1) var(--bd) both;
+  transform-origin: 100% 100%;
+}
+@keyframes hr-bub-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  35% {
+    opacity: 1;
+  }
+}
+.hr-bub b {
+  color: var(--gold);
+  font-size: calc(var(--b) * 0.46);
+  line-height: 0.9;
+}
+.hr-bub > span {
+  margin-top: calc(var(--b) * 0.03);
+  font-size: calc(var(--b) * 0.115);
+  font-weight: 600;
+}
+.hr-bub-a {
+  --b: calc(var(--wpx) * 0.5);
+  --bd: 0.85s;
+  left: calc(var(--wpx) * -0.36);
+  top: 50%;
+}
+.hr-bub-b {
+  --b: calc(var(--wpx) * 0.36);
+  --bd: 1.05s;
+  left: calc(var(--wpx) * -0.2);
+  top: 80%;
+  rotate: -8deg;
+}
+.hr-words,
+.hr-tools,
+.hr-note {
+  animation: ha-rise 0.8s var(--ease-out) both;
+}
+.hr-words {
+  animation-delay: 0.2s;
+}
+.hr-tools {
+  animation-delay: 0.45s;
+}
+.hr-note {
+  animation-delay: 0.55s;
+}
+.hr-send-v {
+  margin-top: clamp(20px, 2vw, 28px);
+  animation: ha-rise 0.75s var(--ease-out) 0.6s both;
+}
+
+/* The whole test: last place on the left, the winner on the right. */
+.hr-race {
+  position: relative;
+  margin-top: clamp(84px, 10vw, 150px);
+}
+.hr-race-head {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: calc(640 * var(--u));
+}
+.hr-race-head > * {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  filter: blur(6px);
+  transition:
+    opacity 0.6s linear,
+    transform 0.8s var(--ease-out),
+    filter 0.7s var(--ease-out);
+}
+.hr-race-head > :nth-child(2) {
+  transition-delay: 0.08s;
+}
+.hr-race-head[data-seen] > * {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+.hr-cols {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: calc(620 * var(--u));
+}
+.hr-cols > li {
+  --w: 104;
+  --wpx: calc(var(--w) * var(--u));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--wpx);
+}
+.hr-cols > li[data-size="md"] {
+  --w: 150;
+}
+.hr-cols > li[data-size="lg"] {
+  --w: 224;
+}
+.hr-stack {
+  --m: calc(23 * var(--u));
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  gap: calc(5 * var(--u));
+  width: calc(var(--m) * 2 + 5 * var(--u));
+  margin-bottom: calc(18 * var(--u));
+}
+.hr-stack > i {
+  --grain: 0.4;
+  width: var(--m);
+  height: var(--m);
+  border-radius: var(--drop);
+  background: var(--ink);
+  opacity: 0;
+  transform: translate3d(0, -10px, 0) scale(0.4);
+  transition:
+    opacity 0.3s linear var(--d, 0s),
+    transform 0.6s var(--ease-out) var(--d, 0s);
+}
+[data-first] > .hr-stack > i {
+  background: var(--sun);
+}
+.hr-cols[data-seen] .hr-stack > i {
+  opacity: 1;
+  transform: none;
+}
+.hr-col-post {
+  --ugc-shadow: 0 1px 2px rgb(70 35 10 / 0.3), calc(var(--wpx) * 0.025) calc(var(--wpx) * 0.055) calc(var(--wpx) * 0.08) rgb(70 35 10 / 0.22),
+    calc(var(--wpx) * 0.075) calc(var(--wpx) * 0.16) calc(var(--wpx) * 0.24) rgb(70 35 10 / 0.18);
+  display: block;
+  width: 100%;
+  rotate: var(--tilt-z);
+  opacity: 0;
+  translate: 0 18px;
+  transition:
+    opacity 0.5s linear calc(var(--i) * 0.07s),
+    translate 0.8s var(--ease-out) calc(var(--i) * 0.07s);
+}
+.hr-cols[data-seen] .hr-col-post {
+  opacity: 1;
+  translate: none;
+}
+.hr-col-cap {
+  align-self: stretch;
+  min-height: calc(112 * var(--u));
+  margin-top: calc(20 * var(--u));
+  font-size: max(calc(12.5 * var(--u)), 11.5px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.hr-col-cap > b {
+  font-size: calc(34 * var(--u));
+  line-height: 0.9;
+}
+[data-size="lg"] > .hr-col-cap > b {
+  font-size: calc(76 * var(--u));
+  color: var(--chili);
+}
+.hr-col-name,
+.hr-col-cost {
+  display: block;
+  margin-top: calc(7 * var(--u));
+  text-wrap: balance;
+}
+.hr-col-cost {
+  margin-top: 3px;
+  font-weight: 500;
+}
+[data-size="lg"] > .hr-col-cap > :is(.hr-unit, .hr-col-name) {
+  font-size: max(calc(17 * var(--u)), 14px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+[data-size="lg"] > .hr-col-cap > .hr-col-cost {
+  font-size: max(calc(14 * var(--u)), 13px);
+}
+
+/* Your people: who they are on the left, what to do about it on the right. */
+.hr-people {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  column-gap: clamp(32px, 6vw, 110px);
+  align-items: start;
+  margin-top: clamp(84px, 10vw, 150px);
+}
+.hr-who {
+  max-width: 30em;
+  margin-top: 1em;
+  font-size: clamp(1.0625rem, 1.5vw, 1.375rem);
+  text-wrap: pretty;
+}
+.hr-thread {
+  display: grid;
+  gap: 8px;
+  margin-top: clamp(22px, 2.4vw, 34px);
+}
+.hr-thread > .ha-bubble {
+  max-width: 31rem;
+  padding: 13px 18px 15px;
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.38;
+  text-wrap: pretty;
+}
+.hr-people-lists {
+  display: grid;
+  gap: clamp(30px, 3.4vw, 46px);
+  padding-top: clamp(4px, 1vw, 14px);
+}
+.hr-people-lists ul {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+.hr-people-lists li {
+  position: relative;
+  max-width: 34em;
+  padding-left: 24px;
+  font-size: clamp(15.5px, 1.2vw, 17px);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.34;
+  text-wrap: pretty;
+}
+.hr-people-lists li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--drop);
+  background: var(--sun);
+}
+
+@media (max-width: 1023px) {
+  .hr-grid {
+    --cols: minmax(0, 1fr) 7.25rem 5.75rem 5.75rem 6.5rem 14px;
+  }
+  .hr-row-post {
+    gap: 12px;
+  }
+}
+
+/* Phone and tablet. */
+@media (max-width: 899px) {
+  .hr-poster-in {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: 34px 22px 26px;
+  }
+  .hr-stage {
+    --wpx: min(56vw, 280px);
+    align-self: flex-end;
+    order: 1;
+    margin: 0 5vw 0 0;
+  }
+  .hr-words {
+    order: 2;
+    align-self: stretch;
+    padding-top: 44px;
+  }
+  .hr-name {
+    margin-left: -2px;
+    font-size: clamp(42px, 12.4vw, 84px);
+  }
+  .hr-next {
+    margin-top: 16px;
+    font-size: 17px;
+  }
+  .hr-tools {
+    order: 3;
+    gap: 34px;
+    margin-top: 36px;
+  }
+  .hr-note {
+    order: 4;
+    margin-top: 28px;
+  }
+  .hr-race-head {
+    position: static;
+    width: auto;
+  }
+  .hr-cols {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 26px;
+    min-height: 0;
+    margin-top: 40px;
+  }
+  .hr-cols > li,
+  .hr-cols > li[data-size] {
+    --wpx: 68px;
+    display: grid;
+    grid-template-columns: var(--wpx) minmax(0, 1fr);
+    grid-template-areas: "post cap" "post stack";
+    grid-template-rows: auto 1fr;
+    column-gap: 20px;
+    align-items: start;
+    width: auto;
+  }
+  .hr-cols > li[data-size="md"] {
+    --wpx: 96px;
+  }
+  .hr-cols > li[data-size="lg"] {
+    --wpx: min(46vw, 210px);
+    margin-bottom: 14px;
+  }
+  .hr-col-post {
+    grid-area: post;
+  }
+  .hr-col-cap {
+    grid-area: cap;
+    min-height: 0;
+    margin-top: 4px;
+    font-size: 13px;
+  }
+  .hr-col-cap > b {
+    font-size: 30px;
+  }
+  [data-size="lg"] > .hr-col-cap > b {
+    font-size: 72px;
+  }
+  [data-size="lg"] > .hr-col-cap > :is(.hr-unit, .hr-col-name) {
+    font-size: 16px;
+  }
+  .hr-col-name {
+    margin-top: 5px;
+  }
+  .hr-stack {
+    --m: 17px;
+    grid-area: stack;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 4px;
+    width: auto;
+    max-width: calc(var(--m) * 7 + 24px);
+    margin: 12px 0 0;
+  }
+  [data-size="lg"] > .hr-stack {
+    --m: 22px;
+  }
+  .hr-people {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 44px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hr-entry {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "head" "csv" "grid";
+  }
+  .hr-csv {
+    --pw: min(56vw, 220px);
+    position: static;
+    justify-items: start;
+    margin: 30px 0 0 5%;
+  }
+  .hr-csv-tools {
+    justify-content: flex-start;
+    margin-top: 24px;
+  }
+  .hr-csv-said {
+    justify-items: start;
+  }
+  .hr-entry-grid {
+    margin-top: 36px;
+  }
+  .hr-grid-head {
+    display: none;
+  }
+  .hr-grid > ul {
+    gap: 30px;
+  }
+  .hr-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px 10px;
+  }
+  .hr-row-post {
+    grid-column: 1 / -1;
+    padding-right: 26px;
+  }
+  .hr-row-post > p {
+    font-size: 17px;
+  }
+  .hr-cell-label {
+    position: static;
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0 0 7px 2px;
+    clip-path: none;
+    font-size: 13px;
+  }
+  .hr-ready {
+    position: absolute;
+    top: 22px;
+    right: 2px;
+  }
+  .hr-row {
+    position: relative;
+  }
+  .hr-unmatched li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hr-send {
+    margin-top: 22px;
+  }
+  .hr-send > button,
+  .hr-send > a {
+    width: 100%;
+  }
+  .hr-send > .ha-note {
+    margin-left: 0;
+  }
+  .hr-send-v {
+    margin-top: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-rise] .hr-rise,
+  .hr-race-head > * {
+    transform: none;
+    filter: none;
+    transition: opacity 0.4s linear;
+  }
+  .hr-paper,
+  .hr-poster,
+  .hr-stage,
+  .hr-bub,
+  .hr-words,
+  .hr-tools,
+  .hr-note,
+  .hr-send-v {
+    animation: ha-fade 0.4s linear both;
+  }
+  .hr-paper {
+    transition: none;
+  }
+  .hr-paper[data-over] {
+    scale: none;
+  }
+  .hr-paper:hover {
+    translate: none;
+  }
+  .hr-stage > .ugc {
+    animation: none;
+  }
+  .hr-needle {
+    transform: rotate(var(--to, 0deg));
+    transition: none;
+  }
+  .hr-ages i,
+  .hr-stack > i {
+    transform: none;
+    transition: opacity 0.4s linear;
+  }
+  .hr-col-post {
+    translate: none;
+    transition: opacity 0.4s linear;
+  }
+  .hr-paper-map i,
+  .hr-paper-map b,
+  .hr-ready {
+    transition: none;
+  }
+}
+
+/* The select's arrow, drawn here because the field background covers the shared one. */
+.hr-unmatched select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position:
+    calc(100% - 21px) 50%,
+    calc(100% - 16px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}

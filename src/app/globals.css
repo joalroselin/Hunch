@@ -1,0 +1,676 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Light only. Keeps dark: utilities inert instead of following the OS. */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--sans);
+  --font-mono: var(--mono);
+  --font-heading: var(--sans);
+  --font-dot: var(--dot);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-sheet: var(--sheet);
+  --color-ink-soft: var(--ink-soft);
+  --color-gold: var(--gold);
+  --color-persimmon: var(--persimmon);
+  --color-chili: var(--chili);
+  --color-rose: var(--rose);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-2: var(--navy-2);
+  --color-navy-3: var(--navy-3);
+  --color-paper: var(--paper);
+  --color-stone: var(--stone);
+  --color-ink: var(--ink);
+  --color-fog: var(--fog);
+  --color-mute: var(--mute);
+  --color-mute-strong: var(--mute-strong);
+  --color-line: var(--line);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+  --color-field: var(--field);
+  --color-placeholder: var(--placeholder);
+  --color-action: var(--action);
+  --color-action-strong: var(--action-strong);
+  --color-action-soft: var(--action-soft);
+  --color-on-action: var(--on-action);
+  --color-pass: var(--pass);
+  --color-warn: var(--warn);
+  --color-fail: var(--fail);
+  --color-live: var(--live);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@theme {
+  --container-page: 64rem;
+  --container-sheet: 68.75rem;
+  --container-list: 53.75rem;
+  --container-reading: 51.25rem;
+  --container-form: 45rem;
+
+  /* One motion language: expo out for arrivals and color. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-rail: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-breathe: cubic-bezier(0.45, 0, 0.55, 1);
+
+  --animate-enter: soft-enter 0.7s var(--ease-expo) both;
+  --animate-rise: soft-enter 0.8s var(--ease-expo) both;
+  --animate-fade: soft-fade 0.6s var(--ease-expo) both;
+  --animate-route: soft-route 0.5s var(--ease-expo) both;
+  --animate-sheet-in: sheet-in 0.6s var(--ease-expo) both;
+  --animate-bloom: bloom 1.6s var(--ease-expo) both;
+  --animate-draw: draw 0.9s var(--ease-expo) both;
+  --animate-grow-x: grow-x 0.9s var(--ease-expo) both;
+  --animate-glow: breathe 10s var(--ease-breathe) infinite;
+  --animate-drift: drift 26s var(--ease-breathe) infinite alternate;
+  --animate-dot-wave: dot-wave 2.4s var(--ease-breathe) infinite;
+  --animate-hint: hint 1.8s ease-in-out infinite;
+
+  @keyframes soft-enter {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 12px, 0);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+  }
+
+  @keyframes soft-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes soft-route {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 8px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes sheet-in {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Plays once: a soft halo that swells and fades. */
+  @keyframes bloom {
+    0% {
+      opacity: 0;
+      transform: scale(0.4);
+    }
+    35% {
+      opacity: 0.9;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(2.4);
+    }
+  }
+
+  /* Use with pathLength="1" on the svg path. */
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Grows a bar from zero to its own transform. */
+  @keyframes grow-x {
+    from {
+      transform: scaleX(0);
+    }
+  }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      opacity: 0.82;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes drift {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      transform: translate3d(-3%, 2.5%, 0) scale(1.08);
+    }
+  }
+
+  @keyframes dot-wave {
+    0%,
+    100% {
+      opacity: 0.16;
+      transform: scale(0.8);
+    }
+    45% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes hint {
+    0% {
+      transform: scaleY(0);
+      opacity: 1;
+    }
+    70% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleY(1);
+      opacity: 0;
+    }
+  }
+}
+
+:root {
+  color-scheme: light;
+
+  --display: var(--font-bricolage), "Bricolage Grotesque", system-ui, sans-serif;
+  --sans: var(--display);
+  /* No mono in this look. The old name stays so font-mono resolves to the one family. */
+  --mono: var(--display);
+  --dot: var(--font-doto), "Doto", var(--display);
+  --ugc-font: var(--font-tiktok), "TikTok Sans", "Helvetica Neue", Arial, sans-serif;
+
+  /* Sunset paper. Same values as home/look.css; see APP-LOOK.md. */
+  --cream: #f4ecdd;
+  --cream-deep: #eadfca;
+  --sheet: #fffcf5;
+  --ink: #1a110b;
+  --ink-soft: rgb(26 17 11 / 0.66);
+  --rule: rgb(26 17 11 / 0.16);
+  --tint: rgb(26 17 11 / 0.07);
+  --tint-strong: rgb(26 17 11 / 0.12);
+
+  --gold: #ffc233;
+  --persimmon: #ff6a1f;
+  --chili: #d8281b;
+  --rose: #ff5a8c;
+  --sun:
+    radial-gradient(62% 62% at 24% 16%, #ffd75e 0%, rgb(255 215 94 / 0) 70%),
+    radial-gradient(70% 70% at 88% 86%, #d8281b 0%, rgb(216 40 27 / 0) 72%),
+    radial-gradient(58% 58% at 6% 96%, #ff4f8e 0%, rgb(255 79 142 / 0) 74%),
+    linear-gradient(140deg, #ffb52c, #ff6a1f 55%, #e63a1c);
+
+  /* The hunch shape: a round drop with one tail. */
+  --drop: 50% 50% 50% 9%;
+  --drop-out: 50% 50% 9% 50%;
+  /* The same shape for message bubbles, which are wider than tall. */
+  --bubble: 20px 20px 20px 6px;
+  --bubble-out: 20px 20px 6px 20px;
+
+  /* Light comes from the top left. */
+  --shadow-object: 0 1px 2px rgb(70 35 10 / 0.3), 6px 14px 20px rgb(70 35 10 / 0.2), 20px 44px 64px rgb(70 35 10 / 0.16);
+  --shadow-sheet: inset 0 1px 0 #fff, 0 1px 2px rgb(80 40 10 / 0.26), 6px 14px 26px rgb(90 50 15 / 0.14), 18px 40px 70px rgb(90 50 15 / 0.1);
+  --shadow-slip: inset 0 1px 0 #fff, 0 1px 2px rgb(80 40 10 / 0.24), 3px 7px 14px rgb(90 50 15 / 0.1);
+  --shadow-well: inset 0 1px 2px rgb(70 35 10 / 0.16);
+  --shadow-float: var(--shadow-object);
+
+  /* A field is a slip of paper on cream, and a pressed well when it sits on a sheet. */
+  --field: var(--sheet);
+  --field-shadow: var(--shadow-slip);
+  --placeholder: rgb(26 17 11 / 0.42);
+
+  --gutter: clamp(18px, 3.34vw, 48px);
+  --bar: 64px;
+
+  /* Old names, new values. Screens not rebuilt yet read these; new work uses the names above. */
+  --navy: var(--cream);
+  --navy-deep: var(--cream-deep);
+  --navy-2: var(--sheet);
+  --navy-3: #ffffff;
+  --paper: var(--ink);
+  --stone: var(--cream);
+  --fog: var(--ink);
+  --line: var(--ink);
+  --mute: rgb(26 17 11 / 0.62);
+  --mute-strong: rgb(26 17 11 / 0.8);
+  --hairline: rgb(26 17 11 / 0.12);
+  --hairline-strong: rgb(26 17 11 / 0.22);
+  --indigo: var(--ink);
+  --indigo-strong: #000;
+  --indigo-soft: var(--chili);
+  --action: var(--ink);
+  --action-strong: #000;
+  --action-soft: var(--chili);
+  --on-action: var(--cream);
+
+  /* Status text, 4.5:1 or better on cream and sheet. */
+  --pass: #17663a;
+  --warn: #9a4a00;
+  --fail: #c01f12;
+  --live: #1c8a4b;
+
+  /* shadcn mapping */
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: var(--sheet);
+  --card-foreground: var(--ink);
+  --popover: var(--sheet);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--cream);
+  --secondary: var(--tint);
+  --secondary-foreground: var(--ink);
+  --muted: var(--cream-deep);
+  --muted-foreground: var(--mute);
+  --accent: var(--tint);
+  --accent-foreground: var(--ink);
+  --destructive: var(--fail);
+  --border: var(--hairline);
+  --input: rgb(26 17 11 / 0.16);
+  --ring: var(--ink);
+  --chart-1: var(--persimmon);
+  --chart-2: var(--ink);
+  --chart-3: var(--gold);
+  --chart-4: var(--rose);
+  --chart-5: var(--chili);
+  --radius: 14px;
+  --sidebar: var(--sheet);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--cream);
+  --sidebar-accent: var(--tint);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--hairline);
+  --sidebar-ring: var(--ink);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    background-color: var(--cream);
+    font-family: var(--sans);
+    font-optical-sizing: auto;
+    scroll-behavior: smooth;
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+    caret-color: var(--chili);
+    accent-color: var(--chili);
+  }
+  body {
+    min-height: 100dvh;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+  ::selection {
+    background-color: var(--gold);
+    color: var(--ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+}
+
+/* Type. New work uses hh-title, hh-line and hh-label from home/look.css. */
+@utility display {
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.86;
+}
+
+@utility headline {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.94;
+}
+
+@utility eyebrow {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+@utility kicker {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Dot-matrix result numbers only. */
+@utility dot-num {
+  font-family: var(--dot);
+  font-weight: 900;
+  font-variation-settings: "ROND" 100;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+/* Surfaces. A sheet is paper on the cream ground: no border, a warm shadow down and to the right. */
+@utility spectrum {
+  color: var(--ink);
+  box-shadow: inset 0 -0.14em 0 var(--gold);
+}
+
+@utility hairline {
+  border-color: var(--hairline);
+}
+
+@utility tile {
+  background-color: var(--sheet);
+  box-shadow: var(--shadow-sheet);
+  border-radius: 22px;
+}
+
+/* Retired. Kept as no-ops so old class lists do not break. */
+@utility glow-indigo {
+  background-image: none;
+}
+
+@utility surface-gradient {
+  background-color: var(--sheet);
+  box-shadow: var(--shadow-sheet);
+}
+
+@utility dot-grid {
+  background-image: none;
+}
+
+@utility page-backdrop {
+  background-color: var(--cream);
+}
+
+/* Links */
+@utility link-inline {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+@utility link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+/* Press feedback shared by buttons and tiles */
+@utility press {
+  transition:
+    scale 0.18s var(--ease-out),
+    background-color 0.18s var(--ease-out),
+    color 0.18s var(--ease-out),
+    box-shadow 0.3s var(--ease-out),
+    opacity 0.18s var(--ease-out);
+  &:active:not(:disabled, [aria-disabled="true"], [data-variant="link"]) {
+    scale: 0.97;
+  }
+}
+
+/* Hover lift, for posts and other objects you can pick up. Not for buttons. */
+@utility lift {
+  @media (hover: hover) {
+    &:hover:not(:disabled, [aria-disabled="true"]) {
+      translate: 0 -3px;
+    }
+  }
+}
+
+/* Stagger index for animate-enter: stagger-0 to stagger-20, 70ms steps */
+@utility stagger-* {
+  animation-delay: calc(--value(integer) * 70ms);
+}
+
+/* Small pill over a photo */
+@utility pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  height: 36px;
+  padding: 0 1rem 1px;
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  background: var(--sheet);
+  box-shadow: 0 1px 2px rgb(40 20 5 / 0.3), 3px 6px 14px rgb(40 20 5 / 0.22);
+  transition: scale 0.18s var(--ease-out);
+  &:active {
+    scale: 0.97;
+  }
+}
+
+@utility pill-accent {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+@layer components {
+  /* Scroll reveal, driven by the Reveal component */
+  [data-reveal] {
+    transition:
+      opacity 0.8s var(--ease-expo),
+      transform 0.8s var(--ease-expo),
+      filter 0.8s var(--ease-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  [data-reveal="out"],
+  [data-reveal="reset"] {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+    filter: blur(6px);
+  }
+  [data-reveal="reset"] {
+    transition: none;
+  }
+  [data-reveal="in"] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .skip-link {
+    position: fixed;
+    left: var(--gutter);
+    top: -60px;
+    z-index: 70;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--cream);
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .skip-link:focus {
+    top: 12px;
+  }
+
+  .select-chevron {
+    appearance: none;
+    background-image:
+      linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+      linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+    background-position:
+      calc(100% - 20px) 50%,
+      calc(100% - 15px) 50%;
+    background-size: 5px 5px;
+    background-repeat: no-repeat;
+  }
+  .select-chevron option {
+    background-color: var(--sheet);
+    color: var(--ink);
+  }
+
+  .scroll-hint::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 28px;
+    margin-inline: auto;
+    background: linear-gradient(var(--mute-strong), transparent);
+    transform-origin: top;
+    animation: var(--animate-hint);
+  }
+}
+
+@keyframes hunch-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Ambient loops rest while the tab is hidden. */
+:root[data-tab-hidden] *,
+:root[data-tab-hidden] *::before,
+:root[data-tab-hidden] *::after {
+  animation-play-state: paused !important;
+}
+
+/* Reduced motion: fades only, no movement, no loops. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-enter,
+  .animate-rise,
+  .animate-route,
+  .animate-sheet-in {
+    animation-name: hunch-fade !important;
+  }
+  *,
+  *::before,
+  *::after {
+    --tw-enter-translate-x: 0 !important;
+    --tw-enter-translate-y: 0 !important;
+    --tw-enter-scale: 1 !important;
+    --tw-enter-blur: 0 !important;
+    --tw-exit-translate-x: 0 !important;
+    --tw-exit-translate-y: 0 !important;
+    --tw-exit-scale: 1 !important;
+    --tw-exit-blur: 0 !important;
+    animation-delay: 0s !important;
+    transition-delay: 0s !important;
+  }
+  .animate-glow,
+  .animate-drift,
+  .animate-dot-wave,
+  .animate-bloom,
+  .animate-grow-x,
+  .animate-draw,
+  .animate-pulse,
+  .scroll-hint::after {
+    animation: none !important;
+  }
+  .press:active,
+  .lift:hover,
+  .pill:active {
+    transform: none !important;
+    scale: none !important;
+    translate: none !important;
+  }
+  [data-reveal] {
+    transition: opacity 0.4s linear !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

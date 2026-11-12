@@ -1,0 +1,3621 @@
+{
+  "run": {
+    "id": "run_matcha_sample",
+    "createdAt": "2026-11-08T13:10:00.000Z",
+    "mode": "sample",
+    "product": {
+      "name": "Kaye's Matcha",
+      "description": "Ceremonial-grade matcha powder, repacked at home into 30 g tins. A bamboo whisk set is sold separately.",
+      "price": "₱480 per 30 g tin. Bamboo whisk set ₱350.",
+      "whereSold": "Shopee and Instagram (orders by message)",
+      "goal": "Find out who actually buys, so I stop posting to everyone.",
+      "language": "taglish"
+    },
+    "candidates": [
+      {
+        "id": "c01",
+        "name": "Saturday brunch after Salcedo market",
+        "who": "Someone who walks the Salcedo Saturday market and makes brunch back at the condo.",
+        "situation": "Saturday late morning, tote full of bread and flowers, brunch at home.",
+        "whyItFits": "A matcha whisked at home fits a slow brunch and is the one thing the market haul is missing.",
+        "whereTheyAre": [
+          "#salcedomarket",
+          "#brunchathome",
+          "Makati food and market pages",
+          "slow weekend creators on Instagram"
+        ],
+        "tone": "Easy and a little smug, like a friend showing off their haul.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c02",
+        "name": "Matcha lovers",
+        "who": "Anyone who likes matcha.",
+        "situation": "Any time they want a matcha.",
+        "whyItFits": "They already like matcha.",
+        "whereTheyAre": [
+          "#matcha",
+          "#matchalover",
+          "cafe pages"
+        ],
+        "tone": "General.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c03",
+        "name": "Getting ready for Cubao Expo",
+        "who": "Someone getting ready at home for a night of thrift, gigs and drag at Cubao Expo.",
+        "situation": "Friday night, outfit half done, leaving for Cubao Expo in an hour.",
+        "whyItFits": "An iced matcha made at home is part of getting ready, and the scene already loves a good café drink.",
+        "whereTheyAre": [
+          "#cubaoexpo",
+          "#ukayfinds",
+          "gig and drag night pages on Instagram",
+          "Cubao Expo shop accounts"
+        ],
+        "tone": "Cheeky and quick, like the group chat before a night out.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c04",
+        "name": "Soft-life weekend girls",
+        "who": "Young women who post a soft-life weekend aesthetic.",
+        "situation": "Weekends, posting their routine.",
+        "whyItFits": "Matcha is part of the soft-life look.",
+        "whereTheyAre": [
+          "#softlife",
+          "#thatgirl",
+          "lifestyle creators"
+        ],
+        "tone": "Dreamy.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c05",
+        "name": "Guests coming over to the sala",
+        "who": "Someone hosting guests at home who brings out the good cups kept for visitors.",
+        "situation": "Sunday afternoon, bisita on the way, the cabinet cups are already out.",
+        "whyItFits": "Matcha served in the good cups feels like an occasion, and the tin looks right on the sala table.",
+        "whereTheyAre": [
+          "#hostingathome",
+          "#plantita",
+          "home and hosting groups on Facebook",
+          "tablescape accounts on Instagram"
+        ],
+        "tone": "Warm and a little proud, like showing off the house.",
+        "motive": "sharing"
+      },
+      {
+        "id": "c06",
+        "name": "Health-conscious titas",
+        "who": "Older women who watch their health.",
+        "situation": "Choosing drinks that feel healthier.",
+        "whyItFits": "Matcha is seen as a health drink.",
+        "whereTheyAre": [
+          "#healthyliving",
+          "wellness pages",
+          "#fitover40"
+        ],
+        "tone": "Wellness-focused.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c07",
+        "name": "3 AM night shift breaks",
+        "who": "Someone working the night shift at a BPO who takes their break around 3 AM.",
+        "situation": "Mid-shift break, the pantry is empty and the city is asleep.",
+        "whyItFits": "Bringing your own tin to the pantry beats the same vending machine choices every night.",
+        "whereTheyAre": [
+          "#nightshift",
+          "#bpolife",
+          "BPO and call center groups on Facebook",
+          "night shift creators"
+        ],
+        "tone": "Dry and knowing, like a teammate on the same shift.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c08",
+        "name": "Afternoon break at the office pantry",
+        "who": "Office workers taking an afternoon break in the pantry.",
+        "situation": "3 PM at the office, looking for a drink.",
+        "whyItFits": "A matcha break beats the office coffee.",
+        "whereTheyAre": [
+          "#officelife",
+          "office worker groups on Facebook",
+          "#worklife"
+        ],
+        "tone": "Casual.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c09",
+        "name": "Barkada gaming night at the condo",
+        "who": "Someone hosting the barkada for a long gaming night at their condo or shared place.",
+        "situation": "Friday night, monitors set up, ranked games until morning.",
+        "whyItFits": "Being the one who makes the iced matcha is a small flex in a room full of soda cans.",
+        "whereTheyAre": [
+          "#gamingsetup",
+          "#barkada",
+          "gaming community groups on Facebook",
+          "PC setup creators"
+        ],
+        "tone": "Teasing and loose, like the barkada chat.",
+        "motive": "sharing"
+      },
+      {
+        "id": "c10",
+        "name": "Gym-goers wanting a pre-workout",
+        "who": "People who go to the gym and want a drink before training.",
+        "situation": "Before a workout.",
+        "whyItFits": "Matcha is often sold as a pre-workout drink.",
+        "whereTheyAre": [
+          "#gymph",
+          "#preworkout",
+          "fitness creators"
+        ],
+        "tone": "Pumped.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c11",
+        "name": "Last-minute monthsary gifts",
+        "who": "Someone whose monthsary is days away and whose partner orders matcha on every café date.",
+        "situation": "Midweek, monthsary on Saturday, still no gift.",
+        "whyItFits": "The gift is already decided by every café receipt, and a tin plus a whisk set feels thought through, not grabbed.",
+        "whereTheyAre": [
+          "#monthsary",
+          "#giftideasph",
+          "couple and dating creators",
+          "gift idea pages on Instagram"
+        ],
+        "tone": "Confident and a little flirtatious, like a friend who's good at gifts.",
+        "motive": "gifting"
+      },
+      {
+        "id": "c12",
+        "name": "Valentine's gift for a partner",
+        "who": "Someone planning a Valentine's gift for their partner.",
+        "situation": "February, choosing a gift.",
+        "whyItFits": "Matcha is a nice gift for a partner.",
+        "whereTheyAre": [
+          "#valentinesgift",
+          "#giftsforher",
+          "gift guide pages"
+        ],
+        "tone": "Romantic.",
+        "motive": "gifting"
+      },
+      {
+        "id": "c13",
+        "name": "Office exchange gift under ₱500",
+        "who": "Someone who drew a name for the office Christmas exchange gift with a ₱500 budget.",
+        "situation": "Mid-November, the draw is done and the party is weeks away.",
+        "whyItFits": "₱480 fits a ₱500 budget, and it looks thought through next to another mug or tumbler.",
+        "whereTheyAre": [
+          "#exchangegift",
+          "#christmasgiftideas",
+          "office party planning groups",
+          "gift idea pages on Facebook"
+        ],
+        "tone": "Helpful and dry, like a seatmate with a better idea.",
+        "motive": "occasion"
+      },
+      {
+        "id": "c14",
+        "name": "Christmas gift for a matcha friend",
+        "who": "Someone buying a Christmas gift for a friend who likes matcha.",
+        "situation": "December, making a gift list.",
+        "whyItFits": "A tin is a nice small gift.",
+        "whereTheyAre": [
+          "#christmasgiftideas",
+          "#giftsforfriends",
+          "gift guide pages"
+        ],
+        "tone": "Festive.",
+        "motive": "gifting"
+      },
+      {
+        "id": "c15",
+        "name": "Home bakers' Christmas crinkle orders",
+        "who": "Someone who bakes crinkles and cookies at home and takes Christmas orders.",
+        "situation": "Early December, order list filling up, planning the flavors.",
+        "whyItFits": "A matcha batch adds a flavor to the order list, and a baker could need several tins for the season.",
+        "whereTheyAre": [
+          "#homebakerph",
+          "#crinkles",
+          "home baker groups on Facebook",
+          "#christmasorders"
+        ],
+        "tone": "Businesslike and friendly, facts first.",
+        "motive": "resale_bulk"
+      },
+      {
+        "id": "c16",
+        "name": "Cafés buying matcha wholesale",
+        "who": "Small cafés that serve matcha drinks.",
+        "situation": "Restocking matcha for the menu.",
+        "whyItFits": "Cafés go through a lot of matcha.",
+        "whereTheyAre": [
+          "cafe owner groups on Facebook",
+          "#cafebusinessph",
+          "coffee supply pages"
+        ],
+        "tone": "Professional.",
+        "motive": "resale_bulk"
+      },
+      {
+        "id": "c17",
+        "name": "TikTok matcha trend followers",
+        "who": "People who try matcha drinks they see on TikTok.",
+        "situation": "Seeing a matcha video and wanting to try it.",
+        "whyItFits": "Matcha videos trend on TikTok.",
+        "whereTheyAre": [
+          "#matchatok",
+          "#matcha",
+          "TikTok drink creators"
+        ],
+        "tone": "Trendy.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c18",
+        "name": "Supermarket tea aisle shoppers",
+        "who": "Shoppers comparing tea and matcha at the supermarket.",
+        "situation": "The grocery run, standing at the tea shelf.",
+        "whyItFits": "They are already shopping for tea.",
+        "whereTheyAre": [
+          "supermarket promo pages",
+          "#groceryhaul",
+          "grocery haul creators"
+        ],
+        "tone": "Price-focused.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c19",
+        "name": "Coffee drinkers wanting a change",
+        "who": "People who drink coffee every day and want something different.",
+        "situation": "Any morning.",
+        "whyItFits": "Matcha is often pitched as better than coffee.",
+        "whereTheyAre": [
+          "#coffeelover",
+          "#morningroutine",
+          "coffee pages"
+        ],
+        "tone": "General.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c20",
+        "name": "Sunday car meet crowd",
+        "who": "People who go to Sunday car and motor meets.",
+        "situation": "Sunday morning at a car meet in a parking lot.",
+        "whyItFits": "A drink to share at the meet.",
+        "whereTheyAre": [
+          "#carmeetph",
+          "car club groups on Facebook",
+          "#motoph"
+        ],
+        "tone": "Hype.",
+        "motive": "sharing"
+      }
+    ],
+    "chosen": [
+      {
+        "id": "c01",
+        "name": "Saturday brunch after Salcedo market",
+        "who": "Someone who walks the Salcedo Saturday market and makes brunch back at the condo.",
+        "situation": "Saturday late morning, tote full of bread and flowers, brunch at home.",
+        "whyItFits": "A matcha whisked at home fits a slow brunch and is the one thing the market haul is missing.",
+        "whereTheyAre": [
+          "#salcedomarket",
+          "#brunchathome",
+          "Makati food and market pages",
+          "slow weekend creators on Instagram"
+        ],
+        "tone": "Easy and a little smug, like a friend showing off their haul.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c03",
+        "name": "Getting ready for Cubao Expo",
+        "who": "Someone getting ready at home for a night of thrift, gigs and drag at Cubao Expo.",
+        "situation": "Friday night, outfit half done, leaving for Cubao Expo in an hour.",
+        "whyItFits": "An iced matcha made at home is part of getting ready, and the scene already loves a good café drink.",
+        "whereTheyAre": [
+          "#cubaoexpo",
+          "#ukayfinds",
+          "gig and drag night pages on Instagram",
+          "Cubao Expo shop accounts"
+        ],
+        "tone": "Cheeky and quick, like the group chat before a night out.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c05",
+        "name": "Guests coming over to the sala",
+        "who": "Someone hosting guests at home who brings out the good cups kept for visitors.",
+        "situation": "Sunday afternoon, bisita on the way, the cabinet cups are already out.",
+        "whyItFits": "Matcha served in the good cups feels like an occasion, and the tin looks right on the sala table.",
+        "whereTheyAre": [
+          "#hostingathome",
+          "#plantita",
+          "home and hosting groups on Facebook",
+          "tablescape accounts on Instagram"
+        ],
+        "tone": "Warm and a little proud, like showing off the house.",
+        "motive": "sharing"
+      },
+      {
+        "id": "c07",
+        "name": "3 AM night shift breaks",
+        "who": "Someone working the night shift at a BPO who takes their break around 3 AM.",
+        "situation": "Mid-shift break, the pantry is empty and the city is asleep.",
+        "whyItFits": "Bringing your own tin to the pantry beats the same vending machine choices every night.",
+        "whereTheyAre": [
+          "#nightshift",
+          "#bpolife",
+          "BPO and call center groups on Facebook",
+          "night shift creators"
+        ],
+        "tone": "Dry and knowing, like a teammate on the same shift.",
+        "motive": "self_use"
+      },
+      {
+        "id": "c09",
+        "name": "Barkada gaming night at the condo",
+        "who": "Someone hosting the barkada for a long gaming night at their condo or shared place.",
+        "situation": "Friday night, monitors set up, ranked games until morning.",
+        "whyItFits": "Being the one who makes the iced matcha is a small flex in a room full of soda cans.",
+        "whereTheyAre": [
+          "#gamingsetup",
+          "#barkada",
+          "gaming community groups on Facebook",
+          "PC setup creators"
+        ],
+        "tone": "Teasing and loose, like the barkada chat.",
+        "motive": "sharing"
+      },
+      {
+        "id": "c11",
+        "name": "Last-minute monthsary gifts",
+        "who": "Someone whose monthsary is days away and whose partner orders matcha on every café date.",
+        "situation": "Midweek, monthsary on Saturday, still no gift.",
+        "whyItFits": "The gift is already decided by every café receipt, and a tin plus a whisk set feels thought through, not grabbed.",
+        "whereTheyAre": [
+          "#monthsary",
+          "#giftideasph",
+          "couple and dating creators",
+          "gift idea pages on Instagram"
+        ],
+        "tone": "Confident and a little flirtatious, like a friend who's good at gifts.",
+        "motive": "gifting"
+      },
+      {
+        "id": "c13",
+        "name": "Office exchange gift under ₱500",
+        "who": "Someone who drew a name for the office Christmas exchange gift with a ₱500 budget.",
+        "situation": "Mid-November, the draw is done and the party is weeks away.",
+        "whyItFits": "₱480 fits a ₱500 budget, and it looks thought through next to another mug or tumbler.",
+        "whereTheyAre": [
+          "#exchangegift",
+          "#christmasgiftideas",
+          "office party planning groups",
+          "gift idea pages on Facebook"
+        ],
+        "tone": "Helpful and dry, like a seatmate with a better idea.",
+        "motive": "occasion"
+      },
+      {
+        "id": "c15",
+        "name": "Home bakers' Christmas crinkle orders",
+        "who": "Someone who bakes crinkles and cookies at home and takes Christmas orders.",
+        "situation": "Early December, order list filling up, planning the flavors.",
+        "whyItFits": "A matcha batch adds a flavor to the order list, and a baker could need several tins for the season.",
+        "whereTheyAre": [
+          "#homebakerph",
+          "#crinkles",
+          "home baker groups on Facebook",
+          "#christmasorders"
+        ],
+        "tone": "Businesslike and friendly, facts first.",
+        "motive": "resale_bulk"
+      }
+    ],
+    "versions": [
+      {
+        "id": "v_matcha_a1",
+        "code": "A1",
+        "audienceId": "c01",
+        "audienceName": "Saturday brunch after Salcedo market",
+        "hook": "Salcedo haul: sourdough, bulaklak, at matcha na ikaw mismo ang nag-whisk.",
+        "slides": [
+          "Salcedo haul: sourdough, bulaklak, at matcha na ikaw mismo ang nag-whisk.",
+          "Ceremonial-grade, 30 g tin.",
+          "₱480 per tin. Whisk set ₱350."
+        ],
+        "caption": "Saturday, galing Salcedo market, puno ang tote, at sa condo na lang ang brunch. Ang hindi mo nabili sa market: yung matcha. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins. ₱480 per tin, at ₱350 ang bamboo whisk set kung wala ka pang whisk. Slow Saturday, ikaw ang barista. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#salcedomarket",
+          "#brunchathome",
+          "#matchaathome"
+        ],
+        "cta": "Message us",
+        "style": "soft",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only Kaye's facts and prices. No origin or health words."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the market morning and brunch, not about who goes to Salcedo."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only weekend brunch post."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Salcedo haul: sourdough, flowers, and a matcha you whisked yourself.",
+            "slides": [
+              "Salcedo haul: sourdough, flowers, and a matcha you whisked yourself.",
+              "Ceremonial-grade, 30 g tin.",
+              "₱480 per tin. Whisk set ₱350."
+            ],
+            "caption": "Saturday, back from the Salcedo market with a full tote, and brunch is happening at the condo. The one thing the market didn't have: your matcha. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins. ₱480 per tin, and ₱350 for the bamboo whisk set if you don't have a whisk yet. Slow Saturday, and you're the barista. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Uwi mula Salcedo: sourdough, bulaklak, at matchang ikaw mismo ang nag-whisk.",
+            "slides": [
+              "Uwi mula Salcedo: sourdough, bulaklak, at matchang ikaw mismo ang nag-whisk.",
+              "Ceremonial-grade, 30 g na lata.",
+              "₱480 ang lata. ₱350 ang whisk set."
+            ],
+            "caption": "Sabado, galing sa Salcedo market, puno ang tote, at sa condo na lang ang brunch. Ang hindi mo nabili sa palengke: ang matcha. Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata. ₱480 ang isang lata, at ₱350 ang bamboo whisk set kung wala ka pang panghalo. Mabagal na Sabado, ikaw ang barista. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        }
+      },
+      {
+        "id": "v_matcha_a2",
+        "code": "A2",
+        "audienceId": "c03",
+        "audienceName": "Getting ready for Cubao Expo",
+        "hook": "Cubao Expo mamaya. 10 PM ang drag show, 9 PM ang matcha mo.",
+        "slides": [
+          "Cubao Expo mamaya. 10 PM ang drag show, 9 PM ang matcha mo.",
+          "Iced, sa bahay, bago umalis.",
+          "₱480 per 30 g tin."
+        ],
+        "caption": "Ang plano: ukay muna, tapos gig, tapos drag show sa Cubao Expo, uwi kung anong oras na. Bago umalis, isang iced matcha sa bahay habang nag-aayos. Kaye's Matcha, ceremonial-grade, repacked at home into 30 g tins. ₱480 per tin, ₱350 ang bamboo whisk set. Dalawang oras ang outfit. Ang matcha, hindi. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#cubaoexpo",
+          "#icedmatcha",
+          "#ukayfinds"
+        ],
+        "cta": "Message us",
+        "style": "bold",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Rewritten without the label, the emoji or 'sana all'. Only Kaye's facts."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "Names the place and the night, never who the reader is."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only going-out post."
+          }
+        ],
+        "round": 2,
+        "copy": {
+          "english": {
+            "hook": "Cubao Expo tonight. The drag show starts at 10, your matcha at 9.",
+            "slides": [
+              "Cubao Expo tonight. The drag show starts at 10, your matcha at 9.",
+              "Iced, at home, before you head out.",
+              "₱480 per 30 g tin."
+            ],
+            "caption": "The plan: thrift first, then the gig, then the drag show at Cubao Expo, home whenever. Before you leave, an iced matcha at home while you get ready. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins. ₱480 per tin, ₱350 for the bamboo whisk set. The outfit took two hours. The matcha didn't. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Cubao Expo mamayang gabi. Alas-diyes ang drag show, alas-nuwebe ang matcha mo.",
+            "slides": [
+              "Cubao Expo mamayang gabi. Alas-diyes ang drag show, alas-nuwebe ang matcha mo.",
+              "Iced, sa bahay, bago umalis.",
+              "₱480 ang 30 g na lata."
+            ],
+            "caption": "Ang plano: ukay muna, tapos gig, tapos drag show sa Cubao Expo, uwi kung anong oras na. Bago umalis, isang iced matcha sa bahay habang nag-aayos. Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata. ₱480 ang isang lata, ₱350 ang bamboo whisk set. Dalawang oras ang outfit. Ang matcha, hindi. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        }
+      },
+      {
+        "id": "v_matcha_a3",
+        "code": "A3",
+        "audienceId": "c05",
+        "audienceName": "Guests coming over to the sala",
+        "hook": "Nilabas na ang pang-bisitang tasa. Wag naman 3-in-1 ang laman.",
+        "slides": [
+          "Nilabas na ang pang-bisitang tasa. Wag naman 3-in-1 ang laman.",
+          "Ceremonial-grade matcha, 30 g tin.",
+          "₱480 per tin."
+        ],
+        "caption": "Linggo ng hapon, darating ang bisita, at nilabas na ang mga tasang isang beses lang ginagamit kada taon. Bagay sa kanila ang Kaye's Matcha: ceremonial-grade, repacked at home into 30 g tins, at maganda pang ilapag sa mesa sa sala. ₱480 per tin, ₱350 ang bamboo whisk set, para may maipakitang ritual habang nagkukuwentuhan. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#hostingathome",
+          "#merienda",
+          "#matchaathome"
+        ],
+        "cta": "Message us",
+        "style": "note",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only Kaye's facts. The '3-in-1' line knocks a drink, not a brand."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the guest cups and the sala, never about the host's age."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only hosting post."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "The guest cups are out of the cabinet. Don't fill them with 3-in-1.",
+            "slides": [
+              "The guest cups are out of the cabinet. Don't fill them with 3-in-1.",
+              "Ceremonial-grade matcha, 30 g tin.",
+              "₱480 per tin."
+            ],
+            "caption": "Sunday afternoon, guests on the way, and the cups that come out once a year are on the table. Kaye's Matcha belongs in them: ceremonial-grade, repacked at home into 30 g tins, and the tin looks good on the sala table too. ₱480 per tin, ₱350 for the bamboo whisk set, so there's a little ritual to show while everyone catches up. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Nailabas na ang pang-bisitang tasa. Huwag namang 3-in-1 ang ilagay.",
+            "slides": [
+              "Nailabas na ang pang-bisitang tasa. Huwag namang 3-in-1 ang ilagay.",
+              "Ceremonial-grade na matcha, 30 g na lata.",
+              "₱480 ang lata."
+            ],
+            "caption": "Linggo ng hapon, may darating na bisita, at nailabas na ang mga tasang minsan lang gamitin sa isang taon. Bagay sa kanila ang Kaye's Matcha: ceremonial-grade, nire-repack sa bahay sa 30 g na lata, at maganda pang ilapag sa mesa sa sala. ₱480 ang isang lata, ₱350 ang bamboo whisk set, para may maipakitang ritwal habang nagkukuwentuhan. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        }
+      },
+      {
+        "id": "v_matcha_a4",
+        "code": "A4",
+        "audienceId": "c07",
+        "audienceName": "3 AM night shift breaks",
+        "hook": "3 AM break. Tulog ang buong city, ikaw nagwi-whisk sa pantry.",
+        "slides": [
+          "3 AM break. Tulog ang buong city, ikaw nagwi-whisk sa pantry.",
+          "Ceremonial-grade, sa 30 g tin.",
+          "₱480 per tin."
+        ],
+        "caption": "Kalagitnaan ng shift, 3 AM, at ang laman ng vending machine, pareho pa rin since training. Dalhin ang sarili mong tin. Kaye's Matcha, ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin. Isama na rin ang ₱350 na bamboo whisk set. Tulog ang buong city, may matcha ka sa pantry. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#nightshift",
+          "#bpolife",
+          "#3ambreak"
+        ],
+        "cta": "Message us",
+        "style": "note",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Rewritten with no health words: no 'healthier', no antioxidants, nothing about staying awake."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the 3 AM pantry, not about how tired the reader is."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only work-break post."
+          }
+        ],
+        "round": 2,
+        "copy": {
+          "english": {
+            "hook": "3 AM break. The whole city's asleep and you're whisking in the pantry.",
+            "slides": [
+              "3 AM break. The whole city's asleep and you're whisking in the pantry.",
+              "Ceremonial-grade, in a 30 g tin.",
+              "₱480 per tin."
+            ],
+            "caption": "Middle of the shift, 3 AM, and the vending machine has had the same choices since training. Bring your own tin. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin. Bring the ₱350 bamboo whisk set too. The city's asleep, and you have matcha in the pantry. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Alas-tres ng madaling-araw, break. Tulog ang lungsod, ikaw nagwi-whisk sa pantry.",
+            "slides": [
+              "Alas-tres ng madaling-araw, break. Tulog ang lungsod, ikaw nagwi-whisk sa pantry.",
+              "Ceremonial-grade, sa 30 g na lata.",
+              "₱480 ang lata."
+            ],
+            "caption": "Kalagitnaan ng shift, alas-tres ng madaling-araw, at ang laman ng vending machine, pareho pa rin mula noong training. Dalhin ang sarili mong lata. Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata. Isama na rin ang ₱350 na bamboo whisk set. Tulog ang buong lungsod, may matcha ka sa pantry. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        }
+      },
+      {
+        "id": "v_matcha_a5",
+        "code": "A5",
+        "audienceId": "c09",
+        "audienceName": "Barkada gaming night at the condo",
+        "hook": "Ranked hanggang 4 AM sa condo. Yung flex: ikaw ang marunong mag-whisk.",
+        "slides": [
+          "Ranked hanggang 4 AM sa condo. Yung flex: ikaw ang marunong mag-whisk.",
+          "Ceremonial-grade, 30 g tin, ₱480.",
+          "Bamboo whisk set, ₱350."
+        ],
+        "caption": "Sa inyo ang tambayan ngayong Friday, naka-setup na ang monitors, at may hawak nang controller ang lahat. Sa gitna ng mga lata ng softdrinks, ikaw ang may iced matcha, at lahat sila magtatanong kung pa'no. Kaye's Matcha, ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin. ₱350 ang bamboo whisk set. Talo man sa ranked, panalo sa kusina. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#gamingsetup",
+          "#barkada",
+          "#icedmatcha"
+        ],
+        "cta": "Message us",
+        "style": "bold",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only Kaye's facts. No energy or 'stay awake' line for the long night."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About hosting the gaming night, not about the guys in the room."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only barkada post. The 3 AM post is a work break, a different moment."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Ranked till 4 AM at the condo. The flex: you're the one who can whisk.",
+            "slides": [
+              "Ranked till 4 AM at the condo. The flex: you're the one who can whisk.",
+              "Ceremonial-grade, 30 g tin, ₱480.",
+              "Bamboo whisk set, ₱350."
+            ],
+            "caption": "It's your place this Friday, the monitors are set up and everyone has a controller. Between the cans of soda, you're the one with an iced matcha, and every one of them will ask how. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin. The bamboo whisk set is ₱350. Lose the ranked match, win the kitchen. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Ranked hanggang alas-kuwatro sa condo. Ang yabang: ikaw ang marunong mag-whisk.",
+            "slides": [
+              "Ranked hanggang alas-kuwatro sa condo. Ang yabang: ikaw ang marunong mag-whisk.",
+              "Ceremonial-grade, 30 g na lata, ₱480.",
+              "Bamboo whisk set, ₱350."
+            ],
+            "caption": "Sa inyo ang tambayan ngayong Biyernes, nakaayos na ang mga monitor, at may hawak nang controller ang lahat. Sa gitna ng mga lata ng softdrinks, ikaw ang may iced matcha, at magtatanong silang lahat kung paano. Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata. ₱350 ang bamboo whisk set. Talo man sa ranked, panalo sa kusina. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        }
+      },
+      {
+        "id": "v_matcha_a6",
+        "code": "A6",
+        "audienceId": "c11",
+        "audienceName": "Last-minute monthsary gifts",
+        "hook": "Monthsary sa Sabado. Matcha ang lagi niyang order. Alam mo na 'to.",
+        "slides": [
+          "Monthsary sa Sabado. Matcha ang lagi niyang order. Alam mo na 'to.",
+          "30 g tin, ₱480. Whisk set, ₱350.",
+          "Para sa bahay niya, hindi lang sa café."
+        ],
+        "caption": "Sa bawat date sa café, iisa ang order niya: matcha. Ngayong monthsary, iuwi mo na sa kanya. Kaye's Matcha, ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, plus ₱350 na bamboo whisk set para may sariling ritual siya sa bahay. Bulaklak, lanta na pagdating ng Lunes. Ito, maaalala ka niya tuwing umaga. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#monthsary",
+          "#giftideasph",
+          "#matchagift"
+        ],
+        "cta": "Message us",
+        "style": "soft",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only Kaye's facts. No delivery date promised for Saturday."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the monthsary and the café habit. 'Niya' and 'they' never say who the partner is or who the buyer is."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only partner gift post. The exchange gift post is for a coworker."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Monthsary on Saturday. They always order matcha. You know what to do.",
+            "slides": [
+              "Monthsary on Saturday. They always order matcha. You know what to do.",
+              "30 g tin, ₱480. Whisk set, ₱350.",
+              "For their place, not just the café."
+            ],
+            "caption": "On every café date, the order is the same: matcha. This monthsary, bring it home for them. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, plus the ₱350 bamboo whisk set so they have their own ritual at home. Flowers are done by Monday. This one reminds them of you every morning. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Monthsary na sa Sabado. Matcha lagi ang order niya. Alam mo na ang gagawin.",
+            "slides": [
+              "Monthsary na sa Sabado. Matcha lagi ang order niya. Alam mo na ang gagawin.",
+              "30 g na lata, ₱480. Whisk set, ₱350.",
+              "Para sa bahay niya, hindi lang sa café."
+            ],
+            "caption": "Sa bawat date sa café, iisa lagi ang order niya: matcha. Ngayong monthsary, iuwi mo na ito sa kanya. Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata, at may ₱350 na bamboo whisk set para may sarili siyang ritwal sa bahay. Ang bulaklak, lanta na pagdating ng Lunes. Ito, maaalala ka niya tuwing umaga. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        }
+      },
+      {
+        "id": "v_matcha_a7",
+        "code": "A7",
+        "audienceId": "c13",
+        "audienceName": "Office exchange gift under ₱500",
+        "hook": "₱500 ang budget sa exchange gift. Pwede namang hindi mug ulit.",
+        "slides": [
+          "₱500 ang budget sa exchange gift. Pwede namang hindi mug ulit.",
+          "Ceremonial-grade matcha, 30 g tin.",
+          "₱480, pasok sa ₱500."
+        ],
+        "caption": "Nabunot na ang pangalan, ₱500 ang budget, at ang madaling bilhin ay mug na naman o tumbler. Kaye's Matcha, ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, kaya pasok sa budget at may sukli pa. Mukhang pinag-isipan mo, kahit sa jeep mo lang in-order. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#exchangegift",
+          "#christmasgiftideas",
+          "#matchagift"
+        ],
+        "cta": "Message us",
+        "style": "note",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only Kaye's facts. The ₱500 is the office budget, not a price."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the office draw, not about how much the reader earns."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only coworker gift post."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "The exchange gift budget is ₱500. It doesn't have to be another mug.",
+            "slides": [
+              "The exchange gift budget is ₱500. It doesn't have to be another mug.",
+              "Ceremonial-grade matcha, 30 g tin.",
+              "₱480, under ₱500."
+            ],
+            "caption": "The name's drawn, the budget is ₱500, and the easy pick is another mug or tumbler. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, so it fits the budget with change to spare. It looks like you thought about it, even if you ordered it on the jeep. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "₱500 ang budget sa exchange gift. Hindi naman kailangang mug na naman.",
+            "slides": [
+              "₱500 ang budget sa exchange gift. Hindi naman kailangang mug na naman.",
+              "Ceremonial-grade na matcha, 30 g na lata.",
+              "₱480, pasok sa ₱500."
+            ],
+            "caption": "Nabunot na ang pangalan, ₱500 ang budget, at ang madaling bilhin ay mug na naman o tumbler. Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata, kaya pasok sa budget at may sukli pa. Mukhang pinag-isipan mo, kahit sa jeep mo lang inorder. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        }
+      },
+      {
+        "id": "v_matcha_a8",
+        "code": "A8",
+        "audienceId": "c15",
+        "audienceName": "Home bakers' Christmas crinkle orders",
+        "hook": "Christmas orders: tatlong batch ng crinkles, dapat matcha ang isa.",
+        "slides": [
+          "Christmas orders: tatlong batch ng crinkles, dapat matcha ang isa.",
+          "Ceremonial-grade, 30 g tins.",
+          "₱480 per tin."
+        ],
+        "caption": "Puno na ang order list ng December, chocolate at ube na ang dalawang batch ng crinkles, at may isang slot pa sa tray. Kaye's Matcha, ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin. Kung ilang tins ang kailangan mo para sa buong season, sabihin lang sa message. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#homebakerph",
+          "#crinkles",
+          "#christmasorders"
+        ],
+        "cta": "Message us",
+        "style": "soft",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "No bulk price or discount promised. Only the per-tin price."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the order list, not about the baker."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only bulk post."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Christmas orders: three batches of crinkles, and one should be matcha.",
+            "slides": [
+              "Christmas orders: three batches of crinkles, and one should be matcha.",
+              "Ceremonial-grade, 30 g tins.",
+              "₱480 per tin."
+            ],
+            "caption": "The December order list is full, two batches of crinkles are already chocolate and ube, and there's one slot left on the tray. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin. If you need several tins for the season, just say how many in your message. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Christmas orders: tatlong batch ng crinkles, dapat matcha ang isa.",
+            "slides": [
+              "Christmas orders: tatlong batch ng crinkles, dapat matcha ang isa.",
+              "Ceremonial-grade, 30 g na lata.",
+              "₱480 ang lata."
+            ],
+            "caption": "Puno na ang listahan ng order sa Disyembre, tsokolate at ube na ang dalawang batch ng crinkles, at may isang puwesto pa sa tray. Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata. Kung ilang lata ang kailangan mo para sa buong season, sabihin lang sa message. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        }
+      }
+    ],
+    "rejected": [
+      {
+        "id": "r_matcha_a2_1",
+        "audienceId": "c03",
+        "audienceName": "Getting ready for Cubao Expo",
+        "draft": {
+          "hook": "Hey gays! Cubao Expo tonight? Sana all may matcha 💚✨🍵",
+          "slides": [
+            "Hey gays! Cubao Expo tonight? Sana all may matcha 💚✨🍵",
+            "Para sa mga beks na laging puyat tuwing weekend!",
+            "₱480 lang, slay!"
+          ],
+          "caption": "Hey gays! Cubao Expo tonight? Sana all may matcha 💚✨🍵 Para sa mga beks na laging puyat tuwing weekend, Kaye's Matcha bago ang drag show. ₱480 lang, slay! Message us!"
+        },
+        "reasons": [
+          {
+            "kind": "policy",
+            "passed": false,
+            "note": "Calls the reader gay. Meta's rules don't allow ads that say or imply a viewer's sexuality, even as a friendly greeting. Keep Cubao Expo and the drag show, and talk about the night, not the person.",
+            "rule": "No lines about the reader's sexuality or gender identity",
+            "quote": "Hey gays!",
+            "type": "ad_policy"
+          },
+          {
+            "kind": "stereotype",
+            "passed": false,
+            "note": "Labels a group and pins a cliché on it. The scene already says it: thrift, gig, drag show, home whenever.",
+            "rule": "No clichés about a group",
+            "quote": "Para sa mga beks na laging puyat tuwing weekend",
+            "type": "stereotype"
+          },
+          {
+            "kind": "policy",
+            "passed": false,
+            "note": "'Sana all' as filler and three emoji read like a brand trying to sound young. Let one sharp line do the work.",
+            "rule": "No filler slang or more than 2 emoji",
+            "quote": "Sana all may matcha 💚✨🍵",
+            "type": "cringe"
+          }
+        ],
+        "fixedVersionId": "v_matcha_a2",
+        "round": 1
+      },
+      {
+        "id": "r_matcha_a4_1",
+        "audienceId": "c07",
+        "audienceName": "3 AM night shift breaks",
+        "draft": {
+          "hook": "Puyat ka na naman? Healthier than coffee, walang crash!",
+          "slides": [
+            "Puyat ka na naman? Healthier than coffee, walang crash!",
+            "May antioxidants pa para sa buong shift.",
+            "₱480 per tin."
+          ],
+          "caption": "Puyat ka na naman? Healthier than coffee ang Kaye's Matcha, walang crash, at may antioxidants pa para sa buong shift. ₱480 per tin. Message us!"
+        },
+        "reasons": [
+          {
+            "kind": "policy",
+            "passed": false,
+            "note": "Asks if the reader is sleep-deprived, which is a line about their health. Talk about the 3 AM break instead of the person on it.",
+            "rule": "No lines about the reader's health",
+            "quote": "Puyat ka na naman?",
+            "type": "ad_policy"
+          },
+          {
+            "kind": "policy",
+            "passed": false,
+            "note": "Kaye never said this, and 'healthier than' is a health claim. 'Walang crash' goes too, for the same reason.",
+            "rule": "Health claim: healthier than coffee",
+            "quote": "Healthier than coffee",
+            "type": "claim"
+          },
+          {
+            "kind": "policy",
+            "passed": false,
+            "note": "Another health claim Kaye didn't make. The post only needs the pantry, the tin and the price.",
+            "rule": "Health claim: antioxidants",
+            "quote": "may antioxidants pa",
+            "type": "claim"
+          }
+        ],
+        "fixedVersionId": "v_matcha_a4",
+        "round": 1
+      }
+    ],
+    "criticCanaryCaught": true,
+    "keptReasons": {
+      "c01": "A slow Saturday brunch at home is its own moment, and the market haul gives the post something to show.",
+      "c03": "Getting ready for a night out is a moment no other kept audience covers, and the Cubao Expo scene is specific.",
+      "c05": "Serving guests at home is sharing, not self-use, so it tests a different reason to buy.",
+      "c07": "A 3 AM break is a fixed, nightly moment with nothing else on offer, the clearest everyday use here.",
+      "c09": "Hosting the barkada is a shared moment and the only one where the matcha is made for a room.",
+      "c11": "A gift with a deadline and an answer already known, so it tests the most urgent reason to message.",
+      "c13": "A clear November moment with a budget that ₱480 fits, different from a gift for a partner.",
+      "c15": "The only kept audience that could order several tins at once, so it tests a bulk reason to buy."
+    },
+    "cuts": [
+      {
+        "id": "c02",
+        "category": "too_broad",
+        "reason": "Anyone who likes matcha is a fan, not a moment, so there is nothing specific to write a post for."
+      },
+      {
+        "id": "c04",
+        "category": "stereotype",
+        "reason": "This is a label about young women and an aesthetic, not a buying moment. 'Saturday brunch after Salcedo market' covers the same weekend as a moment."
+      },
+      {
+        "id": "c06",
+        "category": "stereotype",
+        "reason": "A label about age, gender and health, and reaching it would need health claims Kaye doesn't make. 'Guests coming over to the sala' covers hosting at home without labeling anyone."
+      },
+      {
+        "id": "c08",
+        "category": "duplicate",
+        "reason": "Same moment as '3 AM night shift breaks': a work break that needs a drink. The 3 AM break is more specific, so that one stays."
+      },
+      {
+        "id": "c10",
+        "category": "implausible",
+        "reason": "A pre-workout pitch needs an energy or fitness claim, and Kaye doesn't make any."
+      },
+      {
+        "id": "c12",
+        "category": "duplicate",
+        "reason": "Same moment as 'Last-minute monthsary gifts': a gift for a partner. Valentine's is three months away and the monthsary is this week."
+      },
+      {
+        "id": "c14",
+        "category": "duplicate",
+        "reason": "Same moment as 'Office exchange gift under ₱500': a small Christmas gift for someone. The office draw has a set budget, so that one stays."
+      },
+      {
+        "id": "c16",
+        "category": "implausible",
+        "reason": "Thirty-gram tins repacked at home can't supply a café's weekly volume, and Kaye hasn't set a wholesale price."
+      },
+      {
+        "id": "c17",
+        "category": "off_channel",
+        "reason": "Kaye sells on Shopee and Instagram, not TikTok, and this group is defined by an app, not by a moment."
+      },
+      {
+        "id": "c18",
+        "category": "off_channel",
+        "reason": "Kaye doesn't sell in stores, so people at the supermarket shelf can't buy where they are looking."
+      },
+      {
+        "id": "c19",
+        "category": "too_broad",
+        "reason": "Almost everyone drinks coffee, and the pitch leans on 'better than coffee', which is a claim Kaye doesn't make."
+      },
+      {
+        "id": "c20",
+        "category": "implausible",
+        "reason": "There's no hot water or whisk at a parking lot meet, so a powder you make at home doesn't fit the moment."
+      }
+    ],
+    "events": [
+      {
+        "id": "e01",
+        "at": 0,
+        "agent": "system",
+        "kind": "run_started",
+        "text": "Hunch started a test for Kaye's Matcha.",
+        "detail": "Sample replay. Kaye is a persona made for this demo."
+      },
+      {
+        "id": "e02",
+        "at": 795,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c01",
+        "text": "Strategist proposed 'Saturday brunch after Salcedo market'.",
+        "detail": "Saturday late morning, tote full of bread and flowers, brunch at home."
+      },
+      {
+        "id": "e03",
+        "at": 1273,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c02",
+        "text": "Strategist proposed 'Matcha lovers'.",
+        "detail": "Any time they want a matcha."
+      },
+      {
+        "id": "e04",
+        "at": 1750,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c03",
+        "text": "Strategist proposed 'Getting ready for Cubao Expo'.",
+        "detail": "Friday night, outfit half done, leaving for Cubao Expo in an hour."
+      },
+      {
+        "id": "e05",
+        "at": 2227,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c04",
+        "text": "Strategist proposed 'Soft-life weekend girls'.",
+        "detail": "Weekends, posting their routine."
+      },
+      {
+        "id": "e06",
+        "at": 2705,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c05",
+        "text": "Strategist proposed 'Guests coming over to the sala'.",
+        "detail": "Sunday afternoon, bisita on the way, the cabinet cups are already out."
+      },
+      {
+        "id": "e07",
+        "at": 3182,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c06",
+        "text": "Strategist proposed 'Health-conscious titas'.",
+        "detail": "Choosing drinks that feel healthier."
+      },
+      {
+        "id": "e08",
+        "at": 3659,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c07",
+        "text": "Strategist proposed '3 AM night shift breaks'.",
+        "detail": "Mid-shift break, the pantry is empty and the city is asleep."
+      },
+      {
+        "id": "e09",
+        "at": 4136,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c08",
+        "text": "Strategist proposed 'Afternoon break at the office pantry'.",
+        "detail": "3 PM at the office, looking for a drink."
+      },
+      {
+        "id": "e10",
+        "at": 4614,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c09",
+        "text": "Strategist proposed 'Barkada gaming night at the condo'.",
+        "detail": "Friday night, monitors set up, ranked games until morning."
+      },
+      {
+        "id": "e11",
+        "at": 5091,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c10",
+        "text": "Strategist proposed 'Gym-goers wanting a pre-workout'.",
+        "detail": "Before a workout."
+      },
+      {
+        "id": "e12",
+        "at": 5568,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c11",
+        "text": "Strategist proposed 'Last-minute monthsary gifts'.",
+        "detail": "Midweek, monthsary on Saturday, still no gift."
+      },
+      {
+        "id": "e13",
+        "at": 6045,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c12",
+        "text": "Strategist proposed 'Valentine's gift for a partner'.",
+        "detail": "February, choosing a gift."
+      },
+      {
+        "id": "e14",
+        "at": 6523,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c13",
+        "text": "Strategist proposed 'Office exchange gift under ₱500'.",
+        "detail": "Mid-November, the draw is done and the party is weeks away."
+      },
+      {
+        "id": "e15",
+        "at": 7000,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c14",
+        "text": "Strategist proposed 'Christmas gift for a matcha friend'.",
+        "detail": "December, making a gift list."
+      },
+      {
+        "id": "e16",
+        "at": 7477,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c15",
+        "text": "Strategist proposed 'Home bakers' Christmas crinkle orders'.",
+        "detail": "Early December, order list filling up, planning the flavors."
+      },
+      {
+        "id": "e17",
+        "at": 7955,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c16",
+        "text": "Strategist proposed 'Cafés buying matcha wholesale'.",
+        "detail": "Restocking matcha for the menu."
+      },
+      {
+        "id": "e18",
+        "at": 8432,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c17",
+        "text": "Strategist proposed 'TikTok matcha trend followers'.",
+        "detail": "Seeing a matcha video and wanting to try it."
+      },
+      {
+        "id": "e19",
+        "at": 8909,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c18",
+        "text": "Strategist proposed 'Supermarket tea aisle shoppers'.",
+        "detail": "The grocery run, standing at the tea shelf."
+      },
+      {
+        "id": "e20",
+        "at": 9386,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c19",
+        "text": "Strategist proposed 'Coffee drinkers wanting a change'.",
+        "detail": "Any morning."
+      },
+      {
+        "id": "e21",
+        "at": 9864,
+        "agent": "strategist",
+        "kind": "candidate_proposed",
+        "refId": "c20",
+        "text": "Strategist proposed 'Sunday car meet crowd'.",
+        "detail": "Sunday morning at a car meet in a parking lot."
+      },
+      {
+        "id": "e22",
+        "at": 10682,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c01",
+        "text": "Skeptic kept 'Saturday brunch after Salcedo market' as A1.",
+        "detail": "A slow Saturday brunch at home is its own moment, and the market haul gives the post something to show."
+      },
+      {
+        "id": "e23",
+        "at": 10977,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c02",
+        "text": "Skeptic dropped 'Matcha lovers': too broad, it's a fan, not a moment.",
+        "detail": "Anyone who likes matcha is a fan, not a moment, so there is nothing specific to write a post for."
+      },
+      {
+        "id": "e24",
+        "at": 11273,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c03",
+        "text": "Skeptic kept 'Getting ready for Cubao Expo' as A2.",
+        "detail": "Getting ready for a night out is a moment no other kept audience covers, and the Cubao Expo scene is specific."
+      },
+      {
+        "id": "e25",
+        "at": 11568,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c04",
+        "text": "Skeptic dropped 'Soft-life weekend girls': a label, not a buying moment.",
+        "detail": "This is a label about young women and an aesthetic, not a buying moment. 'Saturday brunch after Salcedo market' covers the same weekend as a moment."
+      },
+      {
+        "id": "e26",
+        "at": 11864,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c05",
+        "text": "Skeptic kept 'Guests coming over to the sala' as A3.",
+        "detail": "Serving guests at home is sharing, not self-use, so it tests a different reason to buy."
+      },
+      {
+        "id": "e27",
+        "at": 12159,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c06",
+        "text": "Skeptic dropped 'Health-conscious titas': a label about age and health, not a moment.",
+        "detail": "A label about age, gender and health, and reaching it would need health claims Kaye doesn't make. 'Guests coming over to the sala' covers hosting at home without labeling anyone."
+      },
+      {
+        "id": "e28",
+        "at": 12455,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c07",
+        "text": "Skeptic kept '3 AM night shift breaks' as A4.",
+        "detail": "A 3 AM break is a fixed, nightly moment with nothing else on offer, the clearest everyday use here."
+      },
+      {
+        "id": "e29",
+        "at": 12750,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c08",
+        "text": "Skeptic dropped 'Afternoon break at the office pantry': same moment as '3 AM night shift breaks'.",
+        "detail": "Same moment as '3 AM night shift breaks': a work break that needs a drink. The 3 AM break is more specific, so that one stays."
+      },
+      {
+        "id": "e30",
+        "at": 13045,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c09",
+        "text": "Skeptic kept 'Barkada gaming night at the condo' as A5.",
+        "detail": "Hosting the barkada is a shared moment and the only one where the matcha is made for a room."
+      },
+      {
+        "id": "e31",
+        "at": 13341,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c10",
+        "text": "Skeptic dropped 'Gym-goers wanting a pre-workout': it needs an energy claim Kaye doesn't make.",
+        "detail": "A pre-workout pitch needs an energy or fitness claim, and Kaye doesn't make any."
+      },
+      {
+        "id": "e32",
+        "at": 13636,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c11",
+        "text": "Skeptic kept 'Last-minute monthsary gifts' as A6.",
+        "detail": "A gift with a deadline and an answer already known, so it tests the most urgent reason to message."
+      },
+      {
+        "id": "e33",
+        "at": 13932,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c12",
+        "text": "Skeptic dropped 'Valentine's gift for a partner': same moment as 'Last-minute monthsary gifts'.",
+        "detail": "Same moment as 'Last-minute monthsary gifts': a gift for a partner. Valentine's is three months away and the monthsary is this week."
+      },
+      {
+        "id": "e34",
+        "at": 14227,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c13",
+        "text": "Skeptic kept 'Office exchange gift under ₱500' as A7.",
+        "detail": "A clear November moment with a budget that ₱480 fits, different from a gift for a partner."
+      },
+      {
+        "id": "e35",
+        "at": 14523,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c14",
+        "text": "Skeptic dropped 'Christmas gift for a matcha friend': same moment as 'Office exchange gift under ₱500'.",
+        "detail": "Same moment as 'Office exchange gift under ₱500': a small Christmas gift for someone. The office draw has a set budget, so that one stays."
+      },
+      {
+        "id": "e36",
+        "at": 14818,
+        "agent": "skeptic",
+        "kind": "audience_kept",
+        "refId": "c15",
+        "text": "Skeptic kept 'Home bakers' Christmas crinkle orders' as A8.",
+        "detail": "The only kept audience that could order several tins at once, so it tests a bulk reason to buy."
+      },
+      {
+        "id": "e37",
+        "at": 15114,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c16",
+        "text": "Skeptic dropped 'Cafés buying matcha wholesale': home-repacked tins can't supply a café.",
+        "detail": "Thirty-gram tins repacked at home can't supply a café's weekly volume, and Kaye hasn't set a wholesale price."
+      },
+      {
+        "id": "e38",
+        "at": 15409,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c17",
+        "text": "Skeptic dropped 'TikTok matcha trend followers': Kaye doesn't sell on TikTok.",
+        "detail": "Kaye sells on Shopee and Instagram, not TikTok, and this group is defined by an app, not by a moment."
+      },
+      {
+        "id": "e39",
+        "at": 15705,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c18",
+        "text": "Skeptic dropped 'Supermarket tea aisle shoppers': Kaye doesn't sell in stores.",
+        "detail": "Kaye doesn't sell in stores, so people at the supermarket shelf can't buy where they are looking."
+      },
+      {
+        "id": "e40",
+        "at": 16000,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c19",
+        "text": "Skeptic dropped 'Coffee drinkers wanting a change': too broad, and it leans on a coffee claim.",
+        "detail": "Almost everyone drinks coffee, and the pitch leans on 'better than coffee', which is a claim Kaye doesn't make."
+      },
+      {
+        "id": "e41",
+        "at": 16295,
+        "agent": "skeptic",
+        "kind": "candidate_rejected",
+        "refId": "c20",
+        "text": "Skeptic dropped 'Sunday car meet crowd': no hot water or whisk at a car meet.",
+        "detail": "There's no hot water or whisk at a parking lot meet, so a powder you make at home doesn't fit the moment."
+      },
+      {
+        "id": "e42",
+        "at": 17727,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A1",
+        "text": "Copywriter drafted A1 for 'Saturday brunch after Salcedo market'.",
+        "detail": "Salcedo haul: sourdough, bulaklak, at matcha na ikaw mismo ang nag-whisk."
+      },
+      {
+        "id": "e43",
+        "at": 18409,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A2",
+        "text": "Copywriter drafted A2 for 'Getting ready for Cubao Expo'.",
+        "detail": "Hey gays! Cubao Expo tonight? Sana all may matcha 💚✨🍵"
+      },
+      {
+        "id": "e44",
+        "at": 18977,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A3",
+        "text": "Copywriter drafted A3 for 'Guests coming over to the sala'.",
+        "detail": "Nilabas na ang pang-bisitang tasa. Wag naman 3-in-1 ang laman."
+      },
+      {
+        "id": "e45",
+        "at": 19205,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A1",
+        "text": "Reviewer approved A1.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e46",
+        "at": 19659,
+        "agent": "reviewer",
+        "kind": "revision_requested",
+        "refId": "A2",
+        "text": "Reviewer sent A2 back: 'Hey gays' labels the reader. Keep the scene, drop the label.",
+        "detail": "Calls the reader gay. Meta's rules don't allow ads that say or imply a viewer's sexuality, even as a friendly greeting. Keep Cubao Expo and the drag show, and talk about the night, not the person."
+      },
+      {
+        "id": "e47",
+        "at": 19773,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A4",
+        "text": "Copywriter drafted A4 for '3 AM night shift breaks'.",
+        "detail": "Puyat ka na naman? Healthier than coffee, walang crash!"
+      },
+      {
+        "id": "e48",
+        "at": 20341,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A3",
+        "text": "Reviewer approved A3.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e49",
+        "at": 20795,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A5",
+        "text": "Copywriter drafted A5 for 'Barkada gaming night at the condo'.",
+        "detail": "Ranked hanggang 4 AM sa condo. Yung flex: ikaw ang marunong mag-whisk."
+      },
+      {
+        "id": "e50",
+        "at": 21364,
+        "agent": "reviewer",
+        "kind": "revision_requested",
+        "refId": "A4",
+        "text": "Reviewer sent A4 back: 'healthier than coffee' and 'antioxidants' are health claims.",
+        "detail": "Asks if the reader is sleep-deprived, which is a line about their health. Talk about the 3 AM break instead of the person on it."
+      },
+      {
+        "id": "e51",
+        "at": 21591,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A6",
+        "text": "Copywriter drafted A6 for 'Last-minute monthsary gifts'.",
+        "detail": "Monthsary sa Sabado. Matcha ang lagi niyang order. Alam mo na 'to."
+      },
+      {
+        "id": "e52",
+        "at": 22045,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A5",
+        "text": "Reviewer approved A5.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e53",
+        "at": 22159,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A7",
+        "text": "Copywriter drafted A7 for 'Office exchange gift under ₱500'.",
+        "detail": "₱500 ang budget sa exchange gift. Pwede namang hindi mug ulit."
+      },
+      {
+        "id": "e54",
+        "at": 22841,
+        "agent": "copywriter",
+        "kind": "post_revised",
+        "refId": "A2",
+        "text": "Copywriter rewrote A2 around the night at Cubao Expo. Same nerve, no label, no emoji.",
+        "detail": "Cubao Expo mamaya. 10 PM ang drag show, 9 PM ang matcha mo."
+      },
+      {
+        "id": "e55",
+        "at": 22955,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A6",
+        "text": "Reviewer approved A6.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e56",
+        "at": 23523,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A7",
+        "text": "Reviewer approved A7.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e57",
+        "at": 23750,
+        "agent": "copywriter",
+        "kind": "post_drafted",
+        "refId": "A8",
+        "text": "Copywriter drafted A8 for 'Home bakers' Christmas crinkle orders'.",
+        "detail": "Christmas orders: tatlong batch ng crinkles, dapat matcha ang isa."
+      },
+      {
+        "id": "e58",
+        "at": 24432,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A2",
+        "text": "Reviewer approved A2 on the second round.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e59",
+        "at": 25114,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A8",
+        "text": "Reviewer approved A8.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e60",
+        "at": 25682,
+        "agent": "copywriter",
+        "kind": "post_revised",
+        "refId": "A4",
+        "text": "Copywriter rewrote A4 around the 3 AM pantry. No health words.",
+        "detail": "3 AM break. Tulog ang buong city, ikaw nagwi-whisk sa pantry."
+      },
+      {
+        "id": "e61",
+        "at": 27955,
+        "agent": "reviewer",
+        "kind": "post_approved",
+        "refId": "A4",
+        "text": "Reviewer approved A4 on the second round.",
+        "detail": "Passed the policy, stereotype and duplicate checks."
+      },
+      {
+        "id": "e62",
+        "at": 30000,
+        "agent": "system",
+        "kind": "run_ready",
+        "text": "All 8 posts are ready. See your 8 hunches."
+      }
+    ]
+  },
+  "report": {
+    "runId": "run_matcha_sample",
+    "mode": "sample",
+    "days": 3,
+    "totalSpend": 792,
+    "metrics": [
+      {
+        "versionId": "v_matcha_a6",
+        "code": "A6",
+        "audienceName": "Last-minute monthsary gifts",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 2780,
+        "reach": 2190,
+        "clicks": 34,
+        "saves": 14,
+        "shares": 17,
+        "comments": 13,
+        "reactions": 52,
+        "engagements": 130,
+        "engagementsPer100": 131.3,
+        "savesSharesPer1k": 11.2,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 313,
+            "engagements": 14
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 421,
+            "engagements": 20
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 23,
+            "engagements": 1
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 545,
+            "engagements": 27
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 728,
+            "engagements": 35
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 33,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 176,
+            "engagements": 8
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 271,
+            "engagements": 13
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 14,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 67,
+            "engagements": 2
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 94,
+            "engagements": 5
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 5,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 20,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 35,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 12,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 19,
+            "engagements": 1
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 1446,
+            "engagements": 68
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 695,
+            "engagements": 32
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 361,
+            "engagements": 17
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 278,
+            "engagements": 13
+          }
+        ],
+        "rank": 1,
+        "results": 15,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 34,
+        "costPerResult": 6.6,
+        "adName": "A6 Monthsary gift"
+      },
+      {
+        "versionId": "v_matcha_a4",
+        "code": "A4",
+        "audienceName": "3 AM night shift breaks",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 3020,
+        "reach": 2400,
+        "clicks": 28,
+        "saves": 15,
+        "shares": 9,
+        "comments": 10,
+        "reactions": 48,
+        "engagements": 110,
+        "engagementsPer100": 111.1,
+        "savesSharesPer1k": 7.9,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 394,
+            "engagements": 14
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 397,
+            "engagements": 14
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 25,
+            "engagements": 1
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 710,
+            "engagements": 28
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 727,
+            "engagements": 28
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 37,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 220,
+            "engagements": 8
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 252,
+            "engagements": 9
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 12,
+            "engagements": 0
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 85,
+            "engagements": 3
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 88,
+            "engagements": 2
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 5,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 15,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 17,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 17,
+            "engagements": 1
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 15,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 1480,
+            "engagements": 54
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 755,
+            "engagements": 28
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 423,
+            "engagements": 15
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 362,
+            "engagements": 13
+          }
+        ],
+        "rank": 2,
+        "results": 11,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 28,
+        "costPerResult": 9.0,
+        "adName": "A4 3 AM break"
+      },
+      {
+        "versionId": "v_matcha_a3",
+        "code": "A3",
+        "audienceName": "Guests coming over to the sala",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 3190,
+        "reach": 2570,
+        "clicks": 25,
+        "saves": 12,
+        "shares": 8,
+        "comments": 11,
+        "reactions": 45,
+        "engagements": 101,
+        "engagementsPer100": 102.0,
+        "savesSharesPer1k": 6.3,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 98,
+            "engagements": 3
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 74,
+            "engagements": 2
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 6,
+            "engagements": 0
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 365,
+            "engagements": 14
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 278,
+            "engagements": 10
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 20,
+            "engagements": 0
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 476,
+            "engagements": 16
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 456,
+            "engagements": 15
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 28,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 430,
+            "engagements": 13
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 362,
+            "engagements": 11
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 23,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 249,
+            "engagements": 7
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 160,
+            "engagements": 5
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 13,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 80,
+            "engagements": 2
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 67,
+            "engagements": 2
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 5,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 1468,
+            "engagements": 47
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 829,
+            "engagements": 26
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 542,
+            "engagements": 17
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 351,
+            "engagements": 11
+          }
+        ],
+        "rank": 3,
+        "results": 9,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 25,
+        "costPerResult": 11.0,
+        "adName": "A3 Guests in the sala"
+      },
+      {
+        "versionId": "v_matcha_a2",
+        "code": "A2",
+        "audienceName": "Getting ready for Cubao Expo",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 3350,
+        "reach": 2700,
+        "clicks": 24,
+        "saves": 13,
+        "shares": 7,
+        "comments": 7,
+        "reactions": 43,
+        "engagements": 94,
+        "engagementsPer100": 94.9,
+        "savesSharesPer1k": 6.0,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 636,
+            "engagements": 17
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 556,
+            "engagements": 16
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 28,
+            "engagements": 1
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 735,
+            "engagements": 22
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 652,
+            "engagements": 20
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 41,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 226,
+            "engagements": 6
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 188,
+            "engagements": 6
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 11,
+            "engagements": 0
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 94,
+            "engagements": 2
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 75,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 5,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 32,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 33,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 3,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 16,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 17,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 1843,
+            "engagements": 52
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 804,
+            "engagements": 23
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 435,
+            "engagements": 12
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 268,
+            "engagements": 7
+          }
+        ],
+        "rank": 4,
+        "results": 8,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 24,
+        "costPerResult": 12.38,
+        "adName": "A2 Cubao Expo night"
+      },
+      {
+        "versionId": "v_matcha_a1",
+        "code": "A1",
+        "audienceName": "Saturday brunch after Salcedo market",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 3600,
+        "reach": 2900,
+        "clicks": 23,
+        "saves": 11,
+        "shares": 5,
+        "comments": 6,
+        "reactions": 41,
+        "engagements": 86,
+        "engagementsPer100": 86.9,
+        "savesSharesPer1k": 4.4,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 411,
+            "engagements": 10
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 270,
+            "engagements": 7
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 19,
+            "engagements": 0
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 1004,
+            "engagements": 25
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 651,
+            "engagements": 15
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 46,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 423,
+            "engagements": 11
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 316,
+            "engagements": 9
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 22,
+            "engagements": 0
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 170,
+            "engagements": 4
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 118,
+            "engagements": 2
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 9,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 59,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 41,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 4,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 22,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 13,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 2088,
+            "engagements": 50
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 792,
+            "engagements": 19
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 432,
+            "engagements": 10
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 288,
+            "engagements": 7
+          }
+        ],
+        "rank": 5,
+        "results": 7,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 23,
+        "costPerResult": 14.14,
+        "adName": "A1 Salcedo Saturday"
+      },
+      {
+        "versionId": "v_matcha_a7",
+        "code": "A7",
+        "audienceName": "Office exchange gift under ₱500",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 3410,
+        "reach": 2760,
+        "clicks": 21,
+        "saves": 7,
+        "shares": 4,
+        "comments": 6,
+        "reactions": 38,
+        "engagements": 76,
+        "engagementsPer100": 76.8,
+        "savesSharesPer1k": 3.2,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 347,
+            "engagements": 9
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 229,
+            "engagements": 5
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 18,
+            "engagements": 0
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 785,
+            "engagements": 18
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 650,
+            "engagements": 14
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 37,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 359,
+            "engagements": 9
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 383,
+            "engagements": 9
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 21,
+            "engagements": 0
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 173,
+            "engagements": 4
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 176,
+            "engagements": 4
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 11,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 98,
+            "engagements": 2
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 79,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 5,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 20,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 17,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 1705,
+            "engagements": 38
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 853,
+            "engagements": 19
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 477,
+            "engagements": 11
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 375,
+            "engagements": 8
+          }
+        ],
+        "rank": 6,
+        "results": 6,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 21,
+        "costPerResult": 16.5,
+        "adName": "A7 Exchange gift under 500"
+      },
+      {
+        "versionId": "v_matcha_a5",
+        "code": "A5",
+        "audienceName": "Barkada gaming night at the condo",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 2420,
+        "reach": 1980,
+        "clicks": 17,
+        "saves": 5,
+        "shares": 4,
+        "comments": 5,
+        "reactions": 33,
+        "engagements": 64,
+        "engagementsPer100": 64.6,
+        "savesSharesPer1k": 3.7,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 364,
+            "engagements": 9
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 472,
+            "engagements": 12
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 21,
+            "engagements": 1
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 379,
+            "engagements": 11
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 670,
+            "engagements": 19
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 25,
+            "engagements": 1
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 120,
+            "engagements": 3
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 187,
+            "engagements": 6
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 7,
+            "engagements": 0
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 48,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 68,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 4,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 11,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 16,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 10,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 14,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 1210,
+            "engagements": 32
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 605,
+            "engagements": 16
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 339,
+            "engagements": 9
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 266,
+            "engagements": 7
+          }
+        ],
+        "rank": 7,
+        "results": 5,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 17,
+        "costPerResult": 19.8,
+        "adName": "A5 Barkada gaming night"
+      },
+      {
+        "versionId": "v_matcha_a8",
+        "code": "A8",
+        "audienceName": "Home bakers' Christmas crinkle orders",
+        "matchedBy": "code",
+        "spend": 99,
+        "impressions": 1720,
+        "reach": 1410,
+        "clicks": 8,
+        "saves": 3,
+        "shares": 1,
+        "comments": 2,
+        "reactions": 20,
+        "engagements": 34,
+        "engagementsPer100": 34.3,
+        "savesSharesPer1k": 2.3,
+        "breakdown": [
+          {
+            "age": "18-24",
+            "gender": "female",
+            "impressions": 113,
+            "engagements": 3
+          },
+          {
+            "age": "18-24",
+            "gender": "male",
+            "impressions": 76,
+            "engagements": 1
+          },
+          {
+            "age": "18-24",
+            "gender": "unknown",
+            "impressions": 6,
+            "engagements": 0
+          },
+          {
+            "age": "25-34",
+            "gender": "female",
+            "impressions": 389,
+            "engagements": 9
+          },
+          {
+            "age": "25-34",
+            "gender": "male",
+            "impressions": 218,
+            "engagements": 4
+          },
+          {
+            "age": "25-34",
+            "gender": "unknown",
+            "impressions": 18,
+            "engagements": 0
+          },
+          {
+            "age": "35-44",
+            "gender": "female",
+            "impressions": 331,
+            "engagements": 6
+          },
+          {
+            "age": "35-44",
+            "gender": "male",
+            "impressions": 185,
+            "engagements": 4
+          },
+          {
+            "age": "35-44",
+            "gender": "unknown",
+            "impressions": 14,
+            "engagements": 0
+          },
+          {
+            "age": "45-54",
+            "gender": "female",
+            "impressions": 157,
+            "engagements": 4
+          },
+          {
+            "age": "45-54",
+            "gender": "male",
+            "impressions": 88,
+            "engagements": 1
+          },
+          {
+            "age": "45-54",
+            "gender": "unknown",
+            "impressions": 7,
+            "engagements": 0
+          },
+          {
+            "age": "55-64",
+            "gender": "female",
+            "impressions": 51,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "male",
+            "impressions": 28,
+            "engagements": 1
+          },
+          {
+            "age": "55-64",
+            "gender": "unknown",
+            "impressions": 3,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "female",
+            "impressions": 19,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "male",
+            "impressions": 15,
+            "engagements": 0
+          },
+          {
+            "age": "65+",
+            "gender": "unknown",
+            "impressions": 2,
+            "engagements": 0
+          }
+        ],
+        "regions": [
+          {
+            "region": "Metro Manila",
+            "impressions": 757,
+            "engagements": 15
+          },
+          {
+            "region": "Calabarzon",
+            "impressions": 482,
+            "engagements": 10
+          },
+          {
+            "region": "Central Luzon",
+            "impressions": 275,
+            "engagements": 5
+          },
+          {
+            "region": "Central Visayas",
+            "impressions": 206,
+            "engagements": 4
+          }
+        ],
+        "rank": 8,
+        "results": 1,
+        "resultType": "Messaging conversations started",
+        "linkClicks": 8,
+        "costPerResult": 99.0,
+        "adName": "A8 Home baker crinkle orders"
+      }
+    ],
+    "winnerId": "v_matcha_a6",
+    "runnerUpId": "v_matcha_a4",
+    "icp": {
+      "headline": "Your people: last-minute monthsary gifts.",
+      "audienceName": "Last-minute monthsary gifts",
+      "who": "Someone whose monthsary is days away and whose partner orders matcha on every café date. Midweek, monthsary on Saturday, still no gift.",
+      "reachedMostly": "Mostly men, largest group 25-34, about half in Metro Manila",
+      "whatWorked": [
+        "A6 started 15 message conversations for ₱99. A4 came next with 11.",
+        "It also had the most engagement: 130, against 110 for A4.",
+        "The hook named the moment, not the person: \"Monthsary sa Sabado. Matcha ang lagi niyang order. Alam mo na 'to.\""
+      ],
+      "whatToPostNext": [
+        "Show the tin and the whisk set together, ready to hand over: ₱480 and ₱350.",
+        "Give them the words: a card line, a first cup, a café date at home.",
+        "Keep day 4 for 3 AM night shift breaks, to see if second place holds."
+      ],
+      "confidence": "strong",
+      "caveat": "Each audience got ₱99 for 3 days, so these are small numbers: 15 conversations against 11. That clears Hunch's bar for a clear lead, but with numbers this small, next week's posts are the real check on whether it holds past one monthsary weekend."
+    },
+    "unmatchedRows": [],
+    "notes": [
+      "Using sample results. No real ads were run.",
+      "Kaye is a persona made for this demo."
+    ],
+    "resultType": "Messaging conversations started",
+    "verdict": {
+      "metric": "cost_per_result",
+      "ranking": [
+        {
+          "code": "A6",
+          "value": 6.6
+        },
+        {
+          "code": "A4",
+          "value": 9.0
+        },
+        {
+          "code": "A3",
+          "value": 11.0
+        },
+        {
+          "code": "A2",
+          "value": 12.38
+        },
+        {
+          "code": "A1",
+          "value": 14.14
+        },
+        {
+          "code": "A7",
+          "value": 16.5
+        },
+        {
+          "code": "A5",
+          "value": 19.8
+        },
+        {
+          "code": "A8",
+          "value": 99.0
+        }
+      ],
+      "winnerCode": "A6",
+      "runnerUpCode": "A4",
+      "confidence": "high",
+      "explanation": "Last-minute monthsary gifts won: A6 started 15 message conversations for ₱99. 3 AM night shift breaks came second with 11. Next week, aim six posts at the monthsary gift and keep day 4 to test the 3 AM break again.",
+      "caveats": [],
+      "caveatChecks": [
+        {
+          "rule": "Total spend under ₱400",
+          "fired": false,
+          "value": "₱792 total"
+        },
+        {
+          "rule": "Runner-up within 10%",
+          "fired": false,
+          "value": "26.7% behind"
+        },
+        {
+          "rule": "Spend differs by more than 20% between audiences",
+          "fired": false,
+          "value": "₱99 each"
+        }
+      ],
+      "margin": {
+        "winnerCostPerResult": 6.6,
+        "runnerUpCostPerResult": 9.0,
+        "percentCheaper": 26.7,
+        "percentMoreForRunnerUp": 36.4,
+        "winnerResults": 15
+      }
+    }
+  },
+  "focus": {
+    "mode": "sample",
+    "audience": {
+      "id": "c11",
+      "name": "Last-minute monthsary gifts",
+      "who": "Someone whose monthsary is days away and whose partner orders matcha on every café date.",
+      "situation": "Midweek, monthsary on Saturday, still no gift.",
+      "whyItFits": "The gift is already decided by every café receipt, and a tin plus a whisk set feels thought through, not grabbed.",
+      "whereTheyAre": [
+        "#monthsary",
+        "#giftideasph",
+        "couple and dating creators",
+        "gift idea pages on Instagram"
+      ],
+      "tone": "Confident and a little flirtatious, like a friend who's good at gifts.",
+      "motive": "gifting"
+    },
+    "posts": [
+      {
+        "id": "v_matcha_p1",
+        "code": "P1",
+        "audienceId": "c11",
+        "audienceName": "Last-minute monthsary gifts",
+        "hook": "Tin sa isang kamay, whisk sa kabila. Tapos na ang monthsary gift.",
+        "slides": [
+          "Tin sa isang kamay, whisk sa kabila. Tapos na ang monthsary gift.",
+          "30 g tin, ₱480.",
+          "Bamboo whisk set, ₱350."
+        ],
+        "caption": "Walang kailangang i-wrap nang bongga. Ang Kaye's Matcha ay ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin. Itabi mo ang ₱350 na bamboo whisk set, iabot nang sabay, at hayaan mong siya ang mag-figure out ng unang cup. Kayo na ang bahala sa date. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#monthsary",
+          "#giftideasph",
+          "#matchagift"
+        ],
+        "cta": "Message us",
+        "style": "soft",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "No gift wrap promised."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About handing over the gift, not about the giver."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "Shows the pair, different from A6."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Tin in one hand, whisk in the other. Monthsary gift, done.",
+            "slides": [
+              "Tin in one hand, whisk in the other. Monthsary gift, done.",
+              "30 g tin, ₱480.",
+              "Bamboo whisk set, ₱350."
+            ],
+            "caption": "No fancy wrapping needed. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin. Put the ₱350 bamboo whisk set next to it, hand them over together, and let them figure out the first cup. The date is up to you two. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Lata sa isang kamay, whisk sa kabila. Tapos na ang regalo sa monthsary.",
+            "slides": [
+              "Lata sa isang kamay, whisk sa kabila. Tapos na ang regalo sa monthsary.",
+              "30 g na lata, ₱480.",
+              "Bamboo whisk set, ₱350."
+            ],
+            "caption": "Hindi na kailangan ng magarbong balot. Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata. Itabi mo ang ₱350 na bamboo whisk set, iabot nang sabay, at hayaan mong siya ang tumuklas ng unang tasa. Kayo na ang bahala sa date. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "day": "Day 1",
+        "theme": "The gift, ready to hand over",
+        "purpose": "winner"
+      },
+      {
+        "id": "v_matcha_p2",
+        "code": "P2",
+        "audienceId": "c11",
+        "audienceName": "Last-minute monthsary gifts",
+        "hook": "Isulat sa card: matcha, konting tubig, whisk, gatas at yelo. Ikaw na ang barista ko.",
+        "slides": [
+          "Isulat sa card: matcha, konting tubig, whisk, gatas at yelo. Ikaw na ang barista ko.",
+          "Ceremonial-grade, 30 g tin.",
+          "₱480 per tin."
+        ],
+        "caption": "Kung matcha ang regalo, isama mo na ang instructions, pero gawin mong sweet. Isang card: matcha, konting tubig, whisk, gatas at yelo, at sa dulo, 'ikaw na ang barista ko.' Kaye's Matcha, ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin. ₱350 ang bamboo whisk set. Comment 'order' at mag-message kami.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#monthsary",
+          "#matchaathome",
+          "#icedmatcha"
+        ],
+        "cta": "Comment 'order'",
+        "style": "note",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "No amounts or health words, just the steps."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the card, not about the couple."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "A how-to, different from Day 1."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Write on the card: matcha, a little water, whisk, milk, ice. You're my barista now.",
+            "slides": [
+              "Write on the card: matcha, a little water, whisk, milk, ice. You're my barista now.",
+              "Ceremonial-grade, 30 g tin.",
+              "₱480 per tin."
+            ],
+            "caption": "If the gift is matcha, put the instructions in, but make them sweet. One card: matcha, a little water, whisk, milk and ice, and at the bottom, 'you're my barista now.' Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin. The bamboo whisk set is ₱350. Comment 'order' and we'll message you.",
+            "cta": "Comment 'order'"
+          },
+          "tagalog": {
+            "hook": "Isulat sa card: matcha, kaunting tubig, whisk, gatas at yelo. Ikaw na ang barista ko.",
+            "slides": [
+              "Isulat sa card: matcha, kaunting tubig, whisk, gatas at yelo. Ikaw na ang barista ko.",
+              "Ceremonial-grade, 30 g na lata.",
+              "₱480 ang lata."
+            ],
+            "caption": "Kung matcha ang regalo, isama mo na ang paraan, pero gawin mong matamis. Isang card: matcha, kaunting tubig, whisk, gatas at yelo, at sa dulo, 'ikaw na ang barista ko.' Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata. ₱350 ang bamboo whisk set. Mag-comment ng 'order' at ime-message ka namin.",
+            "cta": "Mag-comment ng 'order'"
+          }
+        },
+        "day": "Day 2",
+        "theme": "Their first cup at home",
+        "purpose": "winner"
+      },
+      {
+        "id": "v_matcha_p3",
+        "code": "P3",
+        "audienceId": "c11",
+        "audienceName": "Last-minute monthsary gifts",
+        "hook": "Bawat tin, sa kitchen table namin nire-repack. Ikaw ang bahala sa ribbon.",
+        "slides": [
+          "Bawat tin, sa kitchen table namin nire-repack. Ikaw ang bahala sa ribbon.",
+          "30 g tins, repacked at home.",
+          "₱480 per tin."
+        ],
+        "caption": "Walang factory dito. Ang Kaye's Matcha ay ceremonial-grade, repacked at home into 30 g tins, isa-isa, sa kitchen table. Kaya kapag monthsary gift ang hanap mo, alam mong may taong naglagay niyan sa tin bago mo pa siya naisip. ₱480 per tin, ₱350 ang bamboo whisk set. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#smallbusinessph",
+          "#monthsary",
+          "#matchagift"
+        ],
+        "cta": "Message us",
+        "style": "note",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only says it's repacked at home, nothing about sourcing."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the kitchen table, not about the buyer."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only behind-the-scenes post."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Every tin gets repacked at our kitchen table. The ribbon is on you.",
+            "slides": [
+              "Every tin gets repacked at our kitchen table. The ribbon is on you.",
+              "30 g tins, repacked at home.",
+              "₱480 per tin."
+            ],
+            "caption": "There's no factory here. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins, one at a time, at the kitchen table. So when you're looking for a monthsary gift, someone already filled that tin before you thought of them. ₱480 per tin, ₱350 for the bamboo whisk set. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Bawat lata, sa mesa sa kusina namin nire-repack. Ikaw na ang bahala sa laso.",
+            "slides": [
+              "Bawat lata, sa mesa sa kusina namin nire-repack. Ikaw na ang bahala sa laso.",
+              "30 g na lata, nire-repack sa bahay.",
+              "₱480 ang lata."
+            ],
+            "caption": "Walang pabrika rito. Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata, isa-isa, sa mesa sa kusina. Kaya kapag regalo sa monthsary ang hanap mo, may taong naglagay na niyan sa lata bago mo pa siya naisip. ₱480 ang isang lata, ₱350 ang bamboo whisk set. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "day": "Day 3",
+        "theme": "Behind the scenes: repacking at home",
+        "purpose": "winner"
+      },
+      {
+        "id": "v_matcha_p4",
+        "code": "P4",
+        "audienceId": "c07",
+        "audienceName": "3 AM night shift breaks",
+        "hook": "ID, charger, headset, matcha tin. Kumpleto na ang bag pang-shift.",
+        "slides": [
+          "ID, charger, headset, matcha tin. Kumpleto na ang bag pang-shift.",
+          "Ceremonial-grade, 30 g tin.",
+          "₱480 per tin."
+        ],
+        "caption": "Alam mo na ang checklist bago umalis ng 9 PM: ID, charger, headset. Idagdag ang tin. Kaye's Matcha, ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, at ₱350 ang bamboo whisk set na pwedeng iwan sa locker. Pagdating ng 3 AM break, hindi ka na pipila sa vending machine. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#nightshift",
+          "#bpolife",
+          "#3ambreak"
+        ],
+        "cta": "Message us",
+        "style": "bold",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "No health or energy words."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the shift bag, not about the worker."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "A fresh hook for the runner-up, different from A4."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "ID, charger, headset, matcha tin. The shift bag is complete.",
+            "slides": [
+              "ID, charger, headset, matcha tin. The shift bag is complete.",
+              "Ceremonial-grade, 30 g tin.",
+              "₱480 per tin."
+            ],
+            "caption": "You know the checklist before leaving at 9 PM: ID, charger, headset. Add the tin. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, and the ₱350 bamboo whisk set can live in your locker. When the 3 AM break comes, you skip the vending machine line. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "ID, charger, headset, lata ng matcha. Kumpleto na ang bag pang-shift.",
+            "slides": [
+              "ID, charger, headset, lata ng matcha. Kumpleto na ang bag pang-shift.",
+              "Ceremonial-grade, 30 g na lata.",
+              "₱480 ang lata."
+            ],
+            "caption": "Alam mo na ang listahan bago umalis ng alas-nuwebe ng gabi: ID, charger, headset. Idagdag ang lata. Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata, at ₱350 ang bamboo whisk set na puwedeng iwan sa locker. Pagdating ng break ng alas-tres, hindi ka na pipila sa vending machine. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "day": "Day 4",
+        "theme": "The tin in the shift bag",
+        "purpose": "runner_up_test"
+      },
+      {
+        "id": "v_matcha_p5",
+        "code": "P5",
+        "audienceId": "c11",
+        "audienceName": "Last-minute monthsary gifts",
+        "hook": "Same order sa bawat café date. This time, ikaw ang gagawa.",
+        "slides": [
+          "Same order sa bawat café date. This time, ikaw ang gagawa.",
+          "Ceremonial-grade, 30 g tin, ₱480.",
+          "Bamboo whisk set, ₱350."
+        ],
+        "caption": "Ilang date na sa café, at kabisado mo na ang order niya. Ngayong monthsary, sa bahay na ang café, at ikaw ang barista. Kaye's Matcha, ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, at ₱350 ang bamboo whisk set. Hindi mo kailangang maging magaling. Kailangan mo lang tandaan kung paano niya gusto. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#monthsary",
+          "#datenightph",
+          "#matchaathome"
+        ],
+        "cta": "Message us",
+        "style": "bold",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only Kaye's facts."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the date, never who is dating whom."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "A date idea, different from the gift posts."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Same order on every café date. This time, you're making it.",
+            "slides": [
+              "Same order on every café date. This time, you're making it.",
+              "Ceremonial-grade, 30 g tin, ₱480.",
+              "Bamboo whisk set, ₱350."
+            ],
+            "caption": "A few café dates in, and you know the order by heart. This monthsary, the café is at home and you're the barista. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, and the bamboo whisk set is ₱350. You don't have to be good at it. You just have to remember how they like it. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Iisa ang order sa bawat date sa café. Ngayon, ikaw ang gagawa.",
+            "slides": [
+              "Iisa ang order sa bawat date sa café. Ngayon, ikaw ang gagawa.",
+              "Ceremonial-grade, 30 g na lata, ₱480.",
+              "Bamboo whisk set, ₱350."
+            ],
+            "caption": "Ilang date na sa café, at kabisado mo na ang order niya. Ngayong monthsary, sa bahay na ang café, at ikaw ang barista. Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata, at ₱350 ang bamboo whisk set. Hindi mo kailangang maging magaling. Kailangan mo lang tandaan kung paano niya ito gusto. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "day": "Day 5",
+        "theme": "The café date, at home",
+        "purpose": "winner"
+      },
+      {
+        "id": "v_matcha_p6",
+        "code": "P6",
+        "audienceId": "c11",
+        "audienceName": "Last-minute monthsary gifts",
+        "hook": "Thursday na. Ang monthsary, Sabado. Ang Shopee cart mo, empty pa.",
+        "slides": [
+          "Thursday na. Ang monthsary, Sabado. Ang Shopee cart mo, empty pa.",
+          "Search 'Kaye's Matcha' sa Shopee.",
+          "₱480 per tin. Whisk set ₱350."
+        ],
+        "caption": "Hindi ka late, malapit lang. I-search ang Kaye's Matcha sa Shopee: ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, at ₱350 ang bamboo whisk set. Dalawang item sa cart, isang regalo na hindi mukhang last minute. Order on Shopee.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#monthsary",
+          "#shopeeph",
+          "#matchagift"
+        ],
+        "cta": "Order on Shopee",
+        "style": "soft",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "No delivery time promised, only where to order."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the countdown, not about the buyer."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only Shopee post."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "It's Thursday. The monthsary is Saturday. Your Shopee cart is empty.",
+            "slides": [
+              "It's Thursday. The monthsary is Saturday. Your Shopee cart is empty.",
+              "Search 'Kaye's Matcha' on Shopee.",
+              "₱480 per tin. Whisk set ₱350."
+            ],
+            "caption": "You're not late, just close. Search Kaye's Matcha on Shopee: ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, and ₱350 for the bamboo whisk set. Two items in the cart, one gift that doesn't look last minute. Order on Shopee.",
+            "cta": "Order on Shopee"
+          },
+          "tagalog": {
+            "hook": "Huwebes na. Sabado ang monthsary. Wala pang laman ang Shopee cart mo.",
+            "slides": [
+              "Huwebes na. Sabado ang monthsary. Wala pang laman ang Shopee cart mo.",
+              "I-search ang 'Kaye's Matcha' sa Shopee.",
+              "₱480 ang lata. ₱350 ang whisk set."
+            ],
+            "caption": "Hindi ka huli, malapit lang. I-search ang Kaye's Matcha sa Shopee: ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata, at ₱350 ang bamboo whisk set. Dalawang item sa cart, isang regalong hindi mukhang minadali. Mag-order sa Shopee.",
+            "cta": "Mag-order sa Shopee"
+          }
+        },
+        "day": "Day 6",
+        "theme": "Order on Shopee before the weekend",
+        "purpose": "winner"
+      },
+      {
+        "id": "v_matcha_p7",
+        "code": "P7",
+        "audienceId": "c11",
+        "audienceName": "Last-minute monthsary gifts",
+        "hook": "Para sa card: 'Para hindi ka na pipila sa café tuwing miss mo ako.'",
+        "slides": [
+          "Para sa card: 'Para hindi ka na pipila sa café tuwing miss mo ako.'",
+          "30 g tin, ₱480.",
+          "Bamboo whisk set, ₱350."
+        ],
+        "caption": "Ang regalo, kaya mo na. Ang mahirap, yung isusulat sa card. Heto, libre: 'Para hindi ka na pipila sa café tuwing miss mo ako.' Kaye's Matcha, ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, at ₱350 ang bamboo whisk set. Comment 'order' at mag-message kami.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#monthsary",
+          "#giftideasph",
+          "#matchagift"
+        ],
+        "cta": "Comment 'order'",
+        "style": "note",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "'Libre' is about the card line, not the product."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the card, not about the couple."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "The only card-line post."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "For the card: 'So you don't have to queue at the café every time you miss me.'",
+            "slides": [
+              "For the card: 'So you don't have to queue at the café every time you miss me.'",
+              "30 g tin, ₱480.",
+              "Bamboo whisk set, ₱350."
+            ],
+            "caption": "The gift you've got. The hard part is what to write on the card. Here's one, free: 'So you don't have to queue at the café every time you miss me.' Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, and the bamboo whisk set is ₱350. Comment 'order' and we'll message you.",
+            "cta": "Comment 'order'"
+          },
+          "tagalog": {
+            "hook": "Para sa card: 'Para hindi ka na pipila sa café tuwing nami-miss mo ako.'",
+            "slides": [
+              "Para sa card: 'Para hindi ka na pipila sa café tuwing nami-miss mo ako.'",
+              "30 g na lata, ₱480.",
+              "Bamboo whisk set, ₱350."
+            ],
+            "caption": "Ang regalo, kaya mo na. Ang mahirap, ang isusulat sa card. Heto, libre: 'Para hindi ka na pipila sa café tuwing nami-miss mo ako.' Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata, at ₱350 ang bamboo whisk set. Mag-comment ng 'order' at ime-message ka namin.",
+            "cta": "Mag-comment ng 'order'"
+          }
+        },
+        "day": "Day 7",
+        "theme": "The line to write on the card",
+        "purpose": "winner"
+      }
+    ],
+    "tests": [
+      {
+        "id": "v_matcha_t1",
+        "code": "T1",
+        "audienceId": "c11",
+        "audienceName": "Last-minute monthsary gifts",
+        "hook": "Pasko ang pinakamalaking monthsary ng taon. Alam mo na ang order niya.",
+        "slides": [
+          "Pasko ang pinakamalaking monthsary ng taon. Alam mo na ang order niya.",
+          "30 g tin, ₱480.",
+          "Bamboo whisk set, ₱350."
+        ],
+        "caption": "December na, at kasabay ng exchange gift at regalo sa inaanak, nandiyan pa ang regalo sa kanya. Hindi mo na kailangang hulaan. Kaye's Matcha, ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, at ₱350 ang bamboo whisk set. Isang regalo na hindi na niya itatanong, kasi alam niyang nakikinig ka. Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#christmasgiftideas",
+          "#giftideasph",
+          "#matchagift"
+        ],
+        "cta": "Message us",
+        "style": "bold",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only Kaye's facts. No delivery date promised for Christmas."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the December gift list, not about the couple."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "A new occasion for the winner, different from A6."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Christmas is the biggest monthsary of the year. You already know their order.",
+            "slides": [
+              "Christmas is the biggest monthsary of the year. You already know their order.",
+              "30 g tin, ₱480.",
+              "Bamboo whisk set, ₱350."
+            ],
+            "caption": "It's December, and on top of the exchange gift and the inaanak gifts, there's the gift for them. No guessing needed. Kaye's Matcha is ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, and the bamboo whisk set is ₱350. A gift they won't have to ask about, because they'll know you were listening. Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Pasko ang pinakamalaking monthsary ng taon. Alam mo na ang order niya.",
+            "slides": [
+              "Pasko ang pinakamalaking monthsary ng taon. Alam mo na ang order niya.",
+              "30 g na lata, ₱480.",
+              "Bamboo whisk set, ₱350."
+            ],
+            "caption": "Disyembre na, at bukod sa exchange gift at regalo sa inaanak, nandiyan pa ang regalo para sa kanya. Hindi mo na kailangang manghula. Ang Kaye's Matcha ay ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata, at ₱350 ang bamboo whisk set. Regalong hindi na niya itatanong, kasi alam niyang nakikinig ka. Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "why": "The monthsary crowd won, but December is one big gift deadline. One ₱99 post shows if a partner's Christmas gift brings as many messages as the monthsary did."
+      },
+      {
+        "id": "v_matcha_t2",
+        "code": "T2",
+        "audienceId": "c05",
+        "audienceName": "Guests coming over to the sala",
+        "hook": "Open house sa Pasko. May hamon, may queso de bola, may matcha na sa tray.",
+        "slides": [
+          "Open house sa Pasko. May hamon, may queso de bola, may matcha na sa tray.",
+          "Ceremonial-grade, 30 g tin.",
+          "₱480 per tin."
+        ],
+        "caption": "Bukas ang pinto buong araw, sunod-sunod ang bisita, at nasa mesa na ang hamon at queso de bola. Sa tabi ng tray ng tasa, ilagay ang Kaye's Matcha: ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, at ₱350 ang bamboo whisk set. Yung tanong ng bisita sa pag-alis: 'saan mo nabili 'yan?' Message us para mag-order.",
+        "hashtags": [
+          "#kayesmatcha",
+          "#hostingathome",
+          "#christmasathome",
+          "#merienda"
+        ],
+        "cta": "Message us",
+        "style": "soft",
+        "checks": [
+          {
+            "kind": "policy",
+            "passed": true,
+            "rule": "Meta ad rules, PH FDA",
+            "note": "Only Kaye's facts."
+          },
+          {
+            "kind": "stereotype",
+            "passed": true,
+            "rule": "Stereotype check",
+            "note": "About the open house, not about the host."
+          },
+          {
+            "kind": "duplicate",
+            "passed": true,
+            "rule": "Too similar",
+            "note": "A holiday hook for the sala, different from A3."
+          }
+        ],
+        "round": 1,
+        "copy": {
+          "english": {
+            "hook": "Christmas open house. Ham, queso de bola, and now matcha on the tray.",
+            "slides": [
+              "Christmas open house. Ham, queso de bola, and now matcha on the tray.",
+              "Ceremonial-grade, 30 g tin.",
+              "₱480 per tin."
+            ],
+            "caption": "The door's open all day, guests keep coming, and the ham and queso de bola are on the table. Next to the tray of cups, put out Kaye's Matcha: ceremonial-grade, repacked at home into 30 g tins, ₱480 per tin, and ₱350 for the bamboo whisk set. The question guests ask on the way out: 'where did you get that?' Message us to order.",
+            "cta": "Message us"
+          },
+          "tagalog": {
+            "hook": "Open house sa Pasko. May hamon, may queso de bola, may matcha na sa tray.",
+            "slides": [
+              "Open house sa Pasko. May hamon, may queso de bola, may matcha na sa tray.",
+              "Ceremonial-grade, 30 g na lata.",
+              "₱480 ang lata."
+            ],
+            "caption": "Bukas ang pinto buong araw, sunod-sunod ang bisita, at nasa mesa na ang hamon at queso de bola. Sa tabi ng tray ng tasa, ilapag ang Kaye's Matcha: ceremonial-grade, nire-repack sa bahay sa 30 g na lata, ₱480 ang isang lata, at ₱350 ang bamboo whisk set. Ang tanong ng bisita bago umuwi: 'saan mo nabili 'yan?' Mag-message lang sa amin para umorder.",
+            "cta": "Mag-message sa amin"
+          }
+        },
+        "why": "Guests in the sala came third and is the steadiest home audience. December is open house season, so one ₱99 post shows if hosting can carry the holidays."
+      }
+    ],
+    "notes": [
+      "Sample plan. Day 4 tests the runner-up, 3 AM night shift breaks."
+    ]
+  }
+}

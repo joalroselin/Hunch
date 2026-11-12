@@ -1,0 +1,296 @@
+/* Your 8 posts: all 8 in a row of phones, the one in hand big on the right, its caption on paper. See APP-LOOK.md. */
+
+.hp {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: clamp(28px, 6vw, 104px);
+  align-items: start;
+}
+.hp-main {
+  min-width: 0;
+  max-width: 47rem;
+}
+
+/* The 8, small. The one in hand lifts and gets the drop. */
+.hp-rail {
+  --thumb-w: clamp(56px, 5.7vw, 84px);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(8px, 1vw, 14px);
+  margin-top: clamp(30px, 3.6vw, 52px);
+  padding-bottom: 26px;
+}
+.hp-thumb {
+  --ugc-shadow: var(--shadow-slip);
+  position: relative;
+  flex: none;
+  width: var(--thumb-w);
+  padding: 0;
+  border-radius: 5.2% / 2.925%;
+  rotate: var(--r);
+  cursor: pointer;
+  transition:
+    translate 0.5s var(--ease-out),
+    rotate 0.5s var(--ease-out),
+    scale 0.5s var(--ease-out);
+  animation: hp-land 0.9s var(--ease-out) calc(var(--i) * 55ms + 300ms) backwards;
+}
+@keyframes hp-land {
+  from {
+    opacity: 0;
+    translate: 0 26px;
+    rotate: calc(var(--r) + 8deg);
+  }
+}
+.hp-thumb:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+@media (hover: hover) {
+  .hp-thumb:hover {
+    translate: 0 -3px;
+  }
+}
+.hp-thumb[aria-pressed="true"] {
+  --ugc-shadow: var(--shadow-object);
+  z-index: 1;
+  rotate: 0deg;
+  scale: 1.12;
+  translate: 0 -5px;
+}
+.hp-thumb::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 13px);
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: var(--drop);
+  background: var(--sun);
+  opacity: 0;
+  scale: 0.4;
+  transition:
+    opacity 0.3s linear,
+    scale 0.5s var(--ease-out);
+}
+.hp-thumb[aria-pressed="true"]::after {
+  opacity: 1;
+  scale: 0.9;
+}
+
+/* The words for the post in hand. */
+.hp-words {
+  margin-top: clamp(14px, 1.8vw, 26px);
+}
+.hp-lang {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  margin-top: clamp(18px, 2vw, 26px);
+}
+.hp-lang .ha-seg > :disabled {
+  opacity: 0.36;
+  cursor: not-allowed;
+}
+.hp-lang .ha-seg > :focus-visible,
+.hp-lang .ha-chip:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+.hp-caption {
+  max-width: 40rem;
+  margin-top: 18px;
+  padding: clamp(20px, 2.2vw, 30px) clamp(20px, 2.4vw, 32px) clamp(22px, 2.4vw, 32px);
+  font-size: 16.5px;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  line-height: 1.45;
+  user-select: text;
+}
+.hp-caption > p + p {
+  margin-top: 0.85em;
+}
+.hp-caption > .hp-hook {
+  font-size: clamp(20px, 1.75vw, 25px);
+  font-weight: 700;
+  letter-spacing: -0.028em;
+  line-height: 1.16;
+  text-wrap: balance;
+}
+.hp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.hp-shared {
+  margin-left: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--pass);
+}
+.hp-review {
+  margin-top: clamp(28px, 3vw, 40px);
+  padding-left: 32px;
+  animation: ha-rise 0.75s var(--ease-out) 0.3s both;
+}
+.hp-review > .hc-bubble + .hc-bubble {
+  margin-top: 4px;
+  border-radius: 20px;
+}
+.hp-broken {
+  display: grid;
+  justify-items: start;
+  gap: 14px;
+  margin-top: 20px;
+}
+.hp-next {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 22px;
+  margin-top: clamp(36px, 4.4vw, 60px);
+}
+.hp-next > .ha-note {
+  flex: 1 1 14rem;
+  max-width: 24rem;
+}
+
+/* The post in hand. */
+.hp-lead {
+  --phone-w: clamp(250px, 23.6vw, 340px);
+  position: sticky;
+  top: calc(var(--bar) + 18px);
+  width: var(--phone-w);
+  margin: clamp(4px, 1vw, 14px) clamp(0px, 4.4vw, 72px) 0 0;
+}
+.hp-phone {
+  --ugc-shadow: var(--shadow-object);
+  rotate: 4deg;
+  animation: hp-swap 0.9s var(--ease-out) both;
+}
+.hp-phone > :first-child {
+  animation: hp-drift 8s var(--ease-breathe) 1.4s infinite alternate;
+}
+@keyframes hp-swap {
+  from {
+    opacity: 0;
+    translate: 0 28px;
+    rotate: 10deg;
+  }
+}
+@keyframes hp-drift {
+  to {
+    transform: translate3d(0, -7px, 0);
+  }
+}
+.hp-phone .ugc-photo {
+  animation: hp-develop 0.9s var(--ease-out) both;
+}
+.hp-phone .ugc-copy,
+.hp-phone .ugc-rail,
+.hp-phone .ugc-meta,
+.hp-phone .ugc-price {
+  animation: ha-fade 0.5s linear 0.3s both;
+}
+@keyframes hp-develop {
+  from {
+    opacity: 0;
+    scale: 1.06;
+  }
+}
+
+/* The saved image: the photo and the words on it, nothing from the app. */
+.hp-export .ugc {
+  border-radius: 0;
+  box-shadow: none;
+}
+.hp-export .ugc::before,
+.hp-export .ugc-rail,
+.hp-export .ugc-meta {
+  display: none;
+}
+.hp-export .ugc::after {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.22), transparent 22%);
+}
+
+@media (max-width: 899px) {
+  .hp {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hp-main {
+    display: contents;
+  }
+  .hp-main > header {
+    grid-row: 1;
+  }
+  .hp-rail {
+    --thumb-w: 58px;
+    grid-row: 2;
+    gap: 10px;
+    margin: 26px calc(var(--gutter) * -1) 0;
+    padding: 12px var(--gutter) 28px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .hp-rail::-webkit-scrollbar {
+    display: none;
+  }
+  .hp-lead {
+    --phone-w: min(60vw, 250px);
+    position: static;
+    grid-row: 3;
+    margin: 22px 0 8px 5%;
+  }
+  .hp-words {
+    grid-row: 4;
+    margin-top: 30px;
+  }
+  .hp-next {
+    grid-row: 5;
+    margin-top: 28px;
+  }
+  .hp-next:not(:has(.ha-note)) {
+    margin-top: 0;
+  }
+  .hp-phone .ugc {
+    aspect-ratio: 4 / 5;
+    border-radius: 5.2% / 4.16%;
+  }
+  .hp-phone .ugc .who,
+  .hp-phone .ugc .disc {
+    display: none;
+  }
+  .hp-review {
+    padding-left: 0;
+  }
+  .hp-review > .hc-who {
+    margin-left: 0;
+  }
+  .hp-actions > [data-slot="button"] {
+    flex: 1 1 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-thumb,
+  .hp-phone,
+  .hp-phone .ugc-photo,
+  .hp-review {
+    animation: ha-fade 0.4s linear both;
+  }
+  .hp-phone > :first-child {
+    animation: none;
+  }
+  .hp-thumb,
+  .hp-thumb::after {
+    transition: none;
+  }
+  .hp-thumb:hover {
+    translate: none;
+  }
+}

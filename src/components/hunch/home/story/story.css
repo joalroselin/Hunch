@@ -1,0 +1,281 @@
+/* Story sections. Transform, opacity and filter only. */
+
+/* Word by word heading rise */
+.st-words .st-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 0.32em, 0);
+  filter: blur(6px);
+  transition:
+    opacity 0.8s var(--ease-expo),
+    transform 0.8s var(--ease-expo),
+    filter 0.8s var(--ease-expo);
+}
+.st-words[data-on] .st-word {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+.st-words[data-reduced] .st-word {
+  transform: none;
+  filter: none;
+  transition: opacity 0.4s linear;
+  transition-delay: 0s !important;
+}
+
+/* Shared by both story scenes */
+.sy-h {
+  font-size: clamp(42px, 6.667vw, 112px);
+  max-width: 14ch;
+}
+.sy-support {
+  margin-top: clamp(14px, 1.4vw, 20px);
+  max-width: 30ch;
+  font-size: clamp(18px, 1.4vw, 20px);
+}
+
+/* Who buys: 20 names, 12 struck, 8 stay. The post for the lit name sits beside the list. */
+.sy-buyers {
+  position: relative;
+  overflow-x: clip;
+  padding: clamp(84px, 10vw, 150px) var(--gutter) clamp(84px, 10vw, 150px);
+}
+.sy-buyers .sy-h {
+  max-width: none;
+}
+.sy-buyers-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(340px, 31vw, 460px);
+  gap: clamp(32px, 5vw, 88px);
+  align-items: start;
+  margin-top: clamp(40px, 5vw, 76px);
+}
+.sy-list {
+  position: relative;
+  min-height: clamp(420px, 52vw, 760px);
+}
+.sy-names {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.16em 0.42em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  transition: opacity 0.24s linear;
+}
+.sy-names[data-mode="all"] {
+  font-size: clamp(21px, 2.6vw, 38px);
+}
+.sy-names[data-mode="picked"] {
+  font-size: clamp(27px, 3.6vw, 52px);
+  line-height: 1.02;
+  gap: 0.2em 0.42em;
+}
+.sy-names[data-leaving] {
+  opacity: 0;
+}
+.sy-names li {
+  opacity: 0;
+}
+.sy-names[data-seen] li {
+  animation: sy-rise 0.75s var(--ease-out) calc(var(--i) * 34ms) both;
+}
+@keyframes sy-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+.sy-name {
+  display: block;
+  padding: 0;
+  color: var(--ink);
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: opacity 0.15s linear;
+}
+/* Room for a finger between tight lines. */
+.sy-name::after {
+  content: "";
+  position: absolute;
+  inset: -4px -5px;
+}
+.sy-name:active {
+  opacity: 0.6;
+}
+.sy-ink {
+  background: linear-gradient(var(--gold), var(--gold)) no-repeat 0 86% / 0% 0.36em;
+  transition:
+    background-size 0.7s var(--ease-out),
+    color 0.5s linear;
+}
+.sy-name[data-on] .sy-ink {
+  background-size: 100% 0.36em;
+}
+.sy-name:not([data-cut], [data-on]):hover .sy-ink {
+  background-size: 100% 0.09em;
+}
+/* The cut: a line drawn through the name, then the name steps back. */
+.sy-name[data-cut] {
+  cursor: help;
+}
+.sy-name[data-cut] .sy-ink {
+  background: linear-gradient(currentColor, currentColor) no-repeat 0 56% / 0% 0.07em;
+}
+.sy-names[data-seen] .sy-name[data-cut] .sy-ink {
+  background-size: 100% 0.07em;
+  color: rgb(26 17 11 / 0.36);
+  transition-delay: calc(1100ms + var(--i) * 110ms);
+}
+.sy-name[data-cut]:is(:hover, :focus-visible, [aria-expanded="true"]) .sy-ink {
+  color: var(--ink);
+  transition-delay: 0s;
+}
+/* Why it was cut: an ink message under the name. */
+.sy-cut {
+  position: absolute;
+  z-index: 5;
+  margin: 0;
+  padding: 16px 20px 18px;
+  border-radius: 6px 24px 24px 24px;
+  background: var(--ink);
+  color: var(--sheet);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  box-shadow: var(--shadow-object);
+  pointer-events: none;
+  animation: sy-rise 0.4s var(--ease-out) both;
+}
+.sy-toggle {
+  margin-top: clamp(28px, 3vw, 44px);
+}
+
+.sy-show {
+  position: sticky;
+  top: 96px;
+  display: grid;
+  justify-items: center;
+  gap: clamp(22px, 2.4vw, 34px);
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-out) 0.2s;
+}
+.sy-show[data-seen] {
+  opacity: 1;
+}
+.sy-deck {
+  position: relative;
+  width: clamp(212px, 21vw, 304px);
+  aspect-ratio: 9 / 16;
+}
+.sy-card {
+  --ugc-shadow: var(--shadow-object);
+  position: absolute;
+  inset: 0;
+  display: block;
+  padding: 0;
+  border-radius: 5.2% / 2.925%;
+  cursor: pointer;
+  transition:
+    transform 1.1s var(--ease-out),
+    opacity 0.6s linear;
+}
+.sy-card[data-role="front"] {
+  z-index: 3;
+  transform: rotate(3deg);
+}
+.sy-card[data-role="front"]:hover {
+  transform: translate3d(0, -3px, 0) rotate(3deg);
+}
+.sy-card[data-role="next"] {
+  z-index: 2;
+  transform: translate3d(58%, 9%, 0) rotate(11deg) scale(0.54);
+}
+.sy-card[data-role="prev"] {
+  z-index: 1;
+  transform: translate3d(-58%, 15%, 0) rotate(-9deg) scale(0.46);
+}
+@media (hover: hover) {
+  .sy-card[data-role="next"]:hover {
+    transform: translate3d(60%, 7%, 0) rotate(12deg) scale(0.56);
+  }
+  .sy-card[data-role="prev"]:hover {
+    transform: translate3d(-60%, 13%, 0) rotate(-10deg) scale(0.48);
+  }
+}
+.sy-card:active {
+  scale: 0.985;
+}
+.sy-card[data-role="rest"] {
+  z-index: 0;
+  transform: translate3d(0, 6%, 0) scale(0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+.sy-moment {
+  width: min(100%, 26ch);
+  margin: 0;
+  font-size: clamp(18px, 1.4vw, 20px);
+  text-align: center;
+  text-wrap: balance;
+  animation: sy-rise 0.7s var(--ease-out) both;
+}
+
+@media (max-width: 899px) {
+  .sy-buyers-body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 44px;
+  }
+  .sy-list {
+    min-height: 0;
+  }
+  .sy-cut {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sy-names li,
+  .sy-names[data-seen] li {
+    opacity: 1;
+    animation: none;
+  }
+  .sy-names,
+  .sy-ink,
+  .sy-names[data-seen] .sy-name[data-cut] .sy-ink {
+    transition: none;
+  }
+  .sy-cut,
+  .sy-moment {
+    animation: none;
+  }
+  .sy-card {
+    transition: opacity 0.3s linear;
+  }
+  .sy-card[data-role="front"]:hover {
+    transform: rotate(3deg);
+  }
+  .sy-card[data-role="next"]:hover {
+    transform: translate3d(58%, 9%, 0) rotate(11deg) scale(0.54);
+  }
+  .sy-card[data-role="prev"]:hover {
+    transform: translate3d(-58%, 15%, 0) rotate(-9deg) scale(0.46);
+  }
+  .sy-card:active {
+    scale: none;
+  }
+}

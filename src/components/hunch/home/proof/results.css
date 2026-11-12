@@ -1,0 +1,275 @@
+/* The result: each post stands on its messages, best first. See LOOK.md. */
+
+.pr {
+  --step: calc(12 * var(--u));
+  --slab: calc(5 * var(--u));
+  --climb: cubic-bezier(0.2, 0.2, 0.4, 1);
+  position: relative;
+  padding: calc(112 * var(--u)) var(--gutter) calc(64 * var(--u));
+}
+.pr-head {
+  position: relative;
+  z-index: 2;
+}
+.pr-title {
+  font-size: calc(96 * var(--u));
+  white-space: nowrap;
+}
+/* The line sits in the open corner above the short bars. */
+.pr-line {
+  position: absolute;
+  left: calc(840 * var(--u));
+  top: calc(100% + 40 * var(--u));
+  width: 15em;
+  font-size: max(calc(20 * var(--u)), 17px);
+}
+.pr-head[data-rise] > * {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  filter: blur(6px);
+  transition:
+    opacity 0.6s linear,
+    transform 0.8s var(--ease-out),
+    filter 0.7s var(--ease-out);
+}
+.pr-head[data-rise] > :nth-child(2) {
+  transition-delay: 0.08s;
+}
+.pr-head[data-seen] > * {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.pr-board {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: calc(26 * var(--u));
+}
+.pr-col {
+  --w: 126;
+  --wpx: calc(var(--w) * var(--u));
+  display: flex;
+  flex-direction: column;
+  width: var(--wpx);
+}
+.pr-col[data-first] {
+  --w: 164;
+}
+
+/* The count, set above its post. */
+.pr-count {
+  display: flex;
+  align-items: baseline;
+  gap: calc(6 * var(--u));
+  margin-bottom: calc(12 * var(--u));
+  white-space: nowrap;
+  opacity: 0;
+  translate: 0 calc(var(--n) * var(--step));
+  transition:
+    opacity 0.4s linear var(--wait),
+    translate var(--grow) var(--climb) var(--wait);
+}
+.pr-board[data-on] .pr-count {
+  opacity: 1;
+  translate: none;
+}
+.pr-n {
+  font-family: var(--display);
+  font-size: calc(46 * var(--u));
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+.pr-unit {
+  font-size: max(calc(13 * var(--u)), 11.5px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.pr-col[data-first] .pr-n {
+  font-size: calc(116 * var(--u));
+  color: var(--chili);
+}
+.pr-col[data-first] .pr-unit {
+  font-size: max(calc(21 * var(--u)), 15px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.pr-post {
+  --ugc-shadow:
+    0 1px 2px rgb(70 35 10 / 0.3), calc(var(--wpx) * 0.025) calc(var(--wpx) * 0.055) calc(var(--wpx) * 0.08) rgb(70 35 10 / 0.2),
+    calc(var(--wpx) * 0.07) calc(var(--wpx) * 0.15) calc(var(--wpx) * 0.22) rgb(70 35 10 / 0.14);
+  display: block;
+  width: 100%;
+  border-radius: 5.2% / 2.925%;
+  opacity: 0;
+  translate: 0 calc(var(--n) * var(--step));
+  transition:
+    opacity 0.5s linear calc(var(--i) * 0.05s),
+    translate var(--grow) var(--climb) var(--wait);
+}
+.pr-board[data-on] .pr-post {
+  opacity: 1;
+  translate: none;
+}
+.pr-post .ugc {
+  transition: translate 0.3s var(--ease-out);
+}
+@media (hover: hover) {
+  .pr-post:hover .ugc {
+    translate: 0 -3px;
+  }
+}
+.pr-post:active {
+  scale: 0.985;
+}
+
+/* One slab per message. The bar grows and lifts its post. */
+.pr-bar {
+  --grain: 0.45;
+  display: block;
+  height: calc(var(--n) * var(--step));
+  clip-path: inset(100% 0 0 0);
+  margin-top: calc(10 * var(--u));
+  background: var(--ink);
+  -webkit-mask: linear-gradient(to top, #000 0 var(--slab), transparent 0) 0 100% / 100% var(--step) repeat-y;
+  mask: linear-gradient(to top, #000 0 var(--slab), transparent 0) 0 100% / 100% var(--step) repeat-y;
+  transition: clip-path var(--grow) var(--climb) var(--wait);
+}
+.pr-col[data-first] .pr-bar {
+  background: var(--sun);
+}
+.pr-board[data-on] .pr-bar {
+  clip-path: inset(0);
+}
+
+.pr-name {
+  height: calc(54 * var(--u));
+  margin-top: calc(12 * var(--u));
+  font-size: max(calc(13 * var(--u)), 11.5px);
+  font-weight: 600;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.pr-col[data-first] .pr-name {
+  font-size: max(calc(17 * var(--u)), 14px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+}
+
+/* Phone and tablet: a list, best first, with the bars lying down. */
+@media (max-width: 899px) {
+  .pr {
+    padding: 88px var(--gutter) 64px;
+  }
+  .pr-title {
+    font-size: clamp(44px, 12.8vw, 76px);
+    white-space: normal;
+  }
+  .pr-line {
+    position: static;
+    width: auto;
+    max-width: 16em;
+    margin-top: 16px;
+    font-size: 18px;
+  }
+  .pr-board {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    margin-top: 40px;
+  }
+  .pr-col,
+  .pr-col[data-first] {
+    --wpx: 62px;
+    display: grid;
+    grid-template-columns: var(--wpx) minmax(0, 1fr);
+    grid-template-areas: "post count" "post name" "post bar";
+    grid-template-rows: auto auto 1fr;
+    column-gap: 16px;
+    width: auto;
+  }
+  .pr-col[data-first] {
+    --wpx: min(40vw, 170px);
+    margin-bottom: 10px;
+  }
+  .pr-post {
+    grid-area: post;
+  }
+  .pr-count {
+    grid-area: count;
+    gap: 6px;
+    margin: 2px 0 0;
+  }
+  .pr-count,
+  .pr-post {
+    translate: none;
+  }
+  .pr-n {
+    font-size: 34px;
+  }
+  .pr-unit {
+    font-size: 13px;
+  }
+  .pr-col[data-first] .pr-count {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .pr-col[data-first] .pr-n {
+    font-size: 96px;
+  }
+  .pr-col[data-first] .pr-unit {
+    font-size: 18px;
+  }
+  .pr-name,
+  .pr-col[data-first] .pr-name {
+    grid-area: name;
+    height: auto;
+    margin-top: 6px;
+    font-size: 14px;
+  }
+  .pr-col[data-first] .pr-name {
+    margin-top: 12px;
+    font-size: 17px;
+  }
+  .pr-bar {
+    grid-area: bar;
+    align-self: start;
+    width: calc(var(--n) / var(--most) * 100%);
+    height: 8px;
+    margin: 12px 0 0;
+    clip-path: inset(0 100% 0 0);
+    -webkit-mask: linear-gradient(to right, #000 0 calc(100% - 3px), transparent 0) 0 0 / calc(100% / var(--n)) 100% repeat-x;
+    mask: linear-gradient(to right, #000 0 calc(100% - 3px), transparent 0) 0 0 / calc(100% / var(--n)) 100% repeat-x;
+  }
+  .pr-col[data-first] .pr-bar {
+    height: 14px;
+    margin-top: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pr-head[data-rise] > * {
+    transform: none;
+    filter: none;
+    transition: opacity 0.4s linear;
+  }
+  .pr-count,
+  .pr-post {
+    translate: none;
+    transition: opacity 0.4s linear;
+  }
+  .pr-bar {
+    clip-path: none;
+    transition: none;
+  }
+  .pr-post:hover .ugc,
+  .pr-post:active {
+    translate: none;
+    scale: none;
+  }
+}

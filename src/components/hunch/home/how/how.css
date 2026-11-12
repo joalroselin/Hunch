@@ -1,0 +1,893 @@
+/* How it works: one pinned stage, four working mocks, the page's scroll picks the step. */
+
+@property --hw-p {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 120%;
+}
+
+.hw {
+  /* Extra scroll after the last step, for the zoom into the results (wide screens with motion). */
+  --exit: 0;
+  position: relative;
+  height: calc(340svh + var(--exit) * 1svh);
+}
+.hw-through {
+  display: none;
+}
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .hw {
+    --exit: 70;
+  }
+  .hw-pin {
+    overflow: clip;
+  }
+  .hw-pin .hw-stage {
+    z-index: 2;
+  }
+  /* The results window, grown past the screen, becomes the page. */
+  .hw-through {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: block;
+    background: var(--cream);
+    opacity: 0;
+    pointer-events: none;
+  }
+  /* The results come up while the zoom finishes. */
+  .hw + #your-people {
+    position: relative;
+    z-index: 2;
+    margin-top: -52svh;
+  }
+}
+.hw-pin {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 0.74fr) minmax(0, 1.26fr);
+  grid-template-rows: auto 1fr;
+  column-gap: clamp(28px, 4vw, 64px);
+  height: 100svh;
+  padding: clamp(84px, 11svh, 116px) var(--gutter) clamp(28px, 6svh, 56px);
+}
+.hw-head {
+  grid-area: 1 / 1;
+}
+.hw-mark {
+  position: absolute;
+}
+.hw-play {
+  display: contents;
+}
+
+/* The steps: all in full ink. The open one is heavy, marked in gold, and shows its line. */
+.hw-title {
+  font-size: clamp(40px, 4.6vw, 76px);
+}
+/* A rail beside the steps fills with the sun as the page moves through them. */
+.hw-steps {
+  --hw-done: 0.25;
+  position: relative;
+  grid-area: 2 / 1;
+  align-self: end;
+  margin: 0;
+  padding: 0 0 0 clamp(22px, 2vw, 30px);
+  list-style: none;
+}
+.hw-steps::before,
+.hw-steps::after {
+  content: "";
+  position: absolute;
+  top: 0.4em;
+  bottom: 0.4em;
+  left: 0;
+  width: 3px;
+  border-radius: 3px;
+}
+.hw-steps::before {
+  background: rgb(26 17 11 / 0.1);
+}
+.hw-steps::after {
+  background: var(--sun);
+  transform: scaleY(var(--hw-done));
+  transform-origin: 50% 0;
+  transition: transform 0.8s var(--ease-out);
+}
+.hw-steps > li {
+  transition: opacity 0.5s var(--ease-out), translate 0.6s var(--ease-out);
+}
+.hw-steps > li:not([data-on]) {
+  opacity: 0.3;
+}
+.hw-steps > li[data-on] {
+  translate: 6px 0;
+}
+@media (hover: hover) {
+  .hw-steps > li:not([data-on]):hover {
+    opacity: 0.6;
+  }
+}
+.hw-step {
+  display: block;
+  width: 100%;
+  padding: 0.16em 0;
+  color: inherit;
+  font-size: clamp(23px, 2.5vw, 36px);
+  text-align: left;
+  cursor: pointer;
+  transition: opacity 0.15s linear;
+}
+.hw-step:active {
+  opacity: 0.6;
+}
+.hw-step-t {
+  display: block;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  transition: font-weight 0.5s var(--ease-out);
+}
+.hw-step-t > span {
+  background: linear-gradient(var(--gold), var(--gold)) no-repeat 0 88% / 0% 0.34em;
+  transition: background-size 0.7s var(--ease-out);
+}
+li[data-on] > .hw-step .hw-step-t {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.hw-step-l {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.6s var(--ease-out);
+}
+.hw-step-l > span {
+  overflow: hidden;
+  min-height: 0;
+  max-width: 27ch;
+  font-size: clamp(16px, 1.3vw, 19px);
+  opacity: 0;
+  transition: opacity 0.35s linear;
+}
+.hw-step-l > span::before,
+.hw-step-l > span::after {
+  content: "";
+  display: block;
+  height: 8px;
+}
+.hw-step-l > span::after {
+  height: 12px;
+}
+li[data-on] > .hw-step .hw-step-l {
+  grid-template-rows: 1fr;
+}
+li[data-on] > .hw-step .hw-step-l > span {
+  opacity: 1;
+  transition-delay: 0.15s;
+}
+
+/* The stage: a clean green field with fine grain, like the poster boards. */
+.hw-stage {
+  --lift: 0 0.15cqw 0.3cqw rgb(3 58 30 / 0.3), 0.9cqw 2cqw 3.2cqw rgb(3 58 30 / 0.2), 2.4cqw 5.2cqw 8.4cqw rgb(3 58 30 / 0.2);
+  grid-area: 1 / 2 / 3 / 3;
+  align-self: center;
+  justify-self: end;
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  overflow: clip;
+  width: min(100%, calc((100svh - clamp(84px, 11svh, 116px) - clamp(28px, 6svh, 56px)) * 1.14));
+  aspect-ratio: 1.14;
+  border-radius: clamp(20px, 2.4vw, 36px);
+  background:
+    radial-gradient(78% 84% at 52% 50%, #dcf74a 0%, #c2ee3e 34%, rgb(150 226 64 / 0.55) 62%, rgb(120 214 70 / 0) 86%),
+    radial-gradient(60% 66% at 100% 100%, #00b9a0 0%, rgb(0 185 160 / 0) 74%),
+    radial-gradient(64% 70% at 0% 0%, #057a50 0%, rgb(5 122 80 / 0) 76%),
+    linear-gradient(155deg, #0b9058 0%, #25bd62 52%, #06ab90 100%);
+}
+.hw-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url(/textures/grain-fine.png) 0 0 / 256px 256px;
+  mix-blend-mode: soft-light;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* One mock per step. The next one arrives behind a wash of light that rolls up from the drop's tail corner. */
+.hw-stage > .hw-shot {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  -webkit-mask-image: radial-gradient(ellipse 150% 150% at 0% 100%, #000 calc(var(--hw-p) - 14%), transparent var(--hw-p));
+  mask-image: radial-gradient(ellipse 150% 150% at 0% 100%, #000 calc(var(--hw-p) - 14%), transparent var(--hw-p));
+}
+.hw-stage > .hw-shot[data-out] {
+  animation: hw-hold 1.15s linear;
+}
+.hw-stage > .hw-shot[data-on] {
+  z-index: 2;
+  visibility: visible;
+  animation: hw-roll 1.15s cubic-bezier(0.6, 0, 0.2, 1) both;
+}
+.hw-stage > .hw-wash {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 60% at 30% 70%, #fff7a8 0%, rgb(255 247 168 / 0) 70%),
+    linear-gradient(40deg, #ffd23f 0%, #eaff5c 46%, #b6f24a 100%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 150% 150% at 0% 100%,
+    transparent calc(var(--hw-p) - 16%),
+    #000 calc(var(--hw-p) - 2%),
+    #000 calc(var(--hw-p) + 8%),
+    transparent calc(var(--hw-p) + 30%)
+  );
+  mask-image: radial-gradient(
+    ellipse 150% 150% at 0% 100%,
+    transparent calc(var(--hw-p) - 16%),
+    #000 calc(var(--hw-p) - 2%),
+    #000 calc(var(--hw-p) + 8%),
+    transparent calc(var(--hw-p) + 30%)
+  );
+  animation: hw-roll 1.15s cubic-bezier(0.6, 0, 0.2, 1) both;
+}
+.hw-stage > .hw-wash::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(/textures/grain-fine.png) 0 0 / 256px 256px;
+  mix-blend-mode: soft-light;
+  opacity: 0.6;
+}
+@keyframes hw-roll {
+  from {
+    --hw-p: -12%;
+  }
+  to {
+    --hw-p: 120%;
+  }
+}
+@keyframes hw-hold {
+  from,
+  to {
+    visibility: visible;
+  }
+}
+
+/* A product window on the field. */
+.hw-win {
+  position: relative;
+  border-radius: 2.4cqw;
+  background: var(--sheet);
+  color: var(--ink);
+  box-shadow: inset 0 1px 0 #fff, var(--lift);
+  text-align: left;
+}
+.hw-win .ugc {
+  --ugc-shadow: 0 0.1cqw 0.2cqw rgb(70 35 10 / 0.3), 0.4cqw 0.9cqw 1.6cqw rgb(70 35 10 / 0.2);
+}
+.hw-cap {
+  display: block;
+  font-size: max(12px, 1.55cqw);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Step 1: the start screen. */
+.hw-start {
+  display: grid;
+  width: 80cqw;
+  padding: 4.6cqw 4.8cqw 4.8cqw;
+}
+.hw-typed {
+  display: block;
+  min-height: 1.06em;
+  margin-top: 1.1cqw;
+  font-size: 5.3cqw;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+  white-space: nowrap;
+}
+.hw-caret {
+  display: inline-block;
+  width: max(2px, 0.07em);
+  height: 0.9em;
+  margin-left: 0.08em;
+  vertical-align: -0.08em;
+  background: var(--chili);
+}
+.hw-caret[data-blink] {
+  animation: hx-blink 1.06s steps(1) infinite;
+}
+.hw-start-row {
+  display: grid;
+  grid-template-columns: 23cqw minmax(0, 1fr);
+  gap: 3.6cqw;
+  margin-top: 3.6cqw;
+}
+.hw-photo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 1.6cqw;
+  background: var(--cream);
+}
+.hw-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  box-shadow: 0 0.1cqw 0.2cqw rgb(70 35 10 / 0.3), 0.5cqw 1.1cqw 1.8cqw rgb(70 35 10 / 0.22);
+  opacity: 0;
+  transform: translate3d(2.4cqw, -3.6cqw, 0) rotate(12deg) scale(1.06);
+  transition:
+    opacity 0.3s linear,
+    transform 0.8s var(--ease-out);
+}
+.hw-photo[data-on] img {
+  opacity: 1;
+  transform: rotate(-3deg);
+}
+.hw-facts {
+  display: grid;
+  align-content: start;
+  gap: 2.4cqw;
+}
+.hw-well {
+  display: flex;
+  align-items: center;
+  height: 6cqw;
+  margin-top: 0.9cqw;
+  padding: 0 1.9cqw;
+  border-radius: 1.4cqw;
+  background: var(--cream);
+  font-size: 2.35cqw;
+  letter-spacing: -0.02em;
+}
+.hw-well b {
+  font-weight: 700;
+  opacity: 0;
+  transform: translate3d(0, 0.5cqw, 0);
+  transition:
+    opacity 0.3s linear,
+    transform 0.6s var(--ease-out);
+}
+.hw-fact[data-on] .hw-well b {
+  opacity: 1;
+  transform: none;
+}
+.hw-where {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8cqw 2cqw;
+  margin-top: 1.2cqw;
+  font-size: 2.25cqw;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.hw-where > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7cqw;
+}
+.hw-where i {
+  display: block;
+  width: 2.3cqw;
+  height: 2.3cqw;
+  border-radius: 50%;
+  background: var(--cream-deep);
+  transition:
+    background-color 0.25s linear,
+    scale 0.5s var(--ease-out);
+}
+.hw-where [data-on] i {
+  background: var(--ink)
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M5.6 10.4l3 3 5.8-6.4' fill='none' stroke='%23fffcf5' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/></svg>")
+    center / 100% no-repeat;
+  scale: 1.08;
+}
+.hunch-home .hw-go {
+  justify-self: end;
+  height: 6.2cqw;
+  margin-top: 3.4cqw;
+  padding: 0 2.9cqw 0.1cqw;
+  font-size: 2.2cqw;
+  transition: scale 0.25s var(--ease-out);
+}
+.hunch-home .hw-go[data-press] {
+  scale: 0.94;
+}
+
+/* Steps 2 and 3: the 8 posts, each over the buyer it was written for; then each over its ₱100 and its 3 days. */
+.hw-posts {
+  padding: 3cqw 3.4cqw 3.2cqw;
+}
+.hw-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2cqw;
+  margin-bottom: 2.4cqw;
+  font-size: max(12px, 1.7cqw);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+.hw-bar b {
+  font-size: 2.8cqw;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.hw-bar span {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.hw-bar i {
+  font-style: normal;
+}
+.hw-track {
+  display: grid;
+  grid-template-columns: repeat(4, 15.2cqw);
+  gap: 2.2cqw 4cqw;
+}
+.hw-cell {
+  display: grid;
+  gap: 1cqw;
+  align-content: start;
+}
+.hw-name,
+.hw-spend {
+  min-height: 2.36em;
+  margin-right: -2cqw;
+  font-size: max(11px, 1.48cqw);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+.hw-spend {
+  display: flex;
+  align-items: center;
+  gap: 1cqw;
+  margin-right: 0;
+  min-height: 0;
+  height: 2.36em;
+}
+.hw-spend b {
+  font-size: 1.3em;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.hw-meter {
+  display: flex;
+  flex: 1;
+  gap: 0.4cqw;
+}
+.hw-meter i {
+  position: relative;
+  flex: 1;
+  height: 0.7cqw;
+  overflow: hidden;
+  border-radius: 1cqw;
+  background: var(--cream-deep);
+}
+.hw-meter i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--ink);
+  transform-origin: 0 50%;
+  transform: scaleX(clamp(0, var(--hw-run) * 3 - var(--d), 1));
+  transition: transform 0.12s linear;
+}
+.hw-shot[data-on] .hw-posts:not([data-boost]) .hw-cell {
+  animation: hw-deal 0.8s var(--ease-out) calc(380ms + var(--k) * 70ms) both;
+}
+@keyframes hw-deal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 2.4cqw, 0);
+    filter: blur(6px);
+  }
+}
+
+/* Step 4: the winner large, then all 8 by messages. One dot is one message. */
+.hw-res {
+  display: grid;
+  grid-template-columns: 28cqw minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  column-gap: 3.8cqw;
+  width: 91cqw;
+  padding: 3.6cqw;
+}
+.hw-res-post {
+  grid-area: 1 / 1 / 3 / 2;
+}
+.hw-res-say {
+  padding-top: 0.4cqw;
+}
+.hw-res-name {
+  display: block;
+  margin-top: 0.7cqw;
+  font-size: 3.7cqw;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+.hw-res-n {
+  display: flex;
+  align-items: center;
+  gap: 1.6cqw;
+  margin-top: 1.4cqw;
+  font-size: 1.95cqw;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.hw-res-n > .hh-dot {
+  min-width: 1.1em;
+  font-size: 9cqw;
+  line-height: 0.8;
+  -webkit-text-stroke: 0.022em currentColor;
+}
+.hw-res-n > span b {
+  display: block;
+  font-weight: 800;
+}
+.hw-rank {
+  align-self: end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hw-rank li {
+  display: grid;
+  grid-template-columns: 26cqw minmax(0, 1fr) 3.2cqw;
+  align-items: center;
+  column-gap: 1.3cqw;
+  height: 3.75cqw;
+  font-size: max(10.5px, 1.48cqw);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.hw-rank li[data-lead] {
+  font-weight: 800;
+}
+.hw-rank-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.hw-rank-dots {
+  display: flex;
+  gap: 0.42cqw;
+}
+.hw-rank-dots i {
+  flex: none;
+  width: 1.04cqw;
+  height: 1.04cqw;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.hw-rank li[data-lead] .hw-rank-dots i {
+  background: var(--persimmon);
+}
+.hw-rank li[data-lead] .hw-rank-dots i:nth-child(n + 6) {
+  background: var(--chili);
+}
+.hw-rank li[data-lead] .hw-rank-dots i:nth-child(n + 11) {
+  background: var(--rose);
+}
+.hw-rank li > b {
+  font-size: 1.25em;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  text-align: right;
+}
+.hw-shot[data-on] .hw-rank-dots i {
+  animation: hw-dot 0.4s var(--ease-out) calc(700ms + var(--k) * 60ms + var(--j) * 45ms) both;
+}
+@keyframes hw-dot {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+}
+
+.hunch-home .hw :focus-visible {
+  outline-offset: 4px;
+}
+
+@media (max-width: 1180px) {
+  .hw-pin {
+    grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+  }
+}
+
+@media (max-width: 899px) {
+  .hw {
+    height: auto;
+    padding-top: clamp(72px, 16vw, 110px);
+  }
+  .hw-pin {
+    position: static;
+    display: block;
+    height: auto;
+    padding: 0 var(--gutter);
+  }
+  /* The room the pinned stage travels through. */
+  .hw-pin::after {
+    content: "";
+    display: block;
+    height: 230svh;
+  }
+  .hw-mark {
+    position: static;
+    display: block;
+  }
+  .hw-play {
+    position: sticky;
+    /* Pinned in the middle of tall screens, under the header on short ones. */
+    top: max(0px, calc((100svh - 72px - (100vw - 2 * var(--gutter)) / 0.84 - 130px) / 2));
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-height: calc(72px + (100vw - 2 * var(--gutter)) / 0.84 + 130px);
+    padding: 72px 0 12px;
+  }
+  .hw-stage {
+    align-self: center;
+    flex: none;
+    width: min(100%, calc((100svh - 230px) * 0.84));
+    aspect-ratio: 0.84;
+    border-radius: 22px;
+  }
+  /* Only the open step shows, in place. */
+  .hw-steps {
+    display: grid;
+  }
+  .hw-steps > li {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    pointer-events: none;
+    transition:
+      opacity 0.3s linear,
+      transform 0.6s var(--ease-out);
+  }
+  .hw-steps > li[data-on] {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition-delay: 0.2s;
+  }
+  .hw-step {
+    font-size: 27px;
+    cursor: default;
+  }
+  .hw-step-l,
+  li[data-on] > .hw-step .hw-step-l {
+    grid-template-rows: 1fr;
+  }
+  .hw-step-l > span {
+    max-width: none;
+    font-size: 17px;
+    opacity: 1;
+  }
+  .hw-step-l > span::after {
+    height: 0;
+  }
+
+  .hw-win {
+    border-radius: 4.6cqw;
+  }
+  .hw-cap {
+    font-size: 12px;
+  }
+  .hw-start {
+    width: 90cqw;
+    padding: 6cqw;
+  }
+  .hw-typed {
+    min-height: 2.12em;
+    margin-top: 1.6cqw;
+    font-size: 8.6cqw;
+    white-space: normal;
+  }
+  .hw-start-row {
+    grid-template-columns: 28cqw minmax(0, 1fr);
+    gap: 4.4cqw;
+    margin-top: 5cqw;
+  }
+  .hw-photo {
+    border-radius: 3cqw;
+  }
+  .hw-photo .hw-cap {
+    max-width: 4em;
+    text-align: center;
+  }
+  .hw-facts {
+    gap: 3.6cqw;
+  }
+  .hw-well {
+    height: 10cqw;
+    margin-top: 1.2cqw;
+    padding: 0 3cqw;
+    border-radius: 2.4cqw;
+    font-size: 13px;
+  }
+  .hw-where {
+    gap: 1.4cqw 3cqw;
+    margin-top: 1.6cqw;
+    font-size: 13px;
+  }
+  .hw-where i {
+    width: 15px;
+    height: 15px;
+  }
+  .hw-where > span {
+    gap: 5px;
+  }
+  .hunch-home .hw-go {
+    height: 40px;
+    margin-top: 5.4cqw;
+    padding: 0 18px 1px;
+    font-size: 14px;
+  }
+
+  /* The 8 sit in one row that pans, so each post and its buyer stay readable. */
+  .hw-posts {
+    width: 92cqw;
+    padding: 5cqw 0 5.4cqw;
+  }
+  .hw-bar {
+    margin: 0 5cqw 4cqw;
+    font-size: 12px;
+  }
+  .hw-bar b {
+    font-size: 5.4cqw;
+  }
+  .hw-bar i {
+    display: none;
+  }
+  .hw-grid {
+    overflow: hidden;
+    padding: 0 5cqw 3cqw;
+    margin-bottom: -3cqw;
+  }
+  .hw-track {
+    grid-template-columns: repeat(8, 33cqw);
+    gap: 0 4cqw;
+    width: max-content;
+  }
+  .hw-shot[data-on] .hw-track {
+    animation: hw-pan 14s var(--ease-breathe) 1.6s infinite alternate;
+  }
+  @keyframes hw-pan {
+    to {
+      transform: translate3d(calc(82cqw - 100%), 0, 0);
+    }
+  }
+  .hw-cell {
+    gap: 2.4cqw;
+  }
+  .hw-name,
+  .hw-spend {
+    margin-right: 0;
+    font-size: 12px;
+  }
+  .hw-spend {
+    gap: 2.4cqw;
+  }
+  .hw-meter {
+    gap: 1cqw;
+  }
+  .hw-meter i {
+    height: 1.6cqw;
+  }
+
+  .hw-res {
+    grid-template-columns: 27cqw minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 5cqw;
+    width: 92cqw;
+    padding: 4.6cqw 5cqw;
+  }
+  .hw-res-post {
+    grid-area: 1 / 1;
+  }
+  .hw-res-say {
+    align-self: center;
+    padding: 0;
+  }
+  .hw-res-name {
+    margin-top: 1.4cqw;
+    font-size: 6.4cqw;
+  }
+  .hw-res-n {
+    gap: 2.6cqw;
+    margin-top: 3cqw;
+    font-size: 13px;
+  }
+  .hw-res-n > .hh-dot {
+    font-size: 15cqw;
+  }
+  .hw-rank {
+    grid-column: 1 / 3;
+    margin-top: 3.6cqw;
+  }
+  .hw-rank li {
+    grid-template-columns: minmax(0, 1fr) 27.4cqw 5.4cqw;
+    column-gap: 2cqw;
+    height: 5.3cqw;
+    font-size: 11px;
+  }
+  .hw-rank-dots {
+    gap: 0.5cqw;
+  }
+  .hw-rank-dots i {
+    width: 1.5cqw;
+    height: 1.5cqw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hw-stage > .hw-shot,
+  .hw-stage > .hw-shot[data-on],
+  .hw-stage > .hw-shot[data-out] {
+    -webkit-mask-image: none;
+    mask-image: none;
+    animation: none;
+    opacity: 0;
+    transition:
+      opacity 0.3s linear,
+      visibility 0s linear 0.3s;
+  }
+  .hw-stage > .hw-shot[data-on] {
+    opacity: 1;
+    transition-delay: 0s;
+  }
+  .hw-stage > .hw-wash {
+    display: none;
+  }
+  .hw-grid {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .hw-shot[data-on] .hw-posts:not([data-boost]) .hw-cell,
+  .hw-shot[data-on] .hw-rank-dots i,
+  .hw-shot[data-on] .hw-track,
+  .hw-caret[data-blink] {
+    animation: none;
+  }
+  .hw-step-t,
+  .hw-step-t > span,
+  .hw-step-l,
+  .hw-photo img,
+  .hw-well b,
+  .hw-where i,
+  .hw-meter i::after,
+  .hunch-home .hw-go {
+    transition: none;
+  }
+  .hw-steps > li {
+    transform: none;
+    transition: opacity 0.3s linear;
+  }
+}

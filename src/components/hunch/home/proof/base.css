@@ -1,0 +1,46 @@
+/* Shared by the proof scenes: the design unit and the arrival. */
+
+.pr,
+.pw,
+.nw,
+.fq,
+.ct,
+.ft {
+  /* One design pixel of a 1440 wide poster. */
+  --u: calc(clamp(900px, 100vw, 1680px) / 1440);
+}
+
+/* Arrivals: 12 px up, soft to sharp. */
+[data-rise] .pf-rise,
+.pf-rise[data-rise] {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  filter: blur(6px);
+  transition:
+    opacity 0.6s linear var(--rd, 0s),
+    transform 0.8s var(--ease-out) var(--rd, 0s),
+    filter 0.7s var(--ease-out) var(--rd, 0s);
+}
+[data-rise][data-seen] .pf-rise,
+.pf-rise[data-rise][data-seen] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-rise] .pf-rise,
+  .pf-rise[data-rise] {
+    transform: none;
+    filter: none;
+    transition: opacity 0.4s linear;
+  }
+}
+
+.pf-peso {
+  margin-right: 0.04em;
+  font-family: var(--display);
+  font-size: 0.78em;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}

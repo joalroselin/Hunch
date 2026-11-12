@@ -1,0 +1,452 @@
+/* App screens in the landing page's look. Classes are ha-*; tokens live in globals.css. See APP-LOOK.md. */
+/* Everything here sits in the components layer, so a Tailwind utility on the same element wins. */
+
+@layer components {
+  /* Page */
+  .ha-page {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding: clamp(28px, 4.4vw, 60px) var(--gutter) 0;
+  }
+  .ha-h1 {
+    font-size: clamp(2.6rem, 6.1vw, 5.5rem);
+  }
+  .ha-h2 {
+    font-size: clamp(1.75rem, 3.1vw, 2.75rem);
+  }
+  .ha-line {
+    max-width: 36ch;
+    margin-top: 0.9em;
+    font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  }
+  .ha-label {
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  .ha-note {
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .ha-link {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+  }
+  .ha-link:disabled,
+  .ha-link[aria-disabled="true"] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* Title words rise one by one. */
+  .ha-words > span {
+    display: inline-block;
+    animation: ha-rise 0.8s var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 70ms + 60ms);
+  }
+  .ha-rise {
+    animation: ha-rise 0.75s var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 70ms);
+  }
+  @keyframes ha-rise {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 12px, 0);
+      filter: blur(6px);
+    }
+  }
+  @keyframes ha-fade {
+    from {
+      opacity: 0;
+    }
+  }
+
+  /* Paper object. Fields on it are pressed wells. */
+  .ha-sheet,
+  .tile,
+  .surface-gradient,
+  [data-slot="dialog-content"],
+  [data-slot="sheet-content"],
+  [data-slot="card"] {
+    --field: #f5eee0;
+    --field-shadow: var(--shadow-well);
+  }
+  .ha-sheet {
+    border-radius: 24px;
+    background: var(--sheet);
+    color: var(--ink);
+    box-shadow: var(--shadow-sheet);
+  }
+
+  /* Fields: Input, Textarea and NativeSelect share this. */
+  .ha-field {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    border-radius: 14px;
+    background: var(--field);
+    color: var(--ink);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    box-shadow: var(--field-shadow);
+    outline: none;
+    transition: box-shadow 0.3s var(--ease-out);
+  }
+  .ha-field::placeholder {
+    color: var(--placeholder);
+  }
+  .ha-field:focus {
+    box-shadow:
+      var(--field-shadow),
+      0 0 0 2px var(--ink);
+  }
+  .ha-field[aria-invalid="true"] {
+    box-shadow:
+      var(--field-shadow),
+      0 0 0 2px var(--fail);
+  }
+  .ha-field:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  /* The one big field of a screen: the try box from the landing page, taller. */
+  .ha-field-lg {
+    border-radius: 20px;
+    padding: 20px 24px 22px;
+    font-size: clamp(18px, 1.55vw, 22px);
+    line-height: 1.28;
+    letter-spacing: -0.025em;
+    box-shadow: var(--shadow-sheet);
+  }
+  .ha-field-lg:focus {
+    box-shadow:
+      var(--shadow-sheet),
+      0 0 0 2px var(--ink);
+  }
+
+  /* Toggle pill: off is a tint, on is ink. Use aria-pressed or aria-checked. */
+  .ha-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 18px 1px;
+    border-radius: 999px;
+    background: var(--tint);
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    transition:
+      background-color 0.25s var(--ease-out),
+      color 0.25s var(--ease-out),
+      scale 0.18s var(--ease-out);
+  }
+  @media (hover: hover) {
+    .ha-chip:hover {
+      background: var(--tint-strong);
+    }
+  }
+  .ha-chip:active {
+    scale: 0.96;
+  }
+  .ha-chip[aria-pressed="true"],
+  .ha-chip[aria-checked="true"] {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  /* Segmented control: one choice of a few. */
+  .ha-seg {
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    padding: 4px;
+    border-radius: 999px;
+    background: var(--tint);
+  }
+  .ha-seg > * {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 0 16px 1px;
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    transition:
+      background-color 0.25s var(--ease-out),
+      color 0.25s var(--ease-out);
+  }
+  .ha-seg > [aria-checked="true"],
+  .ha-seg > [aria-pressed="true"],
+  .ha-seg > [aria-selected="true"],
+  .ha-seg > [data-state="active"] {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  /* The step's forward button: an ink pill that ends in the drop. */
+  .ha-go-drop {
+    --grain: 0.5;
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 6px;
+    border-radius: var(--drop-out);
+    background: var(--sun);
+    color: var(--ink);
+    transition: rotate 0.5s var(--ease-out);
+  }
+  .ha-go-drop > svg {
+    width: 18px;
+    height: 18px;
+    transition: rotate 0.5s var(--ease-out);
+  }
+  [data-size="default"] > .ha-go-drop {
+    width: 32px;
+    height: 32px;
+  }
+  [data-size="default"] > .ha-go-drop > svg {
+    width: 15px;
+    height: 15px;
+  }
+  @media (hover: hover) {
+    [data-variant="go"]:hover:not(:disabled, [aria-disabled="true"]) > .ha-go-drop {
+      rotate: -90deg;
+    }
+    [data-variant="go"]:hover:not(:disabled, [aria-disabled="true"]) > .ha-go-drop > svg {
+      rotate: 90deg;
+    }
+  }
+
+  /* Message bubble: toasts, tips, anything the app says once. */
+  .ha-bubble {
+    width: fit-content;
+    max-width: min(22rem, 100%);
+    padding: 9px 14px 10px;
+    border-radius: var(--bubble);
+    background: var(--ink);
+    color: var(--sheet);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .ha-bubble-out {
+    border-radius: var(--bubble-out);
+  }
+  .ha-bubble-in {
+    animation: ha-bubble-in 0.3s var(--ease-out) both;
+  }
+  @keyframes ha-bubble-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 6px, 0) scale(0.94);
+    }
+  }
+
+  /* Header */
+  .ha-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    transition: background-color 0.5s var(--ease-out);
+  }
+  .ha-bar[data-solid="true"] {
+    background: rgb(244 236 221 / 0.9);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .ha-bar-row {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 2.6vw, 40px);
+    height: var(--bar);
+    max-width: 90rem;
+    margin-inline: auto;
+    padding: 0 var(--gutter);
+  }
+  .ha-wordmark {
+    display: block;
+    width: auto;
+    height: 24px;
+    color: var(--ink);
+  }
+  .ha-steps {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 2.3vw, 34px);
+  }
+  .ha-step {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    color: var(--ink);
+  }
+  .ha-step[data-open="false"] {
+    opacity: 0.36;
+  }
+  .ha-step[aria-current="step"] {
+    font-weight: 800;
+  }
+  /* The hunch: one small drop that sits before the current step and travels when the step changes. */
+  .ha-step-drop {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 11px;
+    height: 11px;
+    margin: -6px 0 0 -17px;
+    border-radius: var(--drop);
+    background: var(--sun);
+    translate: var(--at, 0px) 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .ha-step-drop[data-on] {
+    opacity: 1;
+  }
+  .ha-step-drop[data-move] {
+    transition: translate 0.9s var(--ease-rail);
+  }
+  .ha-progress {
+    height: 3px;
+    margin-top: -3px;
+  }
+  .ha-progress > span {
+    display: block;
+    height: 100%;
+    border-radius: 0 3px 3px 0;
+    background: linear-gradient(90deg, #ffb52c, #ff6a1f 60%, #e63a1c);
+    transform-origin: left;
+    transition: scale 0.9s var(--ease-rail);
+  }
+  /* Phones: the screen's forward button, fixed to the bottom. */
+  .ha-dock {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 40;
+    padding: 12px var(--gutter) max(12px, env(safe-area-inset-bottom));
+    background: linear-gradient(rgb(244 236 221 / 0), var(--cream) 34%);
+  }
+  .ha-dock:empty {
+    display: none;
+  }
+
+  /* Empty state: one drop, one heading, one line, one button. */
+  .ha-empty {
+    display: grid;
+    justify-items: start;
+    gap: 0;
+    padding-block: clamp(24px, 6vh, 72px);
+  }
+  .ha-empty-drop {
+    width: clamp(72px, 9vw, 120px);
+    aspect-ratio: 1;
+    margin-bottom: clamp(24px, 3vw, 40px);
+    border-radius: var(--drop);
+    background: var(--sun);
+    box-shadow: var(--shadow-object);
+    animation: ha-breathe 9s var(--ease-breathe) infinite;
+  }
+  @keyframes ha-breathe {
+    50% {
+      scale: 1.035;
+    }
+  }
+
+  /* Loading: the drop alone, breathing. */
+  .ha-loading {
+    display: grid;
+    min-height: calc(100dvh - var(--bar) - 8rem);
+    place-items: center;
+  }
+  .ha-loading > span {
+    width: 56px;
+    aspect-ratio: 1;
+    border-radius: var(--drop);
+    background: var(--sun);
+    animation:
+      ha-fade 0.6s linear 0.45s both,
+      ha-breathe 2.4s var(--ease-breathe) infinite;
+  }
+
+  /* Toasts are message bubbles. */
+  [data-sonner-toast].ha-toast {
+    right: 0;
+    left: 0;
+    width: fit-content;
+    max-width: min(24rem, calc(100vw - 32px));
+    margin-inline: auto;
+    padding: 10px 16px 11px;
+    gap: 9px;
+    border: 0;
+    border-radius: var(--bubble);
+    background: var(--ink);
+    color: var(--sheet);
+    font-family: var(--sans);
+    box-shadow: var(--shadow-object);
+  }
+  .ha-toast-dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: var(--drop);
+    background: var(--sun);
+  }
+  .ha-toast-dot[data-kind="error"] {
+    border-radius: 50%;
+    background: var(--rose);
+  }
+  .ha-toast-dot[data-kind="quiet"] {
+    background: rgb(255 252 245 / 0.5);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ha-words > span,
+    .ha-rise,
+    .ha-bubble-in {
+      animation-name: ha-fade;
+      animation-duration: 0.4s;
+    }
+    .ha-empty-drop {
+      animation: none;
+    }
+    .ha-loading > span {
+      animation: ha-fade 0.6s linear 0.45s both;
+    }
+    .ha-chip:active {
+      scale: none;
+    }
+    .ha-go-drop,
+    .ha-go-drop > svg {
+      rotate: none !important;
+    }
+    .ha-step-drop[data-move],
+    .ha-progress > span {
+      transition: none;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+/* The mark: a round sun with one tail, the outline of a chat bubble. Logo, hero window, send button. */
+.hh-mark {
+  --grain: 0.45;
+  display: block;
+  aspect-ratio: 1;
+}
+
+.hh-logo {
+  display: flex;
+  align-items: flex-end;
+  padding: 9px 0;
+  gap: clamp(6px, 0.56vw, 8px);
+}
+.hh-logo .hh-mark {
+  height: clamp(20.5px, 1.9vw, 27px);
+  margin-bottom: clamp(0.5px, 0.05vw, 1px);
+  transition: rotate 0.5s var(--ease-out);
+}
+@media (hover: hover) {
+  .hh-logo:hover .hh-mark {
+    rotate: -90deg;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hh-logo .hh-mark {
+    transition: none;
+    rotate: none !important;
+  }
+}

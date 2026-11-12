@@ -1,0 +1,324 @@
+/* The questions, as a chat with Hunch. Everything shows by default; [data-live] plays it. */
+
+.fc {
+  --u: calc(clamp(900px, 100vw, 1680px) / 1440);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, calc(600 * var(--u)));
+  align-items: start;
+  gap: calc(64 * var(--u));
+  position: relative;
+  padding: calc(150 * var(--u)) var(--gutter);
+  background: var(--cream-deep);
+}
+/* A wedge of the page above: the band's top edge starts on a slant and levels as it comes in. */
+.fc-slant {
+  position: absolute;
+  inset: -16vw 0 auto;
+  height: 16vw;
+  background: var(--cream);
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+.fc-title,
+.fc-pop {
+  position: relative;
+}
+.fc-pop {
+  transform-origin: 0 100%;
+}
+.fc-title {
+  max-width: 5.6em;
+  font-size: calc(96 * var(--u));
+}
+
+/* The chat window: one sheet of paper, only as tall as what has been said. */
+.fc-body {
+  display: flex;
+  flex-direction: column;
+}
+.fc[data-live] .fc-app {
+  overflow: hidden;
+  transition: height 0.55s var(--ease-out);
+}
+.fc[data-live] .fc-tray {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background: var(--sheet);
+}
+@media (min-width: 861px) {
+  .fc-pop {
+    min-height: var(--full, 0px);
+  }
+}
+.fc-app {
+  border-radius: 34px;
+  background: var(--sheet);
+  box-shadow: var(--shadow-sheet);
+  font-size: max(calc(17 * var(--u)), 16px);
+}
+.fc-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 20px 24px 8px;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.fc-mark {
+  --grain: 0.4;
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--drop);
+  background: var(--sun);
+}
+.fc-head .fc-mark {
+  width: 34px;
+  height: 34px;
+}
+
+.fc-thread {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+  margin: 0;
+  padding: 18px 24px 10px;
+  list-style: none;
+}
+.fc-pair,
+.fc-q,
+.fc-reply {
+  display: flex;
+}
+.fc-pair {
+  flex-direction: column;
+  gap: 8px;
+}
+.fc-q {
+  justify-content: flex-end;
+  padding-left: 12%;
+  font: inherit;
+}
+.fc-reply {
+  align-items: flex-end;
+  gap: 9px;
+}
+.fc-slot {
+  min-width: 0;
+}
+.fc-bub {
+  display: block;
+  padding: 11px 17px 13px;
+  border-radius: 23px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  text-wrap: pretty;
+}
+.fc-q .fc-bub {
+  border-bottom-right-radius: 6px;
+  background: var(--ink);
+  color: var(--sheet);
+  font-weight: 600;
+  transform-origin: 100% 100%;
+}
+.fc-a,
+.fc-typing {
+  border-bottom-left-radius: 6px;
+  background: var(--cream);
+  transform-origin: 0 100%;
+}
+.fc-a {
+  text-wrap: balance;
+}
+.fc-a b {
+  font-weight: 800;
+}
+.fc-typing {
+  display: none;
+  gap: 5px;
+  align-items: center;
+}
+.fc-typing::before {
+  content: "\200b";
+}
+.fc-typing i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink);
+  opacity: 0.3;
+}
+
+/* Quick replies: the next messages, not sent yet. */
+.fc-tray {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 24px 24px;
+}
+.fc-chip {
+  padding: 10px 16px 12px;
+  border-radius: 22px 22px 6px 22px;
+  background: rgb(26 17 11 / 0.07);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    opacity 0.4s linear,
+    background-color 0.2s linear,
+    scale 0.18s var(--ease-out);
+  animation: fc-in 0.5s var(--ease-out) backwards;
+}
+.fc-chip:active {
+  scale: 0.97;
+}
+.fc-tray[data-busy] .fc-chip {
+  opacity: 0.38;
+  cursor: default;
+}
+@media (hover: hover) {
+  .fc-tray:not([data-busy]) .fc-chip:hover {
+    background: rgb(26 17 11 / 0.13);
+  }
+}
+.fc-try {
+  animation: fc-in 0.5s var(--ease-out) backwards;
+}
+
+/* Playing. A message takes no room until it is sent. */
+.fc[data-live]:not([data-measure]) .fc-pair[data-phase="wait"] {
+  display: none;
+}
+.fc[data-live]:not([data-measure]) .fc-pair[data-phase="sent"] .fc-reply,
+.fc[data-live]:not([data-measure]) .fc-pair[data-phase="typing"] .fc-a {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.fc[data-live] .fc-pair:not([data-phase="wait"]) .fc-q .fc-bub {
+  animation: fc-send 0.46s var(--ease-out) backwards;
+}
+.fc[data-live] .fc-pair:is([data-phase="typing"], [data-phase="done"]) .fc-reply .fc-mark {
+  animation: fc-in 0.4s var(--ease-out) backwards;
+}
+.fc[data-live] .fc-pair[data-phase="typing"] .fc-typing {
+  display: flex;
+  animation: fc-in 0.36s var(--ease-out) backwards;
+}
+.fc[data-live] .fc-pair[data-phase="typing"] .fc-typing i {
+  animation: fc-dot 1.15s ease-in-out infinite;
+}
+.fc[data-live] .fc-typing i:nth-child(2) {
+  animation-delay: 0.16s;
+}
+.fc[data-live] .fc-typing i:nth-child(3) {
+  animation-delay: 0.32s;
+}
+.fc[data-live] .fc-pair[data-phase="done"] .fc-a {
+  animation: fc-answer 0.44s var(--ease-out) backwards;
+}
+
+@keyframes fc-send {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.94);
+  }
+}
+@keyframes fc-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+@keyframes fc-answer {
+  from {
+    opacity: 0.4;
+    transform: scale(0.96);
+  }
+}
+@keyframes fc-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: none;
+  }
+  30% {
+    opacity: 0.8;
+    transform: translate3d(0, -3px, 0);
+  }
+}
+
+@media (max-width: 860px) {
+  .fc {
+    display: block;
+    padding: 88px var(--gutter) 96px;
+  }
+  .fc-title {
+    max-width: none;
+    font-size: clamp(46px, 13.2vw, 76px);
+  }
+  .fc-app {
+    margin-top: 40px;
+    border-radius: 28px;
+    font-size: 16px;
+  }
+  .fc-head {
+    padding: 16px 16px 4px;
+  }
+  .fc-thread {
+    gap: 16px;
+    padding: 14px 14px 8px;
+  }
+  .fc-q {
+    padding-left: 10%;
+  }
+  .fc-reply {
+    gap: 7px;
+  }
+  .fc-bub {
+    padding: 10px 15px 12px;
+    border-radius: 21px;
+  }
+  .fc-mark {
+    width: 22px;
+    height: 22px;
+  }
+  .fc-head .fc-mark {
+    width: 30px;
+    height: 30px;
+  }
+  .fc-tray {
+    padding: 10px 14px 16px;
+  }
+  .fc-chip {
+    padding: 9px 14px 11px;
+    border-radius: 20px 20px 6px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fc[data-live] .fc-app {
+    transition: none;
+  }
+  .fc-chip,
+  .fc-try {
+    animation: none;
+  }
+  .fc-chip:active {
+    scale: none;
+  }
+}

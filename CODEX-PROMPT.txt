@@ -1,0 +1,30 @@
+You are rebuilding "Hunch" to match an existing design exactly. Live reference: https://hunch-app-ph.vercel.app (study every section, scroll slowly, open a post, click "Try your product", and go through every app screen with ?demo=1).
+
+If the source folder is attached, it is the source of truth. Read these first and follow them literally:
+- src/components/hunch/home/LOOK.md (visual system: colors, type, grain, layout, motion, banned patterns)
+- src/components/hunch/home/COPY.md (every line on the landing page)
+- APP-LOOK.md (how the app screens use the same system)
+- parallel/elle/ugc-phrasebook.md (how post captions are written)
+Do not restyle, rename or "improve" anything. Match it.
+
+Product: Hunch helps first-time Filipino sellers find who buys. The seller types their product, Hunch writes 8 posts for 8 kinds of buyers (Taglish, English, Tagalog), the seller boosts each with ₱100 on Facebook for 3 days, uploads the results, and Hunch shows who messaged most and writes next week's posts. Runs on sample data (Elle's soy candles; matcha if the product mentions matcha) when no API key is set.
+
+Stack: Next.js 15 App Router, React 19, TypeScript, Tailwind v4, framer-motion. Fonts bundled locally: Bricolage Grotesque (all UI, weight 800 for headings, tight tracking) and TikTok Sans (text on posts only).
+
+Look ("Sunset paper"):
+- Cream paper background #F4ECDD, ink #1A110B, sheet #FFFCF5. Sunset accents: gold #FFC233, persimmon #FF6A1F, chili #D8281B, rose #FF5A8C.
+- The "sun" gradient: airbrushed radial gradients of gold, persimmon, chili and rose. Used on one thing per screen.
+- Full-bleed color fields for some sections (red, green, yellow, magenta), always airbrushed gradients with very fine, soft, low-contrast film grain. Grain only inside gradients, never on paper, text or photos.
+- Logo: a chat-bubble shape (a square with border-radius 50% 50% 50% 9%, so three round corners and a small tail at the bottom left) filled with the sun gradient, followed by "hunch" in lowercase Bricolage ExtraBold.
+- Posts always appear as real TikTok/IG phone frames around real photos (hands only, no faces), with on-video text in white boxes in TikTok Sans, handle, caption line, like/comment/save/share rail. Never a card or a notes-app mock.
+- Posters, not dashboards: one huge headline plus one hero object per section, big scale contrast, lots of paper.
+
+Landing page order: hero (logo draws, fills with the sun, 8 posts burst out of it and land scattered at different sizes around a centered "Find out who buys." and a prompt box that types examples), the 8 kinds of buyers as a big typed list (12 cut ones struck through with the reason on hover) next to a phone deck, How it works (pinned, 4 steps shown as working mocks of the real product), results (8 posts ranked by messages as a bar chart), winner (red field rising as a dome, audience name huge, "14 messages", "about ₱7 each"), next week (7 posts on a line), questions as a short chat with typing dots and quick replies, closing yellow field "Test your hunch." with the prompt box, footer with a huge wordmark. Every section boundary has its own scroll-linked transition (transform and opacity only, reversible, off under prefers-reduced-motion).
+
+Copy rules (Enter.converge.ai tone): short verb-first headlines, one idea, 7 words or fewer; one plain line under a heading, never two; concrete nouns (₱100, 3 days, 8 posts, messages). Never: "AI-powered", "seamless", "unlock", explaining the product's reasoning, made-up symbolism, "X, Y and a Z" slogans, "not X but Y", colon reveals, em dashes.
+
+Never use these (they read as AI-made): mono bracket labels like "[ A3 · post 3 of 8 ]", "01 of 20" counters, rows of progress dots, badges or number circles stuck on photos, underlined tab rows, gray subtext under every title, glow blobs, thin-bordered cards on dark backgrounds, identical card templates.
+
+Post captions: copy real Filipino seller patterns ("POV: ...", "tag mo tropa mong ...", "Below 500 pesos na pang exchange gift sa office 🎄"), one or two emoji at most, never label the reader (no "Hey gays", "mga tita", "bro"), no health claims.
+
+Work section by section, screenshot each at 1440 and 390 wide, compare to the live reference, and fix differences before moving on.

@@ -1,0 +1,236 @@
+/* Your 8 hunches: the names big on the left, the lit buyer's post on the right. Ported from the landing page's buyers scene. */
+
+.hb {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(320px, 30vw, 440px);
+  gap: clamp(32px, 5vw, 88px);
+  align-items: start;
+  margin-top: clamp(30px, 3.2vw, 46px);
+}
+.hb-title .ha-line {
+  max-width: none;
+}
+.hb-title .ha-line > span {
+  display: inline-block;
+}
+.hb-list {
+  position: relative;
+  min-width: 0;
+}
+.hb-names {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2em 0.42em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  font-size: clamp(27px, 3.3vw, 47px);
+  transition: opacity 0.24s linear;
+}
+.hb-names[data-mode="all"] {
+  gap: 0.16em 0.42em;
+  font-size: clamp(21px, 2.6vw, 38px);
+  line-height: 1.08;
+}
+.hb-names[data-leaving] {
+  opacity: 0;
+}
+.hb-names li {
+  animation: ha-rise 0.75s var(--ease-out) calc(var(--i) * 34ms + 240ms) both;
+}
+.hb-names[data-mode="all"] li {
+  animation-delay: calc(var(--i) * 30ms);
+}
+.hb-name {
+  display: block;
+  padding: 0;
+  color: var(--ink);
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.hb-name:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.hb-ink {
+  background: linear-gradient(var(--gold), var(--gold)) no-repeat 0 86% / 0% 0.36em;
+  transition:
+    background-size 0.7s var(--ease-out),
+    color 0.5s linear;
+}
+.hb-name[data-on] .hb-ink {
+  background-size: 100% 0.36em;
+}
+@media (hover: hover) {
+  .hb-name:not([data-cut], [data-on]):hover .hb-ink {
+    background-size: 100% 0.09em;
+  }
+}
+/* The cut: a line drawn through the name, then the name steps back. */
+.hb-name[data-cut] {
+  cursor: help;
+}
+.hb-name[data-cut] .hb-ink {
+  background: linear-gradient(currentColor, currentColor) no-repeat 0 56% / 100% 0.07em;
+  color: rgb(26 17 11 / 0.36);
+  animation: hb-strike 0.7s var(--ease-out) calc(700ms + var(--i) * 70ms) backwards;
+}
+@keyframes hb-strike {
+  from {
+    background-size: 0% 0.07em;
+    color: var(--ink);
+  }
+}
+.hb-name[data-cut]:is(:hover, :focus-visible, [aria-expanded="true"]) .hb-ink {
+  color: var(--ink);
+}
+/* Why it was cut: an ink message under the name. */
+.hb-cut {
+  position: absolute;
+  z-index: 5;
+  margin: 0;
+  padding: 14px 18px 16px;
+  border-radius: 6px 22px 22px 22px;
+  background: var(--ink);
+  color: var(--sheet);
+  font-size: 15.5px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  box-shadow: var(--shadow-object);
+  pointer-events: none;
+  animation: ha-bubble-in 0.3s var(--ease-out) both;
+}
+.hb-next {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 16px;
+  margin-top: clamp(26px, 2.6vw, 38px);
+}
+.hb-next > .ha-note {
+  flex: 1 1 14rem;
+  max-width: 24rem;
+  margin-left: 6px;
+}
+
+.hb-show {
+  position: sticky;
+  top: calc(var(--bar) + 20px);
+  display: grid;
+  justify-items: center;
+  gap: clamp(20px, 2.2vw, 30px);
+  margin-top: clamp(-150px, -9vw, -40px);
+  animation: ha-fade 0.9s linear 0.25s both;
+}
+.hb-deck {
+  position: relative;
+  width: clamp(212px, 20vw, 292px);
+  aspect-ratio: 9 / 16;
+}
+.hb-card {
+  --ugc-shadow: var(--shadow-object);
+  position: absolute;
+  inset: 0;
+  display: block;
+  padding: 0;
+  border-radius: 5.2% / 2.925%;
+  cursor: pointer;
+  transition:
+    transform 1.1s var(--ease-out),
+    opacity 0.6s linear;
+}
+.hb-card:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 5px;
+}
+.hb-card[data-role="front"] {
+  z-index: 3;
+  transform: rotate(3deg);
+}
+@media (hover: hover) {
+  .hb-card[data-role="front"]:hover {
+    transform: translate3d(0, -3px, 0) rotate(3deg);
+  }
+}
+.hb-card[data-role="next"] {
+  z-index: 2;
+  transform: translate3d(58%, 9%, 0) rotate(11deg) scale(0.54);
+}
+.hb-card[data-role="prev"] {
+  z-index: 1;
+  transform: translate3d(-58%, 15%, 0) rotate(-9deg) scale(0.46);
+}
+.hb-card[data-role="rest"] {
+  z-index: 0;
+  transform: translate3d(0, 6%, 0) scale(0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+.hb-moment {
+  width: min(100%, 27ch);
+  min-height: 3.7em;
+  margin: 0;
+  font-size: clamp(17px, 1.35vw, 19px);
+  text-align: center;
+  text-wrap: balance;
+  animation: ha-rise 0.7s var(--ease-out) both;
+}
+
+@media (max-width: 899px) {
+  .hb {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+    margin-top: 30px;
+  }
+  .hb-show {
+    position: static;
+    grid-row: 1;
+    margin-top: 0;
+    scroll-margin-top: calc(var(--bar) + 12px);
+  }
+  .hb-deck {
+    width: min(50vw, 230px);
+  }
+  .hb-cut {
+    font-size: 15px;
+  }
+  .hb-next {
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hb-toggle {
+    height: 44px;
+    padding-inline: 20px;
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hb-names li,
+  .hb-moment {
+    animation: ha-fade 0.4s linear both;
+  }
+  .hb-names,
+  .hb-ink {
+    transition: none;
+  }
+  .hb-name[data-cut] .hb-ink {
+    animation: none;
+  }
+  .hb-card {
+    transition: opacity 0.3s linear;
+  }
+  .hb-card[data-role="front"]:hover {
+    transform: rotate(3deg);
+  }
+}

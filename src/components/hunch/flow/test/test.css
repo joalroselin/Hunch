@@ -1,0 +1,304 @@
+/* Run the test: the 8 posts held like a hand of cards, and the slip of settings to copy. See APP-LOOK.md. */
+
+.ht {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "head stage"
+    "budget stage"
+    "steps stage"
+    "send stage";
+  grid-template-rows: auto auto auto 1fr;
+  column-gap: clamp(24px, 4vw, 72px);
+  align-items: start;
+}
+.ht-head {
+  grid-area: head;
+}
+.ht-budget {
+  grid-area: budget;
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  margin-top: clamp(26px, 3vw, 40px);
+}
+.ht-seg > * {
+  height: 44px;
+  padding-inline: 22px;
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+}
+.ht-seg > :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Steps: plain lines, ticked with the drop. */
+.ht-steps {
+  grid-area: steps;
+  display: grid;
+  gap: 2px;
+  max-width: 35rem;
+  margin-top: clamp(22px, 2.4vw, 32px);
+  margin-left: -10px;
+}
+.ht-step {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  width: 100%;
+  padding: 9px 10px 10px;
+  border-radius: 16px;
+  font-size: clamp(16.5px, 1.3vw, 18.5px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.28;
+  text-align: left;
+  text-wrap: pretty;
+  transition: background-color 0.25s var(--ease-out);
+}
+@media (hover: hover) {
+  .ht-step:hover {
+    background: var(--tint);
+  }
+}
+.ht-step:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+.ht-tick {
+  --grain: 0.5;
+  width: 22px;
+  height: 22px;
+  margin: 1px 2px 0;
+  border-radius: 50%;
+  background: var(--tint-strong);
+  transition:
+    border-radius 0.45s var(--ease-out),
+    scale 0.45s cubic-bezier(0.34, 1.5, 0.5, 1),
+    rotate 0.45s var(--ease-out);
+}
+.ht-tick::after {
+  opacity: 0;
+}
+.ht-tick::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--sun);
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+.ht-step[aria-checked="true"] .ht-tick {
+  border-radius: var(--drop);
+  scale: 1.12;
+}
+.ht-step[aria-checked="true"] .ht-tick::before {
+  opacity: 1;
+}
+.ht-step[aria-checked="true"] .ht-tick::after {
+  opacity: var(--grain);
+}
+
+.ht-send {
+  grid-area: send;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 22px;
+  margin-top: clamp(24px, 2.6vw, 36px);
+}
+.ht-send > p {
+  flex: 1 1 14rem;
+  max-width: 22rem;
+}
+
+/* The stage: the hand above, the slip tucked under its left side. */
+.ht-stage {
+  --w: clamp(380px, 39vw, 590px);
+  grid-area: stage;
+  position: relative;
+  width: var(--w);
+  margin: clamp(0px, 0.6vw, 10px) clamp(0px, 1.2vw, 20px) 0 0;
+}
+.ht-hand {
+  position: relative;
+  height: calc(var(--w) * 0.68);
+  animation: ht-drift 8s var(--ease-breathe) 1.8s infinite alternate;
+}
+@keyframes ht-drift {
+  to {
+    translate: 0 -7px;
+  }
+}
+.ht-fan {
+  position: absolute;
+  inset: 0;
+}
+.ht-card {
+  --cw: calc(var(--w) * 0.215);
+  --ugc-shadow: 0 1px 2px rgb(70 35 10 / 0.3), calc(var(--cw) * 0.03) calc(var(--cw) * 0.06) calc(var(--cw) * 0.09) rgb(70 35 10 / 0.22),
+    calc(var(--cw) * 0.08) calc(var(--cw) * 0.16) calc(var(--cw) * 0.24) rgb(70 35 10 / 0.16);
+  position: absolute;
+  left: calc(47% - var(--cw) / 2);
+  bottom: calc(var(--w) * 0.02);
+  z-index: calc(10 - var(--k));
+  width: var(--cw);
+  /* Every card turns about one point far below the hand. */
+  transform-origin: 50% calc(100% + var(--w) * 0.62);
+  rotate: var(--a);
+  animation: ht-deal 1.2s var(--ease-out) calc(0.15s + var(--k) * 0.07s) both;
+}
+.ht-card[data-size="md"] {
+  --cw: calc(var(--w) * 0.262);
+}
+.ht-card[data-size="lg"] {
+  --cw: calc(var(--w) * 0.33);
+}
+@keyframes ht-deal {
+  from {
+    opacity: 0;
+    rotate: 0deg;
+    translate: 0 30px;
+  }
+  30% {
+    opacity: 1;
+  }
+}
+.ht-card .ugc-photo {
+  animation: ha-fade 0.5s linear both;
+}
+/* The same budget, stuck on every post. */
+.ht-tag {
+  position: absolute;
+  top: calc(var(--cw) * -0.11);
+  left: calc(var(--cw) * -0.06);
+  padding: 0.32em 0.62em 0.38em;
+  border-radius: 1em 1em 1em 0.3em;
+  background: var(--ink);
+  color: var(--sheet);
+  font-size: clamp(11px, calc(var(--cw) * 0.105), 17px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  rotate: -6deg;
+  box-shadow: 0 1px 2px rgb(70 35 10 / 0.3), 2px 5px 9px rgb(70 35 10 / 0.2);
+  animation: ht-pop 0.5s cubic-bezier(0.34, 1.4, 0.5, 1) calc(0.9s + var(--k) * 0.05s) both;
+}
+@keyframes ht-pop {
+  from {
+    opacity: 0;
+    scale: 0.6;
+  }
+}
+
+.ht-slip {
+  position: relative;
+  z-index: 12;
+  width: min(100%, 17.5rem);
+  margin: calc(var(--w) * -0.035) 0 0 calc(var(--w) * -0.03);
+  padding: 20px 22px 18px;
+  border-radius: 18px;
+  rotate: -3deg;
+  animation: ht-slip-in 1s var(--ease-out) 0.55s both;
+}
+@keyframes ht-slip-in {
+  from {
+    opacity: 0;
+    translate: 0 26px;
+    rotate: -9deg;
+  }
+}
+.ht-slip-n {
+  margin-top: 4px;
+  font-size: clamp(3rem, 4.6vw, 4.25rem);
+  font-variant-numeric: tabular-nums;
+  animation: ht-swap 0.5s var(--ease-out) both;
+}
+@keyframes ht-swap {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+.ht-slip-rows {
+  display: grid;
+  gap: 7px;
+  margin-top: 14px;
+  padding-top: 14px;
+  /* The tear line of a receipt. */
+  background: radial-gradient(circle, var(--tint-strong) 1px, transparent 1.5px) 0 0 / 7px 3px repeat-x;
+  font-size: 14.5px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.ht-slip-rows > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.ht-slip-rows dt {
+  flex: none;
+  font-weight: 500;
+}
+.ht-slip-rows dd {
+  font-weight: 700;
+  text-align: right;
+  text-wrap: balance;
+}
+
+@media (max-width: 1023px) {
+  .ht-stage {
+    --w: clamp(300px, 40vw, 400px);
+  }
+}
+
+@media (max-width: 767px) {
+  .ht {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "head" "stage" "budget" "steps" "send";
+    grid-template-rows: none;
+  }
+  .ht-stage {
+    --w: min(calc(100vw - 2 * var(--gutter)), 400px);
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0 0;
+  }
+  .ht-slip {
+    width: 15.5rem;
+    margin-top: calc(var(--w) * -0.03);
+    margin-left: 0;
+    padding: 16px 18px 15px;
+  }
+  .ht-budget {
+    margin-top: 34px;
+  }
+  .ht-seg {
+    width: 100%;
+  }
+  .ht-steps {
+    margin-top: 26px;
+  }
+  .ht-send {
+    margin-top: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ht-hand {
+    animation: none;
+  }
+  .ht-card,
+  .ht-tag,
+  .ht-slip,
+  .ht-slip-n {
+    animation: ha-fade 0.4s linear both;
+  }
+  .ht-tick {
+    transition: none;
+  }
+}

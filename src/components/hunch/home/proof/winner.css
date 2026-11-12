@@ -1,0 +1,210 @@
+/* The answer: one field, the buyers' name, their post, the numbers in type. See LOOK.md. */
+
+.pw {
+  --grain: 0.45;
+}
+.pw.hh-field-sili {
+  background:
+    radial-gradient(42% 60% at 80% 52%, rgb(255 178 40 / 0.85) 0%, rgb(255 120 20 / 0) 70%),
+    radial-gradient(70% 90% at 22% 40%, #f0440c 0%, rgb(240 68 12 / 0) 72%),
+    linear-gradient(115deg, #6d0a14 0%, #b3140f 42%, #e2300c 100%);
+  /* Room for the next sheet to lap over the field. */
+  --lap: clamp(28px, calc(56 * var(--u)), 64px);
+  padding-bottom: var(--lap);
+}
+.pw-in {
+  /* The post's width, so the whole phone fits one screen. */
+  --wpx: min(calc(384 * var(--u)), calc((100svh - 2 * var(--padv)) * 0.5625));
+  --padv: calc(110 * var(--u));
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--wpx);
+  grid-template-areas: "words post" "facts post";
+  grid-template-rows: 1fr 1fr;
+  column-gap: calc(96 * var(--u));
+  min-height: 100svh;
+  padding: var(--padv) calc(var(--gutter) + 40 * var(--u)) var(--padv) var(--gutter);
+}
+.pw-words {
+  grid-area: words;
+  align-self: end;
+}
+.pw-kicker {
+  margin-bottom: calc(18 * var(--u));
+  font-size: max(calc(22 * var(--u)), 17px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  opacity: 0.82;
+}
+.pw-name {
+  font-size: calc(128 * var(--u));
+  text-wrap: balance;
+}
+
+/* The post, whole and clean. */
+.pw-stage {
+  grid-area: post;
+  align-self: center;
+}
+.pw-post {
+  --ugc-shadow:
+    0 1px 2px rgb(40 0 8 / 0.4), calc(var(--wpx) * 0.03) calc(var(--wpx) * 0.06) calc(var(--wpx) * 0.09) rgb(50 0 10 / 0.3),
+    calc(var(--wpx) * 0.09) calc(var(--wpx) * 0.18) calc(var(--wpx) * 0.3) rgb(50 0 10 / 0.34);
+  display: block;
+  width: 100%;
+  border-radius: 5.2% / 2.925%;
+}
+.pw-post .ugc {
+  transition: translate 0.3s var(--ease-out);
+}
+@media (hover: hover) {
+  .pw-post:hover .ugc {
+    translate: 0 -3px;
+  }
+}
+.pw-post:active {
+  scale: 0.985;
+}
+.pw-post:focus-visible {
+  outline-color: var(--sheet);
+}
+
+/* The result: each figure and its word on one baseline, then the runner-up, quieter. */
+.pw-facts {
+  grid-area: facts;
+  align-self: start;
+  margin-top: calc(56 * var(--u));
+}
+.pw-facts ul {
+  display: flex;
+  gap: calc(64 * var(--u));
+}
+.pw-fact {
+  display: flex;
+  align-items: baseline;
+  gap: calc(14 * var(--u));
+  white-space: nowrap;
+}
+.pw-fact b {
+  font-size: calc(92 * var(--u));
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+.pw-fact span {
+  font-size: max(calc(24 * var(--u)), 17px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.pw-fact + .pw-fact {
+  padding-left: calc(64 * var(--u));
+  border-left: 1.5px solid rgb(255 252 245 / 0.32);
+}
+.pw-second {
+  max-width: 30em;
+  margin-top: calc(34 * var(--u));
+  font-size: max(calc(19 * var(--u)), 15px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  opacity: 0.78;
+  text-wrap: pretty;
+}
+.pw-note {
+  position: absolute;
+  right: var(--gutter);
+  bottom: calc(var(--lap) + 22 * var(--u));
+  opacity: 0.7;
+}
+
+/* Arrival. */
+.pw-in[data-rise] .pw-rise {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  filter: blur(6px);
+  transition:
+    opacity 0.6s linear var(--rd, 0s),
+    transform 0.9s var(--ease-out) var(--rd, 0s),
+    filter 0.7s var(--ease-out) var(--rd, 0s);
+}
+.pw-in[data-seen] .pw-rise {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Scroll: the cream above is cut as a dome that flattens (winner.tsx scales it away). */
+.pw .pw-dome {
+  position: absolute;
+  inset: -1px 0 auto;
+  z-index: 3;
+  width: 100%;
+  height: 34vw;
+  fill: var(--cream);
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+  pointer-events: none;
+}
+
+/* Phone and tablet: one column, the post between the name and the numbers. */
+@media (max-width: 899px) {
+  .pw-in {
+    --wpx: min(66vw, 320px);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: 96px var(--gutter) 72px;
+  }
+  .pw-kicker {
+    margin-bottom: 12px;
+    font-size: 17px;
+  }
+  .pw-name {
+    font-size: clamp(50px, 14.4vw, 100px);
+  }
+  .pw-stage {
+    align-self: center;
+    width: var(--wpx);
+    margin: 40px 0 0;
+  }
+  .pw-facts {
+    margin-top: 44px;
+  }
+  .pw-facts ul {
+    gap: 28px;
+  }
+  .pw-fact {
+    gap: 8px;
+  }
+  .pw-fact b {
+    font-size: 64px;
+  }
+  .pw-fact span {
+    font-size: 17px;
+  }
+  .pw-fact + .pw-fact {
+    padding-left: 28px;
+  }
+  .pw-second {
+    margin-top: 24px;
+    font-size: 16px;
+  }
+  .pw-note {
+    position: static;
+    margin-top: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pw-in[data-rise] .pw-rise {
+    transform: none;
+    filter: none;
+    transition: opacity 0.4s linear;
+  }
+  .pw-post:hover .ugc,
+  .pw-post:active {
+    translate: none;
+    scale: none;
+  }
+}
