@@ -203,7 +203,7 @@ function WeekView({ plan, run }: { plan: FocusPlan; run: TestRun }) {
 
         <div className="hw-send ha-rise" style={{ "--i": 12 } as React.CSSProperties}>
           <StepAction>
-            <GoLink href="/workspace" className="w-full md:w-auto">
+            <GoLink href="https://hunch-joalroselins-projects.vercel.app/" className="w-full md:w-auto">
               Plan and post them
             </GoLink>
           </StepAction>
