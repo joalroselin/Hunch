@@ -220,7 +220,7 @@ function Words({ scene, run, still }: { scene: number; run: boolean; still: bool
       ) : null}
       {scene === 1 ? (
         <motion.div key="many" className="ifl-words" data-tone="ink" {...block(still)}>
-          <p className="hh-display ifl-big">
+          <p className="hh-display ifl-big ifl-big-many">
             <motion.span
               className="ifl-w"
               initial={still ? false : { opacity: 0, y: "0.2em", filter: "blur(14px)" }}
@@ -231,7 +231,7 @@ function Words({ scene, run, still }: { scene: number; run: boolean; still: bool
             </motion.span>{" "}
             <Rise text="million" delay={0.9} still={still} />
           </p>
-          <p className="hh-title ifl-sub">
+          <p className="hh-title ifl-sub ifl-sub-many">
             <Rise text="Filipinos sell online." delay={1.45} gap={0.07} still={still} />
           </p>
           <motion.p className="ifl-src" initial={still ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 2.2 }}>

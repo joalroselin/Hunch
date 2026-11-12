@@ -250,3 +250,12 @@
   opacity: 0;
   transition: opacity 0.7s ease;
 }
+/* Slide 2: the number sits left of the pile of posts. */
+.ifl-big.ifl-big-many {
+  top: 300px;
+  font-size: 200px;
+}
+.ifl-sub.ifl-sub-many {
+  top: 560px;
+  font-size: 72px;
+}
