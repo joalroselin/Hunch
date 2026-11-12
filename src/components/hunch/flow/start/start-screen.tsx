@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { useLoadedPhotos } from "@/components/hunch/post/sample-photos"
 import { SAMPLE_PRODUCT, applyDemo, stripDemoParam } from "@/components/hunch/screens/demo"
 import { Bubble, LoadingScreen, Screen, ScreenTitle, StepAction } from "@/components/hunch/shell"
-import { SAMPLES, sampleKeyFor } from "@/lib/hunch/engine/sample/catalog"
+import { SAMPLES } from "@/lib/hunch/engine/sample/catalog"
 import { getHunch, hunchStore, useHunch } from "@/lib/hunch/store"
 import type { Mode } from "@/lib/hunch/types"
 
@@ -155,11 +155,7 @@ function StartForm({ prefill, demo, serverMode }: { prefill?: string; demo: bool
     router.push("/studio")
   }
 
-  const note = sample
-    ? "Elle's sample. It runs without your photo."
-    : serverMode === "sample"
-      ? `Sample run of ${SAMPLES[sampleKeyFor({ description: draft.description })].name}. Your product's name and price go into it.`
-      : "Nothing is posted for you."
+  const note = sample || serverMode === "sample" ? null : "Nothing is posted for you."
 
   const what = draft.description.replace(/\s+/g, " ").trim()
   const post = {
@@ -254,17 +250,19 @@ function StartForm({ prefill, demo, serverMode }: { prefill?: string; demo: bool
                   {tip}
                 </Bubble>
               ) : null}
+              {note || !sample ? (
               <p className={tip ? "ha-note md:hidden" : "ha-note"}>
                 {note}
                 {sample ? null : (
                   <>
-                    {" "}
+                    {note ? " " : null}
                     <button type="button" onClick={trySample} disabled={sending} className="ha-link">
                       Run Elle&rsquo;s sample
                     </button>
                   </>
                 )}
               </p>
+              ) : null}
             </div>
             <span role="status" aria-live="polite" className="sr-only">
               {tip ?? ""}

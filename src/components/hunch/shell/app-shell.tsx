@@ -12,6 +12,8 @@ import type { Mode } from "@/lib/hunch/types"
 import { StepBarSlot } from "./step-action"
 import { StepBar, StepIndicator, StepMenu, useCameFrom } from "./step-indicator"
 import { isEmpty, stepIndex, stepKey, type StepId } from "./steps"
+import { HunchMark } from "@/components/hunch/home/mark"
+
 import { Wordmark } from "./wordmark"
 
 // Latched in render: screens strip ?demo=1 in their own effects, which run before the shell's.
@@ -61,7 +63,8 @@ export function AppShell({
           </a>
           <header data-solid={scrolled} className="ha-bar">
             <div className="ha-bar-row">
-              <Link href="/" aria-label="Hunch, home" className="shrink-0">
+              <Link href="/" aria-label="Hunch, home" className="hh-logo shrink-0">
+                <HunchMark />
                 <Wordmark className="ha-wordmark" />
               </Link>
               <StepIndicator current={step} from={from} className="ml-auto hidden lg:block" />

@@ -27,3 +27,9 @@
     rotate: none !important;
   }
 }
+/* The app bar's smaller wordmark. */
+.ha-bar .hh-logo .hh-mark {
+  height: 19px;
+  margin-bottom: 1px;
+}
+
