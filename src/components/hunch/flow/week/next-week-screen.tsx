@@ -155,8 +155,8 @@ function WeekView({ plan, run }: { plan: FocusPlan; run: TestRun }) {
             }
             line={
               runnerUp
-                ? `${posts.length - 1} posts for ${lowerFirst(plan.audience.name)}. 1 for ${lowerFirst(runnerUp.audienceName)}.`
-                : `${posts.length} posts for ${lowerFirst(plan.audience.name)}.`
+                ? `${plan.audience.name} messaged you the most, so most posts are for them. One more try for ${lowerFirst(runnerUp.audienceName)}.`
+                : `${plan.audience.name} messaged you the most, so every post is for them.`
             }
           />
           <ol className="hw-week" aria-label="The next 7 days">

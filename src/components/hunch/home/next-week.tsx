@@ -21,7 +21,6 @@ import "./proof/week.css"
 
 const posts = focus.posts
 const tests = focus.tests
-const forWinner = posts.filter((p) => !isRunnerUpDay(p)).length
 const runnerUpName = posts.find(isRunnerUpDay)?.audienceName
 const language = normalizeLanguage(run.product.language)
 
@@ -121,8 +120,8 @@ export function NextWeek() {
           <RiseWords id="next-week-title" parts={[{ text: "Next week,", className: "nw-l" }, { text: "post to your suki.", className: "nw-l" }]} className="hh-title nw-title" />
           <p className="hh-line nw-line pf-rise" style={{ "--rd": after(TITLE) } as CSSProperties}>
             {runnerUpName
-              ? `${forWinner} posts for ${lowerFirst(focus.audience.name)}. 1 for ${lowerFirst(runnerUpName)}.`
-              : `${forWinner} posts for ${lowerFirst(focus.audience.name)}.`}
+              ? `${focus.audience.name} messaged you the most, so most posts are for them. One more try for ${lowerFirst(runnerUpName)}.`
+              : `${focus.audience.name} messaged you the most, so every post is for them.`}
           </p>
         </header>
         <ol className="nw-week" data-rise={film ? undefined : ""}>
