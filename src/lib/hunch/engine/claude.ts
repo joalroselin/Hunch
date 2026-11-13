@@ -2,6 +2,8 @@ import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import type { z } from "zod";
 
+import { askGemini, hasGemini } from "./gemini";
+
 // One model for every agent; swap it with MODEL_ID. Opus 5.5 takes no temperature, so agents tune effort instead.
 export const MODEL = process.env.MODEL_ID?.trim() || "claude-opus-5-5";
 
@@ -56,4 +58,9 @@ export async function askClaude<S extends z.ZodType>(opts: {
     if (e instanceof Anthropic.APIError) return { ok: false, reason: `Claude returned an error (${e.status ?? "unknown"}).`, retryable: (e.status ?? 500) >= 500 };
     return { ok: false, reason: "Something went wrong with Claude.", retryable: true };
   }
+}
+
+// Claude when there is an Anthropic key, else Gemini when there is a Google AI Studio key.
+export function askModel<S extends z.ZodType>(opts: { schema: S; system: string; prompt: string; effort: Effort; image?: ImageInput }) {
+  return !process.env.ANTHROPIC_API_KEY?.trim() && hasGemini() ? askGemini(opts) : askClaude(opts);
 }

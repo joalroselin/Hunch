@@ -313,10 +313,10 @@ export function ResultsFlow({ demo, serverMode }: { demo: boolean; serverMode: M
     return () => window.clearTimeout(t)
   }, [submitError])
 
-  // A sample run's numbers arrive by themselves, a row at a time, as if Ads Manager sent them.
+  // The numbers arrive by themselves, a row at a time, as if Ads Manager sent them.
   const [shown, setShown] = useState<number | null>(null)
   const synced = useRef(false)
-  const autoSync = run?.mode === "sample"
+  const autoSync = !!run
   useEffect(() => {
     if (!s.ready || !autoSync || synced.current || report || editing) return
     if (getHunch().grid?.some((g) => g.spend != null)) return

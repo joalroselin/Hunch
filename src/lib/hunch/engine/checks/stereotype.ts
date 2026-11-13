@@ -1,6 +1,6 @@
 import { z } from "zod";
 import type { Audience, CheckResult } from "../../types";
-import { askClaude } from "../claude";
+import { askModel } from "../claude";
 
 const SLANG = [
   "lodi", "petmalu", "werpa", "sana all", "charot", "chz", "char", "beshie", "besh", "mumshie", "mars", "pars",
@@ -59,7 +59,7 @@ export async function liveCritic(
   audience: Pick<Audience, "name" | "who">,
   productName: string,
 ): Promise<CheckResult> {
-  const res = await askClaude({
+  const res = await askModel({
     schema: Verdict,
     effort: "low",
     system: RUBRIC,

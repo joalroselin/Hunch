@@ -1,7 +1,7 @@
 import type { z } from "zod";
 
 import type { AgentName } from "../../types";
-import { askClaude, type AskResult, type Effort, type ImageInput } from "../claude";
+import { askModel, type AskResult, type Effort, type ImageInput } from "../claude";
 import { sleep } from "../mode";
 
 export interface AskOpts<S extends z.ZodType> {
@@ -20,7 +20,7 @@ export interface ModelClient {
 }
 
 export const claudeModel: ModelClient = {
-  ask: (o) => askClaude({ schema: o.schema, system: o.system, prompt: o.prompt, effort: o.effort, image: o.image }),
+  ask: (o) => askModel({ schema: o.schema, system: o.system, prompt: o.prompt, effort: o.effort, image: o.image }),
   retryDelayMs: 1000,
 };
 

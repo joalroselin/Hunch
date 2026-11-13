@@ -1,9 +1,11 @@
 import type { Mode } from "../types";
 
-// HUNCH_MODE=sample forces the sample replay (Elle's candles, or Kaye's matcha); HUNCH_MODE=mock runs the live pipeline on the mocked model (no API key needed).
+// Live with an Anthropic or a Google AI Studio key. HUNCH_MODE=sample forces the sample replay (Elle's candles, or Kaye's matcha);
+// HUNCH_MODE=mock runs the live pipeline on the mocked model (no API key needed).
 export function getMode(): Mode {
   if (process.env.HUNCH_MODE === "mock") return "live";
-  return process.env.ANTHROPIC_API_KEY && process.env.HUNCH_MODE !== "sample" ? "live" : "sample";
+  const key = process.env.ANTHROPIC_API_KEY?.trim() || process.env.GEMINI_API_KEY?.trim();
+  return key && process.env.HUNCH_MODE !== "sample" ? "live" : "sample";
 }
 
 export function isMockModel() {
